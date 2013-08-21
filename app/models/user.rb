@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :idea_admins
   has_many :idea_comments
   has_many :follows
+  has_many :sends, :class_name => 'UserComment', :foreign_key => 'sender_id'
+  has_many :receives, :class_name => 'UserComment', :foreign_key => 'receiver_id'
 
   validates_presence_of :nick, :email, :password
   validates :password, :length => 6..20
