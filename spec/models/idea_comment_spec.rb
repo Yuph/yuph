@@ -23,7 +23,6 @@ describe IdeaComment do
     it "succefully created" do
       user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
       idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
-
       idea_comment = IdeaComment.create(user_id: user.id, idea_id: idea.id, message: "muito bacana!", title: "Gostei!")
       expect(idea_comment).to have(:no).error
     end
