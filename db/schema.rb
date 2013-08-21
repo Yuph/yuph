@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821023034) do
+ActiveRecord::Schema.define(version: 20130821120420) do
 
   create_table "follows", force: true do |t|
     t.integer  "user_id"
@@ -47,11 +47,20 @@ ActiveRecord::Schema.define(version: 20130821023034) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "message_sender_id"
+    t.integer  "message_receiver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_comments", force: true do |t|
     t.string   "title"
     t.text     "message"
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
+    t.integer  "comment_sender_id"
+    t.integer  "comment_receiver_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

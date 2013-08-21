@@ -3,8 +3,8 @@ class CreateUserComments < ActiveRecord::Migration
     create_table :user_comments do |t|
       t.string :title
       t.text :message
-      t.integer :sender_id, :references => "user"
-      t.integer :receiver_id, :references => "user"
+      t.integer :comment_sender_id, :references => "user"
+      t.integer :comment_receiver_id, :references => "user"
 
       t.timestamps
     end
