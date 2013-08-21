@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   before_create :set_hash
 
+  has_many :idea_admins
+  has_many :idea_comments
+  has_many :follows
+
   validates_presence_of :nick, :email, :password
   validates :password, :length => 6..20
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
