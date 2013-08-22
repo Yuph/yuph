@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   before_create :set_hash
 
   has_many :idea_admins
+  has_many :ideas, through: :idea_admins
   has_many :idea_comments
   has_many :follows
   has_many :comment_sends, :class_name => 'UserComment', :foreign_key => 'comment_sender_id'
