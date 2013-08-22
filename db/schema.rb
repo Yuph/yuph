@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822144923) do
+ActiveRecord::Schema.define(version: 20130822145418) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 20130822144923) do
     t.text     "body"
     t.integer  "message_sender_id"
     t.integer  "message_receiver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "post_comments", force: true do |t|
+    t.string   "title"
+    t.text     "message"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
