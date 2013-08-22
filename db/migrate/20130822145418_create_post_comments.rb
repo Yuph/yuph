@@ -4,6 +4,7 @@ class CreatePostComments < ActiveRecord::Migration
       t.string :title
       t.text :message
       t.references :post
+      t.references :user
 
       t.timestamps
     end

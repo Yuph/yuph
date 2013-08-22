@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_many :ideas, through: :idea_admins
   has_many :idea_comments
   has_many :follows
+  has_many :following, through: :follows, source: :idea
+  has_many :posts
+  has_many :post_comments
   has_many :comment_sends, :class_name => 'UserComment', :foreign_key => 'comment_sender_id'
   has_many :comment_receives, :class_name => 'UserComment', :foreign_key => 'comment_receiver_id'
   has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id'

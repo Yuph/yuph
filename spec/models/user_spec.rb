@@ -59,4 +59,69 @@ describe User do
       expect(user).to be nil
     end
   end
+  context "actions" do
+    before do
+      @user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
+      @user_two = User.create(nick: "antoniazzi", email: "vgazzi@gmail.com", password: "test123")
+      @idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
+      @forum = Forum.create(idea_id: @idea.id)
+      @category = Category.create(title: "o que acharam??", description: "about project", forum_id: @forum.id)
+      @post = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user.id)
+      @post_two = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user_two.id)
+      @post_comment = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post.id, user_id: @user_two.id)
+      @post_comment_two = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post_two.id, user_id: @user.id)
+      @idea_comment = IdeaComment.create(user_id: @user.id, idea_id: @idea.id, message: "muito bacana!", title: "Gostei!")
+      @message = Message.create(title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: @user_two.id, message_sender_id: @user.id)
+      @user_comment = UserComment.create(title: "serio xiru?", message: "como tu fez isso?", comment_receiver_id: @user_two.id, comment_sender_id: @user.id)
+      @user.ideas << @idea
+      @user.following << @idea
+      @user.password = "test123"
+      @user.save!
+    end
+    it "get ideas" do
+      expect(@user.ideas.size).to eql(1)
+      expect(@user.ideas.last).to eql(@idea)
+    end
+    it "get idea_comments" do
+      expect(@user.idea_comments.size).to eql(1)
+      expect(@user.idea_comments.last).to eql(@idea_comment)
+    end
+    it "get follows" do
+      expect(@user.following.size).to eql(1)
+      expect(@user.following.last).to eql(@idea)
+      expect(@idea.followers.last).to eql(@user)
+    end
+    it "get posts" do
+      expect(@user.posts.size).to eql(1)
+      expect(@user.posts.last).to eql(@post)
+      expect(@user_two.posts.size).to eql(1)
+      expect(@user_two.posts.last).to eql(@post_two)
+    end
+    it "get post comments" do
+      expect(@user.post_comments.size).to eql(1)
+      expect(@user.post_comments.last).to eql(@post_comment_two)
+      expect(@user_two.post_comments.size).to eql(1)
+      expect(@user_two.post_comments.last).to eql(@post_comment)
+    end
+    it "get comment sends" do
+      expect(@user.comment_sends.size).to eql(1)
+      expect(@user.comment_sends.last).to eql(@user_comment)
+      expect(@user.comment_receives.size).to eql(0)
+    end
+    it "get comment receives" do
+      expect(@user_two.comment_receives.size).to eql(1)
+      expect(@user_two.comment_receives.last).to eql(@user_comment)
+      expect(@user_two.comment_sends.size).to eql(0)
+    end
+    it "get message sends" do
+      expect(@user.message_sends.size).to eql(1)
+      expect(@user.message_sends.last).to eql(@message)
+      expect(@user.message_receives.size).to eql(0)
+    end
+    it "get message receives" do
+      expect(@user_two.message_receives.size).to eql(1)
+      expect(@user_two.message_receives.last).to eql(@message)
+      expect(@user_two.message_sends.size).to eql(0)
+    end
+  end
 end
