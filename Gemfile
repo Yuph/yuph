@@ -44,5 +44,5 @@ gem 'rspec-rails'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# Use FactoryGirl for create controllers test
+gem 'factory_girl_rails'
