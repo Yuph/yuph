@@ -71,6 +71,7 @@ describe User do
       @post_comment = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post.id, user_id: @user_two.id)
       @post_comment_two = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post_two.id, user_id: @user.id)
       @idea_comment = IdeaComment.create(user_id: @user.id, idea_id: @idea.id, message: "muito bacana!", title: "Gostei!")
+      @idea_comment_two = IdeaComment.create(user_id: @user_two.id, idea_id: @idea.id, message: "muito bacana!", title: "Gostei!")
       @message = Message.create(title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: @user_two.id, message_sender_id: @user.id)
       @user_comment = UserComment.create(title: "serio xiru?", message: "como tu fez isso?", comment_receiver_id: @user_two.id, comment_sender_id: @user.id)
       @user.ideas << @idea
@@ -78,7 +79,52 @@ describe User do
       @user.password = "test123"
       @user.save!
     end
+    it "manage category" do
+      expect(@category.can_managed_by(@user)).to eql(true)
+      expect(@category.can_managed_by(@user_two)).to eql(false)
+    end
+    it "manage forum" do
+      expect(@forum.can_managed_by(@user)).to eql(true)
+      expect(@forum.can_managed_by(@user_two)).to eql(false)
+    end
+    it "manage idea_comment" do
+      expect(@idea_comment.can_managed_by(@user)).to eql(true)
+      expect(@idea_comment.can_managed_by(@user_two)).to eql(false)
+    end
+    it "manage idea_comment_two" do
+      expect(@idea_comment_two.can_managed_by(@user)).to eql(true)
+      expect(@idea_comment_two.can_managed_by(@user_two)).to eql(true)
+    end
+    it "manage idea" do
+      expect(@idea.can_managed_by(@user)).to eql(true)
+      expect(@idea.can_managed_by(@user_two)).to eql(false)
+    end
+    it "manage post_comment" do
+      expect(@post_comment.can_managed_by(@user)).to eql(true)
+      expect(@post_comment.can_managed_by(@user_two)).to eql(true)
+    end
+    it "manage post_comment_two" do
+      expect(@post_comment_two.can_managed_by(@user)).to eql(true)
+      expect(@post_comment_two.can_managed_by(@user_two)).to eql(false)
+    end
+    it "manage post" do
+      expect(@post.can_managed_by(@user)).to eql(true)
+      expect(@post.can_managed_by(@user_two)).to eql(false)
+    end
+    it "manage post_comment_two" do
+      expect(@post_two.can_managed_by(@user)).to eql(true)
+      expect(@post_two.can_managed_by(@user_two)).to eql(true)
+    end
+    it "manage user_comments" do
+      expect(@user_comment.can_managed_by(@user)).to eql(true)
+      expect(@user_comment.can_managed_by(@user_two)).to eql(true)
+    end
+
     it "get ideas" do
+      expect(@user.ideas.size).to eql(1)
+      expect(@user.ideas.last).to eql(@idea)
+    end
+    it "get post_comment" do
       expect(@user.ideas.size).to eql(1)
       expect(@user.ideas.last).to eql(@idea)
     end
