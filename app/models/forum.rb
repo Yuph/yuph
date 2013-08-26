@@ -2,7 +2,7 @@ class Forum < ActiveRecord::Base
   belongs_to :idea
   has_many :categories
 
-  validates_presence_of :idea
+  validates :idea, presence: :true
 
   def can_managed_by(user)
     if self.idea.users.where("user_id = ?", user.id).first

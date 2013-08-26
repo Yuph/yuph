@@ -3,7 +3,10 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :post_comments
 
-  validates_presence_of :title, :message, :category, :user
+  validates :title, presence: :true
+  validates :message, presence: :true
+  validates :category, presence: :true
+  validates :user, presence: :true
 
   def can_managed_by(user)
     if self.category.forum.idea.users.where("user_id = ?", user.id).first || self.user_id == user.id

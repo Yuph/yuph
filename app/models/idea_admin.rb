@@ -2,5 +2,6 @@ class IdeaAdmin < ActiveRecord::Base
   belongs_to :user
   belongs_to :idea
 
-  validates_presence_of :user, :idea
+  validates :user, presence: :true
+  validates :idea, presence: :true
 end

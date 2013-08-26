@@ -4,9 +4,13 @@ class Idea < ActiveRecord::Base
   has_many :idea_comments
   has_many :follows
   has_many :followers, through: :follows, source: :user
+
   has_one :forum
 
-  validates_presence_of :name, :image, :mini_description, :description
+  validates :name, presence: :true
+  validates :image, presence: :true
+  validates :mini_description, presence: :true
+  validates :description, presence: :true
 
   def can_managed_by(user)
     if self.users.where("user_id = ?", user.id).first
