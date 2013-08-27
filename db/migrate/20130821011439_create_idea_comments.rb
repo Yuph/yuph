@@ -8,5 +8,7 @@ class CreateIdeaComments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :idea_comments, :user_id
+    add_index :idea_comments, :idea_id
   end
 end

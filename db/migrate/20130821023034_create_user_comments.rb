@@ -8,5 +8,7 @@ class CreateUserComments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :user_comments, :comment_sender_id
+    add_index :user_comments, :comment_receiver_id
   end
 end

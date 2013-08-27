@@ -6,5 +6,6 @@ class CreateForums < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :forums, :idea_id
   end
 end

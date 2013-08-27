@@ -7,5 +7,6 @@ class CreateCategories < ActiveRecord::Migration
 
       t.timestamps
     end
+      add_index :categories, :forum_id
   end
 end

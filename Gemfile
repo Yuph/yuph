@@ -32,8 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use RSpec for tests
-gem 'rspec-rails'
+group :development do
+  gem 'factory_girl_rails'
+  gem 'rails_best_practices'
+  gem 'simplecov'
+  gem 'rspec-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,6 +47,3 @@ gem 'rspec-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use FactoryGirl for create controllers test
-gem 'factory_girl_rails'

@@ -6,5 +6,7 @@ class CreateIdeaAdmins < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :idea_admins, :user_id
+    add_index :idea_admins, :idea_id
   end
 end

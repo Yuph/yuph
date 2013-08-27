@@ -21,12 +21,17 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "updated_at"
   end
 
+  add_index "categories", ["forum_id"], name: "index_categories_on_forum_id", using: :btree
+
   create_table "follows", force: true do |t|
     t.integer  "user_id"
     t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "follows", ["idea_id"], name: "index_follows_on_idea_id", using: :btree
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "forums", force: true do |t|
     t.string   "password"
@@ -35,12 +40,17 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "updated_at"
   end
 
+  add_index "forums", ["idea_id"], name: "index_forums_on_idea_id", using: :btree
+
   create_table "idea_admins", force: true do |t|
     t.integer  "user_id"
     t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "idea_admins", ["idea_id"], name: "index_idea_admins_on_idea_id", using: :btree
+  add_index "idea_admins", ["user_id"], name: "index_idea_admins_on_user_id", using: :btree
 
   create_table "idea_comments", force: true do |t|
     t.string   "title"
@@ -50,6 +60,9 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "idea_comments", ["idea_id"], name: "index_idea_comments_on_idea_id", using: :btree
+  add_index "idea_comments", ["user_id"], name: "index_idea_comments_on_user_id", using: :btree
 
   create_table "ideas", force: true do |t|
     t.string   "name"
@@ -71,6 +84,9 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "updated_at"
   end
 
+  add_index "messages", ["message_receiver_id"], name: "index_messages_on_message_receiver_id", using: :btree
+  add_index "messages", ["message_sender_id"], name: "index_messages_on_message_sender_id", using: :btree
+
   create_table "post_comments", force: true do |t|
     t.string   "title"
     t.text     "message"
@@ -79,6 +95,9 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "post_comments", ["post_id"], name: "index_post_comments_on_post_id", using: :btree
+  add_index "post_comments", ["user_id"], name: "index_post_comments_on_user_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -89,6 +108,9 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "user_comments", force: true do |t|
     t.string   "title"
     t.text     "message"
@@ -97,6 +119,9 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_comments", ["comment_receiver_id"], name: "index_user_comments_on_comment_receiver_id", using: :btree
+  add_index "user_comments", ["comment_sender_id"], name: "index_user_comments_on_comment_sender_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nick"
