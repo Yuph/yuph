@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
   validates :message_sender, presence: :true
 
   def can_managed_by(user)
-    if self.sender == user.id || self.receiver == user.id
+    if self.message_receiver_id == user.id || self.message_sender_id == user.id
       return true
     else
       return false

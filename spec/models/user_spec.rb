@@ -63,6 +63,7 @@ describe User do
     before do
       @user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
       @user_two = User.create(nick: "antoniazzi", email: "vgazzi@gmail.com", password: "test123")
+      @user_three = User.create(nick: "vantoniazzi", email: "vrgazzi@gmail.com", password: "test123")
       @idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
       @forum = Forum.create(idea_id: @idea.id)
       @category = Category.create(title: "o que acharam??", description: "about project", forum_id: @forum.id)
@@ -79,95 +80,104 @@ describe User do
       @user.password = "test123"
       @user.save!
     end
-    it "manage category" do
-      expect(@category.can_managed_by(@user)).to eql(true)
-      expect(@category.can_managed_by(@user_two)).to eql(false)
+    context "manage" do
+      it "message" do
+        expect(@message.can_managed_by(@user)).to eql(true)
+        expect(@message.can_managed_by(@user_two)).to eql(true)
+        expect(@message.can_managed_by(@user_three)).to eql(false)
+      end
+      it "category" do
+        expect(@category.can_managed_by(@user)).to eql(true)
+        expect(@category.can_managed_by(@user_two)).to eql(false)
+      end
+      it "forum" do
+        expect(@forum.can_managed_by(@user)).to eql(true)
+        expect(@forum.can_managed_by(@user_two)).to eql(false)
+      end
+      it "idea_comment" do
+        expect(@idea_comment.can_managed_by(@user)).to eql(true)
+        expect(@idea_comment.can_managed_by(@user_two)).to eql(false)
+      end
+      it "idea_comment_two" do
+        expect(@idea_comment_two.can_managed_by(@user)).to eql(true)
+        expect(@idea_comment_two.can_managed_by(@user_two)).to eql(true)
+      end
+      it "idea" do
+        expect(@idea.can_managed_by(@user)).to eql(true)
+        expect(@idea.can_managed_by(@user_two)).to eql(false)
+      end
+      it "post_comment" do
+        expect(@post_comment.can_managed_by(@user)).to eql(true)
+        expect(@post_comment.can_managed_by(@user_two)).to eql(true)
+      end
+      it "post_comment_two" do
+        expect(@post_comment_two.can_managed_by(@user)).to eql(true)
+        expect(@post_comment_two.can_managed_by(@user_two)).to eql(false)
+      end
+      it "post" do
+        expect(@post.can_managed_by(@user)).to eql(true)
+        expect(@post.can_managed_by(@user_two)).to eql(false)
+      end
+      it "post_comment_two" do
+        expect(@post_two.can_managed_by(@user)).to eql(true)
+        expect(@post_two.can_managed_by(@user_two)).to eql(true)
+      end
+      it "user_comments" do
+        expect(@user_comment.can_managed_by(@user)).to eql(true)
+        expect(@user_comment.can_managed_by(@user_two)).to eql(true)
+        expect(@user_comment.can_managed_by(@user_three)).to eql(false)
+      end
     end
-    it "manage forum" do
-      expect(@forum.can_managed_by(@user)).to eql(true)
-      expect(@forum.can_managed_by(@user_two)).to eql(false)
-    end
-    it "manage idea_comment" do
-      expect(@idea_comment.can_managed_by(@user)).to eql(true)
-      expect(@idea_comment.can_managed_by(@user_two)).to eql(false)
-    end
-    it "manage idea_comment_two" do
-      expect(@idea_comment_two.can_managed_by(@user)).to eql(true)
-      expect(@idea_comment_two.can_managed_by(@user_two)).to eql(true)
-    end
-    it "manage idea" do
-      expect(@idea.can_managed_by(@user)).to eql(true)
-      expect(@idea.can_managed_by(@user_two)).to eql(false)
-    end
-    it "manage post_comment" do
-      expect(@post_comment.can_managed_by(@user)).to eql(true)
-      expect(@post_comment.can_managed_by(@user_two)).to eql(true)
-    end
-    it "manage post_comment_two" do
-      expect(@post_comment_two.can_managed_by(@user)).to eql(true)
-      expect(@post_comment_two.can_managed_by(@user_two)).to eql(false)
-    end
-    it "manage post" do
-      expect(@post.can_managed_by(@user)).to eql(true)
-      expect(@post.can_managed_by(@user_two)).to eql(false)
-    end
-    it "manage post_comment_two" do
-      expect(@post_two.can_managed_by(@user)).to eql(true)
-      expect(@post_two.can_managed_by(@user_two)).to eql(true)
-    end
-    it "manage user_comments" do
-      expect(@user_comment.can_managed_by(@user)).to eql(true)
-      expect(@user_comment.can_managed_by(@user_two)).to eql(true)
-    end
-
-    it "get ideas" do
-      expect(@user.ideas.size).to eql(1)
-      expect(@user.ideas.last).to eql(@idea)
-    end
-    it "get post_comment" do
-      expect(@user.ideas.size).to eql(1)
-      expect(@user.ideas.last).to eql(@idea)
-    end
-    it "get idea_comments" do
-      expect(@user.idea_comments.size).to eql(1)
-      expect(@user.idea_comments.last).to eql(@idea_comment)
-    end
-    it "get follows" do
-      expect(@user.following.size).to eql(1)
-      expect(@user.following.last).to eql(@idea)
-      expect(@idea.followers.last).to eql(@user)
-    end
-    it "get posts" do
-      expect(@user.posts.size).to eql(1)
-      expect(@user.posts.last).to eql(@post)
-      expect(@user_two.posts.size).to eql(1)
-      expect(@user_two.posts.last).to eql(@post_two)
-    end
-    it "get post comments" do
-      expect(@user.post_comments.size).to eql(1)
-      expect(@user.post_comments.last).to eql(@post_comment_two)
-      expect(@user_two.post_comments.size).to eql(1)
-      expect(@user_two.post_comments.last).to eql(@post_comment)
-    end
-    it "get comment sends" do
-      expect(@user.comment_sends.size).to eql(1)
-      expect(@user.comment_sends.last).to eql(@user_comment)
-      expect(@user.comment_receives.size).to eql(0)
-    end
-    it "get comment receives" do
-      expect(@user_two.comment_receives.size).to eql(1)
-      expect(@user_two.comment_receives.last).to eql(@user_comment)
-      expect(@user_two.comment_sends.size).to eql(0)
-    end
-    it "get message sends" do
-      expect(@user.message_sends.size).to eql(1)
-      expect(@user.message_sends.last).to eql(@message)
-      expect(@user.message_receives.size).to eql(0)
-    end
-    it "get message receives" do
-      expect(@user_two.message_receives.size).to eql(1)
-      expect(@user_two.message_receives.last).to eql(@message)
-      expect(@user_two.message_sends.size).to eql(0)
+    context "get" do
+      it "ideas" do
+        expect(@user.ideas.size).to eql(1)
+        expect(@user.ideas.last).to eql(@idea)
+      end
+      it "post_comment" do
+        expect(@user.ideas.size).to eql(1)
+        expect(@user.ideas.last).to eql(@idea)
+      end
+      it "idea_comments" do
+        expect(@user.idea_comments.size).to eql(1)
+        expect(@user.idea_comments.last).to eql(@idea_comment)
+      end
+      it "follows" do
+        expect(@user.following.size).to eql(1)
+        expect(@user.following.last).to eql(@idea)
+        expect(@idea.followers.last).to eql(@user)
+      end
+      it "posts" do
+        expect(@user.posts.size).to eql(1)
+        expect(@user.posts.last).to eql(@post)
+        expect(@user_two.posts.size).to eql(1)
+        expect(@user_two.posts.last).to eql(@post_two)
+      end
+      it "post comments" do
+        expect(@user.post_comments.size).to eql(1)
+        expect(@user.post_comments.last).to eql(@post_comment_two)
+        expect(@user_two.post_comments.size).to eql(1)
+        expect(@user_two.post_comments.last).to eql(@post_comment)
+      end
+      it "comment sends" do
+        expect(@user.comment_sends.size).to eql(1)
+        expect(@user.comment_sends.last).to eql(@user_comment)
+        expect(@user.comment_receives.size).to eql(0)
+      end
+      it "comment receives" do
+        expect(@user_two.comment_receives.size).to eql(1)
+        expect(@user_two.comment_receives.last).to eql(@user_comment)
+        expect(@user_two.comment_sends.size).to eql(0)
+      end
+      it "message sends" do
+        expect(@user.message_sends.size).to eql(1)
+        expect(@user.message_sends.last).to eql(@message)
+        expect(@user.message_receives.size).to eql(0)
+      end
+      it "message receives" do
+        expect(@user_two.message_receives.size).to eql(1)
+        expect(@user_two.message_receives.last).to eql(@message)
+        expect(@user_two.message_sends.size).to eql(0)
+      end
     end
   end
 end
