@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
 		redirect_to :controller => "session", :action => "index" if session[:user] == nil
 	end
   def set_session_user
-  	@session_user = User.find(session[:user])
+  	@user = User.find(session[:user])
   end
 end
