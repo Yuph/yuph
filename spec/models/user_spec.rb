@@ -75,10 +75,9 @@ describe User do
       @idea_comment_two = IdeaComment.create(user_id: @user_two.id, idea_id: @idea.id, message: "muito bacana!", title: "Gostei!")
       @message = Message.create(title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: @user_two.id, message_sender_id: @user.id)
       @user_comment = UserComment.create(title: "serio xiru?", message: "como tu fez isso?", comment_receiver_id: @user_two.id, comment_sender_id: @user.id)
-      @user.ideas << @idea
-      @user.following << @idea
-      @user.password = "test123"
-      @user.save!
+      @idea.users << @user
+      @idea.followers << @user
+      @idea.save!
     end
     context "manage" do
       it "message" do

@@ -15,4 +15,10 @@ FactoryGirl.define do
     facebook "fb.com/oi?"
     twitter "@antoniazzii"
   end
+  factory :idea do
+    name "art in vinil"
+    image "iuaehiuae.jpg"
+    mini_description "arte no vinil"
+    description "arte no vinil"
+  end
 end
