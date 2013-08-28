@@ -33,10 +33,18 @@ describe IdeasController do
     it "#DELETE" do
       post :create, idea: FactoryGirl.attributes_for(:idea)
       idea = Idea.last
-      session[:user] = 4455
       expect{
         delete :destroy, id: idea.id
       }.to change(Idea,:count).by(-1)
+    end
+    it "#MANAGE one idea that not belongs to me" do
+      post :create, idea: FactoryGirl.attributes_for(:idea)
+      idea = Idea.last
+      user = FactoryGirl.create(:user)
+      session[:user] = user.id
+      expect{
+        delete :destroy, id: idea.id
+      }.to change(Idea,:count).by(0)
     end
   end
 end

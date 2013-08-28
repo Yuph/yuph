@@ -1,9 +1,9 @@
 class IdeasController < ApplicationController
-  before_filter :set_session_user, :only => [:create, :set_idea]
-  before_filter :set_idea, :only => [:show, :edit, :update, :destroy]
+  before_filter :set_idea, :only => [:edit, :update, :destroy]
   def index
   end
   def create
+    set_session_user
     @idea = Idea.create(idea_params)
     @idea.users << @user
     if @idea.save!
@@ -14,6 +14,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @idea = Idea.find(params[:id])
   end
 
   def new
@@ -37,6 +38,7 @@ class IdeasController < ApplicationController
   end
 
   def set_idea
+    set_session_user
     @idea = Idea.find(params[:id])
     if !@idea.can_managed_by(@user)
       redirect_to action: :index
