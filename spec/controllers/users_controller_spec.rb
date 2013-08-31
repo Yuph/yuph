@@ -21,7 +21,7 @@ describe UsersController do
       }.to change(User,:count).by(1)
     end
   end
-  context "Logged" do
+  context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
       session[:user] = @user.id

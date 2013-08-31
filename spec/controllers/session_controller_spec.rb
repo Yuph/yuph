@@ -14,6 +14,11 @@ describe SessionController do
       expect(flash[:notice]).to be_nil
       expect(session[:user]).to eql(user.id)
     end
+    it "failure log in" do
+      user = FactoryGirl.create(:user)
+      get :login, user: FactoryGirl.attributes_for(:user, password: "aeaeae")
+      expect(flash[:notice]).to eql("Credentials failure")
+    end
     context "action when logged" do
       before :each do
         user = FactoryGirl.create(:user)

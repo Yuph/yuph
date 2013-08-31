@@ -4,6 +4,10 @@ Yuph::Application.routes.draw do
 
   resources :users
   resources :ideas
+  resources :forum
+  resources :messages
+  resources :user_comments
+  resources :idea_comments
 
   # Session Routes
   get 'login' => 'session#index'

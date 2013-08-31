@@ -16,7 +16,7 @@ describe IdeaComment do
     end
     it "idea" do
       idea_comment = IdeaComment.create
-      expect(idea_comment).to have(1).error_on(:title)
+      expect(idea_comment).to have(1).error_on(:idea)
     end
   end
   context "actions" do

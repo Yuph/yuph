@@ -6,7 +6,7 @@ class IdeasController < ApplicationController
     set_session_user
     @idea = Idea.create(idea_params)
     @idea.users << @user
-    if @idea.save!
+    if @idea.save
       redirect_to @idea, notice: "Succefully created !"
     else
       render :new

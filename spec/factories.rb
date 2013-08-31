@@ -21,4 +21,19 @@ FactoryGirl.define do
     mini_description "arte no vinil"
     description "arte no vinil"
   end
+  factory :message do
+    title "Como estás ?"
+    body "Novidades ? Vamos implementar aquela idea?"
+  end
+  factory :user_comment do
+    title "O cara"
+    message "Várias idéias, várias cabeças"
+  end
+  factory :idea_comment do
+    title "Muito Bacana!!"
+    message "Adorei a iniciativa."
+  end
+  factory :forum do
+    password ""
+  end
 end

@@ -13,7 +13,7 @@ describe IdeasController do
       expect(response.code).to eql("200")
     end
   end
-  context "Logged" do
+  context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
       session[:user] = @user.id
