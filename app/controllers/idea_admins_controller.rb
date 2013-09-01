@@ -5,8 +5,7 @@ class IdeaAdminsController < ApplicationController
 
     def create
       set_session_user
-      @idea_admin = IdeaAdmin.new(idea_admin_params)
-      @idea_admin.user_id = @user.id
+      @idea_admin = @user.idea_admins.build(idea_admin_params)
       if @idea_admin.save
         redirect_to @idea_admin, notice: "Succefully created !"
       else

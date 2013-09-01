@@ -5,8 +5,7 @@ class UserCommentsController < ApplicationController
 
   def create
     set_session_user
-    @user_comment = UserComment.new(user_comment_params)
-    @user_comment.comment_sender_id = @user.id
+    @user_comment = @user.comment_sends.build(user_comment_params)
     if @user_comment.save
       redirect_to @user_comment, notice: "Succefully created !"
     else

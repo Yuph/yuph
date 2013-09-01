@@ -5,8 +5,7 @@ before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
 
   def create
     set_session_user
-    @idea_comment = IdeaComment.new(idea_comment_params)
-    @idea_comment.user_id = @user.id
+    @idea_comment = @user.idea_comments.build(idea_comment_params)
     if @idea_comment.save
       redirect_to @idea_comment, notice: "Succefully created !"
     else

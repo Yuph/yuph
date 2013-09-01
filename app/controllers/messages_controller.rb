@@ -4,8 +4,7 @@ class MessagesController < ApplicationController
   end
   def create
     set_session_user
-    @message = Message.new(message_params)
-    @message.message_sender_id = @user.id
+    @message = @user.message_sends.build(message_params)
     if @message.save
       redirect_to @message, notice: "Succefully created !"
     else
