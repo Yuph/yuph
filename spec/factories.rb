@@ -36,4 +36,7 @@ FactoryGirl.define do
   factory :forum do
     password ""
   end
+  factory :idea_admin do
+  end
+
 end

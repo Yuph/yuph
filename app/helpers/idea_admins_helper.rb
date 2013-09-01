@@ -1,0 +1,2 @@
+module IdeaAdminsHelper
+end

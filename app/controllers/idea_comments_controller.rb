@@ -1,5 +1,5 @@
 class IdeaCommentsController < ApplicationController
-before_filter :set_idea_comment, :only => [:edit, :update, :destroy]  
+before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
   def index
   end
 
