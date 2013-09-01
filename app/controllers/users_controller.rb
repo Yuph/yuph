@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :set_session_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :set_user, :only => [:show, :edit, :update, :destroy]
   skip_before_filter :authenticate, :only => [:create]
   def index
   end
@@ -35,6 +35,14 @@ class UsersController < ApplicationController
     @user.destroy
     session[:user] = nil
     redirect_to :controller => "session", :action => "index"
+  end
+
+  def set_user
+    set_session_user
+    @user = User.find(params[:id])
+    if session[:user] != @user.id
+      redirect_to action: :index
+    end
   end
 
   def user_single_params

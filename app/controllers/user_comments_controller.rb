@@ -1,5 +1,5 @@
 class UserCommentsController < ApplicationController
-  before_filter :set_user_comment, :only => [:edit, :update, :destroy]  
+  before_filter :set_user_comment, :only => [:edit, :update, :destroy]
   def index
   end
 
@@ -7,7 +7,7 @@ class UserCommentsController < ApplicationController
     set_session_user
     @user_comment = UserComment.new(user_comment_params)
     @user_comment.comment_sender_id = @user.id
-    if @user_comment.save!
+    if @user_comment.save
       redirect_to @user_comment, notice: "Succefully created !"
     else
       render :new
@@ -26,7 +26,7 @@ class UserCommentsController < ApplicationController
   end
 
   def update
-    if  @user_comment.update_attributes!(user_comment_params)
+    if  @user_comment.update_attributes(user_comment_params)
       redirect_to @user_comment, notice: "Updated"
     else
       render :edit
