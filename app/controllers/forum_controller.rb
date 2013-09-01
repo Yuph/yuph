@@ -1,17 +1,14 @@
 class ForumController < ApplicationController
   before_filter :set_idea, :only => [:create]
   before_filter :set_forum, :only => [:edit, :update, :destroy]
-  
+
   def index
   end
   def create
     set_session_user
     @forum = Forum.new(forum_params)
-    if @forum.save
-      redirect_to @forum, notice: "Succefully created !"
-    else
-      render :new
-    end
+    @forum.save
+    redirect_to @forum, notice: "Succefully created !"
   end
 
   def show
@@ -27,11 +24,8 @@ class ForumController < ApplicationController
   end
 
   def update
-    if @forum.update_attributes(forum_params)
-      redirect_to @forum, notice: "Updated"
-    else
-      render :edit
-    end
+    @forum.update_attributes(forum_params)
+    redirect_to @forum, notice: "Updated"
   end
 
   def destroy
