@@ -38,5 +38,6 @@ FactoryGirl.define do
   end
   factory :idea_admin do
   end
-
+  factory :follow do
+  end
 end

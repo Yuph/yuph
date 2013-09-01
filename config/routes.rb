@@ -5,6 +5,7 @@ Yuph::Application.routes.draw do
   resources :users
   resources :ideas
   resources :forum
+  resources :follows
   resources :messages
   resources :user_comments
   resources :idea_comments
