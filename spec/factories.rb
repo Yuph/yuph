@@ -36,6 +36,10 @@ FactoryGirl.define do
   factory :forum do
     password ""
   end
+  factory :category do
+    title "Sobre valores"
+    description "tire as suas dúvidas sobre valores"
+  end
   factory :idea_admin do
   end
   factory :follow do
