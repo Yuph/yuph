@@ -8,6 +8,7 @@ Yuph::Application.routes.draw do
   resources :follows
   resources :messages
   resources :categories
+  resources :posts
   resources :user_comments
   resources :idea_comments
   resources :idea_admins
