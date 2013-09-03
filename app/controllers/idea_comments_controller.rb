@@ -1,5 +1,6 @@
 class IdeaCommentsController < ApplicationController
-before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
+  before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
+
   def index
   end
 
@@ -14,7 +15,7 @@ before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
   end
 
   def show
-  	@idea_comment = IdeaComment.find(params[:id])
+    @idea_comment = IdeaComment.find(params[:id])
   end
 
   def new
@@ -44,6 +45,7 @@ before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
       redirect_to action: :index
     end
   end
+
   def idea_comment_params
     params.require(:idea_comment).permit(:title, :message, :idea_id)
   end

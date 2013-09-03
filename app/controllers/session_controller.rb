@@ -1,7 +1,9 @@
 class SessionController < ApplicationController
   skip_before_filter :authenticate, only: [:index, :login]
+
   def index
   end
+
   def login
     user = User.login(params[:user][:email], params[:user][:password])
     if !user.blank?
@@ -12,6 +14,7 @@ class SessionController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def logout
     session[:user] = nil
   end

@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_filter :set_user, :only => [:show, :edit, :update, :destroy]
   skip_before_filter :authenticate, :only => [:create]
+
   def index
   end
+
   def create
     @user = User.new(user_single_params)
     if @user.save

@@ -1,5 +1,6 @@
 class FollowsController < ApplicationController
   before_filter :set_follow, :only => [:edit, :update, :destroy]
+
   def index
   end
 
@@ -44,6 +45,7 @@ class FollowsController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def follow_params
     params.require(:follow).permit(:idea_id)
   end

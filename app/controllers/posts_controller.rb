@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_filter :set_post, :only => [:edit, :update, :destroy]
+
   def index
   end
 

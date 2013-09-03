@@ -1,7 +1,9 @@
 class MessagesController < ApplicationController
   before_filter :set_message, :only => [:edit, :update, :destroy, :show]
+
   def index
   end
+
   def create
     set_session_user
     @message = @user.message_sends.build(message_params)
@@ -42,6 +44,7 @@ class MessagesController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def message_params
     params.require(:message).permit(:title, :body, :message_receiver_id)
   end

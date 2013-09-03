@@ -1,7 +1,9 @@
 class IdeasController < ApplicationController
   before_filter :set_idea, :only => [:edit, :update, :destroy]
+
   def index
   end
+
   def create
     set_session_user
     @idea = Idea.create(idea_params)
@@ -44,6 +46,7 @@ class IdeasController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def idea_params
     params.require(:idea).permit(:name, :image, :mini_description, :description, :video, :password)
   end

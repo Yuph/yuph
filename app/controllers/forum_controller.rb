@@ -4,6 +4,7 @@ class ForumController < ApplicationController
 
   def index
   end
+
   def create
     set_session_user
     @forum = Forum.new(forum_params)
@@ -12,7 +13,7 @@ class ForumController < ApplicationController
   end
 
   def show
-  	#Criar regra de password
+    #Criar regra de password
     @forum = Forum.find(params[:id])
   end
 
@@ -34,10 +35,10 @@ class ForumController < ApplicationController
   end
 
   def set_idea
-  	set_session_user
-  	@idea = Idea.find(params[:forum][:idea_id])
+    set_session_user
+    @idea = Idea.find(params[:forum][:idea_id])
     if !@idea.can_managed_by(@user)
-    	redirect_to action: :index
+      redirect_to action: :index
     end
   end
 
@@ -48,6 +49,7 @@ class ForumController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def forum_params
     params.require(:forum).permit(:idea_id, :password)
   end

@@ -1,5 +1,6 @@
 class UserCommentsController < ApplicationController
   before_filter :set_user_comment, :only => [:edit, :update, :destroy]
+
   def index
   end
 
@@ -14,7 +15,7 @@ class UserCommentsController < ApplicationController
   end
 
   def show
-  	@user_comment = UserComment.find(params[:id])
+    @user_comment = UserComment.find(params[:id])
   end
 
   def new
@@ -44,6 +45,7 @@ class UserCommentsController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def user_comment_params
     params.require(:user_comment).permit(:title, :message, :comment_receiver_id)
   end

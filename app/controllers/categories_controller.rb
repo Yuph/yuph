@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_filter :set_category, :only => [:edit, :update, :destroy]
   before_filter :set_forum, :only => [:create, :update]
+
   def index
   end
 
@@ -46,10 +47,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def category_params
-    params.require(:category).permit(:title, :description, :forum_id)
-  end
-
   def set_forum
     set_session_user
     @forum = Forum.find(params[:category][:forum_id])
@@ -58,5 +55,8 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def category_params
+    params.require(:category).permit(:title, :description, :forum_id)
+  end
 end
 
