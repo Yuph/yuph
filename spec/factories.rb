@@ -36,6 +36,10 @@ FactoryGirl.define do
   factory :forum do
     password ""
   end
+  factory :post do
+    title "Post title"
+    message "Post Message"
+  end
   factory :category do
     title "Sobre valores"
     description "tire as suas dúvidas sobre valores"
