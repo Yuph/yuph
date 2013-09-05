@@ -40,6 +40,10 @@ FactoryGirl.define do
     title "Post title"
     message "Post Message"
   end
+  factory :post_comment do
+    title "Post comment title"
+    message "Post comment Message"
+  end
   factory :category do
     title "Sobre valores"
     description "tire as suas dúvidas sobre valores"
