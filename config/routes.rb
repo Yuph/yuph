@@ -1,17 +1,33 @@
 Yuph::Application.routes.draw do
 
-  root 'welcome#index'
+  # Root action => '/'
+  root 'session#index'
 
+  # Users controller
   resources :users
+
+  # Ideas Controller
   resources :ideas
-  resources :forum
+
+  # Follows Controller
   resources :follows
+
+  # Messages Controller
   resources :messages
+
+  # User comments controller
+  resources :user_comments
+
+  # Idea Comments controller
+  resources :idea_comments
+
+  # Idea Admins controller
+  resources :idea_admins
+
+  # Forum Routes
+  resources :forum
   resources :categories
   resources :posts
-  resources :user_comments
-  resources :idea_comments
-  resources :idea_admins
   resources :post_comments
 
   # Session Routes
