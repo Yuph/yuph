@@ -1,0 +1,134 @@
+<div class="container_12">
+	<div class="grid_6">
+		<div class="wrapper">
+			<br>
+			<div class="image-profile-title">
+				<%= image_tag("user-profile.png", :alt => "User Profile") %>
+			</div>
+			<div class="profile-title">
+				<h1><%= @user.nick %></h1>
+				<h2>Giancarlo Jung</h2>
+			</div>
+			<div class="edit-profile">
+				<%= button_to "Editar", edit_user_path(@user),
+				:method => "get", class: "small-button red-button edit-profile-button"  %>
+			</div>
+			<div class="clear"></div>
+			<div class="wrapper fix-top-border profile-content">
+				<div class="profile-bio">
+					<h3>Sobre mim</h3>
+					<p><%= @user.about %></p>
+				</div>
+				<br>
+				<div class="profile-statistics-push">
+					<p>Local: <%= @user.local %></p>
+					<p>Email: <span class="bio-link"><%= @user.email %></span></p>
+					<p>Website: <span class="bio-link"><%= @user.website %></span></p>
+					<p>Facebook: <span class="bio-link"><%= @user.facebook %></span></p>
+					<p>Twitter: <span class="bio-link"><%= @user.twitter %></span></p>
+				</div>
+				<div class="profile-statistics">
+					<p>
+						<%= image_tag("up-icon.png", :alt => "Likes") %>
+						<span class="small"><%= @user.following.size %> curtidas</span>
+					</p>
+					<p>
+						<%= image_tag("comment-icon.png", :alt => "Comment") %>
+						<span class="small"> <%= @user.idea_comments.size %> comentários</span>
+					</p>
+					<p>
+						<%= image_tag("forum-icon.png", :alt => "forum") %>
+						<span class="small"><%= @user.posts.size + @user.post_comments.size  %> posts criados</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container_12">
+			<div class="grid_6 alpha wrapper">
+				<div>
+					<div class="green-line thin-line"></div>
+					<h3>Ideias lançadas</h3>
+				</div>
+				<div class="clear"></div>
+				<div class="grid_2 created-idea min-idea">
+					<a href="idea-profile.html"><h2>idea name</h2></a>
+					<a href="idea-profile.html"><img src="assets/idea-2.png" class="idea-portrait-small"></a>
+					<p>idea min description</p>
+				</div>
+				<div class="grid_2 push_1 created-idea">
+					<a href="idea-profile.html"><h2>idea-name</h2></a>
+					<a href="idea-profile.html"><img src="assets/idea-5.png" class="idea-portrait-small"></a>
+					<p>idea min description</p>
+				</div>
+				<div class="clear"></div>
+				<div class="new-idea-profile">
+					<a href="idea-creation.html" class="green-button big-button">nova ideia</a>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	<div class="grid_6 omega wrapper">
+		<h3>Recados</h3>
+		<div class="messages">
+			<div class="profile-messages">
+				<div class="image-profile-title grid_1 comment-left">
+					<%= image_tag("user-profile.png", :alt => "User Profile") %>
+					<span>username</span>
+				</div>
+				<div class="comment-body">
+					<p>teste</p>
+				</div>
+				<div class="comment-bottom">
+					<%= image_tag("block.png", :alt => "block") %>
+				</div>
+			</div>
+		</div>
+		<div class="profile-comment-form">
+			<textarea name="idea-description" class="idea-creation comment-form" placeholder="Envie um comentário..."></textarea>
+			<br>
+			<div class="comment-options">
+				<input type="checkbox" name="" value=""><label>privado</label>
+				<button class="red-button small-button">enviar</button>
+			</div>
+		</div>
+		<div class="wrapper fix-top-border activities">
+			<h3>Atividades recentes</h3>
+			<p>bytejumper comentou em <a href="idea-profile.html"><span>idea-name</span></a></p>
+			<span class="activities-data">20:52 10/08/2013</span>
+		</div>
+	</div>
+</div>
+
+<br>
+<div class="container_12">
+	<div class="grid_12 wrapper">
+		<div class="green-line thin-line"></div>
+		<h3>Ideias que User Name acompanha:</h3>
+		<div class="grid_1"><button class="arrow"><%= image_tag("arrow-left.png", :alt => "Arrow Left") %></button></div>
+
+
+		<div class="grid_3 min-idea">
+			<a href="idea-profile.html"><img src="assets/idea-4.png" class="idea-portrait"></a>
+			<a href="idea-profile.html"><h2>idea-name</h2></a>
+			<p>idea min description</p>
+		</div>
+
+		<div class="grid_3 min-idea">
+			<a href="idea-profile.html"><img src="assets/idea-2.png" class="idea-portrait"></a>
+			<a href="idea-profile.html"><h2>idea-name</h2></a>
+			<p>idea min description</p>
+		</div>
+
+		<div class="grid_3 min-idea">
+			<a href="idea-profile.html"><img src="assets/idea-3.png" class="idea-portrait"></a>
+			<a href="idea-profile.html"><h2>idea-name</h2></a>
+			<p>idea min description</p>
+		</div>
+
+		<div class="grid_1"><button class="arrow right-arrow-profile"><%= image_tag("arrow-right.png", :alt => "Arrow Right") %></button></div>
+		<div class="clear"></div>
+		<div class="red-line thin-line"></div>
