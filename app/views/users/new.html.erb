@@ -1,0 +1,52 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container_12">
+	<div class="grid_8 push_2 wrapper">
+		<div>
+			<header class="account">
+				<h2>Crie sua conta na Yuph!</h2>
+			</header>
+
+			<div class="clear"></div>
+			<div class="create-account">
+				<label>Nome:</label>
+				<br>
+				<%= f.text_field :nick %>
+
+				<div class="clear"></div>
+
+				<label>Senha:</label>
+				<br>
+				<%= f.text_field :password %>
+
+				<div class="clear"></div>
+
+				<label><span class="small">Confirme a senha</span></label>
+				<br>
+				<input type="text" name="password"></input>
+				<span class="small-right">sua senha deve conter</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="create-account email">
+			<label>Email:</label>
+			<br>
+			<%= f.text_field :email %>
+		</div>
+		<div class="create-account-buttons">
+			<div style="float: left;"><button type="submit" class="fb-button">Facebook</button></div>
+			<div style="float: right;"><button type="submit" class="big-button red-button">criar minha conta</button></div>
+		</div>
+	</div>
+</div>
+<% end %>
