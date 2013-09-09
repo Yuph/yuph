@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
   has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id'
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id'
 
-  validates :nick, presence: :true
+  validates :nick, presence: :true, :uniqueness => true
   validates :password, :length => 6..20, presence: true
-  validates :email, presence: :true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+  validates :email, presence: :true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   def set_hash
     self.password = Digest::SHA1.hexdigest("thisissecret#"+self.password)
