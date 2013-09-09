@@ -1,0 +1,141 @@
+<div class="container_12">
+    <div class="grid_8 slider">
+        <div class="grid_8 wrapper carrousel">
+            <a href="idea-profile.html"><img src=
+                "assets/slider-image.png" /></a>
+            <!-- slider images -->
+        </div>
+        <div class="clear"></div>
+        <div class=
+            "grid_8 wrapper big-ideas-description fix-border">
+            <h1>
+                <a href="idea-profile.html">Lorem Ipsum</a>
+            </h1>
+            <!-- idea title -->
+            <div class="clear"></div>
+            <div class="grid_1 omega">
+                <button class="arrow"><img src=
+                    "assets/arrow-left.png" /></button>
+            </div>
+            <div class="grid_5">
+                <p>
+                    Lorem Ipsum
+                </p>
+            </div>
+            <!-- idea min-description -->
+            <div class="grid_1 push_1 alpha">
+                <button class="arrow"><img src=
+                    "assets/arrow-right.png" /></button>
+            </div>
+        </div>
+    </div>
+    <!-- LOGIN AREA -->
+    <div class="grid_4 omega wrapper main-login">
+        <div>
+            <h1>
+                Entre na Yuph!
+            </h1>
+        </div>
+        <div class="main-form">
+			<form name="login" action="/login" method="POST">
+            	<input type="text" name="user[email]" placeholder="Email" />
+				<input type="password" name="user[password]" placeholder="senha" />
+				<%= token_tag nil %>
+				<input type="submit" value="login" />
+			</form>
+            <div class="clear"></div>
+            <div class="fb-login-button">
+                <button type="submit" class=
+                    "fb-button">Facebook</button>
+            </div>
+            <div class="clear"></div>
+            <br />
+        </div>
+    </div>
+    <div class="grid_4 omega wrapper main-login fix-border">
+        <div>
+            <h1>
+                ou
+            </h1>
+        </div>
+        <div class="clear"></div>
+		<%= link_to 'Crie uma conta', new_user_path, class: "big-button red-button create-account" %>
+        <div class="clear"></div>
+        <br />
+    </div>
+</div>
+<div class="container_12">
+    <div class="grid_4">
+        <h2>
+            Outras ideias
+        </h2>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="container_12 idea-row">
+    <div class="grid_3 wrapper min-idea">
+        <div class="green-line"></div>
+        <a href=
+            "idea-profile.html"><img src="assets/idea-1.png" class=
+            "idea-portrait" /></a>
+        <h2>
+            Lorem Ipsum
+        </h2>
+        <!-- IDEA NAME -->
+        <p>
+            Lorem ipsum
+        </p>
+        <!-- MINI DESCRIPTION -->
+        <div class="red-line"></div>
+    </div>
+    <div class="grid_3 wrapper min-idea">
+        <div class="green-line"></div>
+        <a href=
+            "idea-profile.html"><img src="assets/idea-2.png" class=
+            "idea-portrait" /></a>
+        <h2>
+            Lorem Ipsum
+        </h2>
+        <p>
+            Lorem ipsum
+        </p>
+        <div class="red-line"></div>
+    </div>
+    <div class="grid_3 wrapper min-idea">
+        <div class="green-line"></div>
+        <a href=
+            "idea-profile.html"><img src="assets/idea-3.png" class=
+            "idea-portrait" /></a>
+        <h2>
+            Lorem Ipsum
+        </h2>
+        <p>
+            lorem ipsum
+        </p>
+        <div class="red-line"></div>
+    </div>
+    <div class="grid_3 wrapper min-idea omega">
+        <!-- THE LAST MUST BE OMEGA -->
+        <div class="green-line"></div>
+        <a href=
+            "idea-profile.html"><img src="assets/idea-4.png" class=
+            "idea-portrait" /></a>
+        <h2>
+            Lorem ipsum
+        </h2>
+        <p>
+            Lorem ipsum
+        </p>
+        <div class="red-line"></div>
+    </div>
+</div>
+<div class="clear">
+    <div class="container_12 idea-row">
+        <!-- and so on -->
+    </div>
+</div>
+<div class="clear"></div>
+<div class="container_12">
+	<%= button_to "Mostrar mais projetos", "/ideas/", :method => "get", class: "grid_8 push_2 show-more wrapper"  %>
+    <div class="clear"></div>
+</div>
