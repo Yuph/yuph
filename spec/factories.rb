@@ -1,19 +1,19 @@
 FactoryGirl.define do
-  factory :user do
-    nick "victor-antoniazzi"
-    email  "vgsantoniazzi@gmail.com"
-    password "pass12345"
+  factory :user do |f|
+    f.sequence(:nick) {|n| "victor-antoniazzi-simple-#{n}" }
+    f.sequence(:email) {|n| "person-simple#{n}@example.com" }
+    f.password "pass12345"
   end
-  factory :full_user, :class => User do
-    nick "victor-antoniazzi"
-    email  "vgsantoniazzi@gmail.com"
-    password "pass12345"
-    image "test"
-    about "hi, i am a softaew developer"
-    local "Pelotas - RS"
-    website "www.victorantoniazzi.com.br"
-    facebook "fb.com/oi?"
-    twitter "@antoniazzii"
+  factory :full_user, :class => User do |f|
+    f.sequence(:nick) {|n| "victor-antoniazzi-complex-#{n}" }
+    f.sequence(:email) {|n| "person-complex#{n}@example.com" }
+    f.password "pass12345"
+    f.image "test"
+    f.about "hi, i am a softaew developer"
+    f.local "Pelotas - RS"
+    f.website "www.victorantoniazzi.com.br"
+    f.facebook "fb.com/oi?"
+    f.twitter "@antoniazzii"
   end
   factory :idea do
     name "art in vinil"
