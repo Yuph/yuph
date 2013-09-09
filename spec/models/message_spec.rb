@@ -21,8 +21,8 @@ describe Message do
   end
   context "actions" do
     it "succefuly create" do
-      sender = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
-      receiver = User.create(nick: "antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
+      sender = User.create(nick: "victor-antoniazzi-message-0044", email: "vgsantoniazzi-message-044@gmail.com", password: "test123")
+      receiver = User.create(nick: "antoniazzi-message-055", email: "vgsantoniazzi-message-0066@gmail.com", password: "test123")
       message = Message.create(title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: receiver.id, message_sender_id: sender.id)
       expect(message).to have(:no).error
     end
@@ -31,8 +31,8 @@ describe Message do
       expect(message).to have(2).error
     end
     it "get my total messages" do
-      sender = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
-      receiver = User.create(nick: "antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
+      sender = User.create(nick: "victor-antoniazzi-message-001", email: "vgsantoniazzi-message-001@gmail.com", password: "test123")
+      receiver = User.create(nick: "antoniazzi-message-002", email: "vgsantoniazzi-message-002@gmail.com", password: "test123")
       Message.create(title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: receiver.id, message_sender_id: sender.id)
       Message.create(title: "muito legal a ideia", body: "show de bola", message_receiver_id: receiver.id, message_sender_id: sender.id)
       expect(receiver.message_receives.size).to eql(2)

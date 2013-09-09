@@ -9,30 +9,30 @@ describe SessionController do
     end
     it "require log in" do
       user = FactoryGirl.create(:user)
-      get :login, user: FactoryGirl.attributes_for(:user)
+      get :login, user: FactoryGirl.attributes_for(:user, email: user.email)
       expect(response).to redirect_to(user)
       expect(flash[:notice]).to be_nil
       expect(session[:user]).to eql(user.id)
     end
     it "failure log in" do
       user = FactoryGirl.create(:user)
-      get :login, user: FactoryGirl.attributes_for(:user, password: "aeaeae")
+      get :login, user: FactoryGirl.attributes_for(:user, email: user.email , password: "aeaeae")
       expect(flash[:notice]).to eql("Credentials failure")
     end
     context "action when logged" do
       before :each do
         user = FactoryGirl.create(:user)
-        get :login, user: FactoryGirl.attributes_for(:user)
+        get :login, user: FactoryGirl.attributes_for(:user, email: user.email)
         expect(response).to redirect_to(user)
         expect(flash[:notice]).to be_nil
       end
       it "logged" do
         get :logout
-        expect(response.code).to eql("200")
+        expect(response.code).to eql("302")
       end
       it "logout" do
         get :logout
-        expect(response.code).to eql("200")
+        expect(response.code).to eql("302")
         get :logout
         expect(response.code).to eql("302")
       end
