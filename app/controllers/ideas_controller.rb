@@ -1,7 +1,9 @@
 class IdeasController < ApplicationController
   before_filter :set_idea, :only => [:edit, :update, :destroy]
+  skip_before_filter :authenticate, :only => [:index, :show]
 
   def index
+    @ideas = Idea.all
   end
 
   def create
