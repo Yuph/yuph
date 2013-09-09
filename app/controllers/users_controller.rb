@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :set_user, :only => [:show, :edit, :update, :destroy]
-  skip_before_filter :authenticate, :only => [:create]
+  before_filter :set_user, :only => [:edit, :update, :destroy]
+  skip_before_filter :authenticate, :only => [:new, :create]
 
   def index
   end
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    set_session_user
   end
 
   def new
