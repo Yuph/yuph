@@ -1,0 +1,78 @@
+
+<div class="container_12 wrapper">
+	<div class="green-line thin-line"></div>
+	<header class="grid_12 new-idea">
+		<h3>Crie uma nova ideia</h3>
+		<p></p>
+	</header>
+</div>
+<%= form_for(@idea) do |f| %>
+<% if @idea.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+
+	<ul>
+		<% @idea.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="container_12 wrapper fix-border">
+	<div class="grid_8 fix-border">
+		<h3>Imagem de capa</h3>
+		<p>Selecione uma imagem para sua ideia, utilize algo que consiga transmitir aos outros usuários
+			sobre o que ela se trata. Você pode pedir ajuda a algum designer e até os outros usuários
+			podem dar uma forcinha. E lembre-se de não usar uma imagem protegida por direitos
+			autorais. Não se preocupe pois você poderã mudá-la depois.</p>
+			<p>O tamanho padrão é 220x144 pixels.</p>
+		</div>
+		<div class="grid_4" id="select-image">
+			<img class="idea-portrait" src="">
+			<br>
+			<%= f.text_field :image, class: "idea-creation idea-creation tags-creation"%>
+			<!-- <%= f.file_field :image, class: "big-button red-button"%> -->
+		</div>
+	</div>
+	<div class="container_12 wrapper fix-border">
+		<div class="grid_8">
+			<h3>Qual nome você quer dar para sua idéia?</h3>
+			<p>Escreva o que você pensou</p>
+			<%= f.text_field :name, class: "idea-creation idea-creation tags-creation" %>
+			<h3>Mini Descrição</h3>
+			<p>Explique com poucas palavras sobre o que é a sua ideia, essa descrição aparecerá na página inicial do site.</p>
+			<%= f.text_area :mini_description, class: "idea-creation idea-creation-min-description" %>
+			<h3>Descrição</h3>
+			<p>Agora precisamos de um texto maior para explicar a sua ideia,
+				você pode contar um pouco sobre ela e sobre o que motivou você a criá-la.</p>
+				<%= f.text_area :description, class: "idea-creation idea-creation-description" %>
+				<div>
+					<h3>Video</h3>
+					<p>Se você ja tem um video no Youtube ou no Vimeo, coloque o endereço dele aqui:</p>
+					<%= f.text_field :video, class: "idea-creation video-url" %>
+				</div>
+				<h3>Senha</h3>
+				<p>Você poderá privar sua idéia para que apenas quem possuir a senha consiga acessá-la. Se não quiser privar,
+					apenas deixe em branco.</p>
+					<%= f.text_field :password, class: "idea-creation tags-creation" %>
+				<br>
+				<br>
+			</div>
+			<div class="grid_4 idea-options omega">
+			</div>
+			<div class="clear"></div>
+		</div>
+
+
+		<div class="container_12 wrapper fix-border">
+			<br>
+			<div class="grid_7 push_1 idea-submit-text">
+				<h1>Tudo pronto, pode criar essa ideia<h1>
+				</div>
+				<div class="grid_4 push_1 idea-submit-button">
+					<button type="submit" class="big-button green-button">Clique aqui</button>
+				</div>
+				<br>
+				<div class="clear"></div>
+				<div class="red-line"></div>
+				<% end %>
