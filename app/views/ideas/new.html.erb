@@ -28,10 +28,9 @@
 			<p>O tamanho padrão é 220x144 pixels.</p>
 		</div>
 		<div class="grid_4" id="select-image">
-			<img class="idea-portrait" src="">
+			<img id="uploadPreview" class="idea-portrait" style="width: 220px; height: 144px;" src="/assets/user-profile.png">
 			<br>
-			<%= f.text_field :image, class: "idea-creation idea-creation tags-creation"%>
-			<!-- <%= f.file_field :image, class: "big-button red-button"%> -->
+			<%= f.file_field :image, class: "idea-creation idea-creation file", onchange:"PreviewImage();", id: "uploadImage" %>
 		</div>
 	</div>
 	<div class="container_12 wrapper fix-border">

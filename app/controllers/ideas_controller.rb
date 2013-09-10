@@ -9,8 +9,7 @@ class IdeasController < ApplicationController
   def create
     set_session_user
     @idea = Idea.create(idea_params)
-    @idea.users << @user
-    if @idea.save
+    if !@idea.new_record? && @idea.users << @user && @idea.save
       redirect_to @idea, notice: "Succefully created !"
     else
       render :new
