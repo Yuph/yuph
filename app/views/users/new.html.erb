@@ -27,13 +27,13 @@
 
 				<label>Senha:</label>
 				<br>
-				<%= f.text_field :password %>
+				<%= f.password_field :password %>
 
 				<div class="clear"></div>
 
 				<label><span class="small">Confirme a senha</span></label>
 				<br>
-				<input type="text" name="password"></input>
+				<%= f.password_field :password_confirmation %>
 				<span class="small-right">sua senha deve conter</span>
 			</div>
 		</div>

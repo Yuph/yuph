@@ -49,10 +49,10 @@ class UsersController < ApplicationController
   end
 
   def user_single_params
-    params.require(:user).permit(:nick, :email, :password)
+    params.require(:user).permit(:nick, :email, :password, :password_confirmation)
   end
 
   def user_full_params
-    params.require(:user).permit(:nick, :email, :password, :image, :about, :local, :website, :facebook, :twitter)
+    params.require(:user).permit(:nick, :email, :password, :password_confirmation, :image, :about, :local, :website, :facebook, :twitter)
   end
 end
