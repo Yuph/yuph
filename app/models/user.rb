@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  attr_accessor :image_content_type
+  attr_accessor :password_confirmation
+
   before_create :set_hash
 
   has_many :idea_admins
@@ -16,8 +19,21 @@ class User < ActiveRecord::Base
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id'
 
   validates :nick, presence: :true, :uniqueness => true
-  validates :password, :length => 6..20, presence: true
+  validates :password, :length => 6..20, confirmation: true, presence: true, :if => lambda{ new_record? || !password.nil? }
   validates :email, presence: :true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+
+  has_attached_file :image,
+  	:styles => { :medium => "300x300>", :thumb => "100x80#" },
+    :storage => :s3,
+    :default_url => '/assets/user-default.jpg',
+    :bucket => 'yuph',
+    :path => "profile/:attachment/:id/:style.:extension",
+    :s3_credentials => { :access_key_id => 'AKIAI5MJFU42WK57XFEQ',
+                         :secret_access_key => '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' },
+    :s3_permissions => 'public-read',
+    :s3_host_name => 's3-us-west-2.amazonaws.com'
+
+  validates_attachment :image, :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
 
   def set_hash
     self.password = Digest::SHA1.hexdigest("thisissecret#"+self.password)

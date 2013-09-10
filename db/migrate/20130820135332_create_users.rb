@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nick
       t.string :password
       t.string :email
-      t.string :image
+      t.string :image_file_name
       t.text :about
       t.string :local
       t.string :website

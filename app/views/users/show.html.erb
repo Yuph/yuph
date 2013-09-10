@@ -3,7 +3,7 @@
 		<div class="wrapper">
 			<br>
 			<div class="image-profile-title">
-				<%= image_tag("user-profile.png", :alt => "User Profile") %>
+				<%= image_tag(@user.image.url(:thumb), :size => "100x80") %>
 			</div>
 			<div class="profile-title">
 				<h1><%= @user.nick %></h1>

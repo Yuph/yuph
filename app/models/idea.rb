@@ -1,4 +1,6 @@
 class Idea < ActiveRecord::Base
+  attr_accessor :image_content_type
+
   has_many :idea_admins
   has_many :users, through: :idea_admins
   has_many :idea_comments
@@ -8,9 +10,21 @@ class Idea < ActiveRecord::Base
   has_one :forum
 
   validates :name, presence: :true
-  validates :image, presence: :true
   validates :mini_description, presence: :true
   validates :description, presence: :true
+
+  has_attached_file :image,
+  	:styles => { :medium => "300x300>", :thumb => "220x144#" },
+    :storage => :s3,
+    :bucket => 'yuph',
+    :path => "idea/:attachment/:id/:style.:extension",
+    :s3_credentials => { :access_key_id => 'AKIAI5MJFU42WK57XFEQ',
+                         :secret_access_key => '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' },
+    :s3_permissions => 'public-read',
+    :s3_host_name => 's3-us-west-2.amazonaws.com'
+
+  validates_attachment :image, :presence => true,
+                             :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
 
   def can_managed_by(user)
     if self.users.where("user_id = ?", user.id).first

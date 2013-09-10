@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20130822145418) do
 
   create_table "ideas", force: true do |t|
     t.string   "name"
-    t.string   "image"
+    t.string   "image_file_name"
     t.text     "mini_description"
     t.text     "description"
     t.string   "video"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.string   "nick"
     t.string   "password"
     t.string   "email"
-    t.string   "image"
+    t.string   "image_file_name"
     t.text     "about"
     t.string   "local"
     t.string   "website"
