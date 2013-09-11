@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe SessionController do
+  before do
+    user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "53245324")
+    idea = Idea.create!(id: 1, name: "Yuph", mini_description: "Brainstorming de ideias", description: "Junte-se a nós", image_file_name: "/assets/yuph.png")
+    idea.users << user
+    idea.save!
+  end
   context "#GET" do
     it "index page" do
       user = FactoryGirl.create(:user)
