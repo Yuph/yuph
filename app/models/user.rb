@@ -1,15 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessor :image_content_type
-  attr_accessor :password_confirmation
+  attr_accessor :password, :password_confirmation
 
   before_create :set_hash
 
   has_many :idea_admins
   has_many :ideas, through: :idea_admins
-
   has_many :follows
   has_many :following, through: :follows, source: :idea
-
   has_many :posts
   has_many :idea_comments
   has_many :post_comments
@@ -19,7 +17,8 @@ class User < ActiveRecord::Base
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id'
 
   validates :nick, presence: :true, :uniqueness => true
-  validates :password, :length => 6..20, confirmation: true, presence: true, :if => lambda{ new_record? || !password.nil? }
+  validates :password, :length => 6..20, confirmation: true, :if => Proc.new{ self.password != self.password_confirmation }
+  validates_presence_of :password, :if => Proc.new{ self.new_record? }
   validates :email, presence: :true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   has_attached_file :image,
@@ -36,10 +35,12 @@ class User < ActiveRecord::Base
   validates_attachment :image, :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
 
   def set_hash
-    self.password = Digest::SHA1.hexdigest("thisissecret#"+self.password)
+    if (!self.password.blank?)
+      self.access_token = Digest::SHA1.hexdigest("thisissecret#"+self.password)
+    end
   end
 
   def self.login(email, password)
-    where("email = ? and password = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
+    where("email = ? and access_token = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
   end
 end
