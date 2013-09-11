@@ -1,6 +1,8 @@
 class Idea < ActiveRecord::Base
   attr_accessor :image_content_type
 
+  scope :last_four, -> {self.last(4)}
+
   has_many :idea_admins
   has_many :users, through: :idea_admins
   has_many :idea_comments
