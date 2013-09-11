@@ -7,6 +7,10 @@ describe IdeasController do
       session[:user] = @user.id
     end
     context "#GET" do
+      it "Render 'index' template" do
+        get :index
+        expect(response).to render_template(:index)
+      end
       it "Render 'new' template" do
         get :new
         expect(response).to render_template(:new)
