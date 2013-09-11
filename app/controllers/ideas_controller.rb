@@ -17,6 +17,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    set_session_user
     @idea = Idea.find(params[:id])
   end
 
