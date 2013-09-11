@@ -64,7 +64,7 @@ describe User do
       @user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
       @user_two = User.create(nick: "antoniazzi", email: "vgazzi@gmail.com", password: "test123")
       @user_three = User.create(nick: "vantoniazzi", email: "vrgazzi@gmail.com", password: "test123")
-      @idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
+      @idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
       @forum = Forum.create(idea_id: @idea.id)
       @category = Category.create(title: "o que acharam??", description: "about project", forum_id: @forum.id)
       @post = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user.id)

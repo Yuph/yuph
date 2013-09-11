@@ -14,20 +14,16 @@ describe Idea do
       idea = Idea.create
       expect(idea).to have(1).error_on(:description)
     end
-    it "image" do
-      idea = Idea.create
-      expect(idea).to have(1).error_on(:image)
-    end
   end
   context "actions" do
     it "get forum" do
-      idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
+      idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
       forum = Forum.create(idea_id: idea.id)
       expect(idea.forum).to eql(forum)
       expect(forum.idea).to eql(idea)
     end
     it "get admins" do
-      idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
+      idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
       user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
       idea.users << user
       idea.save!

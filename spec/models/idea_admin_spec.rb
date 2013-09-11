@@ -4,7 +4,7 @@ describe IdeaAdmin do
   context "action" do
     it "set admins to idea" do
       user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
-      idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image: "aiehiuae.jpg")
+      idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
       idea.users << user
       idea.save!
       expect(idea.users.first).to eql(user)
