@@ -1,5 +1,6 @@
 class FollowsController < ApplicationController
   before_filter :set_follow, :only => [:edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
   end
@@ -8,9 +9,13 @@ class FollowsController < ApplicationController
     set_session_user
     @follow = @user.follows.build(follow_params)
     if @follow.save
-      redirect_to @follow, notice: "Succefully created !"
+      respond_with(@follow, :status => :created) do |format|
+        format.html { redirect_to :back, notice: "Succefully created !" }
+      end
     else
-      render :new
+      respond_with(@follow.errors, :status => :unprocessable_entity) do |format|
+        format.html { render :action => :new }
+      end
     end
   end
 
@@ -35,7 +40,9 @@ class FollowsController < ApplicationController
 
   def destroy
     @follow.destroy
-    redirect_to :action => "index"
+    respond_with(@follow, :status => :deleted) do |format|
+      format.html { redirect_to :back, notice: "Succefully Destroyed !" }
+    end
   end
 
   def set_follow
