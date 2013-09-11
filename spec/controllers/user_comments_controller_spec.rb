@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe UserCommentsController do
+  before(:each) do
+      request.env["HTTP_REFERER"] = "http://test.com"
+    end
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
