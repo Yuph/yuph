@@ -1,0 +1,148 @@
+<div class="container_12">
+	<div class="grid_8 wrapper">
+		<div class="green-line"></div>
+		<br>
+		<div class="idea-description">
+			<div class="image-profile-title" style="float: left;">
+				<%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
+				<br>
+				<br>
+				<form action="/follows/" method="POST">
+					<input type="hidden" name="follow[idea_id]" value="<%= @idea.id %>" />
+					<%= token_tag nil %>
+					<button class="green-button big-button" id="follow-button">seguir</button>
+				</form>
+			</div>
+			<div class="profile-title">
+				<h1><!--idea name -->Lorem Ipsum</h1>
+				<p>por <a href="user-profile.html"><span><!--username -->bytejumper</span></p></a>
+			</div>
+			<div class="hashtags">
+				<a href="">#lorem</a><a href="">#ipsum</a>
+			</div>
+			<div class="facebook-share">
+				<div class="fb-like" data-href="http://yuph.net" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div> <!-- precisa da aplicação criada e do script fornecido pelo facebook -->
+			</div>
+		</div>
+		<button class="small-button red-button edit-idea">editar</button>
+		<br>
+		<br>
+		<p><!-- idea description -->Lorem ipsum, lorem ipsum.</p>
+		<br>
+		<br>
+		<div class="embed-video">
+			<!-- if youtube: -->
+			<iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+			<!-- if vimeo:
+				<iframe src="" width="560" height="315" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+				-->
+			</div>
+		</div>
+		<div class="grid_4 wrapper omega">
+			<div class="messages">
+				<div class="profile-messages">
+					<div class="image-profile-title grid_1 comment-left">
+						<a href="user-profile.html"><img src="assets/user-profile.png" class="user-portrait"></a>
+						<span><!-- usernanme -->bytejumper</span>
+					</div>
+					<div class="comment-body">
+						<p>Comment comment comment comment comment comment comment</p>
+					</div>
+					<div class="comment-bottom">
+						<img src="assets/block.png">
+					</div>
+				</div>
+			</div>
+			<div class="profile-comment-form">
+				<textarea name="idea-description" class="idea-creation comment-form-idea" placeholder="Envie um comentário..."></textarea>
+				<br>
+				<div class="comment-options">
+					<input type="checkbox" name="" value=""><label>privado</label>
+					<button class="red-button small-button">enviar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<br>
+	<div class="container_12">
+		<div class="grid_12 wrapper forum">
+			<div class="green-line thin-line"></div>
+			<aside class="forum-sidebar">
+				<div class="forum-sidebar-title">
+					<h2>Fórum</h2>
+					<button class="small-button red-button edit-forum-button">editar</button>
+				</div>
+				<div class="clear"></div>
+				<ul class="sidebar-list">
+					<li class="forum-category"><img src="assets/forum-icon.png">
+						<!-- Categoria -->Categoria
+						<img src="assets/block.png" class="block-button">
+					</li>
+					<li class="forum-post-list post-list-active"><!-- se ativo leva a classe post-list-active (background-color: #ebebeb;) -->
+						<a href="">post</a>
+						<img src="assets/block.png" class="block-button"></li>
+					</ul>
+					<br>
+					<div class="forum-buttons">
+						<button class="green-button small-button forum-button">novo post</button>
+						<button class="green-button small-button forum-button">nova categoria</button>
+					</div>
+				</aside>
+				<div class="forum-content">
+					<div class="post-content">
+						<header class="post-header">
+							<h2>Post Name</h2> <!-- Post name -->
+							<div class="post-header-portrait">
+								<a href="user-profile.html"><img src="assets/user-profile.png" class="user-portrait"></a>
+								<br>
+								<span class="username">bytejumper</span>
+							</div>
+							<div class="post-description">
+								<p>Post desciption</p>
+							</div>
+						</header>
+						<div class="clear"></div>
+						<div class="post-comment">
+							<div class="comment-line-gray"></div>
+							<div class="post-comment-left">
+
+								<a href="user-profile.html"><img src="assets/user-profile.png" class="user-portrait"></a>
+								<br>
+								<span class="username">bytejumper</span>
+							</div>
+							<div class="post-comment-body">
+								<h3>Reply title</h3> <!-- Reply title -->
+								<div class="quote">
+									<img src="assets/quote-stamp.png">
+									<br>
+									<p>quote</p>
+									<span>user-info (adminstrador, moderador ou dono da ideia)</span> <!--user info -->
+								</div>
+								<p>Comment comment comment</p> <!-- comment -->
+							</div>
+						</div>
+					</div>
+					<div>
+						<textarea name="idea-description" class="idea-creation reply-post-title" placeholder="Assunto"></textarea>
+						<textarea name="idea-description" class="idea-creation reply-post" placeholder="Resposta"></textarea>
+						<br>
+						<button class="red-button small-button reply-button">responder</button>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="red-line thin-line"></div>
+			</div>
+		</div>
+		<!-- se o forum for bloqueado: -->
+
+		<div class="clear"></div>
+		<div class="container_12">
+			<div class="grid_12 wrapper forum-block">
+				<h3>Fórum</h3>
+				<p>O fórum de discussão dessa ideia não é público, clique <a href="user-profile.html">aqui</a> para entrar em contato com o administrador.</p>
+				<br>
+				<div class="red-line thin-line"></div>
+			</div>
+		</div>
+	</div>
