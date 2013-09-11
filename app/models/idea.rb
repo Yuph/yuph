@@ -24,7 +24,7 @@ class Idea < ActiveRecord::Base
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 
   validates_attachment :image, :presence => true,
-                             :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
+                             :content_type => { :content_type => /^image\/(png|gif|jpeg)/ } if Rails.env != "test"
 
   def can_managed_by(user)
     if self.users.where("user_id = ?", user.id).first
