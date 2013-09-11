@@ -1,5 +1,6 @@
 class UserCommentsController < ApplicationController
   before_filter :set_user_comment, :only => [:edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
   end
@@ -8,9 +9,13 @@ class UserCommentsController < ApplicationController
     set_session_user
     @user_comment = @user.comment_sends.build(user_comment_params)
     if @user_comment.save
-      redirect_to @user_comment, notice: "Succefully created !"
+      respond_with(@user_comment, :status => :created) do |format|
+        format.html { redirect_to :back, notice: "Succefully created !" }
+      end
     else
-      render :new
+      respond_with(@user_comment.errors, :status => :unprocessable_entity) do |format|
+          format.html { render :action => :new }
+      end
     end
   end
 
@@ -35,7 +40,9 @@ class UserCommentsController < ApplicationController
 
   def destroy
     @user_comment.destroy
-    redirect_to :action => "index"
+    respond_with(@user_comment, :status => :deleted) do |format|
+      format.html { redirect_to :back, notice: "Succefully Destroyed !" }
+    end
   end
 
   def set_user_comment
