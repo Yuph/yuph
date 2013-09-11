@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="grid_4" id="select-image">
-			<img id="uploadPreview" class="idea-portrait" style="width: 200px; height: 144px;" src="/assets/user-default.jpg">
+			<%= image_tag(@user.image.url(:medium), class: "idea-portrait", id: "uploadPreview") %>
 			<br>
 			<%= f.file_field :image, class: "idea-creation-file", onchange:"PreviewImage();", id: "uploadImage" %>
 		</div>
@@ -36,9 +36,21 @@
 			<h3>Qual seu apelido? escolha um bacana :)</h3>
 			<p>Será usado apenas para formar sua URL personalizada :)</p>
 			<%= f.text_field :nick, class: "idea-creation idea-creation tags-creation" %>
+			<h3>Nome</h3>
+			<p>Eu sei que voce tem um nome</p>
+			<%= f.text_field :first_name, class: "idea-creation tags-creation" %>
+			<h3>Sobrenome</h3>
+			<p>É, dizem que herdamos isso!</p>
+			<%= f.text_field :last_name, class: "idea-creation tags-creation" %>
 			<h3>Email</h3>
 			<p>Coloque o seu email aqui. E não se preocupe, não enviamos span !!11!!</p>
 			<%= f.text_field :email, class: "idea-creation tags-creation" %>
+			<h3>Senha</h3>
+			<p>Se nao quiser mudar nao precisa, apenas deixe em branco.</p>
+			<%= f.password_field :password, class: "idea-creation tags-creation" %>
+			<h3>Validacao</h3>
+			<p>Infelizmente isso é necessário.</p>
+			<%= f.password_field :password_confirmation, class: "idea-creation tags-creation" %>
 			<h3>Hmm. conte-me mais</h3>
 			<p>Liberte-se, abra as suas asas :)</p>
 				<%= f.text_area :about, class: "idea-creation idea-creation-description" %>
