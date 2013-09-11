@@ -1,15 +1,14 @@
 <div class="container_12">
     <div class="grid_8 slider">
         <div class="grid_8 wrapper carrousel">
-            <a href="idea-profile.html"><img src=
-                "assets/slider-image.png" /></a>
+           <%= image_tag(@yuph.image.url(:medium)) %>
             <!-- slider images -->
         </div>
         <div class="clear"></div>
         <div class=
             "grid_8 wrapper big-ideas-description fix-border">
             <h1>
-                <a href="idea-profile.html">Lorem Ipsum</a>
+                <a href="idea-profile.html"><%= @yuph.name %></a>
             </h1>
             <!-- idea title -->
             <div class="clear"></div>
@@ -19,7 +18,7 @@
             </div>
             <div class="grid_5">
                 <p>
-                    Lorem Ipsum
+                   <%= @yuph.mini_description %>
                 </p>
             </div>
             <!-- idea min-description -->
@@ -73,61 +72,19 @@
     <div class="clear"></div>
 </div>
 <div class="container_12 idea-row">
+	<% @ideas.each do |idea| %>
     <div class="grid_3 wrapper min-idea">
         <div class="green-line"></div>
-        <a href=
-            "idea-profile.html"><img src="assets/idea-1.png" class=
-            "idea-portrait" /></a>
+        <%= link_to image_tag(idea.image.url(:thumb)), idea_path(idea) %>
         <h2>
-            Lorem Ipsum
-        </h2>
-        <!-- IDEA NAME -->
-        <p>
-            Lorem ipsum
-        </p>
-        <!-- MINI DESCRIPTION -->
-        <div class="red-line"></div>
-    </div>
-    <div class="grid_3 wrapper min-idea">
-        <div class="green-line"></div>
-        <a href=
-            "idea-profile.html"><img src="assets/idea-2.png" class=
-            "idea-portrait" /></a>
-        <h2>
-            Lorem Ipsum
+            <%= idea.name %>
         </h2>
         <p>
-            Lorem ipsum
+            <%= idea.mini_description %>
         </p>
         <div class="red-line"></div>
     </div>
-    <div class="grid_3 wrapper min-idea">
-        <div class="green-line"></div>
-        <a href=
-            "idea-profile.html"><img src="assets/idea-3.png" class=
-            "idea-portrait" /></a>
-        <h2>
-            Lorem Ipsum
-        </h2>
-        <p>
-            lorem ipsum
-        </p>
-        <div class="red-line"></div>
-    </div>
-    <div class="grid_3 wrapper min-idea omega">
-        <!-- THE LAST MUST BE OMEGA -->
-        <div class="green-line"></div>
-        <a href=
-            "idea-profile.html"><img src="assets/idea-4.png" class=
-            "idea-portrait" /></a>
-        <h2>
-            Lorem ipsum
-        </h2>
-        <p>
-            Lorem ipsum
-        </p>
-        <div class="red-line"></div>
-    </div>
+	<% end %>
 </div>
 <div class="clear">
     <div class="container_12 idea-row">
