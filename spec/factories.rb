@@ -8,7 +8,7 @@ FactoryGirl.define do
     f.sequence(:nick) {|n| "victor-antoniazzi-complex-#{n}" }
     f.sequence(:email) {|n| "person-complex#{n}@example.com" }
     f.password "pass12345"
-    f.image "test"
+    f.image_file_name "test.jpg"
     f.about "hi, i am a softaew developer"
     f.local "Pelotas - RS"
     f.website "www.victorantoniazzi.com.br"
@@ -17,7 +17,7 @@ FactoryGirl.define do
   end
   factory :idea do
     name "art in vinil"
-    image "iuaehiuae.jpg"
+    image_file_name "yuph.png"
     mini_description "arte no vinil"
     description "arte no vinil"
   end
