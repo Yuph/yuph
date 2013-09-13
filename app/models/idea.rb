@@ -1,8 +1,6 @@
 class Idea < ActiveRecord::Base
   attr_accessor :image_content_type
 
-  scope :last_four, -> {self.last(4)}
-
   has_many :idea_admins
   has_many :users, through: :idea_admins
   has_many :idea_comments
@@ -26,7 +24,9 @@ class Idea < ActiveRecord::Base
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 
   validates_attachment :image, :presence => true,
-                             :content_type => { :content_type => /^image\/(png|gif|jpeg)/ } if Rails.env != "test"
+     :content_type => { :content_type => /^image\/(png|gif|jpeg)/ } if Rails.env != "test"
+
+  scope :last_four, -> {self.last(4)}
 
   def can_managed_by(user)
     if self.users.where("user_id = ?", user.id).first
