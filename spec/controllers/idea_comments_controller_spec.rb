@@ -3,6 +3,7 @@ require 'spec_helper'
 describe IdeaCommentsController do
 	context "Actions" do
     	before do
+            @request.env['HTTP_REFERER'] = 'http://test.com/'
       		@user = FactoryGirl.create(:user)
       		session[:user] = @user.id
       		@idea = FactoryGirl.create(:idea)
