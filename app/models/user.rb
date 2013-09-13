@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
 
   validates_attachment :image, :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
 
+  def following_id(idea)
+      self.follows.where('idea_id = ?', idea.id).first.id
+  end
+
   def set_hash
     if (!self.password.blank?)
       self.access_token = Digest::SHA1.hexdigest("thisissecret#"+self.password)
@@ -42,8 +46,5 @@ class User < ActiveRecord::Base
 
   def self.login(email, password)
     where("email = ? and access_token = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
-  end
-  def following_id(idea)
-      self.follows.where('idea_id = ?', idea.id).first.id
   end
 end
