@@ -7,14 +7,14 @@
 				<%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
 				<br>
 				<br>
-				<% if @idea.followers.where('user_id = ?', @user.id).blank? %>
+				<% if following? %>
 				<form action="/follows/" method="POST">
 					<input type="hidden" name="follow[idea_id]" value="<%= @idea.id %>" />
 					<%= token_tag nil %>
 					<button class="green-button big-button" id="follow-button">seguir</button>
 				</form>
 				<% else %>
-					<%= button_to "deixar", follow_path(@idea.follows.where('user_id = ?', @user.id).last.id), :method => "delete", class: "green-button big-button"  %>
+					<%= button_to "deixar", follow_path(@user.following_id @idea), :method => "delete", class: "green-button big-button"  %>
 				<% end %>
 			</div>
 			<div class="profile-title">
