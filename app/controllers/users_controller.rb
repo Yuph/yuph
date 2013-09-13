@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :set_user, :only => [:edit, :update, :destroy]
-  skip_before_filter :authenticate, :only => [:new, :create]
+  skip_before_filter :authenticate, :only => [:new, :create, :show]
 
   def index
   end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @session_user = User.find(session[:user])
+    @session_user = User.find(session[:user]) if session[:user]
     @user = User.find(params[:id])
   end
 
