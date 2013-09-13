@@ -43,4 +43,7 @@ class User < ActiveRecord::Base
   def self.login(email, password)
     where("email = ? and access_token = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
   end
+  def following_id(idea)
+      self.follows.where('idea_id = ?', idea.id).first.id
+  end
 end
