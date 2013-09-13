@@ -14,7 +14,7 @@ class FollowsController < ApplicationController
       end
     else
       respond_with(@follow.errors, :status => :unprocessable_entity) do |format|
-        format.html { render :action => :new }
+        format.html { render :new }
       end
     end
   end
