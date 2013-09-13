@@ -1,5 +1,6 @@
 class IdeaCommentsController < ApplicationController
   before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
   end
@@ -8,9 +9,13 @@ class IdeaCommentsController < ApplicationController
     set_session_user
     @idea_comment = @user.idea_comments.build(idea_comment_params)
     if @idea_comment.save
-      redirect_to @idea_comment, notice: "Succefully created !"
+    respond_with(@idea_comment, :status => :created) do |format|
+        format.html { redirect_to :back, notice: "Succefully created !" }
+      end
     else
-      render :new
+      respond_with(@idea_comment.errors, :status => :unprocessable_entity) do |format|
+          format.html { render :new }
+      end
     end
   end
 
@@ -35,7 +40,9 @@ class IdeaCommentsController < ApplicationController
 
   def destroy
     @idea_comment.destroy
-    redirect_to :action => "index"
+    respond_with(@idea_comment, :status => :deleted) do |format|
+      format.html { redirect_to :back, notice: "Succefully Destroyed !" }
+    end
   end
 
   def set_idea_comment
