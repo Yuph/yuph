@@ -13,25 +13,27 @@
 					<%= token_tag nil %>
 					<button class="green-button big-button" id="follow-button">seguir</button>
 				</form>
-				<% else %>
+				<% elsif logged? %>
 					<%= button_to "deixar", follow_path(@user.following_id @idea), :method => "delete", class: "green-button big-button"  %>
 				<% end %>
 			</div>
 			<div class="profile-title">
-				<h1><!--idea name -->Lorem Ipsum</h1>
-				<p>por <a href="user-profile.html"><span><!--username -->bytejumper</span></p></a>
+				<h1><%= @idea.name %></h1>
+				<p>por <%= image_tag("user-default.jpg", class: "user-portrait") %><span><!--username -->bytejumper</span></p></a>
 			</div>
 			<div class="hashtags">
-				<a href="">#lorem</a><a href="">#ipsum</a>
+				<!-- <a href="">#lorem</a><a href="">#ipsum</a> -->
 			</div>
 			<div class="facebook-share">
 				<div class="fb-like" data-href="http://yuph.net" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div> <!-- precisa da aplicação criada e do script fornecido pelo facebook -->
 			</div>
 		</div>
+		<% if logged? && @idea.can_managed_by(@user) %>
 		<button class="small-button red-button edit-idea">editar</button>
+		<% end %>
 		<br>
 		<br>
-		<p><!-- idea description -->Lorem ipsum, lorem ipsum.</p>
+		<p><%= @idea.description %></p>
 		<br>
 		<br>
 		<div class="embed-video">
@@ -44,27 +46,39 @@
 		</div>
 		<div class="grid_4 wrapper omega">
 			<div class="messages">
+				<% @idea.idea_comments.reverse.each do |comment| %>
 				<div class="profile-messages">
 					<div class="image-profile-title grid_1 comment-left">
-						<a href="user-profile.html"><img src="assets/user-profile.png" class="user-portrait"></a>
-						<span><!-- usernanme -->bytejumper</span>
+						<%= link_to image_tag(comment.user.image.url(:thumb), class: "user-portrait"), user_path(comment.user) %>
+						<span><%= comment.user.nick %></span>
 					</div>
 					<div class="comment-body">
-						<p>Comment comment comment comment comment comment comment</p>
+						<p><%= comment.title %></p>
+						<p><%= comment.message %></p>
 					</div>
 					<div class="comment-bottom">
-						<img src="assets/block.png">
+						<% if logged? %>
+					<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: 'Are you sure?' }, :method=>:delete if comment.can_managed_by(@user)%>
+					<% end %>
 					</div>
 				</div>
+				<br/>
+				<% end %>
 			</div>
+			<% if logged? %>
 			<div class="profile-comment-form">
-				<textarea name="idea-description" class="idea-creation comment-form-idea" placeholder="Envie um comentário..."></textarea>
-				<br>
-				<div class="comment-options">
-					<input type="checkbox" name="" value=""><label>privado</label>
-					<button class="red-button small-button">enviar</button>
-				</div>
+			<form action="/idea_comments/" method="POST">
+			<%= token_tag nil %>
+			<input type="text" name="idea_comment[title]" placeholder="Título">
+			<input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
+			<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="Envie um comentário..."></textarea>
+			<br>
+			<div class="comment-options">
+			<button class="red-button small-button">enviar</button>
 			</div>
+			</form>
+			</div>
+			<% end %>
 		</div>
 	</div>
 	<div class="clear"></div>
