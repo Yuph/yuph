@@ -16,7 +16,7 @@ describe IdeaCommentsController do
     		end
     		it "Fail" do
     			post :create, idea_comment: FactoryGirl.attributes_for(:idea_comment, message: "", idea_id: @idea.id)
-    			expect(response).to render_template(:new)
+    			expect(response).to redirect_to :back
     		end
     	end
     	context "#DELETE" do

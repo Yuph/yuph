@@ -18,7 +18,7 @@ describe UserCommentsController do
       end
       it "Fail" do
         post :create, user_comment: FactoryGirl.attributes_for(:user_comment, title: "", comment_receiver_id: @user_two.id)
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to :back
       end
     end
     context "#DELETE" do
