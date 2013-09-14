@@ -1,9 +1,6 @@
 class IdeaCommentsController < ApplicationController
-  before_filter :set_idea_comment, :only => [:edit, :update, :destroy]
+  before_filter :set_idea_comment, :only => [:destroy]
   respond_to :html, :json
-
-  def index
-  end
 
   def create
     set_session_user
@@ -19,25 +16,6 @@ class IdeaCommentsController < ApplicationController
     end
   end
 
-  def show
-    @idea_comment = IdeaComment.find(params[:id])
-  end
-
-  def new
-    @idea_comment = IdeaComment.new
-  end
-
-  def edit
-  end
-
-  def update
-    if  @idea_comment.update_attributes(idea_comment_params)
-      redirect_to @idea_comment, notice: "Updated"
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @idea_comment.destroy
     respond_with(@idea_comment, :status => :deleted) do |format|
@@ -49,7 +27,7 @@ class IdeaCommentsController < ApplicationController
     set_session_user
     @idea_comment = IdeaComment.find(params[:id])
     if !@idea_comment.can_managed_by(@user)
-      redirect_to action: :index
+      redirect_to :back
     end
   end
 

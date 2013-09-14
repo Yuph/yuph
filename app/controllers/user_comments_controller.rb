@@ -1,9 +1,6 @@
 class UserCommentsController < ApplicationController
-  before_filter :set_user_comment, :only => [:edit, :update, :destroy]
+  before_filter :set_user_comment, :only => [:destroy]
   respond_to :html, :json
-
-  def index
-  end
 
   def create
     set_session_user
@@ -19,25 +16,6 @@ class UserCommentsController < ApplicationController
     end
   end
 
-  def show
-    @user_comment = UserComment.find(params[:id])
-  end
-
-  def new
-    @message = Message.new
-  end
-
-  def edit
-  end
-
-  def update
-    if  @user_comment.update_attributes(user_comment_params)
-      redirect_to @user_comment, notice: "Updated"
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @user_comment.destroy
     respond_with(@user_comment, :status => :deleted) do |format|
@@ -49,7 +27,7 @@ class UserCommentsController < ApplicationController
     set_session_user
     @user_comment = UserComment.find(params[:id])
     if !@user_comment.can_managed_by(@user)
-      redirect_to action: :index
+      redirect_to :back
     end
   end
 

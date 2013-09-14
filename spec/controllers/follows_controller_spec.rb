@@ -10,16 +10,6 @@ describe FollowsController do
       		session[:user] = @user.id
       		@idea = FactoryGirl.create(:idea)
     	end
-    	context "#GET" do
-    		it "Render 'new' template" do
-    			get :new
-    			expect(response).to render_template(:new)
-    		end
-    		it "Show admin_ideas" do
-    			post :create, follow: FactoryGirl.attributes_for(:follow, idea_id: @idea.id)
-    			get :show, id: Follow.last.id
-    		end
-    	end
     	context "#POST" do
     		it "Succefully" do
     			expect{
@@ -28,24 +18,7 @@ describe FollowsController do
     		end
     		it "Fail" do
     			post :create, follow: FactoryGirl.attributes_for(:follow, idea_id: "")
-    			expect(response).to render_template(:new)
-    		end
-    	end
-    	context "#PUT" do
-    		it "Succefully" do
-    		  post :create, follow: FactoryGirl.attributes_for(:follow, idea_id: @idea.id)
-		      follow = Follow.last
-          idea = FactoryGirl.create(:idea)
-		      put :update, id: follow.id, follow: FactoryGirl.attributes_for(:follow, idea_id: idea.id)
-		      follow.reload
-		      expect(follow.idea).to eql(idea)
-          expect(follow.idea).to_not eql(@idea)
-    		end
-    		it "Fail" do
-    		  post :create, follow: FactoryGirl.attributes_for(:follow, idea_id: @idea.id)
-		      follow = Follow.last
-		      put :update, id: follow.id, follow: FactoryGirl.attributes_for(:follow, idea_id: "")
-		      expect(response).to render_template(:edit)
+    			expect(response).to redirect_to(:back)
     		end
     	end
     	context "#DELETE" do

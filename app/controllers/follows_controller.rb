@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-  before_filter :set_follow, :only => [:edit, :update, :destroy]
+  before_filter :set_follow, :only => [:destroy]
   respond_to :html, :json
 
   def index
@@ -14,27 +14,8 @@ class FollowsController < ApplicationController
       end
     else
       respond_with(@follow.errors, :status => :unprocessable_entity) do |format|
-        format.html { render :new }
+        format.html { redirect_to :back }
       end
-    end
-  end
-
-  def show
-    @follow = Follow.find(params[:id])
-  end
-
-  def new
-    @follow = Follow.new
-  end
-
-  def edit
-  end
-
-  def update
-    if  @follow.update_attributes(follow_params)
-      redirect_to @follow, notice: "Updated"
-    else
-      render :edit
     end
   end
 
@@ -49,7 +30,7 @@ class FollowsController < ApplicationController
     set_session_user
     @follow = Follow.find(params[:id])
     if @follow.user != @user
-      redirect_to action: :index
+      redirect_to :back
     end
   end
 

@@ -10,17 +10,6 @@ describe UserCommentsController do
       @user_two = FactoryGirl.create(:user, email: "teste@teste.com")
       session[:user] = @user.id
     end
-    context "#GET" do
-      it "Render 'new' template" do
-        get :new
-        expect(response).to render_template(:new)
-      end
-      it "get one ..." do
-        post :create, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id)
-        get :show, id: UserComment.last.id
-        expect(response).to render_template(:show)
-      end
-    end
     context "#POST" do
       it "Succefully" do
         expect{
@@ -30,21 +19,6 @@ describe UserCommentsController do
       it "Fail" do
         post :create, user_comment: FactoryGirl.attributes_for(:user_comment, title: "", comment_receiver_id: @user_two.id)
         expect(response).to render_template(:new)
-      end
-    end
-    context "#PUT" do
-      it "Succefully" do
-        post :create, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id)
-        user_comment = UserComment.last
-        put :update, id: user_comment.id, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id, title: "changed")
-        user_comment.reload
-        expect(user_comment.title).to eql("changed")
-      end
-      it "Fail" do
-        post :create, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id)
-        user_comment = UserComment.last
-        put :update, id: user_comment.id, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id, title: "")
-        expect(response).to render_template(:edit)
       end
     end
     context "#DELETE" do

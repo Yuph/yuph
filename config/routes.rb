@@ -10,16 +10,16 @@ Yuph::Application.routes.draw do
   resources :ideas
 
   # Follows Controller
-  resources :follows
+  resources :follows, only: [:create, :destroy]
 
   # Messages Controller
   resources :messages
 
   # User comments controller
-  resources :user_comments
+  resources :user_comments, only:[:create, :destroy]
 
   # Idea Comments controller
-  resources :idea_comments
+  resources :idea_comments, only:[:create, :destroy]
 
   # Idea Admins controller
   resources :idea_admins

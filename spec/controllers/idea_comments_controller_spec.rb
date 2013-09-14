@@ -8,17 +8,6 @@ describe IdeaCommentsController do
       		session[:user] = @user.id
       		@idea = FactoryGirl.create(:idea)
     	end
-    	context "#GET" do
-    		it "Render 'new' template" do
-    			get :new
-    			expect(response).to render_template(:new)
-    		end
-    		it "Show one idea comment" do
-    			post :create, idea_comment: FactoryGirl.attributes_for(:idea_comment, idea_id: @idea.id)
-    			idea_comment = IdeaComment.last
-    			get :show, id:idea_comment.id
-    		end
-    	end
     	context "#POST" do
     		it "Succefully" do
     			expect{
@@ -28,21 +17,6 @@ describe IdeaCommentsController do
     		it "Fail" do
     			post :create, idea_comment: FactoryGirl.attributes_for(:idea_comment, message: "", idea_id: @idea.id)
     			expect(response).to render_template(:new)
-    		end
-    	end
-    	context "#PUT" do
-    		it "Succefully" do
-    		  post :create, idea_comment: FactoryGirl.attributes_for(:idea_comment, idea_id: @idea.id)
-		      idea_comment = IdeaComment.last
-		      put :update, id: idea_comment.id, idea_comment: FactoryGirl.attributes_for(:idea_comment, idea_id: @idea.id, title: "changed")
-		      idea_comment.reload
-		      expect(idea_comment.title).to eql("changed")
-    		end
-    		it "Fail" do
-    		  post :create, idea_comment: FactoryGirl.attributes_for(:idea_comment, idea_id: @idea.id)
-		      idea_comment = IdeaComment.last
-		      put :update, id: idea_comment.id, idea_comment: FactoryGirl.attributes_for(:idea_comment, message: "", idea_id: @idea.id, title: "changed")
-		      expect(response).to render_template(:edit)
     		end
     	end
     	context "#DELETE" do
