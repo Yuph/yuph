@@ -49,7 +49,7 @@
 				<% @idea.idea_comments.reverse.each do |comment| %>
 				<div class="profile-messages">
 					<div class="image-profile-title grid_1 comment-left">
-						<%= link_to image_tag(comment.user.image.url(:thumb), class: "user-portrait"), user_path(comment.user) %>
+						<%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
 						<span><%= comment.user.nick %></span>
 					</div>
 					<div class="comment-body">
