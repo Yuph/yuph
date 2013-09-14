@@ -10,8 +10,8 @@ class IdeaCommentsController < ApplicationController
         format.html { redirect_to :back, notice: "Succefully created !" }
       end
     else
-      respond_with(@idea_comment.errors, :status => :unprocessable_entity) do |format|
-          format.html { render :new }
+      respond_with(@idea_comment, :status => :unprocessable_entity) do |format|
+          format.html { redirect_to :back }
       end
     end
   end
