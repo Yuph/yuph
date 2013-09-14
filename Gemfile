@@ -45,6 +45,10 @@ end
 gem 'paperclip'
 gem 'aws-sdk'
 
+# Facebook Login
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
