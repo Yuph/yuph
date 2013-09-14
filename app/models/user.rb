@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   validates :nick, presence: :true, :uniqueness => true
   validates :password, :length => 6..20, confirmation: true, :if => Proc.new{ self.password != self.password_confirmation }
-  validates_presence_of :password, :if => Proc.new{ self.new_record? }
+  validates_presence_of :password, :if => Proc.new{ self.new_record? && access_token.blank? }
   validates :email, presence: :true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   has_attached_file :image,
@@ -38,13 +38,28 @@ class User < ActiveRecord::Base
       self.follows.where('idea_id = ?', idea.id).first.id
   end
 
-  def set_hash
-    if (!self.password.blank?)
-      self.access_token = Digest::SHA1.hexdigest("thisissecret#"+self.password)
+  def profile_image
+    if !self.image_file_name.blank? && self.image_file_name.include?("graph.facebook")
+      "http://graph.facebook.com/#{self.uid}/picture?width=300&height=300"
+    else
+      self.image.url(:thumb)
     end
   end
 
+  def set_hash
+    if (!self.password.blank?)
+      self.access_token_login = Digest::SHA1.hexdigest("thisissecret#"+self.password)
+    end
+  end
+
+  def self.find_or_create_with_omniauth(auth)
+      user = self.find_or_create_by_provider_and_uid(auth.provider, auth.uid)
+      user.assign_attributes({ nick: auth.info.name, email: auth.info.email, image_file_name: auth.info.image, access_token: auth.credentials.token })
+      user.save!
+      user
+    end
+
   def self.login(email, password)
-    where("email = ? and access_token = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
+    where("email = ? and access_token_login = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
   end
 end

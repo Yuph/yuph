@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nick
       t.string :first_name
       t.string :last_name
-      t.string :access_token
+      t.string :access_token_login
       t.string :email
       t.string :image_file_name
       t.text :about
@@ -12,6 +12,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :website
       t.string :facebook
       t.string :twitter
+      # Facebook Login
+      t.string :access_token
+      t.string :uid
+      t.string :provider
 
       t.timestamps
     end

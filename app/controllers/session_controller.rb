@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  skip_before_filter :authenticate, only: [:index, :login]
+  skip_before_filter :authenticate, :all
 
   def index
     @yuph = Idea.find(1)
@@ -15,6 +15,18 @@ class SessionController < ApplicationController
       flash[:notice] = "Credentials failure"
       redirect_to action: :index
     end
+  end
+
+  def facebook_login_successfuly
+    auth = request.env["omniauth.auth"]
+    user = User.find_or_create_with_omniauth(auth)
+    puts user.email
+    session[:user] = user.id
+    redirect_to user_path(user)
+  end
+
+  def facebook_login_failure
+    redirect_to :back
   end
 
   def logout

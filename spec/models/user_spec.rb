@@ -43,7 +43,7 @@ describe User do
     it "getting my hash" do
       User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
       user = User.last
-      expect(user.access_token).to eql("3b3de67e92efc05a96b7b40b450bcd179040c4f9")
+      expect(user.access_token_login).to eql("3b3de67e92efc05a96b7b40b450bcd179040c4f9")
     end
   end
   context "login" do

@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.string   "nick"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "access_token"
+    t.string   "access_token_login"
     t.string   "email"
     t.string   "image_file_name"
     t.text     "about"
@@ -135,6 +135,9 @@ ActiveRecord::Schema.define(version: 20130822145418) do
     t.string   "website"
     t.string   "facebook"
     t.string   "twitter"
+    t.string   "access_token"
+    t.string   "uid"
+    t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
