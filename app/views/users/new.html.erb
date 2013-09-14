@@ -44,9 +44,9 @@
 			<%= f.text_field :email %>
 		</div>
 		<div class="create-account-buttons">
-			<div style="float: left;"><button type="submit" class="fb-button">Facebook</button></div>
 			<div style="float: right;"><button type="submit" class="big-button red-button">criar minha conta</button></div>
+			<% end %>
+			<div style="float: left;"><form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form></div>
 		</div>
 	</div>
 </div>
-<% end %>
