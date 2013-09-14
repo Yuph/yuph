@@ -49,6 +49,10 @@ gem 'aws-sdk'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# web: Unicorn
+gem 'unicorn'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
