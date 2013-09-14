@@ -34,4 +34,9 @@ Yuph::Application.routes.draw do
   get 'login' => 'session#index'
   post 'login' => 'session#login'
   get 'logout' => 'session#logout'
+
+
+  # Facebook Login
+  get "/auth/:provider/callback" => "session#facebook_login_successfuly", as: :auth_callback
+  get "/auth/failure" => "session#facebook_login_failure", as: :auth_failure
 end
