@@ -10,6 +10,7 @@ class IdeasController < ApplicationController
     set_session_user
     @idea = Idea.create(idea_params)
     if !@idea.new_record? && @idea.users << @user && @idea.save
+      Forum.create(idea: @idea)
       redirect_to @idea, notice: "Succefully created !"
     else
       render :new

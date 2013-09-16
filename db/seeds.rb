@@ -10,3 +10,4 @@ user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", 
 idea = Idea.create(name: "Yuph", mini_description: "Brainstorming de ideias", description: "Junte-se a nós", image_file_name: "/assets/yuph.png")
 idea.users << user
 idea.save!
+Forum.create!(idea: idea)

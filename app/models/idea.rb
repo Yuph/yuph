@@ -23,8 +23,8 @@ class Idea < ActiveRecord::Base
     :s3_permissions => 'public-read',
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 
-  validates_attachment :image, :presence => true,
-     :content_type => { :content_type => /^image\/(png|gif|jpeg)/ } if Rails.env != "test"
+  #validates_attachment :image, :presence => true,
+     #:content_type => { :content_type => /^image\/(png|gif|jpeg)/ } if Rails.env != "test"
 
   scope :last_four, -> {self.last(4)}
 
