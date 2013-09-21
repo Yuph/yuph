@@ -8,7 +8,7 @@ class PostCommentsController < ApplicationController
     set_session_user
     @post_comment = @user.post_comments.build(post_comment_params)
     if @post_comment.save
-      redirect_to @post_comment, notice: "Succefully created !"
+      redirect_to :back, notice: "Succefully created !"
     else
       render :new
     end
@@ -35,7 +35,7 @@ class PostCommentsController < ApplicationController
 
   def destroy
     @post_comment.destroy
-    redirect_to :action => "index"
+    redirect_to :back
   end
 
   def set_post_comment
