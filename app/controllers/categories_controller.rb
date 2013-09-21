@@ -8,10 +8,10 @@ class CategoriesController < ApplicationController
   def create
     set_session_user
     @category = @forum.categories.build(category_params)
-    if @category.save
-      redirect_to @category, notice: "Succefully created !"
+    if @category.save!
+      redirect_to :back, notice: "Succefully created !"
     else
-      render :new
+      redirect_to :back, notice: "Succefully created !"
     end
   end
 
@@ -36,14 +36,14 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to :action => "index"
+    redirect_to :back
   end
 
   def set_category
     set_session_user
     @category = Category.find(params[:id])
     if !@category.can_managed_by(@user)
-      redirect_to action: :index
+      redirect_to :back, notice: "fails created !"
     end
   end
 
@@ -51,7 +51,7 @@ class CategoriesController < ApplicationController
     set_session_user
     @forum = Forum.find(params[:category][:forum_id])
     if !@forum.can_managed_by(@user)
-      redirect_to action: :index
+      redirect_to :back, notice: "fails created !"
     end
   end
 

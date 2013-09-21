@@ -7,10 +7,10 @@ class PostsController < ApplicationController
   def create
     set_session_user
     @post = @user.posts.build(post_params)
-    if @post.save
-      redirect_to @post, notice: "Succefully created !"
+    if @post.save!
+      redirect_to :back, notice: "Criado com sucesso !"
     else
-      render :new
+      redirect_to :back, notice: "Houve um problema!"
     end
   end
 
@@ -35,14 +35,14 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to :action => "index"
+    redirect_to :back
   end
 
   def set_post
     set_session_user
     @post = Post.find(params[:id])
     if !@post.can_managed_by(@user)
-      redirect_to action: :index
+      redirect_to :back, notice: "Não possui permissão"
     end
   end
 
