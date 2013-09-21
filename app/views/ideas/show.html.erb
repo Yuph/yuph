@@ -19,7 +19,7 @@
 			</div>
 			<div class="profile-title">
 				<h1><%= @idea.name %></h1>
-				<p>por <%= image_tag("user-default.jpg", class: "user-portrait") %><span><!--username -->bytejumper</span></p></a>
+				<p>por <%= image_tag(@idea.users.first.image.url(:thumb), class: "user-portrait") %><span><%= @idea.users.first.nick %></span></p></a>
 			</div>
 			<div class="hashtags">
 				<!-- <a href="">#lorem</a><a href="">#ipsum</a> -->
@@ -118,21 +118,30 @@
 							<button class="green-button small-button forum-button" id="new-post-button">novo post</button>
 							<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
 						</div>
+
 						<div id="new-post">
 							<a class="close-new-input">x</a>
 							<br>
-							<input type="text" id="new-post-input">
+							<form action="/posts/" method="POST">
+							<%= token_tag nil %>
+							<input type="text" name="post[title]" placeholder="Título" id="new-post-input">
+							<input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
+							<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
 							<button class="red-button small-button">ok</button>
+							</form>
 						</div>
 						<div id="new-category">
 							<a class="close-new-input">x</a>
 							<br>
-							<input type="text" id="new-category-input">
+							<form action="/categories/" method="POST">
+							<%= token_tag nil %>
+							<input type="text" name="category[title]" placeholder="Título" id="new-post-input">
+							<input type="text" name="category[description]" placeholder="Mensagem" id="new-post-input">
+							<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
 							<button class="red-button small-button">ok</button>
+							</form>
 				</div>
 					</aside>
-
-
 
 					<div class="forum-content">
 						<% @idea.forum.categories.each do |category| %>
