@@ -52,6 +52,8 @@ gem 'omniauth-facebook'
 # web: Unicorn
 gem 'unicorn'
 
+gem 'google-analytics-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
