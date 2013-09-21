@@ -115,9 +115,21 @@
 
 						<br>
 						<div class="forum-buttons">
-							<button class="green-button small-button forum-button">novo post</button>
-							<button class="green-button small-button forum-button">nova categoria</button>
+							<button class="green-button small-button forum-button" id="new-post-button">novo post</button>
+							<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
 						</div>
+						<div id="new-post">
+							<a class="close-new-input">x</a>
+							<br>
+							<input type="text" id="new-post-input">
+							<button class="red-button small-button">ok</button>
+						</div>
+						<div id="new-category">
+							<a class="close-new-input">x</a>
+							<br>
+							<input type="text" id="new-category-input">
+							<button class="red-button small-button">ok</button>
+				</div>
 					</aside>
 
 
@@ -143,7 +155,6 @@
 							<% post.post_comments.each do |post_comment| %>
 							<div class="post-comment">
 								<div class="post-comment-left">
-									<div class="comment-line-gray"></div>
 									<img src="" class="user-portrait">
 									<br>
 									<span class="username"><%= post_comment.user.name  %></span>

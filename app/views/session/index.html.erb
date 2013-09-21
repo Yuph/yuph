@@ -1,66 +1,76 @@
 <div class="container_12">
-    <div class="grid_8 slider">
-        <div class="grid_8 wrapper carrousel">
-           <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
-            <!-- slider images -->
+    <% if logged? %>
+        <div class="grid_12 wrapper big-slider slider">
+            <ul>
+                <li class='active first'>
+                    <div class="grid_12  slider-portrait">
+                        <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="grid_1"><button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button></div>
+                    <div class="grid_10">
+                        <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
+                        <p><%= @yuph.mini_description %><p>
+                        </div> 
+                        <div class="grid_1"><button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button></div>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="clear"></div>
-        <div class=
-            "grid_8 wrapper big-ideas-description fix-border">
-            <h1>
-                <%= link_to @yuph.name, idea_path(@yuph) %></a>
-            </h1>
-            <!-- idea title -->
+    <% else %>
+        <div class="grid_8 slider">
+            <ul>
+                <li class='active first'>
+                    <div class="grid_8 wrapper slider-portrait">
+                        <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="grid_8 wrapper big-ideas-description fix-border">
+                            <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
+                        <div class="clear"></div>
+                        <div class="grid_1 omega"><button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button></div>
+                        <div class="grid_5"><p><%= @yuph.mini_description %><p></div> 
+                        <div class="grid_1 push_1 alpha"><button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- LOGIN AREA -->
+        <div class="grid_4 omega wrapper main-login">
+            <div>
+                <h1>
+                    Entre na Yuph!
+                </h1>
+            </div>
+            <div class="main-form">
+        		<form name="login" action="/login" method="POST">
+                	<input type="text" name="user[email]" placeholder="Email" />
+        			<input type="password" name="user[password]" placeholder="senha" />
+        			<%= token_tag nil %>
+        			<input type="submit" value="login" />
+        		</form>
+                <div class="clear"></div>
+                <div class="fb-login-button">
+                    <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
+                </div>
+                <div class="clear"></div>
+                <br />
+            </div>
+        </div>
+        <div class="grid_4 omega wrapper main-login fix-border">
+            <div>
+                <h1>
+                    ou
+                </h1>
+            </div>
             <div class="clear"></div>
-            <div class="grid_1 omega">
-                <button class="arrow"><img src=
-                    "assets/arrow-left.png" /></button>
-            </div>
-            <div class="grid_5">
-                <p>
-                   <%= @yuph.mini_description %>
-                </p>
-            </div>
-            <!-- idea min-description -->
-            <div class="grid_1 push_1 alpha">
-                <button class="arrow"><img src=
-                    "assets/arrow-right.png" /></button>
-            </div>
-        </div>
-    </div>
-    <!-- LOGIN AREA -->
-    <div class="grid_4 omega wrapper main-login">
-        <div>
-            <h1>
-                Entre na Yuph!
-            </h1>
-        </div>
-        <div class="main-form">
-			<form name="login" action="/login" method="POST">
-            	<input type="text" name="user[email]" placeholder="Email" />
-				<input type="password" name="user[password]" placeholder="senha" />
-				<%= token_tag nil %>
-				<input type="submit" value="login" />
-			</form>
-            <div class="clear"></div>
-            <div class="fb-login-button">
-                <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
-            </div>
+        	<%= link_to 'Crie uma conta', new_user_path, class: "big-button red-button create-account" %>
             <div class="clear"></div>
             <br />
         </div>
-    </div>
-    <div class="grid_4 omega wrapper main-login fix-border">
-        <div>
-            <h1>
-                ou
-            </h1>
-        </div>
-        <div class="clear"></div>
-		<%= link_to 'Crie uma conta', new_user_path, class: "big-button red-button create-account" %>
-        <div class="clear"></div>
-        <br />
-    </div>
+    <% end %>
 </div>
 <div class="container_12">
     <div class="grid_4">

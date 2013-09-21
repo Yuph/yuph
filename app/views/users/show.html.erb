@@ -136,7 +136,7 @@
 		<% end %>
 
 		<% @user.following.limit(5).each do |idea| %>
-		<div class="grid_3 min-idea">
+		<div class="grid_3 min-idea min-idea-user">
 			<%= link_to image_tag(idea.image.url(:thumb), class: "idea-portrait-small"), idea_path(idea) %>
 			<h2><%= link_to idea.name, idea %></h2>
 			<p><%= idea.mini_description %></p>
