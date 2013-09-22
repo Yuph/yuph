@@ -48,11 +48,7 @@ class CategoriesController < ApplicationController
   end
 
   def set_forum
-    set_session_user
     @forum = Forum.find(params[:category][:forum_id])
-    if !@forum.can_managed_by(@user)
-      redirect_to :back, notice: "fails created !"
-    end
   end
 
   def category_params
