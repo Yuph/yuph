@@ -30,6 +30,12 @@ a {
 	border: solid 1px #b8b8b8;
 }
 
+.slider-wrapper {
+	background-color: #f4f4f4;
+	border: solid 1px #b8b8b8;
+	height: 478px;
+}
+
 
 h3 {
 	color: #2c2828;
@@ -48,6 +54,7 @@ h3 {
 	border-right: none;
 	border-bottom: none;
 }
+
 .big-ideas-description p {
 	font-family: Verdana;
 	font-size: 18pt;
@@ -267,10 +274,10 @@ h3 {
 }
 
 .slider-portrait, .slider-portrait img {
-	width: 620px;
+	width: 615px;
 	height: 300px;
+	border-bottom: solid 1px #b8b8b8;
 }
-
 .slider li {
 	display: none; 
 	list-style: none;
@@ -283,11 +290,13 @@ h3 {
 	position: relative;
 	overflow: hidden;
 }
-
 .big-slider .slider-portrait img {
-	border-bottom: 1px solid #bababa;
+	margin: 0;
 	padding-left: 0px;
-	width: 960px;
+	width: 940px;
+}
+.big-slider .slider-portrait {
+	border-bottom: 1px solid #bababa;
 }
 
 /* TOP PAGE */
@@ -434,6 +443,7 @@ h2 {
 .create-account {
 	font-size: 20pt;
 	margin-left: 50px;
+	margin-bottom: 35px;
 	float: left;
 }
 

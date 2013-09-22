@@ -1,38 +1,34 @@
 <div class="container_12">
     <% if logged? %>
-        <div class="grid_12 wrapper big-slider slider">
+        <div class="big-slider slider">
             <ul>
                 <li class='active first'>
-                    <div class="grid_12  slider-portrait">
+                    <div class="grid_12  wrapper slider-portrait">
                         <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
                     </div>
                     <div class="clear"></div>
-                    <div class="grid_1"><button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button></div>
-                    <div class="grid_10">
-                        <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
-                        <p><%= @yuph.mini_description %><p>
-                        </div> 
-                        <div class="grid_1"><button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button></div>
+                    <div class="wrapper grid_12 fix-border">
+                        <!--<div class="grid_1"><button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button></div>-->
+                        <div class="grid_10 big-ideas-description">
+                            <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
+                            <p><%= @yuph.mini_description %><p>
+                            </div> 
+                            <!--<div class="grid_1"><button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button></div>-->
+                        </div>
                     </div>
                 </li>
             </ul>
         </div>
     <% else %>
-        <div class="grid_8 slider">
-            <ul>
+        <div class="slider grid_8">
+            <ul class="slider-wrapper">
                 <li class='active first'>
-                    <div class="grid_8 wrapper slider-portrait">
+                    <div class="slider-portrait">
                         <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
                     </div>
-
-                    <div class="clear"></div>
-
-                    <div class="grid_8 wrapper big-ideas-description fix-border">
-                            <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
-                        <div class="clear"></div>
-                        <div class="grid_1 omega"><button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button></div>
-                        <div class="grid_5"><p><%= @yuph.mini_description %><p></div> 
-                        <div class="grid_1 push_1 alpha"><button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button></div>
+                    <div class="big-ideas-description fix-border">
+                        <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
+                        <p><%= @yuph.mini_description %></p>
                     </div>
                 </li>
             </ul>
