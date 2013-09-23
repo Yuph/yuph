@@ -1,3 +1,53 @@
+@font-face {
+    font-family: 'Dosis-ExtraLight';
+    src: url(font-path('Dosis-ExtraLight.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-ExtraLight.woff')) format('woff'), 
+         url(font-path('Dosis-ExtraLight.ttf'))  format('truetype'),
+         url(font-path('Dosis-ExtraLight.svg') + "#DosisExtraLight") format('svg');
+}
+@font-face {
+    font-family: 'Dosis-Light';
+    src: url(font-path('Dosis-Light.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-Light.woff')) format('woff'), 
+         url(font-path('Dosis-Light.ttf'))  format('truetype'),
+         url(font-path('Dosis-Light.svg') + "#DosisLight") format('svg');
+}
+@font-face {
+    font-family: 'Dosis-Medium';
+    src: url(font-path('Dosis-Medium.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-Medium.woff')) format('woff'), 
+         url(font-path('Dosis-Medium.ttf'))  format('truetype'),
+         url(font-path('Dosis-Medium.svg') + "#DosisMedium") format('svg');
+}
+@font-face {
+    font-family: 'Dosis-SemiBold';
+    src: url(font-path('Dosis-SemiBold.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-SemiBold.woff')) format('woff'), 
+         url(font-path('Dosis-SemiBold.ttf'))  format('truetype'),
+         url(font-path('Dosis-SemiBold.svg') + "#DosisSemiBold") format('svg');
+}
+@font-face {
+    font-family: 'Dosis-Bold';
+    src: url(font-path('Dosis-Bold.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-Bold.woff')) format('woff'), 
+         url(font-path('Dosis-Bold.ttf'))  format('truetype'),
+         url(font-path('Dosis-Bold.svg') + "#DosisBold") format('svg');
+}
+@font-face {
+    font-family: 'Dosis-ExtraBold';
+    src: url(font-path('Dosis-ExtraBold.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-ExtraBold.woff')) format('woff'), 
+         url(font-path('Dosis-ExtraBold.ttf'))  format('truetype'),
+         url(font-path('Dosis-ExtraBold.svg') + "#DosisBold") format('svg');
+}
+@font-face {
+    font-family: 'Dosis-Book';
+    src: url(font-path('Dosis-Book.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('Dosis-Book.woff')) format('woff'), 
+         url(font-path('Dosis-Book.ttf'))  format('truetype'),
+         url(font-path('Dosis-Book.svg') + "#DosisBook") format('svg');
+}
+
 body {
 	background-image: url("background.png");
 	margin: 0;
@@ -37,8 +87,7 @@ a {
 
 h3 {
 	color: #2c2828;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 500;
+	font-family: "Dosis-Light", sans-serif;
 	font-size: 25pt;
 	padding-left: 10px;
 }
@@ -61,8 +110,7 @@ h3 {
 
 .big-ideas-description h1 {
 	color: #de434a;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 800;
+	font-family: 'Dosis-Bold', sans-serif;
 	font-size: 26pt;
 	margin-left: 10px;
 }
@@ -83,8 +131,7 @@ h3 {
 
 .main-login h1 {
 	color: #2c2828;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 700;
+	font-family: 'Dosis-Book', sans-serif;
 	font-size: 26pt;
 	text-align: center;
 }
@@ -148,7 +195,7 @@ h3 {
 /* BUTTONS */
 
 .big-button {
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis-ExtraBold', sans-serif;
 	font-weight: 800;
 	font-size: 25pt;
 	height: 55px;
@@ -156,7 +203,7 @@ h3 {
 }
 
 .small-button {
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis-ExtraBold', sans-serif;
 	font-weight: 800;
 	font-size: 13pt;
 	height: 28px;
@@ -227,7 +274,7 @@ h3 {
 .fb-button {
 	text-align: center;
 	color: #ffffff;
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis-ExtraBold', sans-serif;
 	font-weight: 800;
 	font-size: 24pt;
 	height: 55px;
@@ -347,8 +394,7 @@ h3 {
 	text-align: left;
 	padding-left: 10px;
 	width: 400px;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 700;
+	font-family: 'Dosis-SemiBold', sans-serif;
 	font-size: 18pt;
 	background-color: #f4f4f4;
 	border: none;
@@ -414,8 +460,7 @@ h3 {
 
 .banner h1 {
 	color: #2c2828;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 600;
+	font-family: 'Dosis-ExtraLight', sans-serif;
 	font-size: 20pt;
 	margin-left: 20px;
 }
@@ -432,10 +477,13 @@ h3 {
 }
 
 h2 {
-	font-family: 'Dosis', sans-serif;
+	font-family: 'Dosis-Light', sans-serif;
 	font-size: 24pt;
-	font-weight: 700;
 	color: #2c2828;
+}
+
+.main-ideas {
+	margin-left: 35px;
 }
 
 .create-account {
@@ -487,13 +535,13 @@ h2 {
 
 .min-idea h2 {
 	font-family: Verdana, sans-serif;
-	font-size: 18pt;
+	font-size: 16pt;
 	font-weight: bold;
 }
 
 .min-idea p {
 	font-family: Verdana, sans-serif;
-	font-size: 14pt;
+	font-size: 11pt;
 	padding-left: 0px;
 }
 .min-idea img {
@@ -715,8 +763,7 @@ h4 {
 }
 
 .idea-submit-text h1 {
-	font-family: 'Dosis', sans-serif;
-	font-weight: 500;
+	font-family: 'Dosis-Light', sans-serif;
 	font-size: 30pt;
 }
 
@@ -783,14 +830,12 @@ h4 {
 	font-size: 18pt;
 	color: #555454;
 	font-style: normal;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 700;
+	font-family: 'Dosis-SemiBold', sans-serif;
 }
 
 .profile-messages {
 	width: 300px;
 }
-
 
 .edit-profile {
 	display: inline-block;
@@ -798,6 +843,10 @@ h4 {
 
 .profile-bio {
 	line-height: 3px;
+}
+
+.profile-bio h3 {
+	font-size: 18pt;
 }
 .profile-bio p {
 	font-size: 11pt;
@@ -837,10 +886,9 @@ h4 {
 	margin-left: 50px;
 }
 
-.activities span {
-	color: #75a248;
+.activities a, .activities a:visited {
+	color:#75a248;
 }
-
 .profile-bio span {
 	color: #75a248;
 }
@@ -862,7 +910,7 @@ h4 {
 }
 
 .profile-title h1 {
-	font-size: 30pt;
+	font-size: 24pt;
 	color: #2c2828;
 	line-height: 5px;
 }
@@ -877,6 +925,10 @@ h4 {
 	overflow: auto;
 }
 
+.messages h2 {
+	margin-left: 10px;
+	margin-top: 15px;
+}
 .activities {
 	padding-bottom: 50px;
 	height: 200px;
@@ -886,6 +938,7 @@ h4 {
 	text-decoration: none;
 }
 .activities-data {
+	color: #b8b8b8;
 	font-size: 9pt; 
 	float: right; 
 	margin-right: 10px;
@@ -991,6 +1044,15 @@ h4 {
 	padding-left: 5%;
 }
 
+.comment-body p {
+	font-size: 10pt;
+	margin-top: -11px;
+}
+
+.comment-body .title {
+	font-size: 12pt;
+	margin-top: 10px;
+}
 
 /* FORUM */
 
@@ -1015,7 +1077,6 @@ h4 {
 .forum-sidebar-title {
 	border-bottom: solid 1px #bababa;
 	height: 65px;
-	font-weight: 600;
 }
 
 .forum-sidebar-title h2 {
@@ -1044,8 +1105,7 @@ h4 {
 	border-bottom: solid 1px #bababa;
 	padding-bottom: 10px;
 	color: #2c2828;
-	font-family: 'Dosis', sans-serif;
-	font-weight: 500;
+	font-family: 'Dosis-Medium', sans-serif;
 	font-size: 20pt;
 }
 
@@ -1112,10 +1172,10 @@ h4 {
 .close-new-input {
 	background-color: none;
 	border: none;
-	font-family: 'Dosis';
+	font-family: 'Dosis-ExtraBold';
+	font-weight: 800;
 	color: #bababa;
 	font-size: 12pt;
-	font-weight: 800;
 	margin-left: 10px;
 }
 
@@ -1132,8 +1192,7 @@ h4 {
 }
 
 .post-header p {
-	font-family: "Dosis", sans-serif;
-	font-weight: 500;
+	font-family: "Dosis-Medium", sans-serif;
 	font-size: 14pt;
 	margin-top: -30px;
 }

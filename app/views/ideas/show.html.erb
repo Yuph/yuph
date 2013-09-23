@@ -48,6 +48,7 @@
 		</div>
 		<div class="grid_4 wrapper omega">
 			<div class="messages">
+				<h2>Comentários:</h2>
 				<% @idea.idea_comments.reverse.each do |comment| %>
 				<div class="profile-messages">
 					<div class="image-profile-title grid_1 comment-left">
@@ -55,7 +56,7 @@
 						<span><%= comment.user.nick %></span>
 					</div>
 					<div class="comment-body">
-						<p><%= comment.title %></p>
+						<p class="title"><%= comment.title %></p>
 						<p><%= comment.message %></p>
 					</div>
 					<div class="comment-bottom">
@@ -63,6 +64,7 @@
 						<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: 'Are you sure?' }, :method=>:delete if comment.can_managed_by(@user)%>
 						<% end %>
 					</div>
+					<div class="clear"></div>
 				</div>
 				<br/>
 				<% end %>
