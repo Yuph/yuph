@@ -17,7 +17,6 @@
 //= require turbolinks
 //= require_tree .
 
-
 function PreviewImage() {
     var oFReader = new FileReader();
     oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);

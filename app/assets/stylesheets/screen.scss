@@ -362,7 +362,8 @@ h3 {
 }
 
 #black-line {
-	bottom: 0px;
+	margin-top: 50px;
+	top: 0px;
 	height: 5px;
 	background-color: #2c2828;
 }
@@ -458,6 +459,7 @@ h3 {
 
 .logo img {
 	padding-top: 20px;
+	width: 280px;
 }
 
 .banner {
@@ -831,10 +833,6 @@ h4 {
 
 .edit-profile {
 	display: inline-block;
-}
-
-.profile-bio {
-	line-height: 3px;
 }
 
 .profile-bio h3 {
