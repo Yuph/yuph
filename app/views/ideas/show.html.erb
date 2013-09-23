@@ -107,9 +107,9 @@
 					<% end %>
 					<ul class="sidebar-list">
 						<% category.posts.each do |post| %>
-						<li class="forum-post-list post-list-active"><a class="a-post"><%= post.title %></a>
+						<li class="forum-post-list"><a class="a-post"><%= post.title %></a>
 							<% if logged? %>
-							<%= link_to image_tag("block.png"), post_path(post), data: { confirm: 'Are you sure?' }, :method=>:delete if post.can_managed_by(@user)%>
+							<%= link_to image_tag("block.png", class: "block-button"), post_path(post), data: { confirm: 'Are you sure?' }, :method=>:delete if post.can_managed_by(@user)%>
 							<% end %>
 							<% end %>
 						</ul>
@@ -149,7 +149,7 @@
 						<% @idea.forum.categories.each do |category| %>
 						<% category.posts.each do |post| %>
 
-						<section class="post-content post-first">
+						<section class="post-content">
 							<header class="post-header">
 								<h2><%= post.title  %></h2> <!-- Post name -->
 								<div class="post-header-portrait">

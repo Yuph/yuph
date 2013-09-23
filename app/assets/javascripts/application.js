@@ -17,18 +17,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-	$('.sidebar-list a').click(function(){
-	     hidePosts();
-	     var tmp_post = $(this).parent().index();
-	     $('.forum-content .post-content').eq(tmp_post).show();
-	  });
-
-	function hidePosts(){
-	    $('.forum-content .post-content').each(function(){
-	    $(this).hide();});
-	}
-});
 
 function PreviewImage() {
     var oFReader = new FileReader();
