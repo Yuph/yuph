@@ -10,32 +10,34 @@
 </head>
 <body>
 	<div class="top">
-		<div id="sliderck-line"></div>
 		<div class="menu-top">
 			<div class="container_12">
-				<div class="grid_12">
+				<% if logged? %>
 					<ul id="navbar">
-						<% if logged? %>
-						<li>
-							<%= image_tag("engine.png", :alt => "Engine") %>
-							<ul>
-								<li>
-									<a href="<%= user_path(session[:user]) %>">seu perfil</a>
-								</li>
-								<li>
-									<a href="/logout">sair</a>
-								</li>
-							</ul>
-						</li>
-						<% end %>
-						<li>
+						<li class="grid_3 push_8">
 							<a href="#">conheça a yuph</a>
 						</li>
-						<li>
+						<li class="grid_1 push_7">
+							<a href="#">blog</a>
+						</li>
+						<li class="grid_1 push_7">
+							<a class="engine">mais</a>
+						</li>
+					</ul>
+					<div class="navbar-dropdown">
+						<a href="<%= user_path(session[:user]) %>">seu perfil</a>
+						<a href="/logout">sair</a>
+					</div>
+				<% else %>
+				<ul id="navbar">
+						<li class="grid_3 push_9">
+							<a href="#">conheça a yuph</a>
+						</li>
+						<li class="grid_1 push_8">
 							<a href="#">blog</a>
 						</li>
 					</ul>
-				</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -67,8 +69,11 @@
 				</thead>
 			</table>
 			<div class="clear"></div>
-			<%= yield %>
 		</div>
 	</div>
+	<div class="content">
+		<%= yield %>
+	</div>
+	<div id="black-line"></div>
 </body>
 </html>
