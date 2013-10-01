@@ -19,13 +19,13 @@
 			</div>
 			<div class="profile-title">
 				<h1><%= @idea.name %></h1>
-				<p>por <%= image_tag(@idea.users.first.image.url(:thumb), class: "user-portrait") %><span><%= @idea.users.first.nick %></span></p></a>
+				<p>por <span><%= link_to @idea.users.first.nick, user_path(@idea.users.first) %></span></p></a>
 			</div>
 			<div class="hashtags">
 				<!-- <a href="">#lorem</a><a href="">#ipsum</a> -->
 			</div>
 			<div class="facebook-share">
-				<div class="fb-like" data-href="http://yuph.net" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div> <!-- precisa da aplicação criada e do script fornecido pelo facebook -->
+				<div class="fb-like" data-href="http://yuph.net" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div> <!-- needed fix -->
 			</div>
 		</div>
 		<% if logged? && @idea.can_managed_by(@user) %>
@@ -53,7 +53,7 @@
 				<div class="profile-messages">
 					<div class="image-profile-title grid_1 comment-left">
 						<%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
-						<span><%= comment.user.nick %></span>
+						<span><%= link_to comment.user.nick, user_path(comment.user) %></span>
 					</div>
 					<div class="comment-body">
 						<p class="title"><%= comment.title %></p>
@@ -116,33 +116,34 @@
 						<% end %>
 
 						<br>
+						<% if logged? %>
 						<div class="forum-buttons">
 							<button class="green-button small-button forum-button" id="new-post-button">novo post</button>
 							<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
 						</div>
-
-						<div id="new-post">
-							<a class="close-new-input">x</a>
-							<br>
-							<form action="/posts/" method="POST">
-							<%= token_tag nil %>
-							<input type="text" name="post[title]" placeholder="Título" id="new-post-input">
-							<input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
-							<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
-							<button class="red-button small-button">ok</button>
-							</form>
-						</div>
-						<div id="new-category">
-							<a class="close-new-input">x</a>
-							<br>
-							<form action="/categories/" method="POST">
-							<%= token_tag nil %>
-							<input type="text" name="category[title]" placeholder="Título" id="new-post-input">
-							<input type="text" name="category[description]" placeholder="Mensagem" id="new-post-input">
-							<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
-							<button class="red-button small-button">ok</button>
-							</form>
-				</div>
+							<div id="new-post">
+								<a class="close-new-input">x</a>
+								<br>
+								<form action="/posts/" method="POST">
+								<%= token_tag nil %>
+								<input type="text" name="post[title]" placeholder="Título" id="new-post-input">
+								<input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
+								<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
+								<button class="red-button small-button">ok</button>
+								</form>
+							</div>
+							<div id="new-category">
+								<a class="close-new-input">x</a>
+								<br>
+								<form action="/categories/" method="POST">
+								<%= token_tag nil %>
+								<input type="text" name="category[title]" placeholder="Título" id="new-post-input">
+								<input type="text" name="category[description]" placeholder="Mensagem" id="new-post-input">
+								<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
+								<button class="red-button small-button">ok</button>
+								</form>
+							</div>
+						<% end %>
 					</aside>
 
 					<div class="forum-content">
@@ -181,9 +182,9 @@
 						</section>
 						<% end %>
 						<% end %>
-						<textarea name="idea-description" class="idea-creation reply-post"></textarea>
-						<br>
 						<button class="red-button small-button reply-button">responder</button>
+						<br>
+						<textarea name="idea-description" class="idea-creation reply-post"></textarea>		
 					</div>
 					<div class="clear"></div>
 					<div class="red-line thin-line"></div>

@@ -78,7 +78,7 @@
 		<div class="messages">
 			<h2>Recados</h2>
 			<% @user.comment_receives.reverse.each do |comment| %>
-			<div class="profile-messages">
+			<div class="user-profile-messages">
 				<div class="image-profile-title grid_1 comment-left">
 					<%= image_tag(comment.comment_sender.profile_image, class: "user-portrait" ) %>
 					<span><%= comment.comment_sender.nick %></span>
@@ -116,10 +116,12 @@
 			<% if !@user.comment_sends.last.blank? && profile_comment = @user.comment_sends.last.comment_receiver %>
 				<p><%= @user.nick %> comentou no perfil de <%= link_to profile_comment.nick, profile_comment  %></a></p>
 				<span class="activities-data"><%= profile_comment.created_at %></span>
+				<br>
 			<% end %>
 			<% if !@user.idea_comments.last.blank? && idea_comment = @user.idea_comments.last.idea  %>
 				<p><%= @user.nick %> comentou na ideia <%= link_to idea_comment.name, idea_comment  %></a></p>
 				<span class="activities-data"><%= idea_comment.created_at %></span>
+				<br>
 			<% end %>
 		</div>
 	</div>
