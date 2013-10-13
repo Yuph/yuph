@@ -182,9 +182,12 @@
 						</section>
 						<% end %>
 						<% end %>
-						<button class="red-button small-button reply-button">responder</button>
+
+						<% if logged? %> 
+						<textarea name="idea-description" class="idea-creation reply-post"></textarea>
 						<br>
-						<textarea name="idea-description" class="idea-creation reply-post"></textarea>		
+						<button class="red-button small-button reply-button">responder</button>
+						<% end %>		
 					</div>
 					<div class="clear"></div>
 					<div class="red-line thin-line"></div>

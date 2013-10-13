@@ -418,6 +418,9 @@ h3 {
 	z-index: 5;
 	text-align: center;
 }
+.engine {
+	cursor: pointer;
+}
 .navbar-dropdown a, .navbar-dropdown a:visited {
 	color: #2c2828;
 	display: block;
@@ -533,6 +536,10 @@ h2 {
 	padding-left: 0px;
 }
 .min-idea img {
+	border: solid 1px #b8b8b8;
+}
+.idea-row img {
+	border: none;
 	border-bottom: solid 1px #b8b8b8;
 }
 .min-idea-user img {
@@ -859,7 +866,7 @@ h4 {
 }
 
 .profile-statistics span {
-	font-size: 11pt;
+	font-size: 9pt;
 	padding: 0;
     margin:0;
     vertical-align: baseline;
@@ -1048,8 +1055,7 @@ h4 {
 	height: auto;
 }
 
-.forum-content {
-	border-left: solid 1px #b8b8b8; 
+.forum-content { 
 	width: 640px;
 	float: right;
 	margin-left: -10px;
@@ -1057,9 +1063,11 @@ h4 {
 }
 
 .forum-sidebar {
+	border-right: solid 1px #b8b8b8;
 	width: 300px;
 	display: block;
 	float: left;
+	height: inherit;
 }
 	
 .forum-sidebar-title {
@@ -1269,11 +1277,12 @@ h4 {
 }
 
 .reply-post {
+	display: none;
 	margin-left: 10px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	width: 600px;
-	height: 270px;
+	height: 200px;
 }
 .reply-post-title {
 	margin-left: 10px;

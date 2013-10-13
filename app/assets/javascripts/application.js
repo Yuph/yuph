@@ -24,3 +24,63 @@ function PreviewImage() {
         document.getElementById("uploadPreview").src = oFREvent.target.result;
     };
 };
+$.rails.confirm = function(message, element) 
+{ 
+    var state = element.data('state');
+    var txt = element.text();
+    if (!state)
+    {
+$(document.createElement('div'))
+        .html(message)
+        .dialog({
+            draggable: false,
+            modal: true,
+            resizable: false,
+            height: '100',
+            dialogClass: 'alert-dialog',
+            buttons: [
+                {
+                  text: "Sim",
+                  click: function() {
+                    $( this ).dialog( "close" );
+                    return true;
+                  }
+                }
+              ]
+        });
+        return false;
+    }   
+    else
+    {
+        return true;
+    }
+};
+ 
+$.rails.allowAction = function(element) 
+{
+    var message = element.data('confirm'),
+        answer = false, callback;
+    if (!message) { return true; }
+ 
+    if ($.rails.fire(element, 'confirm')) 
+    {
+        // le extension.
+        answer = $.rails.confirm(message, element);
+        callback = $.rails.fire(element, 'confirm:complete', [answer]);
+    }
+    return answer && callback;
+};
+ 
+$.rails.handleLink = function(link) 
+{
+    if (link.data('remote') !== undefined) 
+    {
+        $.rails.handleRemote(link);
+    } 
+    else if (link.data('method')) 
+    {
+        $.rails.handleMethod(link);
+    }
+ 
+    return false;
+};
