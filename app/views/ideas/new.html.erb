@@ -10,7 +10,6 @@
 <% if @idea.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
-
 	<ul>
 		<% @idea.errors.full_messages.each do |msg| %>
 		<li><%= msg %></li>
@@ -28,7 +27,7 @@
 			<p>O tamanho padrão é 220x144 pixels.</p>
 		</div>
 		<div class="grid_4" id="select-image">
-			<img id="uploadPreview" class="idea-portrait" style="width: 220px; height: 144px;" src="/assets/idea-default.jpg">
+			<img id="uploadPreview" class="idea-portrait" style="width: 220px; height: 144px;" src="/assets/missing.png">
 			<br>
 			<%= f.file_field :image, class: "idea-creation-file", onchange:"PreviewImage();", id: "uploadImage" %>
 		</div>

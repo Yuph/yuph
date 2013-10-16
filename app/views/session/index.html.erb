@@ -3,32 +3,33 @@
         <div class="big-slider slider">
             <ul>
                 <li class='active first'>
-                    <div class="grid_12  wrapper slider-portrait">
-                        <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
+                    <div class="grid_12  wrapper fix-bottom-border">
+                        <%=link_to image_tag('/assets/cover.jpg'), idea_path(@yuph) %>
                     </div>
                     <div class="clear"></div>
                     <div class="wrapper grid_12 fix-border">
-                        <!--<div class="grid_1"><button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button></div>-->
-                        <div class="grid_10 big-ideas-description">
-                            <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
-                            <p><%= @yuph.mini_description %><p>
-                            </div> 
-                            <!--<div class="grid_1"><button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button></div>-->
-                        </div>
+                        <!--<div class="grid_1">
+                            <button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button>
+                        </div>-->
+                        <div class="big-ideas-description">
+                            <p>... ideias que elas provavelmente não conseguiriam tirar do papel sozinhas.<br>Use a Yuph para iniciar discussões, receber feedback de outras pessoas e para organizar projetos e sonhos com a ajuda da comunidade.</p>
+                        </div> 
+                        <!--<div class="grid_1">
+                            <button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button>
+                        </div>-->
                     </div>
                 </li>
             </ul>
         </div>
     <% else %>
-        <div class="slider grid_8">
-            <ul class="slider-wrapper">
+        <div class="slider grid_8 slider-wrapper">
+            <ul class="">
                 <li class='active first'>
                     <div class="slider-portrait">
-                        <%=link_to image_tag(@yuph.image.url(:medium)), idea_path(@yuph) %>
+                        <%=link_to image_tag('cover2.jpg'), idea_path(@yuph) %>
                     </div>
                     <div class="big-ideas-description fix-border">
-                        <h1><%= link_to @yuph.name, idea_path(@yuph) %></h1>
-                        <p><%= @yuph.mini_description %></p>
+                        <p>... ideias que elas provavelmente não conseguiriam tirar do papel sozinhas.<br>Use a Yuph para iniciar discussões, receber feedback de outras pessoas e para organizar projetos e sonhos com a ajuda da comunidade.</p>
                     </div>
                 </li>
             </ul>

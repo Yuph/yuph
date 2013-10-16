@@ -104,16 +104,24 @@ h3 {
 	border-top: none;
 }
 
+.fix-bottom-border {
+	border-bottom: none;
+}
+
 .fix-top-border {
 	border-left: none;
 	border-right: none;
 	border-bottom: none;
 }
-
+.big-ideas-description {
+	height: 90px;
+}
 .big-ideas-description p {
-	font-family: Verdana;
-	font-size: 18pt;
-	margin-left: 10px;
+	font-family: 'Dosis-Book';
+	font-size: 15pt;
+	margin-left: -10px;
+	text-align: center;
+	margin-right: 10px;
 }
 
 .big-ideas-description h1 {
@@ -121,6 +129,10 @@ h3 {
 	font-family: 'Dosis-Bold', sans-serif;
 	font-size: 26pt;
 	margin-left: 10px;
+}
+
+.big-ideas-description  a {
+	color: #de434a;
 }
 .big-ideas-description  a:visited {
 	color: #de434a;
@@ -325,9 +337,7 @@ h3 {
 	position: relative;
 }
 
-.slider-portrait, .slider-portrait img {
-	width: 615px;
-	height: 300px;
+.slider-portrait img {
 	border-bottom: solid 1px #b8b8b8;
 }
 .slider li {
@@ -342,12 +352,7 @@ h3 {
 	position: relative;
 	overflow: hidden;
 }
-.big-slider .slider-portrait img {
-	margin: 0;
-	padding-left: 0px;
-	width: 940px;
-}
-.big-slider .slider-portrait {
+.slider-portrait img {
 	border-bottom: 1px solid #bababa;
 }
 
@@ -753,6 +758,8 @@ h4 {
 
 }
 
+
+
 .idea-creation-submit {
 	display: block;
 }
@@ -798,7 +805,7 @@ h4 {
 	text-align: left;
 }
 
-.comment-left span a {
+.comment-left span {
 	font-size: 9pt;
 	font-style: italic;
 	color: #b8b8b8;
@@ -946,10 +953,8 @@ h4 {
 
 
 .profile-comment-form input {
-	background-color: #f1f4f4;
 	border: solid 1px #bebebe;
 	height: 17px;
-	margin-left: 15px;
 	margin-bottom: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
@@ -965,9 +970,12 @@ h4 {
     top: -4px;
 }
 
-.comment-form {
+.comment-form  {
 	width: 420px;
 	height: 70px;
+}
+.title-form  {
+	width: 210px;
 }
 
 .comment-options {
@@ -1048,6 +1056,7 @@ h4 {
 	font-size: 12pt;
 	margin-top: 10px;
 }
+
 
 /* FORUM */
 
