@@ -57,8 +57,8 @@
 				<div class="clear"></div>
 				<% @user.ideas.limit(2).each do |idea| %>
 				<div class="grid_2 created-idea min-idea">
-					<h2><%= link_to idea.name , idea %></h2>
 					<%= link_to image_tag(idea.image.url(:thumb), class: "idea-portrait-small"), idea_path(idea) %>
+					<h2><%= link_to idea.name , idea %></h2>
 					<p><%= idea.mini_description %></p>
 				</div>
 				<% end %>

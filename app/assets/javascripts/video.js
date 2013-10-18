@@ -1,6 +1,6 @@
 $(document).ready(function(){
 $("div.embed-video").each(function(){
-    var regex = /(\?v=|\&v=|\/\d\/|\/embed\/|\/v\/|\.be\/)([a-zA-Z0-9\-\_]+)/;
+var regex = /http:\/\/(www.)?youtube\.com\/watch\?v=([A-Za-z0-9._%-]*)(\&\S+)?/;
     var youtubeUrl = $(this).text();
     var regexYoutubeUrl = youtubeUrl.match(regex);
     if (regexYoutubeUrl) 

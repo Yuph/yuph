@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "53245324")
-idea = Idea.create(name: "Yuph", mini_description: "Juntamos pessoas em torno de ideias...", description: "Junte-se a nós", image_file_name: "/assets/yuph.png")
+idea = Idea.create(name: "Yuph", mini_description: "Um ambiente em que qualquer ideia pode se tornar algo incrível.", description: "Junte-se a nós", image_file_name: "/assets/yuph.png")
 idea.users << user
 idea.save!
 Forum.create!(idea: idea)

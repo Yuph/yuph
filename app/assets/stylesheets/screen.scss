@@ -384,8 +384,8 @@ h3 {
 	height: 20px;
 }
 
-
 .search {
+	display: none;
 	margin-right: 0;
 	margin-top: 45px;
 	margin-bottom: 10px;
@@ -498,6 +498,14 @@ h2 {
 
 .min-idea {
 	text-align: center;
+	color: #2c2828;
+}
+
+.min-idea a {
+	color: #2c2828;
+}
+.min-idea-link {
+	color: #2c2828;
 }
 .min-idea a:visited {
 	color: #2c2828;
@@ -613,6 +621,7 @@ h2 {
 .new-idea h3 {
 	font-family: Verdana, sans-serif;
 	font-size: 25pt;
+	padding-left: 0px;
 }
 
 #select-image {
@@ -780,6 +789,10 @@ h4 {
 	width: 65px;
 }
 
+.big-user-portrait {
+	height: 192px;
+	width: 192px;
+}
 .image-profile-title {
 	float: left;
 	display: inline;
@@ -846,12 +859,17 @@ h4 {
 .edit-profile {
 	display: inline-block;
 }
+.edit-profile-button {
+	margin-bottom: 25px;
+}
 
 .profile-bio h3 {
 	font-size: 18pt;
 }
+
 .profile-bio p {
 	font-size: 11pt;
+	margin-right: 10px;
 }
 
 .bio-link {
@@ -906,6 +924,7 @@ h4 {
 
 .created-idea {
 	text-align: center;
+	color: #2c2828;
 }
 .image-profile-title {
 	margin-left: 11px;

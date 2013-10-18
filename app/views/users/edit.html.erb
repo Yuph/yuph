@@ -2,7 +2,7 @@
 <div class="container_12 wrapper">
 	<div class="green-line thin-line"></div>
 	<header class="grid_12 new-idea">
-		<h3>Sobre você</h3>
+		<h3>Editar perfil</h3>
 		<p></p>
 	</header>
 </div>
@@ -21,35 +21,34 @@
 <div class="container_12 wrapper fix-border">
 	<div class="grid_8 fix-border">
 		<h3>Imagem de capa</h3>
-		<p>Selecione uma imagem para o seu perfil. Não se preocupe pois você poderã mudá-la depois.</p>
-			<p>Se não quiser, não tem problema! Colocamos uma imagem bacanuda para você.</p>
+		<p>Selecione uma imagem bacanuda para o seu perfil.</p>
 		</div>
 
 		<div class="grid_4" id="select-image">
-			<%= image_tag(@user.profile_image, class: "idea-portrait", id: "uploadPreview") %>
+			<%= image_tag(@user.profile_image, class: "user-portrait big-user-portrait", id: "uploadPreview") %>
 			<br>
 			<%= f.file_field :image, class: "idea-creation-file", onchange:"PreviewImage();", id: "uploadImage" %>
 		</div>
 	</div>
 	<div class="container_12 wrapper fix-border">
 		<div class="grid_8">
-			<h3>Qual seu apelido? escolha um bacana :)</h3>
-			<p>Será usado apenas para formar sua URL personalizada :)</p>
+			<h3>Qual seu apelido?</h3>
+			<p>Como você quer ser chamado?</p>
 			<%= f.text_field :nick, class: "idea-creation idea-creation tags-creation" %>
 			<h3>Nome</h3>
-			<p>Eu sei que voce tem um nome</p>
+			<p>Eu sei que voce tem um.</p>
 			<%= f.text_field :first_name, class: "idea-creation tags-creation" %>
 			<h3>Sobrenome</h3>
-			<p>É, dizem que herdamos isso!</p>
+			<p>É, dizem que herdamos isso.</p>
 			<%= f.text_field :last_name, class: "idea-creation tags-creation" %>
 			<h3>Email</h3>
-			<p>Coloque o seu email aqui. E não se preocupe, não enviamos span !!11!!</p>
+			<p>Coloque o seu email aqui. E não se preocupe, não enviamos spam !!1!1!</p>
 			<%= f.text_field :email, class: "idea-creation tags-creation" %>
 			<h3>Senha</h3>
 			<p>Se nao quiser mudar nao precisa, apenas deixe em branco.</p>
 			<%= f.password_field :password, class: "idea-creation tags-creation" %>
-			<h3>Validacao</h3>
-			<p>Infelizmente isso é necessário.</p>
+			<h3>Repetir senha</h3>
+			<p>Vai que o caps ficou ligado.</p>
 			<%= f.password_field :password_confirmation, class: "idea-creation tags-creation" %>
 			<h3>Hmm. conte-me mais</h3>
 			<p>Liberte-se, abra as suas asas :)</p>
@@ -64,7 +63,7 @@
 			<p>Eu sei que você possui um facebook, compartilhe! </p>
 			<%= f.text_field :facebook, class: "idea-creation tags-creation" %>
 			<h3>Twitter</h3>
-			<p>Onde ficam seus twits?? </p>
+			<p>Onde ficam seus tweets?? </p>
 			<%= f.text_field :twitter, class: "idea-creation tags-creation" %>
 				<br>
 				<br>
@@ -81,10 +80,8 @@
 				<h1> <h1>
 				</div>
 				<div class="grid_4 push_1 idea-submit-button">
-					<button type="submit" class="big-button green-button">Enviar</button>
+					<button type="submit" class="big-button green-button edit-profile-button">Pronto</button>
 				</div>
-				<br>
-				<br>
 				<div class="clear"></div>
 				<div class="red-line"></div>
 				<% end %>

@@ -126,7 +126,9 @@
 								<%= token_tag nil %>
 								<input type="text" name="post[title]" placeholder="Título" id="new-post-input">
 								<input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
+								<br>
 								<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
+								<br>
 								<button class="red-button small-button">ok</button>
 								</form>
 							</div>
