@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822145418) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20131019022706) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -56,7 +53,6 @@ ActiveRecord::Schema.define(version: 20130822145418) do
   add_index "idea_admins", ["user_id"], name: "index_idea_admins_on_user_id", using: :btree
 
   create_table "idea_comments", force: true do |t|
-    t.string   "title"
     t.string   "message"
     t.integer  "idea_id"
     t.integer  "user_id"
@@ -115,7 +111,6 @@ ActiveRecord::Schema.define(version: 20130822145418) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "user_comments", force: true do |t|
-    t.string   "title"
     t.text     "message"
     t.integer  "comment_sender_id"
     t.integer  "comment_receiver_id"
