@@ -806,7 +806,6 @@ h4 {
 .comment-bottom img {
 	float: right;
 	display: block;
-	position: absolute;
 }
 
 .comment-left {
@@ -827,9 +826,10 @@ h4 {
 	display: inline-block;
 }
 
+.comment-left a:visited {
+	color: #b8b8b8;
+}
 .comment-bottom {
-	float: right;
-	margin-right: 35px;
 }
 
 .profile-title {
@@ -849,11 +849,12 @@ h4 {
 }
 
 .profile-messages {
-	width: 300px;
+	width: 290px;
 }
 
 .user-profile-messages {
 	width: 450px;
+	min-height: 100px;
 }
 
 .edit-profile {
@@ -943,6 +944,7 @@ h4 {
 
 .messages {
 	height: 550px;
+	padding-top: 30px;
 	overflow: auto;
 }
 
