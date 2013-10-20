@@ -32,6 +32,6 @@ class UserCommentsController < ApplicationController
   end
 
   def user_comment_params
-    params.require(:user_comment).permit(:title, :message, :comment_receiver_id)
+    params.require(:user_comment).permit(:message, :comment_receiver_id)
   end
 end

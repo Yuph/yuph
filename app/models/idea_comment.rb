@@ -4,7 +4,6 @@ class IdeaComment < ActiveRecord::Base
 
   validates :user, presence: :true
   validates :idea, presence: :true
-  validates :title, presence: :true
   validates :message, presence: :true
 
   def can_managed_by(user)

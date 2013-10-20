@@ -4,7 +4,6 @@ class UserComment < ActiveRecord::Base
 
   validates :comment_sender, presence: :true
   validates :comment_receiver, presence: :true
-  validates :title, presence: :true
   validates :message, presence: :true
 
   def can_managed_by(user)

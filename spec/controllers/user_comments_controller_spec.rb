@@ -17,7 +17,7 @@ describe UserCommentsController do
         }.to change(UserComment,:count).by(1)
       end
       it "Fail" do
-        post :create, user_comment: FactoryGirl.attributes_for(:user_comment, title: "", comment_receiver_id: @user_two.id)
+        post :create, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id)
         expect(response).to redirect_to :back
       end
     end

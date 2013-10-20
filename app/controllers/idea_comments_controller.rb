@@ -32,6 +32,6 @@ class IdeaCommentsController < ApplicationController
   end
 
   def idea_comment_params
-    params.require(:idea_comment).permit(:title, :message, :idea_id)
+    params.require(:idea_comment).permit(:message, :idea_id)
   end
 end

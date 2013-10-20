@@ -84,7 +84,6 @@
 					<span><%= comment.comment_sender.nick %></span>
 				</div>
 				<div class="comment-body">
-					<p class="title"><%= comment.title %></p>
 					<p><%= comment.message %></p>
 				</div>
 				<div class="comment-bottom">
@@ -101,8 +100,6 @@
 		<div class="profile-comment-form">
 			<form action="/user_comments/" method="POST">
 			<%= token_tag nil %>
-			<input type="text" name="user_comment[title]" class="idea-creation comment-form title-form" placeholder="Título">
-			<br>
 			<input type="hidden" name="user_comment[comment_receiver_id]" value="<%= @user.id %>">
 			<textarea name="user_comment[message]" class="idea-creation comment-form" placeholder="Envie seu comentário"></textarea>
 			<br>

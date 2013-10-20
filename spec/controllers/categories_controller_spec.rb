@@ -28,7 +28,7 @@ describe CategoriesController do
         }.to change(Category,:count).by(1)
       end
       it "Fail" do
-        post :create, category: FactoryGirl.attributes_for(:category, title: "", forum_id: @forum.id)
+        post :create, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
         expect(response).to render_template(:new)
       end
     end
@@ -36,13 +36,13 @@ describe CategoriesController do
       it "Succefuly" do
         post :create, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
         category = Category.last
-        put :update, id: category.id, category: FactoryGirl.attributes_for(:category, title: "changed", forum_id: @forum.id)
+        put :update, id: category.id, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
         category.reload
         expect(category.title).to eql("changed")
       end
       it "Fail" do
         post :create, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
-        put :update, id: Category.last.id, category: FactoryGirl.attributes_for(:category, title: "", forum_id: @forum.id)
+        put :update, id: Category.last.id, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
         expect(response).to render_template(:edit)
       end
     end

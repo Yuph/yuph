@@ -54,7 +54,6 @@
 						<span><%= link_to comment.user.nick, user_path(comment.user) %></span>
 					</div>
 					<div class="comment-body">
-						<p class="title"><%= comment.title %></p>
 						<p><%= comment.message %></p>
 					</div>
 					<div class="comment-bottom">
@@ -71,7 +70,6 @@
 			<div class="profile-comment-form">
 				<form action="/idea_comments/" method="POST">
 					<%= token_tag nil %>
-					<input type="text" name="idea_comment[title]" placeholder="Título" class="comment-form idea-creation title-form">
 					<input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
 					<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="Envie seu comentário"></textarea>
 					<br>
@@ -137,8 +135,7 @@
 								<br>
 								<form action="/categories/" method="POST">
 								<%= token_tag nil %>
-								<input type="text" name="category[title]" placeholder="Título" id="new-post-input">
-								<input type="text" name="category[description]" placeholder="Mensagem" id="new-post-input">
+								<input type="text" name="category[title]" placeholder="titulo" id="new-post-input">
 								<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
 								<button class="red-button small-button">ok</button>
 								</form>
