@@ -74,7 +74,7 @@
 
 
 	</div>
-	<div class="grid_6 omega wrapper">
+	<div class="grid_6 omega wrapper profile-sidebar">
 		<h2>Recados</h2>
 		<div class="messages">
 			<% @user.comment_receives.reverse.each do |comment| %>
@@ -83,7 +83,7 @@
 					<%= image_tag(comment.comment_sender.profile_image, class: "user-portrait" ) %>
 					<span><%= comment.comment_sender.nick %></span>
 				</div>
-				<div class="comment-body">
+				<div class="comment-body profile-comment">
 					<p><%= comment.message %></p>
 				</div>
 				<div class="comment-bottom">

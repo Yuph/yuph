@@ -1,78 +1,73 @@
-<div class="container_12">
-    <% if logged? %>
-        <div class="big-slider slider">
-            <ul>
-                <li class='active first'>
-                    <div class="grid_12  wrapper fix-bottom-border">
-                        <%=link_to image_tag('/assets/cover.jpg'), idea_path(@yuph) %>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="wrapper grid_12 fix-border">
-                        <!--<div class="grid_1">
-                            <button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button>
-                        </div>-->
-                        <div class="big-ideas-description">
-                            <p>... ideias que elas provavelmente não conseguiriam tirar do papel sozinhas.<br>Use a Yuph para iniciar discussões, receber feedback de outras pessoas e para organizar projetos e sonhos com a ajuda da comunidade.</p>
-                        </div> 
-                        <!--<div class="grid_1">
-                            <button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button>
-                        </div>-->
-                    </div>
-                </li>
-            </ul>
-        </div>
-    <% else %>
-        <div class="slider grid_8 slider-wrapper">
-            <ul class="">
-                <li class='active first'>
-                    <div class="slider-portrait">
-                        <%=link_to image_tag('cover2.jpg'), idea_path(@yuph) %>
-                    </div>
-                    <div class="big-ideas-description fix-border">
-                        <p>... ideias que elas provavelmente não conseguiriam tirar do papel sozinhas.<br>Use a Yuph para iniciar discussões, receber feedback de outras pessoas e para organizar projetos e sonhos com a ajuda da comunidade.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- LOGIN AREA -->
-        <div class="grid_4 omega wrapper main-login">
-            <div>
-                <h1>
-                    Entre na Yuph!
-                </h1>
-            </div>
-            <div class="main-form">
-        		<form name="login" action="/login" method="POST">
-                	<input type="text" name="user[email]" placeholder="Email" />
-        			<input type="password" name="user[password]" placeholder="senha" />
-        			<%= token_tag nil %>
-        			<input type="submit" value="login" />
-        		</form>
-                <div class="clear"></div>
-                <div class="fb-login-button">
-                    <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
+<% if logged? %>
+        <div class="big-cover logged-big">
+            <div class="container_12 logged">
+                <div class="grid_9 push_1 big-cover-description logged-description">
+                    <h2>E aí, que ideia você teve hoje?</h2>
                 </div>
+                <div class="grid_1 cover-button">
+                     <%= link_to 'Diz pra gente', new_idea_path, class: "big-button red-button"  %>
+                </div>
+            </div>
+        </div>
+        <div class="green-call">
+            <div class="container_12"><div class="grid_12 green-call-decoration"><h2>...</h2></div></div>
+        </div>
+        <div class="green-call-content">
+            <div class="container_12">
+                <h2>Também precisamos de ideias!</h2>
+                <p>Estamos em beta então não existe nada melhor pra gente do que receber sugestões e dúvidas. Não seja tímido e <%=link_to 'acesse aqui', idea_path(@yuph) %>. =]</p>
+            </div>
+        </div>
+            <!--<div class="big-slider slider">
+                <ul>
+                    <li class='active first'>
+                        <div class="grid_12  wrapper fix-bottom-border">
+                            <%=link_to image_tag('/assets/cover.jpg'), idea_path(@yuph) %>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="wrapper grid_12 fix-border">
+                            <div class="grid_1">
+                                <button class="arrow" onClick="window.slider.previous()"><img src="assets/arrow-left.png"></button>
+                            </div>
+                            <div class="big-ideas-description">
+                                <p>... ideias que elas provavelmente não conseguiriam tirar do papel sozinhas.<br>Use a Yuph para iniciar discussões, receber feedback de outras pessoas e para organizar projetos e sonhos com a ajuda da comunidade.</p>
+                            </div> 
+                            <div class="grid_1">
+                                <button class="arrow" onClick="window.slider.next()"><img src="assets/arrow-right.png"></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+    <% else %>
+        <div class="big-cover">
+            <div class="container_12">
+                <div class="grid_12 big-cover-title">
+                    <h1>Sabe aquelas ideias de novos produtos, festas legais ou melhorias na cidade<br> que você tem?</h1>
+                </div> 
                 <div class="clear"></div>
-                <br />
+                <div class="grid_8 push_1 big-cover-description">
+                    <h2>Nós criamos o ambiente perfeito para elas se tornarem<br>coisas incríveis, basta você compartilhar.</h2>
+                </div>
+                <div class="grid_1 cover-button">
+                    <%= link_to 'bora lá', new_user_path, class: "big-button red-button"  %>
+                </div>
             </div>
         </div>
-        <div class="grid_4 omega wrapper main-login fix-border">
-            <div>
-                <h1>
-                    ou
-                </h1>
-            </div>
-            <div class="clear"></div>
-        	<%= link_to 'Crie uma conta', new_user_path, class: "big-button red-button create-account" %>
-            <div class="clear"></div>
-            <br />
+        <div class="green-call">
+            <div class="container_12"><div class="grid_12 green-call-decoration"><h2>...</h2></div></div>
         </div>
-    <% end %>
-</div>
+        <div class="green-call-content">
+            <div class="container_12">
+                <h2>Mas como assim?</h2>
+                <p>A Yuph é uma plataforma para brainstorm e organização de projetos. É um lugar para você compartilhar ideias, desde as mais banais até as mais complexas.<br>Inicie discuções, receba feedback e deixe a comunidade fazer a parte dela.<br>Ainda ficou com duvidas? Dê uma navegada estre as ideias que as outras pessoas já mandaram ou explore a ideia de exemplo que criamos <%=link_to 'clicando aqui', idea_path(@yuph) %>.</p>
+            </div>
+        </div>
+<% end %>
 <div class="container_12">
     <div class="grid_4 main-ideas">
         <h2>
-            Outras ideias
+            Ideias dentro da Yuph:
         </h2>
     </div>
     <div class="clear"></div>
@@ -92,13 +87,8 @@
     </div>
 	<% end %>
 </div>
-<div class="clear">
-    <div class="container_12 idea-row">
-        <!-- and so on -->
-    </div>
-</div>
 <div class="clear"></div>
 <div class="container_12">
-	<%= button_to "Mostrar mais projetos", "/ideas/", :method => "get", class: "grid_8 push_2 show-more wrapper"  %>
+	<%= button_to "mostrar mais", "/ideas/", :method => "get", class: "grid_8 push_2 show-more wrapper"  %>
     <div class="clear"></div>
 </div>

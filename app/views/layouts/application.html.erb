@@ -9,78 +9,66 @@
 	<%= analytics_init if Rails.env.production? %>
 </head>
 <body>
-	<div class="top">
+<div class="top">
+<% if logged? %>
 		<div class="menu-top">
 			<div class="container_12">
-				<% if logged? %>
-					<ul id="navbar">
-						<li class="grid_3 push_8">
-							<a href="#">conheça a yuph</a>
-						</li>
-						<li class="grid_1 push_7">
-							<a href="#">blog</a>
-						</li>
-						<li class="grid_1 push_7">
-							<a class="engine">mais</a>
-						</li>
-					</ul>
-					<div class="navbar-dropdown">
-						<a href="<%= user_path(session[:user]) %>">seu perfil</a>
-						<a href="/logout">sair</a>
-					</div>
-				<% else %>
 				<ul id="navbar">
-						<li class="grid_3 push_9">
-							<a href="#">conheça a yuph</a>
-						</li>
-						<li class="grid_1 push_8">
-							<a href="#">blog</a>
-						</li>
-					</ul>
-				<% end %>
+					<li class="grid_1">
+						<%=link_to image_tag('logo.png'), "/" %>
+					</li>
+					<li class="grid_1 push_10 engine">
+						<a>mais</a>
+					</li>
+					<li class="grid_1 push_10">
+						<a>blog</a>
+					</li>
+				</ul>
+				<div class="navbar-dropdown">
+					<a href="<%= user_path(session[:user]) %>">seu perfil</a>
+					<a href="/logout">sair</a>
+				</div>
 			</div>
 		</div>
-		<div class="clear"></div>
-		<div class="container_12">
-			<div class="grid_2 alpha logo">
-				<%= link_to image_tag("banner.png", :alt => "Banner"), "/" %>
-			</div>
-			<div class="banner">
-				<div class="grid_6 push_1 omega">
-					<h1>
-						Mande suas ideias, organize seus projetos
-					</h1>
-				</div>
-				<% if logged? %>
-				<div class="grid_3 push_1 alpha banner-button">
-					<%= link_to 'Mande a sua', new_idea_path, class: "big-button green-button"  %>
-				</div>
-				<% else %>
-				<div class="grid_3 push_1 alpha banner-button">
-					<%= link_to 'Mande a sua', new_user_path, class: "big-button green-button"  %>
-				</div>
-				<% end %>
-			</div>
-			<div class="clear"></div>
-			<table class="grid_6 push_6 wrapper search">
-				<thead>
-					<tr class="wrapper">
-						<th>
-							<input type="text" id="search-key" />
-						</th>
-						<th>
-							<%= image_tag("search.png", :alt => "Banner") %>
-						</th>
-					</tr>
-				</thead>
-			</table>
-			<div class="clear"></div>
+		<% else %>
+		<div class="menu-top">
+			<div class="container_12">
+			<ul id="navbar">
+				<li class="grid_1 push_8 login">
+					<a href="">login</a>
+				</li>
+				<li class="grid_2 push_8">
+					<%= link_to 'criar conta', new_user_path %>
+				</li>
+				<li class="grid_1 push_8">
+					<a>blog</a>
+				</li>
+			</ul>
 		</div>
 	</div>
+	<div class="container_12">
+		<div class="grid_4 push_8">
+			<div class="new-login main-login wrapper">
+				<div class="main-form">
+				<h1>Entre na yuph</h1>
+				<form name="login" action="/login" method="POST">
+		             <input type="text" name="user[email]" placeholder="Email" />
+					<input type="password" name="user[password]" placeholder="senha" />
+		            <%= token_tag nil %>
+		            <input type="submit" value="login" />
+		        </form>
+		        <div class="fb-login-button">
+		            <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
+		        </div>
+		    </div>
+	    </div>
+	</div>
+	</div>
+<% end %>
+<div class="clear"></div>
+</div>
 	<div class="content">
 		<%= yield %>
 	</div>
-</div>
-	<div id="black-line"></div>
 </body>
 </html>
