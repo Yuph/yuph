@@ -16,6 +16,7 @@ $(document).ready(function(){
 		$(this).parent().addClass('post-list-active');
 		var tmp_post = $(this).attr("id");
 		$('.forum-content .post-content').eq(tmp_post).fadeIn(300);
+		document.getElementById("reply-post").value = tmp_post;
 	});
 
 	function hidePosts(){
