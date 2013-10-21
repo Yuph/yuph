@@ -48,14 +48,17 @@
 			<h2>Comentários:</h2>
 			<div class="messages">
 				<% @idea.idea_comments.reverse.each do |comment| %>
-				<div class="profile-messages">
-					<div class="image-profile-title grid_1 comment-left">
-						<%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
-						<span><%= link_to comment.user.nick, user_path(comment.user) %></span>
+				<div class="profile-message">
+					<div class="profile-message-body">
+						<div class="profile-message-image">
+							<%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
+							<span><%= link_to comment.user.nick, user_path(comment.user) %></span>
+						</div>
+						<div class="profile-message-content">
+							<p><%= comment.message %></p>
+						</div>
 					</div>
-					<div class="comment-body">
-						<p><%= comment.message %></p>
-					</div>
+					<div class="clear"></div>
 					<div class="comment-bottom">
 						<% if logged? %>
 						<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: 'Are you sure?' }, :method=>:delete if comment.can_managed_by(@user)%>
