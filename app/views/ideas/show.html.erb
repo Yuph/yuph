@@ -183,8 +183,15 @@
 						<% end %>
 						<% end %>
 
-						<% if logged? %> 
+						<% if logged? %>
+						<form action="/categories/" method="POST">
+								<%= token_tag nil %>
+								<input type="text" name="category[title]" placeholder="titulo" id="new-post-input">
+								<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
+								<button class="red-button small-button">ok</button>
+								</form>
 						<textarea name="idea-description" class="idea-creation reply-post"></textarea>
+
 						<br>
 						<button class="red-button small-button reply-button">responder</button>
 						<% end %>		

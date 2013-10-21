@@ -746,6 +746,7 @@ h2 {
 }
 p {
 	padding-left: 20px;
+	padding-right: 20px;
 	font-size: 12pt;
 }
 
@@ -879,6 +880,7 @@ h4 {
 .image-profile-title {
 	float: left;
 	display: inline;
+	margin-left: 15px;
 }
 
 
@@ -889,7 +891,6 @@ h4 {
 }
 .comment-body {
 	font-size: 10pt;
-	margin-top: -34px;
 	max-width: 200px;
 	white-space: pre-line;
 	word-wrap:break-word;
@@ -1130,6 +1131,9 @@ h4 {
 	display: inline-block;
 }
 
+.idea-description p {
+	padding-right: 20px;
+}
 .idea-title {
 	float: right;
 	padding-left: 30px;
