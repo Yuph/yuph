@@ -1,5 +1,5 @@
-$(document).ready(function(){
-	$('.reply-button').click(function(){
-		$('.reply-post').toggle(300);
-	})
-})
+//$(document).ready(function(){
+//	$('.reply-button').click(function(){
+//		$('.reply-post').toggle(300);
+//	})
+//})

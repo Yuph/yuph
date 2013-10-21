@@ -3,7 +3,6 @@ class PostComment < ActiveRecord::Base
   belongs_to :user
 
   validates :message, presence: :true
-  validates :post, presence: :true
   validates :user, presence: :true
 
   def can_managed_by(user)
