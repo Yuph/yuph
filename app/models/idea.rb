@@ -1,13 +1,13 @@
 class Idea < ActiveRecord::Base
   attr_accessor :image_content_type
 
-  has_many :idea_admins
+  has_many :idea_admins, :dependent => :delete_all
   has_many :users, through: :idea_admins
-  has_many :idea_comments
-  has_many :follows
+  has_many :idea_comments, :dependent => :delete_all
+  has_many :follows, :dependent => :delete_all
   has_many :followers, through: :follows, source: :user
 
-  has_one :forum
+  has_one :forum, :dependent => :delete
 
   validates :name, presence: :true
   validates :mini_description, presence: :true

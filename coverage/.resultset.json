@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/giancarlo/projects/yuph/app/controllers/categories_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/categories_controller.rb": [
         1,
         1,
         1,
@@ -13,7 +13,7 @@
         8,
         8,
         8,
-        8,
+        0,
         null,
         0,
         null,
@@ -61,69 +61,69 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/application_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/application_controller.rb": [
         1,
         1,
         1,
         1,
         null,
         1,
-        92,
+        74,
         null,
         1,
-        89,
-        null,
-        null
-      ],
-      "/home/giancarlo/projects/yuph/spec/controllers/follows_controller_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        4,
-        null,
-        1,
-        1,
-        4,
-        4,
-        4,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
+        73,
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/follows_controller.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/follows_controller_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        4,
+        null,
+        1,
+        1,
+        4,
+        4,
+        4,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/naiane/Victor/yuph/app/controllers/follows_controller.rb": [
         1,
         1,
         1,
@@ -166,7 +166,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/forum_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/forum_controller_spec.rb": [
         1,
         null,
         1,
@@ -241,7 +241,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/forum_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/forum_controller.rb": [
         1,
         1,
         1,
@@ -299,7 +299,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/idea_admins_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/idea_admins_controller_spec.rb": [
         1,
         null,
         1,
@@ -371,7 +371,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/idea_admins_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/idea_admins_controller.rb": [
         1,
         1,
         null,
@@ -425,7 +425,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/idea_comments_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/idea_comments_controller_spec.rb": [
         1,
         null,
         1,
@@ -470,7 +470,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/idea_comments_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/idea_comments_controller.rb": [
         1,
         1,
         1,
@@ -509,7 +509,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/ideas_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/ideas_controller_spec.rb": [
         1,
         null,
         1,
@@ -582,7 +582,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/ideas_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/ideas_controller.rb": [
         1,
         1,
         1,
@@ -640,7 +640,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/messages_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/messages_controller_spec.rb": [
         1,
         null,
         1,
@@ -709,7 +709,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/messages_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/messages_controller.rb": [
         1,
         1,
         null,
@@ -762,7 +762,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/post_comments_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/post_comments_controller_spec.rb": [
         1,
         null,
         1,
@@ -775,36 +775,6 @@
         9,
         9,
         9,
-        9,
-        9,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        0,
-        0,
         0,
         0,
         null,
@@ -813,9 +783,6 @@
         0,
         0,
         null,
-        null,
-        1,
-        1,
         1,
         0,
         0,
@@ -824,7 +791,40 @@
         null,
         1,
         1,
+        0,
+        0,
+        null,
+        null,
         1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
         0,
         0,
         0,
@@ -834,7 +834,7 @@
         null,
         1,
         1,
-        1,
+        0,
         0,
         0,
         0,
@@ -846,35 +846,16 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/post_comments_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/post_comments_controller.rb": [
         1,
         1,
         null,
         1,
-        null,
-        null,
-        1,
-        8,
-        8,
-        8,
-        7,
-        null,
-        1,
-        null,
         null,
         null,
         1,
         0,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
+        0,
         0,
         0,
         null,
@@ -884,6 +865,25 @@
         null,
         1,
         0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
         0,
         null,
         null,
@@ -896,12 +896,12 @@
         null,
         null,
         1,
-        8,
+        0,
         null,
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/posts_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/posts_controller_spec.rb": [
         1,
         null,
         1,
@@ -914,36 +914,6 @@
         9,
         9,
         9,
-        9,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
         0,
         null,
         1,
@@ -951,9 +921,6 @@
         0,
         0,
         null,
-        null,
-        1,
-        1,
         1,
         0,
         0,
@@ -962,7 +929,40 @@
         null,
         1,
         1,
+        0,
+        0,
+        null,
+        null,
         1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
         0,
         0,
         0,
@@ -972,7 +972,7 @@
         null,
         1,
         1,
-        1,
+        0,
         0,
         0,
         0,
@@ -984,7 +984,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/posts_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/posts_controller.rb": [
         1,
         1,
         null,
@@ -992,10 +992,10 @@
         null,
         null,
         1,
-        8,
-        8,
-        8,
-        7,
+        0,
+        0,
+        0,
+        0,
         null,
         0,
         null,
@@ -1006,24 +1006,24 @@
         null,
         null,
         1,
-        1,
-        null,
-        null,
-        1,
+        0,
         null,
         null,
         1,
-        0,
-        0,
-        null,
-        0,
-        null,
         null,
         null,
         1,
         0,
         0,
         null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
         null,
         1,
         0,
@@ -1034,12 +1034,12 @@
         null,
         null,
         1,
-        8,
+        0,
         null,
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/session_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/session_controller_spec.rb": [
         1,
         null,
         1,
@@ -1088,7 +1088,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/session_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/session_controller.rb": [
         1,
         1,
         null,
@@ -1126,7 +1126,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/user_comments_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/user_comments_controller_spec.rb": [
         1,
         null,
         1,
@@ -1173,7 +1173,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/user_comments_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/user_comments_controller.rb": [
         1,
         1,
         1,
@@ -1212,7 +1212,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/controllers/users_controller_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         1,
@@ -1276,7 +1276,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/controllers/users_controller.rb": [
+      "/home/naiane/Victor/yuph/app/controllers/users_controller.rb": [
         1,
         1,
         1,
@@ -1337,7 +1337,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/category_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/category_spec.rb": [
         1,
         null,
         1,
@@ -1353,7 +1353,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/category.rb": [
+      "/home/naiane/Victor/yuph/app/models/category.rb": [
         1,
         1,
         1,
@@ -1370,7 +1370,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/follow_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/follow_spec.rb": [
         1,
         null,
         1,
@@ -1407,7 +1407,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/follow.rb": [
+      "/home/naiane/Victor/yuph/app/models/follow.rb": [
         1,
         1,
         1,
@@ -1416,7 +1416,7 @@
         1,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/forum_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/forum_spec.rb": [
         1,
         null,
         1,
@@ -1434,7 +1434,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/forum.rb": [
+      "/home/naiane/Victor/yuph/app/models/forum.rb": [
         1,
         1,
         1,
@@ -1450,7 +1450,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/idea_admin_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/idea_admin_spec.rb": [
         1,
         null,
         1,
@@ -1474,7 +1474,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/idea_admin.rb": [
+      "/home/naiane/Victor/yuph/app/models/idea_admin.rb": [
         1,
         1,
         1,
@@ -1483,7 +1483,7 @@
         1,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/idea_comment_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/idea_comment_spec.rb": [
         1,
         null,
         1,
@@ -1515,7 +1515,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/idea_comment.rb": [
+      "/home/naiane/Victor/yuph/app/models/idea_comment.rb": [
         1,
         1,
         1,
@@ -1533,7 +1533,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/idea_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/idea_spec.rb": [
         1,
         null,
         1,
@@ -1569,7 +1569,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/idea.rb": [
+      "/home/naiane/Victor/yuph/app/models/idea.rb": [
         1,
         1,
         null,
@@ -1607,7 +1607,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/message_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/message_spec.rb": [
         1,
         null,
         1,
@@ -1651,7 +1651,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/message.rb": [
+      "/home/naiane/Victor/yuph/app/models/message.rb": [
         1,
         1,
         1,
@@ -1670,7 +1670,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/post_comment_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/post_comment_spec.rb": [
         1,
         null,
         1,
@@ -1694,7 +1694,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/post_comment.rb": [
+      "/home/naiane/Victor/yuph/app/models/post_comment.rb": [
         1,
         1,
         1,
@@ -1702,26 +1702,42 @@
         1,
         1,
         1,
+        null,
+        1,
+        2,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/naiane/Victor/yuph/spec/models/post_spec.rb": [
         1,
         null,
         1,
-        4,
-        3,
+        1,
+        1,
+        1,
+        1,
         null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
         1,
         null,
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/post_spec.rb": [
+      "/home/naiane/Victor/yuph/app/models/post.rb": [
         1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
         1,
         1,
         1,
@@ -1729,35 +1745,18 @@
         1,
         1,
         1,
+        1,
         null,
         1,
-        1,
-        1,
+        2,
+        0,
+        null,
+        0,
         null,
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/post.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        4,
-        3,
-        null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/home/giancarlo/projects/yuph/spec/models/user_comment_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/user_comment_spec.rb": [
         1,
         null,
         1,
@@ -1798,7 +1797,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/app/models/user_comment.rb": [
+      "/home/naiane/Victor/yuph/app/models/user_comment.rb": [
         1,
         1,
         1,
@@ -1816,7 +1815,7 @@
         null,
         null
       ],
-      "/home/giancarlo/projects/yuph/spec/models/user_spec.rb": [
+      "/home/naiane/Victor/yuph/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -1926,38 +1925,25 @@
         null,
         1,
         1,
-        1,
+        0,
         null,
         1,
         1,
-        1,
+        0,
         null,
         1,
         1,
-        1,
+        0,
         null,
         1,
         1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
+        0,
         null,
         1,
         1,
         1,
         1,
         null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
         null,
         1,
         1,
@@ -1967,6 +1953,8 @@
         1,
         1,
         1,
+        null,
+        1,
         1,
         1,
         null,
@@ -1974,7 +1962,18 @@
         1,
         1,
         1,
+        null,
         1,
+        1,
+        0,
+        0,
+        0,
+        null,
+        1,
+        1,
+        0,
+        0,
+        0,
         null,
         1,
         1,
@@ -2001,6 +2000,6 @@
         null
       ]
     },
-    "timestamp": 1382240006
+    "timestamp": 1382317853
   }
 }

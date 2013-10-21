@@ -4,17 +4,17 @@ class User < ActiveRecord::Base
 
   before_create :set_hash
 
-  has_many :idea_admins
+  has_many :idea_admins, :dependent => :delete_all
   has_many :ideas, through: :idea_admins
-  has_many :follows
+  has_many :follows, :dependent => :delete_all
   has_many :following, through: :follows, source: :idea
-  has_many :posts
-  has_many :idea_comments
-  has_many :post_comments
-  has_many :comment_sends, :class_name => 'UserComment', :foreign_key => 'comment_sender_id'
-  has_many :comment_receives, :class_name => 'UserComment', :foreign_key => 'comment_receiver_id'
-  has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id'
-  has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id'
+  has_many :posts, :dependent => :delete_all
+  has_many :idea_comments, :dependent => :delete_all
+  has_many :post_comments, :dependent => :delete_all
+  has_many :comment_sends, :class_name => 'UserComment', :foreign_key => 'comment_sender_id', :dependent => :delete_all
+  has_many :comment_receives, :class_name => 'UserComment', :foreign_key => 'comment_receiver_id',:dependent => :delete_all
+  has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id', :dependent => :delete_all
+  has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id',:dependent => :delete_all
 
   validates :nick, presence: :true, :uniqueness => true
   validates :password, :length => 6..20, confirmation: true, :if => Proc.new{ self.password != self.password_confirmation }

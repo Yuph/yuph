@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
   belongs_to :forum
-  has_many :posts, dependent: :destroy
+  has_many :posts, :dependent => :delete_all
 
   validates :forum, presence: :true
   validates :title, presence: :true

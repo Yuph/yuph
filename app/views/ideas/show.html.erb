@@ -112,7 +112,7 @@
 						<% end %>
 
 						<br>
-						<% if logged? %>
+						<% if logged? && @idea.can_managed_by(@user) %>
 						<div class="forum-buttons">
 							<button class="green-button small-button forum-button" id="new-post-button">novo post</button>
 							<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
@@ -166,7 +166,7 @@
 								<div class="post-comment-left">
 									<img src="" class="user-portrait">
 									<br>
-									<span class="username"><%= post_comment.user.name  %></span>
+									<span class="username"><%= post_comment.user.nick  %></span>
 								</div>
 								<div class="post-comment-body">
 									<h3><%= post_comment.title  %></h3> <!-- Reply title -->
@@ -180,11 +180,15 @@
 						<% end %>
 						<% end %>
 
-						<% if logged? %> 
-						<textarea name="idea-description" class="idea-creation reply-post"></textarea>
+						<% if logged? %>
+						<form action="/post_comments/" method="POST">
+							<%= token_tag nil %>
+							<input type="hidden" name="post_comment[post_id]" value="1">
+								<textarea name="post_comment[message]" class="idea-creation reply-post"></textarea>
+								<input type="submit" value="reponder" class="red-button small-button reply-button">
+							</form>
 						<br>
-						<button class="red-button small-button reply-button">responder</button>
-						<% end %>		
+						<% end %>
 					</div>
 					<div class="clear"></div>
 					<div class="red-line thin-line"></div>
