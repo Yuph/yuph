@@ -10,7 +10,7 @@ class PostCommentsController < ApplicationController
     if @post_comment.save
       redirect_to :back, notice: "Succefully created !"
     else
-      render :new
+      redirect_to :back
     end
   end
 

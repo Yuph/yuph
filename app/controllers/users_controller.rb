@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_single_params)
     if @user.save
       session[:user] = @user.id
-      redirect_to @user, notice: "Succefully created !"
+      redirect_to new_idea_path, notice: "Succefully created !"
     else
       render :new
     end

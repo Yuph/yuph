@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
-  has_many :post_comments, dependent: :destroy
+  has_many :post_comments, :dependent => :delete_all
 
   validates :title, presence: :true
   validates :message, presence: :true

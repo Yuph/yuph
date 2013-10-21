@@ -1,6 +1,6 @@
 class Forum < ActiveRecord::Base
   belongs_to :idea
-  has_many :categories, dependent: :destroy
+  has_many :categories, :dependent => :delete_all
 
   validates :idea, presence: :true
 

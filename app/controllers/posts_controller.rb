@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def create
     set_session_user
     @post = @user.posts.build(post_params)
-    if @post.save!
+    if @post.save
       redirect_to :back, notice: "Criado com sucesso !"
     else
       redirect_to :back, notice: "Houve um problema!"
