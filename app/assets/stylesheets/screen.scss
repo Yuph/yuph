@@ -498,8 +498,8 @@ h3 {
 }
 
 #navbar li img {
-	height: 38px;
-	margin-top: -7px;
+	height: 40px;
+	margin-top: -9px;
 }
 .navbar-dropdown {
 	font-size: 12pt;
@@ -881,32 +881,25 @@ h4 {
 	display: inline;
 }
 
-.comment-bottom {
-	padding-left: 11px;
-}
 
 .comment-bottom img {
 	float: right;
 	display: block;
-	margin-top: -25px;
-}
-
-.comment-left {
-	margin-right: 15px;
+	margin-left: 275px;
 }
 .comment-body {
 	font-size: 10pt;
-	margin-top: -11px;
+	margin-top: -34px;
 	max-width: 200px;
 	white-space: pre-line;
 	word-wrap:break-word;
-	float:right;
-	margin-top: -75px;
 }
 .comment-body p {
 	font-size: 11pt;
 	padding-right: 10px;
 	text-align: left;
+	padding-left: 5px;
+	vertical-align: top;
 }
 
 .profile-comment {
@@ -924,6 +917,10 @@ h4 {
 	text-align: center;
 	margin-top: 0px;
 	display: inline-block;
+}
+
+.comment-left a {
+	color: #b8b8b8;
 }
 
 .comment-left a:visited {
@@ -948,7 +945,7 @@ h4 {
 	font-family: 'Dosis-SemiBold', sans-serif;
 }
 
-.profile-messages {
+.profile-message {
 	width: 290px;
 }
 
@@ -1026,9 +1023,6 @@ h4 {
 .created-idea {
 	text-align: center;
 	color: #2c2828;
-}
-.image-profile-title {
-	margin-left: 11px;
 }
 
 .profile-title h1 {
