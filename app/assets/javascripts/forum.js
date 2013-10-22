@@ -2,10 +2,15 @@ $(document).ready(function(){
 	$('.forum-content .post-content').first().addClass('post-first'); // show first post
 	$('.sidebar-list li').first().addClass('post-list-active'); // highlight first post link
 
-	var idCount = 0;
+	var idCount = 1;
 	$('.a-post').each(function() {
 		$(this).attr('id', + idCount);
 		idCount++;
+	});
+	var postCount = 1;
+	$('.forum-content section').each(function() {
+		$(this).attr('id', + postCount);
+		postCount++;
 	});
 
 	// changes active post
@@ -15,7 +20,7 @@ $(document).ready(function(){
 		$('.post-list-active').removeClass('post-list-active');
 		$(this).parent().addClass('post-list-active');
 		var tmp_post = $(this).attr("id");
-		$('.forum-content .post-content').eq(tmp_post).fadeIn(300);
+		$('.forum-content .post-content').eq(tmp_post - 1).fadeIn(300);
 		document.getElementById("reply-post").value = tmp_post;
 	});
 
