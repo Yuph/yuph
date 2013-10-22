@@ -7,10 +7,10 @@ $(document).ready(function(){
 		$(this).attr('id', + idCount);
 		idCount++;
 	});
-	var postCount = 1;
-	$('.forum-content section').each(function() {
-		$(this).attr('id', + postCount);
-		postCount++;
+	var replyCount = 0;
+	$('.post-comment').each(function() {
+		$(this).attr('id', + replyCount);
+		replyCount++;
 	});
 
 	// changes active post
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		$(this).parent().addClass('post-list-active');
 		var tmp_post = $(this).attr("id");
 		$('.forum-content .post-content').eq(tmp_post - 1).fadeIn(300);
-		document.getElementById("reply-post").value = tmp_post;
+		document.getElementById("reply-post").value = replyCount + 1;
 	});
 
 	function hidePosts(){

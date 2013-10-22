@@ -167,14 +167,12 @@
         <% post.post_comments.each do |post_comment| %>
         <div class="post-comment">
                 <div class="post-comment-left">
-                        <img src="" class="user-portrait">
+                        <%= link_to image_tag(post_comment.post.user.profile_image, class: "user-portrait"), user_path(post_comment.post.user) %>
                         <br>
                         <span class="username"><%= post_comment.user.nick  %></span>
                 </div>
                 <div class="post-comment-body">
                         <h3><%= post_comment.title  %></h3> <!-- Reply title -->
-                        <div class="quote">
-                        </div>
                         <p><%= post_comment.message  %></p> <!-- comment -->
                 </div>
         </div>
