@@ -106,7 +106,7 @@
 <% end %>
 <ul class="sidebar-list">
 <% category.posts.each do |post| %>
-<li class="forum-post-list"><a class="a-post"><%= post.title %></a>
+<li class="forum-post-list"><a class="a-post" id="<%= post.id %>"><%= post.title %></a>
         <% if logged? %>
         <%= link_to image_tag("block.png", class: "block-button"), post_path(post), data: { confirm: 'Are you sure?' }, :method=>:delete if post.can_managed_by(@user)%>
         <% end %>

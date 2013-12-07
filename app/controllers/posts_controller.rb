@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class PostsController < ApplicationController
   before_filter :set_post, :only => [:edit, :update, :destroy]
 

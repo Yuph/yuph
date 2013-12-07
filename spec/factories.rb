@@ -25,7 +25,7 @@ FactoryGirl.define do
     body "Novidades ? Vamos implementar aquela idea?"
   end
   factory :user_comment do
-    message "Várias idéias, várias cabeças"
+    message "Varias ideias, varias cabecas"
   end
   factory :idea_comment do
     message "Adorei a iniciativa."
@@ -42,7 +42,7 @@ FactoryGirl.define do
     message "Post comment Message"
   end
   factory :category do
-    description "tire as suas dúvidas sobre valores"
+    description "tire as suas duvidas sobre valores"
   end
   factory :idea_admin do
   end

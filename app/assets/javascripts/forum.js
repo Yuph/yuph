@@ -3,10 +3,6 @@ $(document).ready(function(){
 	$('.sidebar-list li').first().addClass('post-list-active'); // highlight first post link
 
 	var idCount = 1;
-	$('.a-post').each(function() {
-		$(this).attr('id', + idCount);
-		idCount++;
-	});
 	var replyCount = 0;
 	$('.post-comment').each(function() {
 		$(this).attr('id', + replyCount);

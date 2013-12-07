@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class IdeasController < ApplicationController
   before_filter :set_idea, :only => [:edit, :update, :destroy]
   skip_before_filter :authenticate, :only => [:index, :show]
@@ -10,7 +11,11 @@ class IdeasController < ApplicationController
     set_session_user
     @idea = Idea.create(idea_params)
     if !@idea.new_record? && @idea.users << @user && @idea.save
-      Forum.create(idea: @idea)
+      @forum = Forum.create(idea: @idea)
+      @forum.categories.build(:title => "Geral").save!
+      @forum.categories.build(:title => "Brainstorm").save!
+      @forum.categories.build(:title => "Sugestões").save!
+      @forum.categories.build(:title => "Off-topic").save!
       redirect_to @idea, notice: "Succefully created !"
     else
       render :new
