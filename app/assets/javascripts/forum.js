@@ -19,13 +19,12 @@ $(document).ready(function(){
 	};
 
 	$('#new-post-button').click(function(){
-		$('#new-post').dialog({
-			dialogClass: 'post-dialog',
-			modal: true,
-		});
+		$('#new-post').slideDown();
+		$('#new-category').hide();
 	});
 	$('#new-category-button').click(function(){
-		$('#new-category').dialog();
+		$('#new-category').slideDown();
+		$('#new-post').hide();
 	});
 	$('.close-new-input').click(function(){
 		$(this).parent().slideUp();
