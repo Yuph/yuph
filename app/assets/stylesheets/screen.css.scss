@@ -389,27 +389,34 @@ h3 {
 	font-size: 24pt;
 	color: #2c2828;
 }
-.big-cover-description {
-	margin-top: 125px;
-}
+
 .big-cover-description h2 {
-	font-size: 18pt;
+	font-size: 16pt;
 	text-align: center;
 	margin-right: 15px;
 }
-.cover-button {
-	margin-top: 160px;
+
+.yuph-presentation {
+	margin-bottom: 50px;
 }
 
+.presentation-item {
+	text-align: center;
+}
+
+.presentation-item h2 {
+	font-family: "Dosis-ExtraLight", sans-serif;
+	font-size: 18pt;
+}
 .logged .cover-button {
-	margin-top: 175px;
+	margin-top: 50px;
 }
 .logged-big {
 	height: 300px;
 }
 .logged-description h2 {
-	font-family: "Dosis-SemiBold", sans-serif;
-	font-size: 40pt;
+	font-family: "Dosis-ExtraLight", sans-serif;
+	font-size: 36pt;
 	text-align: left;
 }
 .green-call {

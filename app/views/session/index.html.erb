@@ -1,12 +1,28 @@
 <% if logged? %>
-        <div class="big-cover logged-big">
-            <div class="container_12 logged">
-                <div class="grid_9 push_1 big-cover-description logged-description">
-                    <h2>E aí, que ideia você teve hoje?</h2>
-                </div>
-                <div class="grid_1 cover-button">
-                     <%= link_to 'Diz pra gente', new_idea_path, class: "big-button red-button"  %>
-                </div>
+       <div class="container_12 yuph-presentation">
+            <div class="grid_6 push_3">
+                <img src="/assets/logo.png">
+            </div>
+            <div class="clear"></div>
+            <div class="grid_4 presentation-item">
+                <img src="/assets/process-1.png">
+                <h2>Compartilhe qualquer ideia ou projeto.</h2>
+            </div>
+            <div class="grid_4 presentation-item">
+                <img src="/assets/process-2.png">
+                <h2>Deixe a comunidade discutir e dar feedbacks.</h2>
+            </div>
+            <div class="grid_4 presentation-item">
+                <img src="/assets/process-3.png">
+                <h2>Crie coisas incríveis.</h2>
+            </div>
+        </div>
+        <div class="container_12 logged">
+            <div class="grid_9 push_1 big-cover-description logged-description">
+                <h2>E aí, que ideia você teve hoje?</h2>
+            </div>
+            <div class="grid_1 pull_1 cover-button">
+                 <%= link_to 'Diz pra gente', new_idea_path, class: "big-button red-button"  %>
             </div>
         </div>
         <div class="green-call">
@@ -19,20 +35,33 @@
             </div>
         </div>
     <% else %>
-        <div class="big-cover">
-            <div class="container_12">
-                <div class="grid_12 big-cover-title">
-                    <h1>Sabe aquelas ideias de novos produtos, festas legais ou melhorias na cidade<br> que você tem?</h1>
+            <div class="container_12 yuph-presentation">
+                <div class="grid_6 push_3">
+                    <img src="/assets/logo.png">
                 </div>
                 <div class="clear"></div>
-                <div class="grid_8 push_1 big-cover-description">
-                    <h2>Nós criamos o ambiente perfeito para elas se tornarem<br>coisas incríveis, basta você compartilhar.</h2>
+                <div class="grid_4 presentation-item">
+                    <img src="/assets/process-1.png">
+                    <h2>Compartilhe qualquer ideia ou projeto.</h2>
+                </div>
+                <div class="grid_4 presentation-item">
+                    <img src="/assets/process-2.png">
+                    <h2>Deixe a comunidade discutir e dar feedbacks.</h2>
+                </div>
+                <div class="grid_4 presentation-item">
+                    <img src="/assets/process-3.png">
+                    <h2>Crie coisas incríveis.</h2>
+                </div>
+                <div class="clear" ></div>
+            </div>
+            <div class="container_12 logged">
+                <div class="grid_7 push_3 big-cover-description logged-description">
+                    <h2>Mande a sua ideia</h2>
                 </div>
                 <div class="grid_1 cover-button">
-                    <%= link_to 'bora lá', new_user_path, class: "big-button red-button"  %>
+                     <%= link_to 'Bora lá', new_idea_path, class: "big-button red-button"  %>
                 </div>
             </div>
-        </div>
         <div class="green-call">
             <div class="container_12"><div class="grid_12 green-call-decoration"><h2>...</h2></div></div>
         </div>
