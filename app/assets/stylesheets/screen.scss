@@ -1,51 +1,51 @@
 @font-face {
-    font-family: 'Dosis-ExtraLight';
-    src: url(font-path('Dosis-ExtraLight.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-ExtraLight.woff')) format('woff'), 
-         url(font-path('Dosis-ExtraLight.ttf'))  format('truetype'),
-         url(font-path('Dosis-ExtraLight.svg') + "#DosisExtraLight") format('svg');
+	font-family: 'Dosis-ExtraLight';
+	src: url(font-path('Dosis-ExtraLight.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-ExtraLight.woff')) format('woff'), 
+		 url(font-path('Dosis-ExtraLight.ttf'))  format('truetype'),
+		 url(font-path('Dosis-ExtraLight.svg') + "#DosisExtraLight") format('svg');
 }
 @font-face {
-    font-family: 'Dosis-Light';
-    src: url(font-path('Dosis-Light.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-Light.woff')) format('woff'), 
-         url(font-path('Dosis-Light.ttf'))  format('truetype'),
-         url(font-path('Dosis-Light.svg') + "#DosisLight") format('svg');
+	font-family: 'Dosis-Light';
+	src: url(font-path('Dosis-Light.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-Light.woff')) format('woff'), 
+		 url(font-path('Dosis-Light.ttf'))  format('truetype'),
+		 url(font-path('Dosis-Light.svg') + "#DosisLight") format('svg');
 }
 @font-face {
-    font-family: 'Dosis-Medium';
-    src: url(font-path('Dosis-Medium.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-Medium.woff')) format('woff'), 
-         url(font-path('Dosis-Medium.ttf'))  format('truetype'),
-         url(font-path('Dosis-Medium.svg') + "#DosisMedium") format('svg');
+	font-family: 'Dosis-Medium';
+	src: url(font-path('Dosis-Medium.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-Medium.woff')) format('woff'), 
+		 url(font-path('Dosis-Medium.ttf'))  format('truetype'),
+		 url(font-path('Dosis-Medium.svg') + "#DosisMedium") format('svg');
 }
 @font-face {
-    font-family: 'Dosis-SemiBold';
-    src: url(font-path('Dosis-SemiBold.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-SemiBold.woff')) format('woff'), 
-         url(font-path('Dosis-SemiBold.ttf'))  format('truetype'),
-         url(font-path('Dosis-SemiBold.svg') + "#DosisSemiBold") format('svg');
+	font-family: 'Dosis-SemiBold';
+	src: url(font-path('Dosis-SemiBold.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-SemiBold.woff')) format('woff'), 
+		 url(font-path('Dosis-SemiBold.ttf'))  format('truetype'),
+		 url(font-path('Dosis-SemiBold.svg') + "#DosisSemiBold") format('svg');
 }
 @font-face {
-    font-family: 'Dosis-Bold';
-    src: url(font-path('Dosis-Bold.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-Bold.woff')) format('woff'), 
-         url(font-path('Dosis-Bold.ttf'))  format('truetype'),
-         url(font-path('Dosis-Bold.svg') + "#DosisBold") format('svg');
+	font-family: 'Dosis-Bold';
+	src: url(font-path('Dosis-Bold.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-Bold.woff')) format('woff'), 
+		 url(font-path('Dosis-Bold.ttf'))  format('truetype'),
+		 url(font-path('Dosis-Bold.svg') + "#DosisBold") format('svg');
 }
 @font-face {
-    font-family: 'Dosis-ExtraBold';
-    src: url(font-path('Dosis-ExtraBold.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-ExtraBold.woff')) format('woff'), 
-         url(font-path('Dosis-ExtraBold.ttf'))  format('truetype'),
-         url(font-path('Dosis-ExtraBold.svg') + "#DosisBold") format('svg');
+	font-family: 'Dosis-ExtraBold';
+	src: url(font-path('Dosis-ExtraBold.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-ExtraBold.woff')) format('woff'), 
+		 url(font-path('Dosis-ExtraBold.ttf'))  format('truetype'),
+		 url(font-path('Dosis-ExtraBold.svg') + "#DosisBold") format('svg');
 }
 @font-face {
-    font-family: 'Dosis-Book';
-    src: url(font-path('Dosis-Book.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('Dosis-Book.woff')) format('woff'), 
-         url(font-path('Dosis-Book.ttf'))  format('truetype'),
-         url(font-path('Dosis-Book.svg') + "#DosisBook") format('svg');
+	font-family: 'Dosis-Book';
+	src: url(font-path('Dosis-Book.eot') + "?#iefix") format('embedded-opentype'),
+		 url(font-path('Dosis-Book.woff')) format('woff'), 
+		 url(font-path('Dosis-Book.ttf'))  format('truetype'),
+		 url(font-path('Dosis-Book.svg') + "#DosisBook") format('svg');
 }
 
 
@@ -61,7 +61,7 @@ body img {
 	border: 0;
 }
  textarea {
- 	resize: none;
+	resize: none;
  }
 input:focus, textarea:focus {
 	outline: none;
@@ -159,7 +159,6 @@ h3 {
 	z-index: 4;
 	width: 300px;
 	top: 50px;
-	left: 840px;
 	display: none;
 }
 .main-login h1 {
@@ -275,7 +274,7 @@ h3 {
 .red-button {
 	border-radius: 4px;
 	border: solid 1px #2c2828;
-   	-webkit-text-stroke: 1px #de434a;
+	-webkit-text-stroke: 1px #de434a;
 	text-shadow: 0 3px 4px #6c2225;
 	color: #f3f3f3;
 	display: inline-block;
@@ -465,7 +464,6 @@ h3 {
 	text-align: right;
 	background-color: #2c2828;
 	height: 40px;
-	position: fixed;
 	width: 100%;
 	z-index: 5;
 }
@@ -507,10 +505,8 @@ h3 {
 	width: 12em; /* Width to help Opera out */
 	border: solid 1px #b8b8b8;
 	background-color: #f4f4f4;
-	position: absolute;
-	left: 960px;
-	width: 120px;
-	top: 50px;
+	width: 120px !important; 
+	margin-left: -10px;
 	text-align: center;
 }
 
@@ -528,6 +524,7 @@ h3 {
 	list-style: none;
 }
 #navbar li a {
+	text-align: center;
 	font-family: Verdana, sans-serif;
 	margin-top: 9px;
 	font-size: 14pt;
@@ -802,9 +799,9 @@ h4 {
 	border: none;
 	color: #bebebe;
 	float: right;
-    vertical-align: baseline;
-    position: relative;
-    top: -4px;
+	vertical-align: baseline;
+	position: relative;
+	top: -4px;
 }
 
 .idea-options input {
@@ -818,17 +815,17 @@ h4 {
 }
 
 .ideas-options input[type="checkbox"] {
-    *overflow: hidden;
+	*overflow: hidden;
 }
 
 .idea-options label {
 	font-size: 10pt;
 	display: inline-block;
-    padding: 0;
-    margin:0;
-    vertical-align: baseline;
-    position: relative;
-    top: -4px;
+	padding: 0;
+	margin:0;
+	vertical-align: baseline;
+	position: relative;
+	top: -4px;
 }
 
 .idea-options ::-webkit-input-placeholder {
@@ -908,7 +905,9 @@ h4 {
 	max-width: 350px;
 }
 .profile-comment p {
-	max-width: 350px;
+	margin-top: -15px;
+padding-left: 90px;
+width: 350px;
 }
 
 .comment-left span {
@@ -948,6 +947,16 @@ h4 {
 
 .profile-message {
 	width: 290px;
+}
+.profile-message-image {
+	width: 60px;
+	float: left;
+	margin-left: 15px;
+}
+
+.profile-message-content p {
+	margin-top: -15px;
+	padding-left: 90px;
 }
 
 .user-profile-messages {
@@ -992,10 +1001,10 @@ h4 {
 .profile-statistics span {
 	font-size: 9pt;
 	padding: 0;
-    margin:0;
-    vertical-align: baseline;
-    position: relative;
-    top: -9px;
+	margin:0;
+	vertical-align: baseline;
+	position: relative;
+	top: -9px;
 }
 
 .profile-statistics img {
@@ -1079,11 +1088,11 @@ h4 {
 .profile-comment-form label {
 	font-size: 10pt;
 	display: inline-block;
-    padding: 0;
-    margin:0;
-    vertical-align: baseline;
-    position: relative;
-    top: -4px;
+	padding: 0;
+	margin:0;
+	vertical-align: baseline;
+	position: relative;
+	top: -4px;
 }
 
 .comment-form  {
@@ -1230,9 +1239,9 @@ h4 {
 }
 
 .forum-category img {
-    vertical-align: baseline;
-    position: relative;
-    bottom: -4px;	
+	vertical-align: baseline;
+	position: relative;
+	bottom: -4px;	
 	padding-bottom: -20px;
 	padding-right: 10px;
 }

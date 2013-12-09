@@ -1,199 +1,189 @@
 <div class="container_12">
-<div class="grid_8 wrapper">
-<div class="green-line"></div>
-<br>
-<div class="idea-description">
-<div class="image-profile-title" style="float: left;">
-<%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
-<br>
-<br>
-<% if following? %>
-<form action="/follows/" method="POST">
-<input type="hidden" name="follow[idea_id]" value="<%= @idea.id %>" />
-<%= token_tag nil %>
-<button class="green-button big-button" id="follow-button">seguir</button>
-</form>
-<% elsif logged? %>
-<%= button_to "deixar", follow_path(@user.following_id @idea), :method => "delete", class: "green-button big-button"  %>
-<% end %>
+	<div class="grid_8 wrapper">
+		<div class="green-line"></div>
+		<br>
+		<div class="idea-description">
+			<div class="image-profile-title" style="float: left;">
+				<%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
+				<br>
+				<br>
+				<% if following? %>
+					<form action="/follows/" method="POST">
+						<input type="hidden" name="follow[idea_id]" value="<%= @idea.id %>" />
+						<%= token_tag nil %>
+						<button class="green-button big-button" id="follow-button">seguir</button>
+					</form>
+				<% elsif logged? %>
+					<%= button_to "deixar", follow_path(@user.following_id @idea), :method => "delete", class: "green-button big-button"  %>
+				<% end %>
+			</div>
+			<div class="profile-title">
+				<h1><%= @idea.name %></h1>
+				<p>por <span><%= link_to @idea.users.first.nick, user_path(@idea.users.first) %></span></p>
+			</div>
+			<div class="hashtags"></div>
+			<div class="facebook-share">
+				<div class="fb-like" data-href="http://yuph.net" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div> <!-- needed fix -->
+			</div>
+		</div>
+		<% if logged? && @idea.can_managed_by(@user) %>
+			<%= button_to "Editar", edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
+		<% end %>
+		<br>
+		<br>
+		<p><%= @idea.description.gsub(/\n/, '<br>').html_safe %></p>
+		<br>
+		<br>
+		<div class="embed-video">
+			<%= @idea.video %>
+		</div>
+		<br>
+	</div>
+	<div class="grid_4 wrapper omega profile-sidebar">
+		<h2>Comentários:</h2>
+		<div class="messages">
+			<% @idea.idea_comments.reverse.each do |comment| %>
+				<div class="profile-message">
+					<div class="profile-message-body">
+						<div class="profile-message-image comment-left">
+				  		<%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
+				    	<span><%= link_to comment.user.nick, user_path(comment.user) %></span>
+						</div>
+						<div class="profile-message-content">
+		        	<p><%= comment.message.gsub(/\n/, '<br>').html_safe  %></p>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="comment-bottom">
+						<% if logged? %>
+							<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: 'Are you sure?' }, :method=>:delete if comment.can_managed_by(@user)%>
+						<% end %>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+		<% if logged? %>
+			<div class="profile-comment-form">
+				<form action="/idea_comments/" method="POST">
+					<%= token_tag nil %>
+					<input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
+					<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="Envie seu comentário"></textarea>
+					<br>
+					<div class="comment-options">
+						<button class="red-button small-button">enviar</button>
+					</div>
+				</form>
+			</div>
+		<% end %>
+	</div>
 </div>
-<div class="profile-title">
-<h1><%= @idea.name %></h1>
-<p>por <span><%= link_to @idea.users.first.nick, user_path(@idea.users.first) %></span></p></a>
-</div>
-<div class="hashtags">
-<!-- <a href="">#lorem</a><a href="">#ipsum</a> -->
-</div>
-<div class="facebook-share">
-<div class="fb-like" data-href="http://yuph.net" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div> <!-- needed fix -->
-</div>
-</div>
-<% if logged? && @idea.can_managed_by(@user) %>
-<%= button_to "Editar", edit_idea_path(@idea),
-:method => "get", class: "small-button red-button edit-idea"%>
 
-<% end %>
-<br>
-<br>
-<p><%= @idea.description %></p>
-<br>
-<br>
-<div class="embed-video">
-<%= @idea.video %>
-</div>
+<div class="clear"></div>
+
 <br>
 
-</div>
-<div class="grid_4 wrapper omega profile-sidebar">
-<h2>Comentários:</h2>
-<div class="messages">
-<% @idea.idea_comments.reverse.each do |comment| %>
-<div class="profile-message">
-<div class="profile-message-body">
-<div class="profile-message-image">
-        <%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
-        <span><%= link_to comment.user.nick, user_path(comment.user) %></span>
-</div>
-<div class="profile-message-content">
-        <p><%= comment.message %></p>
-</div>
-</div>
-<div class="clear"></div>
-<div class="comment-bottom">
-<% if logged? %>
-<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: 'Are you sure?' }, :method=>:delete if comment.can_managed_by(@user)%>
-<% end %>
-</div>
-<div class="clear"></div>
-</div>
-<br/>
-<% end %>
-</div>
-<% if logged? %>
-<div class="profile-comment-form">
-<form action="/idea_comments/" method="POST">
-<%= token_tag nil %>
-<input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
-<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="Envie seu comentário"></textarea>
-<br>
-<div class="comment-options">
-<button class="red-button small-button">enviar</button>
-</div>
-</form>
-</div>
-<% end %>
-</div>
-</div>
-<div class="clear"></div>
-<br>
 <div class="container_12">
-<div class="grid_12 wrapper forum">
-<div class="green-line thin-line"></div>
-
-
-<aside class="forum-sidebar">
-<div class="forum-sidebar-title">
-<h2>Fórum</h2>
-</div>
-<div class="clear"></div>
-
-<% @idea.forum.categories.each do |category| %>
-
-<p class="forum-category"><img src="/assets/forum-icon.png">
-<%= category.title %>
-<% if logged? %>
-<%= link_to image_tag("block.png"), category_path(category), data: { confirm: 'Are you sure?' }, :method=>:delete if category.can_managed_by(@user)%>
-<% end %>
-<ul class="sidebar-list">
-<% category.posts.each do |post| %>
-<li class="forum-post-list"><a class="a-post" id="<%= post.id %>"><%= post.title %></a>
-        <% if logged? %>
-        <%= link_to image_tag("block.png", class: "block-button"), post_path(post), data: { confirm: 'Are you sure?' }, :method=>:delete if post.can_managed_by(@user)%>
-        <% end %>
-        <% end %>
-</ul>
-<% end %>
-
-<br>
-<% if logged? && @idea.can_managed_by(@user) %>
-<div class="forum-buttons">
-        <button class="green-button small-button forum-button" id="new-post-button">novo post</button>
-        <button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
-</div>
-        <div id="new-post">
-                <a class="close-new-input">x</a>
-                <br>
-                <form action="/posts/" method="POST">
-                <%= token_tag nil %>
-                <input type="text" name="post[title]" placeholder="Título" id="new-post-input">
-                <input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
-                <br>
-                <%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
-                <br>
-                <button class="red-button small-button">ok</button>
-                </form>
-        </div>
-        <div id="new-category">
-                <a class="close-new-input">x</a>
-                <br>
-                <form action="/categories/" method="POST">
-                <%= token_tag nil %>
-                <input type="text" name="category[title]" placeholder="titulo" id="new-post-input">
-                <input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
-                <button class="red-button small-button">ok</button>
-                </form>
-        </div>
-<% end %>
-</aside>
-
-<div class="forum-content">
-<% @idea.forum.categories.each do |category| %>
-<% category.posts.each do |post| %>
-
-<section class="post-content">
-        <header class="post-header">
-                <h2><%= post.title  %></h2>
-                <div class="post-header-portrait">
-                        <%= link_to image_tag(post.user.profile_image, class: "user-portrait"), user_path(post.user) %>
-                        <br>
-                        <span class="username"><%= post.user.nick  %></span>
-                </div>
-                <div class="post-description">
-                        <p><%= post.message  %></p>
-                </div>
-        </header>
-
-        <div class="clear"></div>
-        <% post.post_comments.each do |post_comment| %>
-        <div class="post-comment">
-                <div class="post-comment-left">
-                        <%= link_to image_tag(post_comment.post.user.profile_image, class: "user-portrait"), user_path(post_comment.post.user) %>
-                        <br>
-                        <span class="username"><%= post_comment.user.nick  %></span>
-                </div>
-                <div class="post-comment-body">
-                        <h3><%= post_comment.title  %></h3> <!-- Reply title -->
-                        <p><%= post_comment.message  %></p> <!-- comment -->
-                </div>
-        </div>
-        <% end %>
-</section>
-<% end %>
-<% end %>
-
-<% if logged? %>
-<form action="/post_comments/" method="POST">
-        <%= token_tag nil %>
-        <input type="hidden" name="post_comment[post_id]" id="reply-post" value="1">
-        <input name="post_comment[title]" type="hidden" value="default">
-                <textarea name="post_comment[message]" class="idea-creation reply-post"></textarea>
-                <input type="submit" value="reponder" class="red-button small-button reply-button">
-        </form>
-<br>
-<% end %>
-</div>
-<div class="clear"></div>
-<div class="red-line thin-line"></div>
-</div>
-</div>
+	<div class="grid_12 wrapper forum">
+		<div class="green-line thin-line"></div>
+		<aside class="forum-sidebar">
+			<div class="forum-sidebar-title">
+				<h2>Fórum</h2>
+			</div>
+			<div class="clear"></div>
+			<% @idea.forum.categories.each do |category| %>
+				<p class="forum-category">
+					<img src="/assets/forum-icon.png">
+					<%= category.title %>
+					<% if logged? %>
+						<%= link_to image_tag("block.png"), category_path(category), data: { confirm: 'Are you sure?' }, :method=>:delete if category.can_managed_by(@user)%>
+					<% end %>
+				</P>
+				<ul class="sidebar-list">
+					<% category.posts.each do |post| %>
+						<li class="forum-post-list"><a class="a-post" id="<%= post.id %>"><%= post.title %></a>
+      			<% if logged? %>
+      				<%= link_to image_tag("block.png", class: "block-button"), post_path(post), data: { confirm: 'Are you sure?' }, :method=>:delete if post.can_managed_by(@user)%>
+      			<% end %>
+      		<% end %>
+				</ul>
+			<% end %>
+			<br>
+			<% if logged? && @idea.can_managed_by(@user) %>
+				<div class="forum-buttons">
+					<button class="green-button small-button forum-button" id="new-post-button">novo post</button>
+					<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
+				</div>
+				<div id="new-post">
+					<a class="close-new-input">x</a>
+					<br>
+					<form action="/posts/" method="POST">
+						<%= token_tag nil %>
+						<input type="text" name="post[title]" placeholder="Título" id="new-post-input">
+						<input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
+						<br>
+						<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
+						<br>
+						<button class="red-button small-button">ok</button>
+					</form>
+				</div>
+				<div id="new-category">
+					<a class="close-new-input">x</a>
+					<br>
+					<form action="/categories/" method="POST">
+						<%= token_tag nil %>
+						<input type="text" name="category[title]" placeholder="titulo" id="new-post-input">
+						<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
+						<button class="red-button small-button">ok</button>
+					</form>
+				</div>
+			<% end %>
+		</aside>
+		<div class="forum-content">
+			<% @idea.forum.categories.each do |category| %>
+				<% category.posts.each do |post| %>
+					<section class="post-content">
+						<header class="post-header">
+							<h2><%= post.title  %></h2>
+							<div class="post-header-portrait">
+								<%= link_to image_tag(post.user.profile_image, class: "user-portrait"), user_path(post.user) %>
+								<br>
+								<span class="username"><%= post.user.nick  %></span>
+							</div>
+							<div class="post-description">
+								<p><%= post.message.gsub(/\n/, '<br>').html_safe  %></p>
+							</div>
+						</header>
+						<div class="clear"></div>
+						<% post.post_comments.each do |post_comment| %>
+							<div class="post-comment">
+								<div class="post-comment-left">
+									<%= link_to image_tag(post_comment.post.user.profile_image, class: "user-portrait"), user_path(post_comment.post.user) %>
+									<br>
+									<span class="username"><%= post_comment.user.nick  %></span>
+								</div>
+								<div class="post-comment-body">
+									<p><%= post_comment.message.gsub(/\n/, '<br>').html_safe  %></p> <!-- comment -->
+								</div>
+							</div>
+							<div class="clear"></div>
+						<% end %>
+					</section>
+				<% end %>
+			<% end %>
+			<% if logged? %>
+				<form action="/post_comments/" method="POST">
+					<%= token_tag nil %>
+					<input type="hidden" name="post_comment[post_id]" id="reply-post" value="1">
+					<input name="post_comment[title]" type="hidden" value="default">
+					<textarea name="post_comment[message]" class="idea-creation reply-post"></textarea>
+					<input type="submit" value="reponder" class="red-button small-button reply-button">
+				</form>
+				<br>
+			<% end %>
+		</div>
+		<div class="clear"></div>
+		<div class="red-line thin-line"></div>
+	</div>
 </div>
