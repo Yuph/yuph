@@ -1,7 +1,8 @@
 <div class="container_12 idea-row">
 <% @ideas.each do |idea| %>
-    <div class="grid_3 wrapper min-idea home-idea">
+    <div class="grid_3 wrapper min-idea">
         <div class="green-line"></div>
+        <div class="home-idea">
            <%= link_to image_tag(idea.image.url(:thumb)), idea_path(idea) %>
         <h2>
             <%= idea.name %>
@@ -9,6 +10,7 @@
         <p>
             <%= idea.mini_description  %>
         </p>
+        </div>
         <div class="red-line"></div>
     </div>
 <% end %>
