@@ -16,6 +16,11 @@
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 	<%= analytics_init if Rails.env.production? %>
+
+	<meta name="description" content="A Yuph é uma plataforma para brainstorm e organização de projetos. É um lugar para você compartilhar ideias. Inicie discussões, receba feedback e deixe a comunidade fazer a parte dela." />
+	<meta name="keywords" content="ideias, projetos, brainstorm, forum, discussão, comentarios, inovação, feedback, criatividade, iniciativas, grupos, pessoas" xml:lang="pt-BR" lang="pt-BR">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 </head>
 <body>
 <div class="top">
@@ -33,7 +38,9 @@
 						<a>blog</a>
 					</li>
 				</ul>
-				<div class="navbar-dropdown">
+			</div>
+			<div class="container_12" > 
+				<div class="navbar-dropdown grid_1 push_10">
 					<a href="<%= user_path(session[:user]) %>">seu perfil</a>
 					<a href="/logout">sair</a>
 				</div>
@@ -59,7 +66,7 @@
 		</div>
 	</div>
 	<div class="container_12">
-		<div class="grid_4 push_8">
+		<div class="grid_4 push_6">
 			<div class="new-login main-login wrapper">
 				<div class="main-form">
 				<h1>Entre na yuph</h1>

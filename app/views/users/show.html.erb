@@ -84,7 +84,7 @@
 					<span><%= comment.comment_sender.nick %></span>
 				</div>
 				<div class="comment-body profile-comment">
-					<p><%= comment.message %></p>
+					<p><%= comment.message.gsub(/\n/, '<br>').html_safe  %></p>
 				</div>
 				<div class="comment-bottom">
 					<% if logged? %>
