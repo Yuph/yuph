@@ -12,10 +12,11 @@ class IdeasController < ApplicationController
     @idea = Idea.create(idea_params)
     if !@idea.new_record? && @idea.users << @user && @idea.save
       @forum = Forum.create(idea: @idea)
-      @forum.categories.build(:title => "Geral").save!
-      @forum.categories.build(:title => "Brainstorm").save!
-      @forum.categories.build(:title => "Sugestões").save!
       @forum.categories.build(:title => "Off-topic").save!
+      @forum.categories.build(:title => "Sugestões").save!
+      @forum.categories.build(:title => "Brainstorm").save!
+      @forum.categories.build(:title => "Geral").save!
+
       redirect_to @idea, notice: "Succefully created !"
     else
       render :new
