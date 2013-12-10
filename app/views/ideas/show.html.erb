@@ -31,6 +31,7 @@
 				<p>por <span><%= link_to @idea.users.first.nick, user_path(@idea.users.first) %></span></p>
 			</div>
 			<div class="hashtags"></div>
+			<div class="clear"></div>
 			<div class="facebook-share">
 				<div class="fb-like" id="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 			</div>
@@ -125,26 +126,26 @@
 					<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
 				</div>
 				<div id="new-post">
-					<a class="close-new-input">x</a>
-					<br>
 					<form action="/posts/" method="POST">
 						<%= token_tag nil %>
-						<input type="text" name="post[title]" placeholder="Título" id="new-post-input">
-						<input type="text" name="post[message]" placeholder="Mensagem" id="new-post-input">
+						<h2>Novo post</h2>
+						<input type="text" name="post[title]" placeholder="Título" id="new-post-input" class="new-post-title" >
 						<br>
-						<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'}) %>
+						<textarea name="post[message]" placeholder="Mensagem" id="new-post-input" class="new-post-message"></textarea>
 						<br>
-						<button class="red-button small-button">ok</button>
+						<div class="select-style">
+							<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'Categoria'}) %>
+						</div>
+						<button class="red-button small-button">criar</button>
 					</form>
 				</div>
 				<div id="new-category">
-					<a class="close-new-input">x</a>
-					<br>
-					<form action="/categories/" method="POST">
+					<form action="/categories/" method="POST" class="new-categoty-form">
+						<h2>Nova categoria</h2>
 						<%= token_tag nil %>
-						<input type="text" name="category[title]" placeholder="titulo" id="new-post-input">
+						<input type="text" name="category[title]" placeholder="titulo" id="new-category-input">
 						<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
-						<button class="red-button small-button">ok</button>
+						<button class="red-button small-button">criar</button>
 					</form>
 				</div>
 			<% end %>
@@ -182,7 +183,11 @@
 				<% end %>
 			<% end %>
 			<% if logged? %>
-				<form action="/post_comments/" method="POST">
+				<div class="help-forum">
+					<h2>Começe a desenvolver essa ideia</h2>
+					<p>Crie um post em alguma das categorias ao lado e proporcione um espaço para outros usuários ajudarem essa ideia.</p>
+				</div>
+				<form action="/post_comments/" method="POST" class="reply-post-form">
 					<%= token_tag nil %>
 					<input type="hidden" name="post_comment[post_id]" id="reply-post" value="1">
 					<input name="post_comment[title]" type="hidden" value="default">
@@ -196,3 +201,4 @@
 		<div class="red-line thin-line"></div>
 	</div>
 </div>
+<div id="fade"></div>

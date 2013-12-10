@@ -14,19 +14,57 @@ $(document).ready(function(){
 	});
 
 	function hidePosts(){
-	$('.forum-content .post-content').each(function(){
-	$(this).hide();});
+		$('.forum-content .post-content').each(function(){
+		$(this).hide();});
 	};
 
-	$('#new-post-button').click(function(){
-		$('#new-post').slideDown();
-		$('#new-category').hide();
-	});
 	$('#new-category-button').click(function(){
-		$('#new-category').slideDown();
-		$('#new-post').hide();
+		$('#fade').fadeIn();
+		$('#new-category').dialog( {
+			show: 'fade', 
+			hide: 'fade',
+			dialogClass: "no-close",
+			dialogClass: "new-category-dialog",
+			closeOnEscape: false,
+			width: "510px",
+			buttons: [{
+				text: "x",
+				"class": 'close-new-input',
+				click: function() {
+					$( this ).dialog( "close" );
+					$('#fade').fadeOut();
+				}
+			}],
+		});
 	});
-	$('.close-new-input').click(function(){
-		$(this).parent().slideUp();
+
+	$('#new-post-button').click(function(){
+		$('#fade').fadeIn();
+		$('#new-post').dialog({
+			show: 'fade', 
+			hide: 'fade',
+			dialogClass: "no-close",
+			dialogClass: "new-post-dialog",
+			closeOnEscape: false,
+			width: "510px",
+			buttons: [{
+				text: "x",
+				"class": 'close-new-input',
+				click: function() {
+					$( this ).dialog( "close" );
+					$('#fade').fadeOut();
+				}
+			}],
+		});
 	});
+
+	var $object = $('.forum-content .post-content');
+	if($object.length) {
+	    // there's at least one post
+	    $('.help-forum').remove();
+	}
+	else {
+		$('.reply-post-form').hide();
+		$('.help-forum').show();
+	}
 });
