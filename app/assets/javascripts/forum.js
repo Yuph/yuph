@@ -8,8 +8,8 @@ $(document).ready(function(){
 		hidePosts();
 		$('.post-list-active').removeClass('post-list-active');
 		$(this).parent().addClass('post-list-active');
-		var tmp_post = $(this).attr("id");
-		$('.forum-content .post-content').eq(tmp_post - 1).fadeIn(300);
+		var tmp_post = 'post' + $(this).attr("id");
+		$("#" + tmp_post ).fadeIn(300);
 		document.getElementById("reply-post").value = tmp_post;
 	});
 

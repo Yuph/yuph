@@ -3,7 +3,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_PI/all.js#xfbml=1&appId=165044993686486";
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=165044993686486";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <% @title= @idea.name %>
@@ -153,8 +153,8 @@
 		<div class="forum-content">
 			<% @idea.forum.categories.each do |category| %>
 				<% category.posts.each do |post| %>
-					<section class="post-content">
-						<header class="post-header">
+					<section class="post-content" id="post<%= post.id %>" >
+						<header class="post-header" >
 							<h2><%= post.title  %></h2>
 							<div class="post-header-portrait">
 								<%= link_to image_tag(post.user.profile_image, class: "user-portrait"), user_path(post.user) %>
