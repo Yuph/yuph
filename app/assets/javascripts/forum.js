@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	$('.forum-content .post-content').first().addClass('post-first'); // show first post
 	$('.sidebar-list li').first().addClass('post-list-active'); // highlight first post link
+	var firstPost = $('.sidebar-list li a:first').attr("id");
+	document.getElementById("reply-post").value = firstPost;
 
 	// changes active post
 
@@ -8,9 +10,10 @@ $(document).ready(function(){
 		hidePosts();
 		$('.post-list-active').removeClass('post-list-active');
 		$(this).parent().addClass('post-list-active');
+		var post = $(this).attr("id")
 		var tmp_post = 'post' + $(this).attr("id");
 		$("#" + tmp_post ).fadeIn(300);
-		document.getElementById("reply-post").value = tmp_post;
+		document.getElementById("reply-post").value = post;
 	});
 
 	function hidePosts(){
