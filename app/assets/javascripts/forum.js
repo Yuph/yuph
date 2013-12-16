@@ -2,7 +2,11 @@ $(document).ready(function(){
 	$('.forum-content .post-content').first().addClass('post-first'); // show first post
 	$('.sidebar-list li').first().addClass('post-list-active'); // highlight first post link
 	var firstPost = $('.sidebar-list li a:first').attr("id");
-	document.getElementById("reply-post").value = firstPost;
+
+	// test if forum exist and set default value to reply form
+	if ($('.forum').length) {
+		document.getElementById("reply-post").value = firstPost;
+	};
 
 	// changes active post
 
