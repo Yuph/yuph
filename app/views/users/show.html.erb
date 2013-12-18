@@ -51,7 +51,7 @@
 					<% if @user.ideas.size > 0 %>
 					<h3>Ideias lançadas</h3>
 					<% else %>
-					<h3>Nenhuma idéia lancada :/</h3>
+					<h3>Nenhuma ideia lançada :/</h3>
 					<% end %>
 				</div>
 				<div class="clear"></div>
@@ -132,7 +132,7 @@
 		<% if @user.following.size > 0 %>
 		<h3>Ideias que <%= @user.nick %> acompanha:</h3>
 		<% else %>
-		<h3> <%= @user.nick %> ainda nao gostou de nenhuma ideia :(</h3>
+		<h3> <%= @user.nick %> ainda não gostou de nenhuma ideia :(</h3>
 		<% end %>
 
 		<% @user.following.limit(5).each do |idea| %>

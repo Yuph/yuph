@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var firstPost = $('.sidebar-list li a:first').attr("id");
 
 	// test if forum exist and set default value to reply form
-	if ($('.forum').length) {
+	if ($('.post-content').length && $('#reply-post').length ) {
 		document.getElementById("reply-post").value = firstPost;
 	};
 
@@ -65,8 +65,7 @@ $(document).ready(function(){
 		});
 	});
 
-	var $object = $('.forum-content .post-content');
-	if($object.length) {
+	if($('.forum-content .post-content').length) {
 	    // there's at least one post
 	    $('.help-forum').remove();
 	}
