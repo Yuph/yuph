@@ -66,7 +66,7 @@ describe User do
       @user_three = User.create(nick: "vantoniazzi", email: "vrgazzi@gmail.com", password: "test123")
       @idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
       @forum = Forum.create(idea_id: @idea.id)
-      @category = Category.create(description: "about project", forum_id: @forum.id)
+      @category = FactoryGirl.create(:category, forum_id: @forum.id)
       @post = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user.id)
       @post_two = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user_two.id)
       @post_comment = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post.id, user_id: @user_two.id)

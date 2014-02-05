@@ -17,9 +17,9 @@ describe UserComment do
   end
   context "actions" do
     it "succefuly create" do
-      sender = User.create(nick: "victor-antoniazzi-simple-01", email: "vgsantoniazzi-simple-001@gmail.com", password: "test123")
-      receiver = User.create(nick: "antoniazzi-simple-002", email: "vgsantoniazzi-simple-002@gmail.com", password: "test123")
-      user_comment = UserComment.create!(comment_receiver_id: receiver.id, comment_sender_id: sender.id)
+      sender = FactoryGirl.create(:user) #User.create(nick: "victor-antoniazzi-simple-01", email: "vgsantoniazzi-simple-001@gmail.com", password: "test123")
+      receiver = FactoryGirl.create(:user) #User.create(nick: "antoniazzi-simple-002", email: "vgsantoniazzi-simple-002@gmail.com", password: "test123")
+      user_comment = FactoryGirl.create(:user_comment, comment_receiver_id: receiver.id, comment_sender_id: sender.id)
       expect(user_comment).to have(:no).error
     end
     it "fail create" do

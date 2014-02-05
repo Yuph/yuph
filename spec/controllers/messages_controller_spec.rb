@@ -35,9 +35,9 @@ describe MessagesController do
 	      		expect(message.title).to eql("changed")
 	    	end
 	    	it "Fail" do
-	      		post :create, message: FactoryGirl.attributes_for(:message, message_receiver_id: @user_two.id)
+	      		post :create, message: FactoryGirl.attributes_for(:message, title: "Como estás ?", message_receiver_id: @user_two.id)
 	      		message = Message.last
-	      		put :update, id: message.id, message: FactoryGirl.attributes_for(:message, title: "")
+                put :update, id: message.id, message: FactoryGirl.attributes_for(:message, title: "")
 	      		message.reload
 	      		expect(message.title).to eql("Como estás ?")
 	      		expect(response).to render_template(:edit)
@@ -53,10 +53,11 @@ describe MessagesController do
 	    	end
     	end
     	context "#ASSHOLE" do
-	    	it "#MANAGE one idea that not belongs to me" do
+	    	let (:message) { Message.last }
+            let (:user) { FactoryGirl.create(:user) }
+
+            it "#MANAGE one idea that not belongs to me" do
 	      		post :create, message: FactoryGirl.attributes_for(:message, message_receiver_id: @user_two.id)
-	      		message = Message.last
-	      		user = FactoryGirl.create(:user)
 	      		session[:user] = user.id
 	      		expect{
 	        		delete :destroy, id: message.id
