@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe PostCommentsController do
+
+  before(:each) do
+    request.env['HTTP_REFERER'] = '/'
+  end
+
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
@@ -32,7 +37,7 @@ describe PostCommentsController do
       end
       it "Fail" do
         post :create, post_comment: FactoryGirl.attributes_for(:post, title: "", category_id: @category.id)
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(request.referer)
       end
     end
     context "#PUT" do

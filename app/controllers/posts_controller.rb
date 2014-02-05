@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to :back, notice: "Criado com sucesso !"
     else
-      redirect_to :back, notice: "Houve um problema!"
+      redirect_to new_post_path, notice: "Houve um problema!"
     end
   end
 

@@ -5,6 +5,7 @@ class PostComment < ActiveRecord::Base
   validates :title, presence: :true
   validates :message, presence: :true
   validates :user, presence: :true
+  validates :post, presence: :true
 
   def can_managed_by(user)
     if self.post.category.forum.idea.users.where("user_id = ?", user.id).first || self.user_id == user.id

@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe PostsController do
+
+  before(:each) do
+    request.env['HTTP_REFERER'] = '/'
+  end
+
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
@@ -31,7 +36,7 @@ describe PostsController do
       end
       it "Fail" do
         post :create, post: FactoryGirl.attributes_for(:post, title: "", category_id: @category.id)
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(new_post_path)
       end
     end
     context "#PUT" do

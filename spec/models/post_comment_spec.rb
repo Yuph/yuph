@@ -10,10 +10,12 @@ describe PostComment do
       post_comment = PostComment.create
       expect(post_comment).to have(1).error_on(:message)
     end
+
     it "post" do
       post_comment = PostComment.create
       expect(post_comment).to have(1).error_on(:post)
     end
+
     it "user" do
       post_comment = PostComment.create
       expect(post_comment).to have(1).error_on(:user)
