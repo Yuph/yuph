@@ -10,12 +10,13 @@ class IdeasController < ApplicationController
   def create
     set_session_user
     @idea = Idea.create(idea_params)
+
     if !@idea.new_record? && @idea.users << @user && @idea.save
       @forum = Forum.create(idea: @idea)
-      @forum.categories.build(:title => "Off-topic").save!
-      @forum.categories.build(:title => "Sugestões").save!
-      @forum.categories.build(:title => "Brainstorm").save!
-      @forum.categories.build(:title => "Geral").save!
+      @forum.categories.default_category('off-topic').save!
+      @forum.categories.default_category('suggestion').save!
+      @forum.categories.default_category('brainstorm').save!
+      @forum.categories.default_category('general').save!
 
       redirect_to @idea, notice: "Succefully created !"
     else
@@ -57,6 +58,6 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:name, :image, :mini_description, :description, :video, :password)
+    params.require(:idea).permit(:name, :image, :mini_description, :description, :video, :password, :title)
   end
 end

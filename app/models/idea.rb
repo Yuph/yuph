@@ -1,5 +1,5 @@
 class Idea < ActiveRecord::Base
-  attr_accessor :image_content_type
+  attr_accessor :image_content_type, :title, :forum_id
 
   has_many :idea_admins, :dependent => :delete_all
   has_many :users, through: :idea_admins
@@ -14,7 +14,7 @@ class Idea < ActiveRecord::Base
   validates :description, presence: :true
 
   has_attached_file :image,
-  	:styles => { :medium => "300x300>", :thumb => "220x144#" },
+    :styles => { :medium => "300x300>", :thumb => "220x144#" },
     :storage => :s3,
     :default_url => '/assets/missing.png',
     :bucket => 'yuph',
