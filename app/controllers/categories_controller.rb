@@ -9,9 +9,9 @@ class CategoriesController < ApplicationController
     set_session_user
     @category = @forum.categories.build(category_params)
     if @category.save!
-      redirect_to :back, notice: "Succefully created !"
+      redirect_to categories_path, notice: "Succefully created !"
     else
-      redirect_to :back, notice: "Succefully created !"
+      render :new, notice: "Succefully created !"
     end
   end
 
@@ -52,7 +52,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:title, :forum_id)
+    params.require(:category).permit(:title, :forum_id, :description)
   end
 end
 
