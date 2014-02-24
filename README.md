@@ -13,6 +13,7 @@ Estamos usando o [rbenv](https://github.com/sstephenson/rbenv) para controlar a 
  * Instale as dependências:
 
     $ # Instale o postgresql
+
     $ bundle
 
  * Crie os bancos de dados
@@ -22,7 +23,9 @@ Estamos usando o [rbenv](https://github.com/sstephenson/rbenv) para controlar a 
     $ postgres=# create user yuph with password 'suasenha';
 
     $ postgres=# create database yuph_development owner yuph;
+
     $ postgres=# create database yuph_production owner yuph;
+
     $ postgres=# create database yuph_test owner yuph;
 
  * Rode as migrações
