@@ -2,8 +2,8 @@ class SessionController < ApplicationController
   skip_before_filter :authenticate, :all
 
   def index
-    @yuph = Idea.find(1)
-    @ideas = Idea.last_four
+    @yuph = Idea.first
+    @ideas = Idea.last(4)
   end
 
   def login
