@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<% if logged? && @idea.can_managed_by(@user) %>
-			<%= button_to "Editar", edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
+			<%= button_to t(".edit"), edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
 		<% end %>
 		<br>
 		<br>
@@ -66,7 +66,7 @@
 					<div class="clear"></div>
 					<div class="comment-bottom">
 						<% if logged? %>
-							<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: 'Are you sure?' }, :method=>:delete if comment.can_managed_by(@user)%>
+							<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: t('idea_comment.confirm_destroy') }, :method=>:delete if comment.can_managed_by(@user)%>
 						<% end %>
 					</div>
 					<div class="clear"></div>
@@ -79,7 +79,7 @@
 				<form action="/idea_comments/" method="POST">
 					<%= token_tag nil %>
 					<input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
-					<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="Envie seu comentário"></textarea>
+					<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="<%= t('idea_comments.form.placeholder') %>"></textarea>
 					<br>
 					<div class="comment-options">
 						<button class="red-button small-button">enviar</button>
@@ -107,7 +107,7 @@
 					<img src="/assets/forum-icon.png">
 					<%= category.title %>
 					<% if logged? %>
-						<%= link_to image_tag("block.png"), category_path(category), data: { confirm: 'Are you sure?' }, :method=>:delete if category.can_managed_by(@user)%>
+						<%= link_to image_tag("block.png"), category_path(category), data: { confirm: t('categories.confirm_destroy') }, :method=>:delete if category.can_managed_by(@user)%>
 					<% end %>
 				</P>
 				<ul class="sidebar-list">
@@ -141,7 +141,7 @@
 				</div>
 				<div id="new-category">
 					<form action="/categories/" method="POST" class="new-categoty-form">
-						<h2>Nova categoria</h2>
+						<h2> <%= t('category.new.title') %> </h2>
 						<%= token_tag nil %>
 						<input type="text" name="category[title]" placeholder="titulo" id="new-category-input">
 						<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
@@ -184,8 +184,8 @@
 			<% end %>
 			<% if logged? %>
 				<div class="help-forum">
-					<h2>Começe a desenvolver essa ideia</h2>
-					<p>Crie um post em alguma das categorias ao lado e proporcione um espaço para outros usuários ajudarem essa ideia.</p>
+					<h2><%= t('ideas.show.title') %></h2>
+					<p><%= t('ideas.show.description') %></p>
 				</div>
 				<form action="/post_comments/" method="POST" class="reply-post-form">
 					<%= token_tag nil %>

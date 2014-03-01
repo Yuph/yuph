@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
       @forum.categories.default_category('brainstorm').save!
       @forum.categories.default_category('general').save!
 
-      redirect_to @idea, notice: "Succefully created !"
+      redirect_to @idea, notice: t("idea.created")
     else
       render :new
     end
@@ -38,7 +38,7 @@ class IdeasController < ApplicationController
 
   def update
     if  @idea.update_attributes(idea_params)
-      redirect_to @idea, notice: "Updated"
+      redirect_to @idea, notice: t("idea.updated")
     else
       render :edit
     end

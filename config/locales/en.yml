@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  idea:
+    created: Idea succesfully created.
+    updated: Idea succesfully updated.
