@@ -31,10 +31,11 @@ Yuph::Application.routes.draw do
   resources :post_comments
 
   # Session Routes
+
+  devise_for :users
   get 'login' => 'session#index'
   post 'login' => 'session#login'
   get 'logout' => 'session#logout'
-
 
   # Facebook Login
   get "/auth/:provider/callback" => "session#facebook_login_successfuly", as: :auth_callback

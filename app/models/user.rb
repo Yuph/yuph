@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :image_content_type
-  attr_accessor :password, :password_confirmation
-
-  before_create :set_hash
 
   has_many :idea_admins, :dependent => :delete_all
   has_many :ideas, through: :idea_admins
@@ -16,13 +17,10 @@ class User < ActiveRecord::Base
   has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id', :dependent => :delete_all
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id',:dependent => :delete_all
 
-  validates :nick, presence: :true, :uniqueness => true
-  validates :password, :length => 6..20, confirmation: true, :if => Proc.new{ self.password != self.password_confirmation }
-  validates_presence_of :password, :if => Proc.new{ self.new_record? && access_token.blank? }
   validates :email, presence: :true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   has_attached_file :image,
-  	:styles => { :medium => "300x300>", :thumb => "100x80#" },
+    :styles => { :medium => "300x300>", :thumb => "100x80#" },
     :storage => :s3,
     :default_url => '/assets/user-default.jpg',
     :bucket => 'yuph',
@@ -33,6 +31,18 @@ class User < ActiveRecord::Base
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 
   validates_attachment :image, :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
+
+  has_one :profile
+
+  delegate :nick, :first_name, :last_name, :image_file_name, :about, :local,
+    :website, :facebook, :twitter, :provider, :to => :profile
+
+  alias :devise_valid_password? :valid_password?
+
+  def valid_password?(password)
+    # Try new login style and fallback to old style for old users
+    devise_valid_password?(password) || old_valid_password?(password)
+  end
 
   def following_id(idea)
       self.follows.where('idea_id = ?', idea.id).first.id
@@ -46,20 +56,20 @@ class User < ActiveRecord::Base
     end
   end
 
-  def set_hash
-    if (!self.password.blank?)
-      self.access_token_login = Digest::SHA1.hexdigest("thisissecret#"+self.password)
-    end
+  def self.find_or_create_with_omniauth(auth)
+    user = self.find_or_create_by_provider_and_uid(auth.provider, auth.uid)
+    user.assign_attributes({ nick: auth.info.name, email: auth.info.email, image_file_name: auth.info.image, access_token: auth.credentials.token })
+    user
   end
 
-  def self.find_or_create_with_omniauth(auth)
-      user = self.find_or_create_by_provider_and_uid(auth.provider, auth.uid)
-      user.assign_attributes({ nick: auth.info.name, email: auth.info.email, image_file_name: auth.info.image, access_token: auth.credentials.token })
-      user.save!
-      user
+  private
+  def old_valid_password?(password)
+    if Digest::SHA1.hexdigest(Yuph::USER_SECRET_SALT+password) == self.profile.access_token_login
+      logger.info "User #{email} is using the old password hashing method, updating attribute."
+      self.password = password
+      self.profile.update :updated_user => true
+      self.save!
+      true
     end
-
-  def self.login(email, password)
-    where("email = ? and access_token_login = ?", email, Digest::SHA1.hexdigest("thisissecret#"+password)).first
   end
 end

@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  skip_before_filter :authenticate, :all
+  skip_before_filter :authenticate_user!, :all
 
   def index
     @yuph = Idea.first

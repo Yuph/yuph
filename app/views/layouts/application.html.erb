@@ -79,7 +79,7 @@
 			<div class="new-login main-login wrapper">
 				<div class="main-form">
 				<h1>Entre na yuph</h1>
-				<form name="login" action="/login" method="POST">
+				<form name="login" action="<%= user_session_path %>" method="POST">
 		             <input type="text" name="user[email]" placeholder="Email" />
 					<input type="password" name="user[password]" placeholder="senha" />
 		            <%= token_tag nil %>

@@ -50,6 +50,9 @@ gem 'aws-sdk'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# For new users
+gem 'devise'
+
 # web: Unicorn
 gem 'unicorn'
 
