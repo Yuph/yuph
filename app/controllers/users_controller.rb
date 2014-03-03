@@ -19,11 +19,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new :profile => Profile.new
-    @profile = @user.profile
-  end
-
   def edit
     puts current_user.inspect
   end
@@ -53,10 +48,6 @@ class UsersController < ApplicationController
     if current_user.id != @user.id
       redirect_to action: :index
     end
-  end
-
-  def user_single_params
-    params.require(:user).permit(:email, :password, :password_confirmation, profile_attributes: [:nick])
   end
 
   def user_full_params

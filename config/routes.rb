@@ -28,7 +28,7 @@ Yuph::Application.routes.draw do
   resources :post_comments
 
   # Devise routes
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'}
   devise_scope :user do
     get "login", :to => "devise/sessions#new"
     get "logout", :to => "devise/sessions#destroy"
