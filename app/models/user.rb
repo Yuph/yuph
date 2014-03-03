@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  attr_accessor :image_content_type
 
   has_many :idea_admins, :dependent => :delete_all
   has_many :ideas, through: :idea_admins
@@ -17,23 +16,12 @@ class User < ActiveRecord::Base
   has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id', :dependent => :delete_all
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id',:dependent => :delete_all
 
-  has_attached_file :image,
-    :styles => { :medium => "300x300>", :thumb => "100x80#" },
-    :storage => :s3,
-    :default_url => '/assets/user-default.jpg',
-    :bucket => 'yuph',
-    :path => "profile/:attachment/:id/:style.:extension",
-    :s3_credentials => { :access_key_id => 'AKIAI5MJFU42WK57XFEQ',
-                         :secret_access_key => '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' },
-    :s3_permissions => 'public-read',
-    :s3_host_name => 's3-us-west-2.amazonaws.com'
-
-  validates_attachment :image, :content_type => { :content_type => /^image\/(png|gif|jpeg)/ }
-
   has_one :profile
 
-  delegate :nick, :first_name, :last_name, :image_file_name, :about, :local,
+  delegate :nick, :first_name, :last_name, :image, :image_file_name, :about, :local,
     :website, :facebook, :twitter, :provider, :to => :profile
+
+  accepts_nested_attributes_for :profile
 
   alias :devise_valid_password? :valid_password?
 

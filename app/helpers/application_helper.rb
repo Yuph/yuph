@@ -1,11 +1,9 @@
 module ApplicationHelper
-	def logged?
-		if session[:user]
-			true
-		else
-			false
-		end
-	end
+
+  def logged?
+    current_user
+  end
+
   def following?
     if !@user.blank? && @user.following.where('idea_id = ?', @idea.id).blank?
       true

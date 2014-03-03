@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 class IdeasController < ApplicationController
   before_filter :set_idea, :only => [:edit, :update, :destroy]
-  skip_before_filter :authenticate, :only => [:index, :show]
+  skip_before_filter :authenticate_user!, :only => [:index, :show]
 
   def index
     @ideas = Idea.all
   end
 
   def create
-    set_session_user
     @idea = Idea.create(idea_params)
 
-    if !@idea.new_record? && @idea.users << @user && @idea.save
+    if !@idea.new_record? && @idea.users << current_user && @idea.save
       @forum = Forum.create(idea: @idea)
       @forum.categories.default_category('off-topic').save!
       @forum.categories.default_category('suggestion').save!
@@ -25,7 +24,6 @@ class IdeasController < ApplicationController
   end
 
   def show
-    set_session_user if session[:user]
     @idea = Idea.find(params[:id])
   end
 
@@ -52,7 +50,7 @@ class IdeasController < ApplicationController
   def set_idea
     set_session_user
     @idea = Idea.find(params[:id])
-    if !@idea.can_managed_by(@user)
+    if !@idea.can_managed_by(current_user)
       redirect_to action: :index
     end
   end

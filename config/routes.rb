@@ -3,9 +3,6 @@ Yuph::Application.routes.draw do
   # Root action => '/'
   root 'session#index'
 
-  # Users controller
-  resources :users
-
   # Ideas Controller
   resources :ideas
 
@@ -30,12 +27,15 @@ Yuph::Application.routes.draw do
   resources :posts
   resources :post_comments
 
-  # Session Routes
-
+  # Devise routes
   devise_for :users
-  get 'login' => 'session#index'
-  post 'login' => 'session#login'
-  get 'logout' => 'session#logout'
+  devise_scope :user do
+    get "login", :to => "devise/sessions#new"
+    get "logout", :to => "devise/sessions#destroy"
+    get "register", :to => "registrations#new"
+  end
+
+  resources :users, :except => [:new, :create]
 
   # Facebook Login
   get "/auth/:provider/callback" => "session#facebook_login_successfuly", as: :auth_callback
