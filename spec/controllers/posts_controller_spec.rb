@@ -9,7 +9,8 @@ describe PostsController do
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
-      session[:user] = @user.id
+      sign_in @user
+
       @idea = FactoryGirl.create(:idea)
       @idea.users << @user
       @idea.save!
@@ -62,9 +63,11 @@ describe PostsController do
         }.to change(Post,:count).by(-1)
       end
       it "Succefuly with admin" do
-        session[:user] = @post_creator.id
+        sign_in @post_creator
+
         post :create, post: FactoryGirl.attributes_for(:post, category_id: @category.id)
-        session[:user] = @user.id
+
+        sign_in @user
         post = Post.last
         expect{
           delete :destroy, id: post.id
@@ -75,8 +78,11 @@ describe PostsController do
       it "#MANAGE one forum that not belongs to me" do
         post :create, post: FactoryGirl.attributes_for(:post, category_id: @category.id)
         post = Post.last
+
         user = FactoryGirl.create(:user)
-        session[:user] = user.id
+
+        sign_out @user
+        sign_in user
         expect{
           delete :destroy, id: post.id
         }.to change(Post,:count).by(0)

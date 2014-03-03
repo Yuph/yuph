@@ -4,7 +4,7 @@ describe IdeasController do
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
-      session[:user] = @user.id
+      sign_in @user
     end
     context "#GET" do
       it "Render 'index' template" do
@@ -61,7 +61,10 @@ describe IdeasController do
         post :create, idea: FactoryGirl.attributes_for(:idea)
         idea = Idea.last
         user = FactoryGirl.create(:user)
-        session[:user] = user.id
+
+        sign_out @user
+        sign_in user
+
         expect{
           delete :destroy, id: idea.id
         }.to change(Idea,:count).by(0)

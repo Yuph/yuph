@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :set_user, :only => [:edit, :update, :destroy]
-  skip_before_filter :authenticate, :only => [:new, :create, :show]
+  #skip_before_filter :authenticate_user!, :only => [:new, :create, :show]
 
   def index
   end
@@ -37,14 +37,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user] = nil
     redirect_to :controller => "session", :action => "index"
   end
 
   def set_user
-    set_session_user
     @user = User.find(params[:id])
-    if session[:user] != @user.id
+    if current_user.id != @user.id
       redirect_to action: :index
     end
   end

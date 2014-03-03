@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id', :dependent => :delete_all
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id',:dependent => :delete_all
 
-  validates :email, presence: :true, :uniqueness => true, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
-
   has_attached_file :image,
     :styles => { :medium => "300x300>", :thumb => "100x80#" },
     :storage => :s3,

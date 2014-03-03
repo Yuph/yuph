@@ -9,7 +9,8 @@ describe CategoriesController do
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
-      session[:user] = @user.id
+      sign_in @user
+
       @idea = FactoryGirl.create(:idea)
       @idea.users << @user
       @idea.save!
@@ -68,7 +69,10 @@ describe CategoriesController do
         post :create, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
         category = Category.last
         user = FactoryGirl.create(:user)
-        session[:user] = user.id
+
+        sign_out @user
+        sign_in user
+
         expect{
           delete :destroy, id: category.id
         }.to change(Category,:count).by(0)

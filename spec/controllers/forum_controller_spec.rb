@@ -4,7 +4,8 @@ describe ForumController do
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
-      session[:user] = @user.id
+      sign_in @user
+
       @idea = FactoryGirl.create(:idea)
     end
     context "#GET" do
@@ -58,7 +59,10 @@ describe ForumController do
         post :create, forum: FactoryGirl.attributes_for(:forum, idea_id: @idea.id)
         forum = Forum.last
         user = FactoryGirl.create(:user)
-        session[:user] = user.id
+
+        sign_out @user
+        sign_in user
+
         expect{
           delete :destroy, id: forum.id
         }.to change(Forum,:count).by(0)

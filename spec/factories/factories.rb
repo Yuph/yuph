@@ -1,20 +1,4 @@
 FactoryGirl.define do
-  factory :user do |f|
-    f.sequence(:nick) {|n| "victor-antoniazzi-simple-#{n}" }
-    f.sequence(:email) {|n| "person-simple#{n}@example.com" }
-    f.password "pass12345"
-  end
-  factory :full_user, :class => User do |f|
-    f.sequence(:nick) {|n| "victor-antoniazzi-complex-#{n}" }
-    f.sequence(:email) {|n| "person-complex#{n}@example.com" }
-    f.password "pass12345"
-    f.image_file_name "test.jpg"
-    f.about "hi, i am a softaew developer"
-    f.local "Pelotas - RS"
-    f.website "www.victorantoniazzi.com.br"
-    f.facebook "fb.com/oi?"
-    f.twitter "@antoniazzii"
-  end
   factory :idea do
     name "art in vinil"
     image_file_name "yuph.png"
@@ -42,8 +26,12 @@ FactoryGirl.define do
     title "Post comment title"
     message "Post comment Message"
   end
+
   factory :idea_admin do
+    association :idea
+    association :user
   end
+
   factory :follow do
   end
 end

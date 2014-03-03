@@ -2,83 +2,76 @@ require 'spec_helper'
 
 describe User do
   context "validate presence of" do
-    it "nickname" do
-      user = User.create
-      expect(user).to have(1).error_on(:nick)
-    end
     it "password" do
-      user = User.create
+      user = FactoryGirl.build(:user, :password => '')
       expect(user).to have(1).error_on(:password)
     end
     it "email" do
-      user = User.create
-      expect(user).to have(2).error_on(:email)
-    end
-  end
-  context "validate length of" do
-    it "password with 5 characters" do
-      user = User.create(password: "12345")
-      expect(user).to have(1).error_on(:password)
-    end
-    it "password between 6 and 20" do
-      user = User.create(password: "123456")
-      expect(user).to have(0).error_on(:password)
-    end
-    it "password more than 20" do
-      user = User.create(password: "123457890123456789012")
-      expect(user).to have(1).error_on(:password)
-    end
-  end
-  context "validate email" do
-    it "correct" do
-      user = User.create(email: "victor@victorantoniazzi.com.br")
-      expect(user).to have(0).error_on(:email)
-    end
-    it "incorrect" do
-      user = User.create(email: "victor.com.br")
+      user = FactoryGirl.build(:user, :email => '')
       expect(user).to have(1).error_on(:email)
     end
   end
-  context "hash password" do
-    it "getting my hash" do
-      User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
-      user = User.last
-      expect(user.access_token_login).to eql("3b3de67e92efc05a96b7b40b450bcd179040c4f9")
+  context "validate length of" do
+    pending "new password style"
+    # it "password with 5 characters" do
+    #   user = User.create(password: "12345")
+    #   expect(user).to have(1).error_on(:password)
+    # end
+    # it "password between 6 and 20" do
+    #   user = User.create(password: "123456")
+    #   expect(user).to have(0).error_on(:password)
+    # end
+    # it "password more than 20" do
+    #   user = User.create(password: "123457890123456789012")
+    #   expect(user).to have(1).error_on(:password)
+    # end
+  end
+  context "validate email" do
+    it "correct" do
+      user = FactoryGirl.create(:user)
+      expect(user).to have(0).error_on(:email)
+    end
+    it "incorrect" do
+      user = FactoryGirl.build(:user, email: "victor.com.br")
+      expect(user).to have(1).error_on(:email)
     end
   end
   context "login" do
-    before do
-      User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
-    end
-    it "pass" do
-      user = User.login("vgsantoniazzi@gmail.com", "test123")
-      expect(user.email).to eql("vgsantoniazzi@gmail.com")
-    end
-    it "try invalid" do
-      user = User.login("vgsantoniazzi@gmail.com", "test1234")
-      expect(user).to be nil
-    end
+    pending "new login style"
+    # before do
+    #   FactoryGirl.create(:user)
+    # end
+    # it "pass" do
+    #   user = User.login("vgsantoniazzi@gmail.com", "test123")
+    #   expect(user.email).to eql("vgsantoniazzi@gmail.com")
+    # end
+    # it "try invalid" do
+    #   user = User.login("vgsantoniazzi@gmail.com", "test1234")
+    #   expect(user).to be nil
+    # end
   end
   context "actions" do
+
     before do
-      @user = User.create(nick: "victor-antoniazzi", email: "vgsantoniazzi@gmail.com", password: "test123")
-      @user_two = User.create(nick: "antoniazzi", email: "vgazzi@gmail.com", password: "test123")
-      @user_three = User.create(nick: "vantoniazzi", email: "vrgazzi@gmail.com", password: "test123")
-      @idea = Idea.create(name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
-      @forum = Forum.create(idea_id: @idea.id)
+      @user = FactoryGirl.create(:user)
+      @user_two = FactoryGirl.create(:user)
+      @user_three = FactoryGirl.create(:user)
+      @idea = FactoryGirl.create(:idea, name: "art'n vinil", mini_description: "arte no vinil", description: "bla.. bla.. bla..", image_file_name: "aiehiuae.jpg")
+      @forum = FactoryGirl.create(:forum, idea_id: @idea.id)
       @category = FactoryGirl.create(:category, forum_id: @forum.id)
-      @post = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user.id)
-      @post_two = Post.create(title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user_two.id)
-      @post_comment = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post.id, user_id: @user_two.id)
-      @post_comment_two = PostComment.create(title: "Muito legal!!!", message: "Poo!!", post_id: @post_two.id, user_id: @user.id)
-      @idea_comment = IdeaComment.create(user_id: @user.id, idea_id: @idea.id, message: "muito bacana!")
-      @idea_comment_two = IdeaComment.create(user_id: @user_two.id, idea_id: @idea.id, message: "muito bacana")
-      @message = Message.create(title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: @user_two.id, message_sender_id: @user.id)
-      @user_comment = UserComment.create(message: "como tu fez isso?", comment_receiver_id: @user_two.id, comment_sender_id: @user.id)
+      @post = FactoryGirl.create(:post, title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user.id)
+      @post_two = FactoryGirl.create(:post, title: "Muito legal!!!", message: "Poo!!", category_id: @category.id, user_id: @user_two.id)
+      @post_comment = FactoryGirl.create(:post_comment, title: "Muito legal!!!", message: "Poo!!", post_id: @post.id, user_id: @user_two.id)
+      @post_comment_two = FactoryGirl.create(:post_comment, title: "Muito legal!!!", message: "Poo!!", post_id: @post_two.id, user_id: @user.id)
+      @idea_comment = FactoryGirl.create(:idea_comment, user_id: @user.id, idea_id: @idea.id, message: "muito bacana!")
+      @idea_comment_two = FactoryGirl.create(:idea_comment, user_id: @user_two.id, idea_id: @idea.id, message: "muito bacana")
+      @message = FactoryGirl.create(:message, title: "serio xiru?", body: "como tu fez isso?", message_receiver_id: @user_two.id, message_sender_id: @user.id)
+      @user_comment =FactoryGirl.create(:user_comment, message: "como tu fez isso?", comment_receiver_id: @user_two.id, comment_sender_id: @user.id)
       @idea.users << @user
       @idea.followers << @user
       @idea.save!
     end
+
     context "manage" do
       it "message" do
         expect(@message.can_managed_by(@user)).to eql(true)

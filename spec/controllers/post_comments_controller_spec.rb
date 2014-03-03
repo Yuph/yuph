@@ -9,7 +9,8 @@ describe PostCommentsController do
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
-      session[:user] = @user.id
+      sign_in @user
+
       @idea = FactoryGirl.create(:idea)
       @idea.users << @user
       @idea.save!
@@ -63,9 +64,10 @@ describe PostCommentsController do
         }.to change(PostComment,:count).by(-1)
       end
       it "Succefuly with admin" do
-        session[:user] = @post_creator.id
+        sign_in @post_creator
         post :create, post_comment: FactoryGirl.attributes_for(:post_comment, post_id: @post_comment.id)
-        session[:user] = @user.id
+
+        sign_in @user
         post_comment = PostComment.last
         expect{
           delete :destroy, id: post_comment.id
@@ -77,7 +79,10 @@ describe PostCommentsController do
         post :create, post_comment: FactoryGirl.attributes_for(:post_comment, post_id: @post_comment.id)
         post_comment = PostComment.last
         user = FactoryGirl.create(:user)
-        session[:user] = user.id
+
+        sign_out @user
+        sign_in user
+
         expect{
           delete :destroy, id: post_comment.id
         }.to change(PostComment,:count).by(0)

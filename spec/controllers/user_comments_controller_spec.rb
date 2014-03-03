@@ -3,12 +3,13 @@ require 'spec_helper'
 describe UserCommentsController do
   before(:each) do
       request.env["HTTP_REFERER"] = "http://test.com"
-    end
+  end
+
   context "Actions" do
     before do
       @user = FactoryGirl.create(:user)
       @user_two = FactoryGirl.create(:user, email: "teste@teste.com")
-      session[:user] = @user.id
+      sign_in @user
     end
     context "#POST" do
       it "Succefully" do
@@ -35,7 +36,10 @@ describe UserCommentsController do
         post :create, user_comment: FactoryGirl.attributes_for(:user_comment, comment_receiver_id: @user_two.id)
         user_comment = UserComment.last
         user = FactoryGirl.create(:user)
-        session[:user] = user.id
+
+        sign_out @user
+        sign_in user
+
         expect{
           delete :destroy, id: user_comment.id
         }.to change(UserComment,:count).by(0)
