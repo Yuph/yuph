@@ -1,0 +1,12 @@
+<div class="main-form">
+  <h1><%= t('.title') %></h1>
+  <%= form_for(:user, url: user_session_path, html: {name: 'login'}) do |f| %>
+    <%= f.text_field :email, :placeholder => 'Email' %>
+    <%= f.password_field :password, :placeholder => 'Senha' %>
+    <%= token_tag nil %>
+    <%= f.submit 'login' %>
+  <% end %>
+   <div class="fb-login-button">
+     <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
+   </div>
+</div>

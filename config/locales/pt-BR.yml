@@ -34,6 +34,9 @@ pt-BR:
     confirm_destroy: Tem certeza que quer apagar esse comentário?
     form:
       placeholder: Envie seu comentário
+  shared:
+    login_form:
+      title: Entre na yuph
 
   date:
     abbr_day_names:

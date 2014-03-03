@@ -1,102 +1,92 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<% if idea_path(@idea)  =~ /\d/ %>
-		<title>Yuph - <%= @title %></title>
-		<meta property="og:title" content="Yuph - <%= @idea.name %>" />
-		<meta property="og:type" content="profile" />
-		<meta property="og:image" content="<%= @idea.image.url %>" />
-		<meta property="og:url" content="http://<%= request.host +  idea_path(@idea) %>" />
-		<meta property="og:description" content="<%= @idea.mini_description %>" />
-	<% else %>
-		<title>Yuph</title>
-	<% end %>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<%= csrf_meta_tags %>
-	<script>
-  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <% if idea_path(@idea)  =~ /\d/ %>
+    <title>Yuph - <%= @title %></title>
+    <meta property="og:title" content="Yuph - <%= @idea.name %>" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="<%= @idea.image.url %>" />
+    <meta property="og:url" content="http://<%= request.host +  idea_path(@idea) %>" />
+    <meta property="og:description" content="<%= @idea.mini_description %>" />
+  <% else %>
+    <title>Yuph</title>
+  <% end %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  	ga('create', 'UA-44206961-1', 'yuph.herokuapp.com');
-  	ga('send', 'pageview');
+    ga('create', 'UA-44206961-1', 'yuph.herokuapp.com');
+    ga('send', 'pageview');
 
-	</script>
+  </script>
 
-	<meta name="description" content="A Yuph é uma plataforma para brainstorm e organização de projetos. É um lugar para você compartilhar ideias. Inicie discussões, receba feedback e deixe a comunidade fazer a parte dela." />
-	<meta name="keywords" content="ideias, projetos, brainstorm, forum, discussão, comentarios, inovação, feedback, criatividade, iniciativas, grupos, pessoas" xml:lang="pt-BR" lang="pt-BR">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="A Yuph é uma plataforma para brainstorm e organização de projetos. É um lugar para você compartilhar ideias. Inicie discussões, receba feedback e deixe a comunidade fazer a parte dela." />
+  <meta name="keywords" content="ideias, projetos, brainstorm, forum, discussão, comentarios, inovação, feedback, criatividade, iniciativas, grupos, pessoas" xml:lang="pt-BR" lang="pt-BR">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 </head>
 <body>
 <div class="top">
 <% if logged? %>
-		<div class="menu-top">
-			<div class="container_12">
-				<ul id="navbar">
-					<li class="grid_1">
-						<%=link_to image_tag('yuph-profile.png'), "/" %>
-					</li>
-					<li class="grid_1 push_9 engine">
-						<a>mais</a>
-					</li>
-					<li class="grid_1 push_9">
-						<a>blog</a>
-					</li>
-				</ul>
-			</div>
-			<div class="container_12" >
-				<div class="navbar-dropdown grid_1 push_10">
-					<a href="<%= user_path(current_user) %>">seu perfil</a>
-					<a href="/logout">sair</a>
-				</div>
-			</div>
-		</div>
-		<% else %>
-		<div class="menu-top">
-			<div class="container_12">
-			<ul id="navbar">
-				<li class="grid_1">
-					<%=link_to image_tag('yuph-profile.png'), "/" %>
-				</li>
-				<li class="grid_1 push_7 login">
-					<a href="">login</a>
-				</li>
-				<li class="grid_2 push_7">
-					<%= link_to 'criar conta', new_user_registration_path %>
-				</li>
-				<li class="grid_1 push_7">
-					<a>blog</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="container_12">
-		<div class="grid_4 push_6">
-			<div class="new-login main-login wrapper">
-				<div class="main-form">
-				<h1>Entre na yuph</h1>
-				<form name="login" action="<%= user_session_path %>" method="POST">
-		             <input type="text" name="user[email]" placeholder="Email" />
-					<input type="password" name="user[password]" placeholder="senha" />
-		            <%= token_tag nil %>
-		            <input type="submit" value="login" />
-		        </form>	
-		        <div class="fb-login-button">
-		            <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
-		        </div>
-		    </div>
-	    </div>
-	</div>
-	</div>
+    <div class="menu-top">
+      <div class="container_12">
+        <ul id="navbar">
+          <li class="grid_1">
+            <%=link_to image_tag('yuph-profile.png'), "/" %>
+          </li>
+          <li class="grid_1 push_9 engine">
+            <a>mais</a>
+          </li>
+          <li class="grid_1 push_9">
+            <a>blog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container_12" >
+        <div class="navbar-dropdown grid_1 push_10">
+          <a href="<%= user_path(current_user) %>">seu perfil</a>
+          <a href="/logout">sair</a>
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <div class="menu-top">
+      <div class="container_12">
+      <ul id="navbar">
+        <li class="grid_1">
+          <%=link_to image_tag('yuph-profile.png'), "/" %>
+        </li>
+        <li class="grid_1 push_7 login">
+          <a href="">login</a>
+        </li>
+        <li class="grid_2 push_7">
+          <%= link_to 'criar conta', new_user_registration_path %>
+        </li>
+        <li class="grid_1 push_7">
+          <a>blog</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container_12">
+    <div class="grid_4 push_6">
+      <div class="new-login main-login wrapper">
+        <%= render 'shared/login_form' %>
+      </div>
+  </div>
+  </div>
 <% end %>
+
 <div class="clear"></div>
 </div>
-	<div class="content">
-		<%= yield %>
-	</div>
+  <div class="content">
+    <%= yield %>
+  </div>
 </body>
 </html>
