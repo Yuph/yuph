@@ -4,8 +4,18 @@
     <%= f.text_field :email, :placeholder => 'Email' %>
     <%= f.password_field :password, :placeholder => 'Senha' %>
     <%= token_tag nil %>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="remember-me"><%= f.check_box :remember_me %> <%= f.label t('.remember_me') %> </div>
+    <% end -%>
+
     <%= f.submit 'login' %>
   <% end %>
+
+  <div class="forgot-password">
+    <%= link_to t('.forgot_password'), new_password_path(:user) %>
+  </div>
+
    <div class="fb-login-button">
      <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
    </div>

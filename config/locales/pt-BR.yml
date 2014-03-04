@@ -37,6 +37,15 @@ pt-BR:
   shared:
     login_form:
       title: Entre na yuph
+      remember_me: Manter logado
+      forgot_password: Esqueceu a senha?
+
+  devise:
+    passwords:
+      new:
+        placeholder: Digite seu email
+        title: Esqueceu sua senha?
+        submit: Resetar senha
 
   date:
     abbr_day_names:

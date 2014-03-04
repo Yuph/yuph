@@ -1,0 +1,4 @@
+pt-BR:
+  errors:
+    messages:
+      not_saved: Erro ao salvar
