@@ -5,7 +5,7 @@
     <%= f.password_field :password, :placeholder => 'Senha' %>
     <%= token_tag nil %>
 
-    <% if devise_mapping.rememberable? -%>
+    <% if Devise.mappings[:user].rememberable? -%>
       <div class="remember-me"><%= f.check_box :remember_me %> <%= f.label t('.remember_me') %> </div>
     <% end -%>
 
