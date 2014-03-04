@@ -24,6 +24,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @user = current_user
     @idea = Idea.find(params[:id])
   end
 
@@ -48,7 +49,6 @@ class IdeasController < ApplicationController
   end
 
   def set_idea
-    set_session_user
     @idea = Idea.find(params[:id])
     if !@idea.can_managed_by(current_user)
       redirect_to action: :index
