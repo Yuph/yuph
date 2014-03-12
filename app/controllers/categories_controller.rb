@@ -1,12 +1,24 @@
 class CategoriesController < ApplicationController
-  before_filter :set_category, :only => [:edit, :update, :destroy]
-  before_filter :set_forum, :only => [:create, :update]
+
+  before_filter :only => [:create, :update] do
+    @forum = Forum.find_or_create_by(:id => category_params[:forum_id])
+  end
+
+  load_and_authorize_resource
+  load_and_authorize_resource :forum, :only => [:create, :update]
+
+  rescue_from CanCan::AccessDenied do |exception|
+    if exception.action == :create
+      redirect_to categories_path
+    else # update/destroy
+      redirect_to category_path(exception.subject)
+    end
+  end
 
   def index
   end
 
   def create
-    set_session_user
     @category = @forum.categories.build(category_params)
     if @category.save!
       redirect_to categories_path, notice: "Succefully created !"
@@ -16,11 +28,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
   end
 
   def new
-    @category = Category.new
   end
 
   def edit
@@ -35,20 +45,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @category
     @category.destroy
     redirect_to :back
-  end
-
-  def set_category
-    set_session_user
-    @category = Category.find(params[:id])
-    if !@category.can_managed_by(@user)
-      redirect_to :back, notice: "fails created !"
-    end
-  end
-
-  def set_forum
-    @forum = Forum.find(params[:category][:forum_id])
   end
 
   def category_params

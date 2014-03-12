@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :set_user, :only => [:edit, :update, :destroy]
   skip_before_filter :authenticate_user!, :only => [:new, :create, :show]
+  load_and_authorize_resource
 
-  def index
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to user_path(exception.subject)
   end
 
   def create
@@ -16,11 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @session_user = current_user
-    @user = User.find(params[:id])
   end
 
   def edit
-    puts current_user.inspect
   end
 
   def update
@@ -41,13 +40,6 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to :controller => "session", :action => "index"
-  end
-
-  def set_user
-    @user = User.find(params[:id])
-    if current_user.id != @user.id
-      redirect_to action: :index
-    end
   end
 
   def user_full_params

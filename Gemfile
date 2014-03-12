@@ -40,6 +40,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'simplecov'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 # Upload to S3
@@ -52,6 +53,9 @@ gem 'omniauth-facebook'
 
 # For new users
 gem 'devise'
+
+# For permissions
+gem 'cancancan', '~> 1.7'
 
 # web: Unicorn
 gem 'unicorn'

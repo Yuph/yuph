@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'simplecov'
 require 'factory_girl_rails'
+require 'shoulda-matchers'
 
 SimpleCov.start
 
@@ -18,6 +19,8 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
+
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   # ## Mock Framework
   #

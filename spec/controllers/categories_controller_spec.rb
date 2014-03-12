@@ -17,10 +17,6 @@ describe CategoriesController do
       @forum = FactoryGirl.create(:forum, idea_id: @idea.id)
     end
     context "#GET" do
-      it "Render 'new' Template" do
-        get :new
-        expect(response).to render_template(:new)
-      end
       it "get one forum" do
         post :create, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
         get :show, id: Category.last.id
@@ -66,12 +62,10 @@ describe CategoriesController do
     end
     context "#ASSHOLE" do
       it "#MANAGE one forum that not belongs to me" do
-        post :create, category: FactoryGirl.attributes_for(:category, forum_id: @forum.id)
-        category = Category.last
         user = FactoryGirl.create(:user)
-
-        sign_out @user
-        sign_in user
+        forum = FactoryGirl.create(:forum)
+        idea_admin = FactoryGirl.create(:idea_admin, user: user, idea: forum.idea)
+        category = FactoryGirl.create(:category, forum: forum)
 
         expect{
           delete :destroy, id: category.id

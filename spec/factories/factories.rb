@@ -1,22 +1,14 @@
 FactoryGirl.define do
-  factory :idea do
-    name "art in vinil"
-    image_file_name "yuph.png"
-    mini_description "arte no vinil"
-    description "arte no vinil"
-  end
   factory :message do
     body "Novidades ? Vamos implementar aquela idea?"
     title "Novidades ?"
-  end
-  factory :user_comment do
-    message "Varias ideias, varias cabecas"
   end
   factory :idea_comment do
     message "Adorei a iniciativa."
   end
   factory :forum do
     password ""
+    association :idea
   end
   factory :post do
     title "Post title"

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :idea_admins, :dependent => :delete_all
   has_many :ideas, through: :idea_admins
-  has_many :follows, :dependent => :delete_all, :class_name => 'IdeaAdmin'
+  has_many :follows, :dependent => :delete_all
   has_many :following, through: :follows, source: :idea
   has_many :posts, :dependent => :delete_all
   has_many :idea_comments, :dependent => :delete_all

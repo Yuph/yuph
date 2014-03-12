@@ -35,7 +35,7 @@ Yuph::Application.routes.draw do
     get "register", :to => "registrations#new"
   end
 
-  resources :users, :except => [:new, :create]
+  resources :users, :except => [:new, :create, :index]
 
   # Facebook Login
   get "/auth/:provider/callback" => "session#facebook_login_successfuly", as: :auth_callback
