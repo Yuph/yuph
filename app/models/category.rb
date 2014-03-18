@@ -2,7 +2,6 @@ class Category < ActiveRecord::Base
   belongs_to :forum
   has_many :posts, :dependent => :delete_all
 
-  validates :description, presence: true
   validates :forum, presence: true
   validates :title, presence: true
 

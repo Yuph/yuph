@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
   def create
     @category = @forum.categories.build(category_params)
     if @category.save!
-      redirect_to categories_path, notice: "Succefully created !"
+      redirect_to idea_path(@category.forum.idea), notice: "Succefully created !"
     else
       render :new, notice: "Succefully created !"
     end

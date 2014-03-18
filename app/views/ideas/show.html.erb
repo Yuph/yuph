@@ -36,9 +36,9 @@
 				<div class="fb-like" id="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 			</div>
 		</div>
-		<% if logged? && @idea.can_managed_by(@user) %>
-			<%= button_to t(".edit"), edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
-		<% end %>
+        <% if can?(:edit, @idea) %>
+            <%= button_to t(".edit"), edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
+        <% end %>
 		<br>
 		<br>
 		<p><%= @idea.description.gsub(/\n/, '<br>').html_safe %></p>
@@ -65,15 +65,16 @@
 					</div>
 					<div class="clear"></div>
 					<div class="comment-bottom">
-						<% if logged? %>
-							<%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: t('idea_comment.confirm_destroy') }, :method=>:delete if comment.can_managed_by(@user)%>
-						<% end %>
+                        <% if can?(:destroy, comment) %>
+                            <%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: t('idea_comments.confirm_destroy') }, :method=>:delete %>
+                        <% end %>
 					</div>
 					<div class="clear"></div>
 				</div>
 				<br>
 			<% end %>
 		</div>
+
 		<% if logged? %>
 			<div class="profile-comment-form">
 				<form action="/idea_comments/" method="POST">
@@ -94,111 +95,4 @@
 
 <br>
 
-<div class="container_12">
-	<div class="grid_12 wrapper forum">
-		<div class="green-line thin-line"></div>
-		<aside class="forum-sidebar">
-			<div class="forum-sidebar-title">
-				<h2>Fórum</h2>
-			</div>
-			<div class="clear"></div>
-			<% @idea.forum.categories.each do |category| %>
-				<p class="forum-category">
-					<img src="/assets/forum-icon.png">
-					<%= category.title %>
-					<% if logged? %>
-						<%= link_to image_tag("block.png"), category_path(category), data: { confirm: t('categories.confirm_destroy') }, :method=>:delete if category.can_managed_by(@user)%>
-					<% end %>
-				</P>
-				<ul class="sidebar-list">
-					<% category.posts.each do |post| %>
-						<li class="forum-post-list"><a class="a-post" id="<%= post.id %>"><%= post.title %></a>
-      			<% if logged? %>
-      				<%= link_to image_tag("block.png", class: "block-button"), post_path(post), data: { confirm: 'Are you sure?' }, :method=>:delete if post.can_managed_by(@user)%>
-      			<% end %>
-      		<% end %>
-				</ul>
-			<% end %>
-			<br>
-			<% if logged? && @idea.can_managed_by(@user) %>
-				<div class="forum-buttons">
-					<button class="green-button small-button forum-button" id="new-post-button">novo post</button>
-					<button class="green-button small-button forum-button" id="new-category-button">nova categoria</button>
-				</div>
-				<div id="new-post">
-					<form action="/posts/" method="POST">
-						<%= token_tag nil %>
-						<h2>Novo post</h2>
-						<input type="text" name="post[title]" placeholder="Título" id="new-post-input" class="new-post-title" >
-						<br>
-						<textarea name="post[message]" placeholder="Mensagem" id="new-post-input" class="new-post-message"></textarea>
-						<br>
-						<div class="select-style">
-							<%= select("post", "category_id", @idea.forum.categories.collect {|p| [ p.title, p.id ] }, {include_blank: 'Categoria'}) %>
-						</div>
-						<button class="red-button small-button">criar</button>
-					</form>
-				</div>
-				<div id="new-category">
-					<form action="/categories/" method="POST" class="new-categoty-form">
-						<h2> <%= t('category.new.title') %> </h2>
-						<%= token_tag nil %>
-						<input type="text" name="category[title]" placeholder="titulo" id="new-category-input">
-						<input type="hidden" name="category[forum_id]" value="<%= @idea.forum.id %>">
-						<button class="red-button small-button">criar</button>
-					</form>
-				</div>
-			<% end %>
-		</aside>
-		<div class="forum-content">
-			<% @idea.forum.categories.each do |category| %>
-				<% category.posts.each do |post| %>
-					<section class="post-content" id="post<%= post.id %>" >
-						<header class="post-header" >
-							<h2><%= post.title  %></h2>
-							<div class="post-header-portrait">
-								<%= link_to image_tag(post.user.profile_image, class: "user-portrait"), user_path(post.user) %>
-								<br>
-								<span class="username"><%= post.user.nick  %></span>
-							</div>
-							<div class="post-description">
-								<p><%= post.message.gsub(/\n/, '<br>').html_safe  %></p>
-							</div>
-						</header>
-						<div class="clear"></div>
-						<% post.post_comments.each do |post_comment| %>
-							<div class="post-comment">
-								<div class="post-comment-left">
-									<%= link_to image_tag(post_comment.post.user.profile_image, class: "user-portrait"), user_path(post_comment.post.user) %>
-									<br>
-									<span class="username"><%= post_comment.user.nick  %></span>
-								</div>
-								<div class="post-comment-body">
-									<p><%= post_comment.message.gsub(/\n/, '<br>').html_safe  %></p> <!-- comment -->
-								</div>
-							</div>
-							<div class="clear"></div>
-						<% end %>
-					</section>
-				<% end %>
-			<% end %>
-			<% if logged? %>
-				<div class="help-forum">
-					<h2><%= t('ideas.show.title') %></h2>
-					<p><%= t('ideas.show.description') %></p>
-				</div>
-				<form action="/post_comments/" method="POST" class="reply-post-form">
-					<%= token_tag nil %>
-					<input type="hidden" name="post_comment[post_id]" id="reply-post" value="1">
-					<input name="post_comment[title]" type="hidden" value="default">
-					<textarea name="post_comment[message]" class="idea-creation reply-post"></textarea>
-					<input type="submit" value="reponder" class="red-button small-button reply-button">
-				</form>
-				<br>
-			<% end %>
-		</div>
-		<div class="clear"></div>
-		<div class="red-line thin-line"></div>
-	</div>
-</div>
-<div id="fade"></div>
+<%= render :partial => 'forum', :locals => {:forum => @idea.forum} %>

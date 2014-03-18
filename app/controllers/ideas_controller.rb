@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class IdeasController < ApplicationController
-  before_filter :set_idea, :only => [:edit, :update, :destroy]
+  load_and_authorize_resource only: [:edit, :update, :destroy, :new, :show]
+
   skip_before_filter :authenticate_user!, :only => [:index, :show]
 
   def index
@@ -25,11 +26,9 @@ class IdeasController < ApplicationController
 
   def show
     @user = current_user
-    @idea = Idea.find(params[:id])
   end
 
   def new
-    @idea = Idea.new
   end
 
   def edit
@@ -46,13 +45,6 @@ class IdeasController < ApplicationController
   def destroy
     @idea.destroy
     redirect_to :action => "index"
-  end
-
-  def set_idea
-    @idea = Idea.find(params[:id])
-    if !@idea.can_managed_by(current_user)
-      redirect_to action: :index
-    end
   end
 
   def idea_params
