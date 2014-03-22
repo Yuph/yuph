@@ -27,6 +27,9 @@ class Ability
 
     # Abilities for logged users
     if user
+      # Admin
+      can :manage, :all if user.admin?
+
       # Users
       can [:update, :destroy], User.where(:id => user.try(:id))
 

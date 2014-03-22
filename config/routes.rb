@@ -1,5 +1,9 @@
 Yuph::Application.routes.draw do
 
+  constraints CanAccessRailsAdmin do
+    mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  end
+
   # Root action => '/'
   root 'session#index'
 

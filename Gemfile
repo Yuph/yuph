@@ -44,7 +44,7 @@ group :development do
 end
 
 # Upload to S3
-gem 'paperclip'
+gem "paperclip", "3.4.2"
 gem 'aws-sdk'
 
 # Facebook Login
@@ -62,6 +62,7 @@ gem 'unicorn'
 
 gem 'google-analytics-rails'
 
+gem 'rails_admin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
