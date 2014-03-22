@@ -54,14 +54,10 @@ describe ForumController do
     end
     context "#ASSHOLE" do
       it "#MANAGE one forum that not belongs to me" do
-        @idea.users << @user
-        @idea.save!
-        post :create, forum: FactoryGirl.attributes_for(:forum, idea_id: @idea.id)
-        forum = Forum.last
         user = FactoryGirl.create(:user)
-
-        sign_out @user
-        sign_in user
+        @idea.users << user
+        @idea.save!
+        forum = FactoryGirl.create(:forum, :idea => @idea)
 
         expect{
           delete :destroy, id: forum.id

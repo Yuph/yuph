@@ -56,12 +56,9 @@ describe IdeaAdminsController do
       end
       context "ASSHOLE" do
         it "#MANAGE one idea_admin that not belongs to me" do
-          post :create, idea_admin: FactoryGirl.attributes_for(:idea_admin, idea_id: @idea.id)
-          idea_admin = IdeaAdmin.last
           user = FactoryGirl.create(:user)
-
-          sign_out @user
-          sign_in user
+          idea = FactoryGirl.create(:idea)
+          idea_admin = FactoryGirl.create(:idea_admin, user: user, idea: idea)
 
           expect{
             delete :destroy, id: idea_admin.id

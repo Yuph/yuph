@@ -4,6 +4,10 @@ class IdeasController < ApplicationController
 
   skip_before_filter :authenticate_user!, :only => [:index, :show]
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to idea_path(exception.subject)
+  end
+
   def index
     @ideas = Idea.all
   end

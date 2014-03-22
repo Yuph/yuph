@@ -53,14 +53,10 @@ describe MessagesController do
         end
       end
       context "#ASSHOLE" do
-        let (:message) { Message.last }
-          let (:user) { FactoryGirl.create(:user) }
+        let (:user) { FactoryGirl.create(:user) }
 
           it "#MANAGE one idea that not belongs to me" do
-            post :create, message: FactoryGirl.attributes_for(:message, message_receiver_id: @user_two.id)
-
-            sign_out @user
-            sign_in user
+            message = FactoryGirl.create(:message, message_sender: user, message_receiver: @user_two)
 
             expect{
               delete :destroy, id: message.id

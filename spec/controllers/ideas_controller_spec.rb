@@ -58,12 +58,10 @@ describe IdeasController do
     end
     context "ASSHOLE" do
       it "#TRY access things that not belongs to me" do
-        post :create, idea: FactoryGirl.attributes_for(:idea)
-        idea = Idea.last
         user = FactoryGirl.create(:user)
-
-        sign_out @user
-        sign_in user
+        idea = FactoryGirl.create(:idea)
+        idea.users << user
+        idea.save!
 
         expect{
           delete :destroy, id: idea.id
