@@ -19,8 +19,7 @@ class Idea < ActiveRecord::Base
     :default_url => '/assets/missing.png',
     :bucket => 'yuph',
     :path => "idea/:attachment/:id/:style.:extension",
-    :s3_credentials => { :access_key_id => 'AKIAI5MJFU42WK57XFEQ',
-                         :secret_access_key => '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' },
+    :s3_credentials => Yuph::S3_CREDENTIALS,
     :s3_permissions => 'public-read',
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 
