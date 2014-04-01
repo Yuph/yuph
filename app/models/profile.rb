@@ -7,9 +7,8 @@ class Profile < ActiveRecord::Base
     :styles => { :medium => "300x300>", :thumb => "100x80#" },
     :storage => :s3,
     :default_url => '/assets/user-default.jpg',
-    :bucket => 'yuph',
+    :bucket => ENV['S3_BUCKET_NAME'],
     :path => "profile/:attachment/:id/:style.:extension",
-    :s3_credentials => Yuph::S3_CREDENTIALS,
     :s3_permissions => 'public-read',
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 

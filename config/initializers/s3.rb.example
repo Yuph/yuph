@@ -1,3 +1,0 @@
-module Yuph
-  S3_CREDENTIALS = { :access_key_id => 'chave_do_amazon', :secret_access_key => 'segredo_do_amazon' }
-end

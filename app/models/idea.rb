@@ -17,9 +17,8 @@ class Idea < ActiveRecord::Base
     :styles => { :medium => "300x300>", :thumb => "220x144#" },
     :storage => :s3,
     :default_url => '/assets/missing.png',
-    :bucket => 'yuph',
+    :bucket => ENV['S3_BUCKET_NAME'],
     :path => "idea/:attachment/:id/:style.:extension",
-    :s3_credentials => Yuph::S3_CREDENTIALS,
     :s3_permissions => 'public-read',
     :s3_host_name => 's3-us-west-2.amazonaws.com'
 

@@ -32,7 +32,7 @@ Estamos usando o [rbenv](https://github.com/sstephenson/rbenv) para controlar a 
 
     $ bundle exec rake db:migrate
 
- * Para usar o servidor do AmazonS3 para o upload de imagens crie um arquivo na pasta `config/initializers/` chamado por exemplo `s3.rb`, com as suas credenciais do serviço. Veja o arquivo `config/initializers/s3.rb.example`
+ * Para usar o servidor do AmazonS3 para o upload de imagens crie essas duas variáveis de ambiente com os seus dados de acesso do Amazon: `AWS_SECRET_ACCESS_KEY`, `AWS_ACCESS_KEY_ID'
 
  * Inicie o servidor
 
