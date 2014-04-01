@@ -32,6 +32,8 @@ Estamos usando o [rbenv](https://github.com/sstephenson/rbenv) para controlar a 
 
     $ bundle exec rake db:migrate
 
+ * Para usar o servidor do AmazonS3 para o upload de imagens crie um arquivo na pasta `config/initializers/` chamado por exemplo `s3.rb`, com as suas credenciais do serviço. Veja o arquivo `config/initializers/s3.rb.example`
+
  * Inicie o servidor
 
     $ rails s
@@ -41,5 +43,11 @@ Estamos usando o [rbenv](https://github.com/sstephenson/rbenv) para controlar a 
     $ bundle exec rake spec
 
 ### Deployment
+
+#### Heroku
+
+Em breve
+
+#### Amazon
 
 Em breve
