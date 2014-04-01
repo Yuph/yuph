@@ -35,8 +35,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'factory_girl_rails'
+
 group :development do
-  gem 'factory_girl_rails'
   gem 'rails_best_practices'
   gem 'simplecov'
   gem 'rspec-rails'
