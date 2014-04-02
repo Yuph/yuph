@@ -8,6 +8,12 @@ class IdeasController < ApplicationController
     redirect_to idea_path(exception.subject)
   end
 
+  after_filter :create_activities, :only => [:create, :update]
+
+  def create_activities
+    @idea.create_activity key: "idea.#{action_name}", owner: current_user unless @idea.errors.any?
+  end
+
   def index
     @ideas = Idea.all
   end

@@ -2,6 +2,13 @@ class IdeaCommentsController < ApplicationController
   before_filter :set_idea_comment, :only => [:destroy]
   respond_to :html, :json
 
+  after_filter :create_activities, :only => [:create, :update, :destroy]
+
+  def create_activities
+    @idea_comment.idea.create_activity key: "idea.comment_#{action_name}",
+      owner: current_user, params: {idea_comment_id: @idea_comment.id} unless @idea_comment.errors.any?
+  end
+
   def create
     set_session_user
     @idea_comment = @user.idea_comments.build(idea_comment_params)

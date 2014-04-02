@@ -2,6 +2,13 @@ class FollowsController < ApplicationController
   before_filter :set_follow, :only => [:destroy]
   respond_to :html, :json
 
+  after_filter :create_activities, :only => [:create, :destroy]
+
+  def create_activities
+    @follow.idea.create_activity key: "idea.follow_#{action_name}",
+      owner: current_user, params: { follow_id: @follow.id } unless @follow.errors.any?
+  end
+
   def index
   end
 

@@ -2,6 +2,12 @@ class UsersController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:new, :create, :show]
   load_and_authorize_resource
 
+  after_filter :create_activities, :only => [:update]
+
+  def create_activities
+    @user.create_activity key: "user.#{action_name}", owner: current_user unless @user.errors.any?
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to user_path(exception.subject)
   end

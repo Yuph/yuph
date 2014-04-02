@@ -126,6 +126,11 @@ GEM
       mime-types
     pg (0.16.0)
     polyglot (0.3.3)
+    public_activity (1.4.1)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     rack (1.5.2)
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
@@ -255,6 +260,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip (= 3.4.2)
   pg
+  public_activity
   rails (= 4.0.0)
   rails_12factor
   rails_admin

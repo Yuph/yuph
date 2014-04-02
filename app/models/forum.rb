@@ -1,4 +1,6 @@
 class Forum < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :idea
   has_many :categories, :dependent => :delete_all
 

@@ -2,6 +2,13 @@
 class PostsController < ApplicationController
   before_filter :set_post, :only => [:edit, :update, :destroy]
 
+  after_filter :create_activities, :only => [:create, :update, :destroy]
+
+  def create_activities
+    @post.forum.create_activity key: "forum.post_#{action_name}",
+      owner: current_user, params: {post_id: @post.id, category_id: @post.category.id } unless @post.errors.any?
+  end
+
   def index
   end
 

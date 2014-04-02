@@ -15,6 +15,13 @@ class CategoriesController < ApplicationController
     end
   end
 
+  after_filter :create_activities, :only => [:create, :update, :destroy]
+
+  def create_activities
+    @category.forum.create_activity key: "forum.category_#{action_name}",
+      owner: current_user, params: {category_id: @category.id } unless @category.errors.any?
+  end
+
   def index
   end
 

@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :category
+  delegate :forum, to: :category
   belongs_to :user
   has_many :post_comments, :dependent => :delete_all
 

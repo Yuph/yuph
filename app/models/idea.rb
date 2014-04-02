@@ -1,4 +1,6 @@
 class Idea < ActiveRecord::Base
+  include PublicActivity::Common
+
   attr_accessor :image_content_type, :title, :forum_id
 
   has_many :idea_admins, :dependent => :delete_all
