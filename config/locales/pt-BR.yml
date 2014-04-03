@@ -55,6 +55,10 @@ pt-BR:
     user:
       update: "%{user} atualizou os seus dados"
 
+  layouts:
+    application:
+      notifications: Notificações
+
   devise:
     passwords:
       new:
