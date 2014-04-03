@@ -1621,3 +1621,21 @@ width: 350px;
 	height: 100%;
 	z-index: 90; 
 }
+
+.notification-content {
+    .notification-header {
+      float: left;
+    }
+
+    .user-portrait {
+      margin: 5px;
+    }
+
+    .notification-description {
+      padding-top: 30px;
+      padding-left: 20px;
+      margin-left: 20px;
+    }
+
+    margin: 10px;
+}

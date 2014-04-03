@@ -1,0 +1,11 @@
+.notification-content
+  .greenline
+  .notification-header
+    .notification-header-portrait
+      = link_to activity.owner do
+        %img{:alt => "thumb", :class => "user-portrait", :src => activity.owner.profile_image}
+
+  .notification-description
+    = t('public_activity.' + activity.key, :user => activity.owner.nick, :idea => activity.trackable.idea.name)
+
+  .clear

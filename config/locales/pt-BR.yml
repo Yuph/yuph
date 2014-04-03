@@ -40,6 +40,21 @@ pt-BR:
       remember_me: Manter logado
       forgot_password: Esqueceu a senha?
 
+  public_activity:
+    idea:
+      follow_create: "%{user} começou a seguir a idea %{idea}"
+      follow_destroy: "%{user} parou de seguir a idea %{idea}"
+      comment_create: "%{user} criou um novo comentário em %{idea}"
+      comment_destroy: "%{user} apagou um comentário em %{idea}"
+      update: "%{user} atualizou os as informações de %{idea}"
+    forum:
+      post_create: "%{user} criou uma postagem na ideia %{idea}"
+      post_destroy: "%{user} apagou uma postagem na ideia %{idea}"
+      category_create: "%{user} criou uma nova categoria na ideia %{idea}"
+      category_destroy: "%{user} apagou uma categoria na ideia %{idea}"
+    user:
+      update: "%{user} atualizou os seus dados"
+
   devise:
     passwords:
       new:

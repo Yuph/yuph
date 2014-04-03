@@ -41,6 +41,8 @@ Yuph::Application.routes.draw do
 
   resources :users, :except => [:new, :create]
 
+  resources :notifications, :only => [:index, :show]
+
   # Facebook Login
   get "/auth/:provider/callback" => "session#facebook_login_successfuly", as: :auth_callback
   get "/auth/failure" => "session#facebook_login_failure", as: :auth_failure
