@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   delegate :forum, to: :category
   belongs_to :user
-  has_many :post_comments, :dependent => :delete_all
+  has_many :post_comments, :order => 'post_comments.created_at ASC', :dependent => :delete_all
 
   validates :title, presence: :true
   validates :message, presence: :true
