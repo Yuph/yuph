@@ -81,7 +81,7 @@
             <% post.post_comments.each do |post_comment| %>
               <div class="post-comment">
                 <div class="post-comment-left">
-                  <%= link_to image_tag(post_comment.post.user.profile_image, class: "user-portrait"), user_path(post_comment.post.user) %>
+                  <%= link_to image_tag(post_comment.user.profile_image, class: "user-portrait"), user_path(post_comment.post.user) %>
                   <br>
                   <span class="username"><%= post_comment.user.nick  %></span>
                 </div>
