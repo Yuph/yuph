@@ -42,7 +42,7 @@ pt-BR:
 
   public_activity:
     idea:
-      create: "%{user} criou a ideia #{idea}"
+      create: "%{user} criou a ideia %{idea}"
       follow_create: "%{user} começou a seguir a ideia %{idea}"
       follow_destroy: "%{user} parou de seguir a ideia %{idea}"
       comment_create: "%{user} criou um novo comentário em %{idea}"
