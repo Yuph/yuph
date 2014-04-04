@@ -42,8 +42,9 @@ pt-BR:
 
   public_activity:
     idea:
-      follow_create: "%{user} começou a seguir a idea %{idea}"
-      follow_destroy: "%{user} parou de seguir a idea %{idea}"
+      create: "%{user} criou a ideia #{idea}"
+      follow_create: "%{user} começou a seguir a ideia %{idea}"
+      follow_destroy: "%{user} parou de seguir a ideia %{idea}"
       comment_create: "%{user} criou um novo comentário em %{idea}"
       comment_destroy: "%{user} apagou um comentário em %{idea}"
       update: "%{user} atualizou os as informações de %{idea}"
