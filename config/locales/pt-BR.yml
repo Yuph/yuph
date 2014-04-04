@@ -61,6 +61,14 @@ pt-BR:
       notifications: Notificações
 
   devise:
+    failure:
+      user:
+        not_found_in_database: Senha ou email inválido
+        invalid: Senha ou email inválido
+    sessions:
+      user:
+        signed_in: Você agora está logado na Yuph
+        signed_out: Você está agora deslogado
     passwords:
       new:
         placeholder: Digite seu email

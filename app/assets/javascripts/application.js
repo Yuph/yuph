@@ -24,3 +24,10 @@ function PreviewImage() {
         document.getElementById("uploadPreview").src = oFREvent.target.result;
     };
 };
+
+$( document ).ready(function() {
+  // Dismiss flash message on click
+  $('.alert').click(function(){
+    $(this).hide();
+  });
+});

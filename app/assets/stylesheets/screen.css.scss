@@ -1,3 +1,5 @@
+@import "compass/css3/border-radius";
+
 @font-face {
 	font-family: 'Dosis-ExtraLight';
 	src: url(font-path('Dosis-ExtraLight.eot') + "?#iefix") format('embedded-opentype'),
@@ -1638,4 +1640,24 @@ width: 350px;
     }
 
     margin: 10px;
+}
+
+.alert {
+  @include border-radius(8px, 8px);
+  text-align: center;
+  font-family: 'Dosis-Light', sans-serif;
+  font-size: 18pt;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.alert-success {
+  color: #f4f4f4;
+  background-color: #75a248;
+}
+
+.alert-error, .alert-failure, .alert- {
+  color: #f4f4f4;
+  background-color: #8a1c1c;
 }
