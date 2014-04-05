@@ -5,6 +5,9 @@
         %img{:alt => "thumb", :class => "user-portrait", :src => activity.trackable.profile_image}
 
   .notification-description
-    = t('public_activity.' + activity.key, :user => activity.trackable.nick)
+    = t("public_activity.#{activity.key}_html", :user => link_to(activity.trackable.nick, user_path(activity.trackable)))
+
+  %span.activities-data
+    = l activity.created_at
 
   .clear

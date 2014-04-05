@@ -40,21 +40,25 @@ pt-BR:
       remember_me: Manter logado
       forgot_password: Esqueceu a senha?
 
+  notifications:
+    index:
+      title: Atividade Recente
+
   public_activity:
     idea:
-      create: "%{user} criou a ideia %{idea}"
-      follow_create: "%{user} começou a seguir a ideia %{idea}"
-      follow_destroy: "%{user} parou de seguir a ideia %{idea}"
-      comment_create: "%{user} criou um novo comentário em %{idea}"
-      comment_destroy: "%{user} apagou um comentário em %{idea}"
-      update: "%{user} atualizou os as informações de %{idea}"
+      create_html: "%{user} criou a ideia %{idea}"
+      follow_create_html: "%{user} começou a seguir a ideia %{idea}"
+      follow_destroy_html: "%{user} parou de seguir a ideia %{idea}"
+      comment_create_html: "%{user} criou um novo comentário em %{idea}"
+      comment_destroy_html: "%{user} apagou um comentário em %{idea}"
+      update_html: "%{user} atualizou os as informações de %{idea}"
     forum:
-      post_create: "%{user} criou uma postagem na ideia %{idea}"
-      post_destroy: "%{user} apagou uma postagem na ideia %{idea}"
-      category_create: "%{user} criou uma nova categoria na ideia %{idea}"
-      category_destroy: "%{user} apagou uma categoria na ideia %{idea}"
+      post_create_html: "%{user} criou uma postagem na ideia %{idea}"
+      post_destroy_html: "%{user} apagou uma postagem na ideia %{idea}"
+      category_create_html: "%{user} criou uma nova categoria na ideia %{idea}"
+      category_destroy_html: "%{user} apagou uma categoria na ideia %{idea}"
     user:
-      update: "%{user} atualizou os seus dados"
+      update_html: "%{user} atualizou os seus dados"
 
   layouts:
     application:
