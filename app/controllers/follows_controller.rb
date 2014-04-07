@@ -17,7 +17,7 @@ class FollowsController < ApplicationController
     @follow = @user.follows.build(follow_params)
     if @follow.save
       respond_with(@follow, :status => :created) do |format|
-        format.html { redirect_to :back, notice: "Succefully created !" }
+        format.html { redirect_to :back, notice: t('follow.created') }
       end
     else
       respond_with(@follow.errors, :status => :unprocessable_entity) do |format|
@@ -29,7 +29,7 @@ class FollowsController < ApplicationController
   def destroy
     @follow.destroy
     respond_with(@follow, :status => :deleted) do |format|
-      format.html { redirect_to :back, notice: "Succefully Destroyed !" }
+      format.html { redirect_to :back, notice: t('follow.destroyed') }
     end
   end
 

@@ -6,10 +6,12 @@
 		<p></p>
 	</header>
 </div>
+<div class="container_12 wrapper fix-border">
+	<div class="grid_8 fix-border">
 <%= form_for(@idea) do |f| %>
 <% if @idea.errors.any? %>
 <div id="error_explanation">
-	<h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+	<h2>Corrija <%= pluralize(@idea.errors.count, "erro") %> no formulário:</h2>
 
 	<ul>
 		<% @idea.errors.full_messages.each do |msg| %>
@@ -18,8 +20,6 @@
 	</ul>
 </div>
 <% end %>
-<div class="container_12 wrapper fix-border">
-	<div class="grid_8 fix-border">
 		<h3>Imagem de capa</h3>
 		<p>Selecione uma imagem para sua ideia, utilize algo que consiga transmitir aos outros usuários
 			sobre o que ela se trata. Você pode pedir ajuda a algum designer e até os outros usuários
@@ -50,11 +50,6 @@
 					<p>Se você ja tem um video no Youtube ou no Vimeo, coloque o endereço dele aqui:</p>
 					<%= f.text_field :video, class: "idea-creation video-url" %>
 				</div>
-				<h3>Senha</h3>
-				<p>Você poderá privar sua idéia para que apenas quem possuir a senha consiga acessá-la. Se não quiser privar,
-					apenas deixe em branco.</p>
-					<%= f.text_field :password, class: "idea-creation tags-creation" %>
-				<br>
 				<br>
 			</div>
 			<div class="grid_4 idea-options omega">
@@ -66,10 +61,10 @@
 		<div class="container_12 wrapper fix-border">
 			<br>
 			<div class="grid_7 push_1 idea-submit-text">
-				<h1>Tudo pronto, pode criar essa ideia<h1>
+				<h1>Tudo pronto!<h1>
 				</div>
 				<div class="grid_4 push_1 idea-submit-button">
-					<button type="submit" class="big-button green-button">Clique aqui</button>
+					<button type="submit" class="big-button green-button">Editar ideia</button>
 				</div>
 				<br>
 				<div class="clear"></div>

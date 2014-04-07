@@ -26,7 +26,8 @@ Yuph::Application.routes.draw do
   resources :idea_admins
 
   # Forum Routes
-  resources :forum
+  # forum doesnt need to have routes for now, maybe nest it on the ideas
+  # resources :forum
   resources :categories
   resources :posts
   resources :post_comments

@@ -23,6 +23,19 @@ pt-BR:
   idea:
     created: Idéia criada com sucesso.
     updated: Idéia atualizada com sucesso.
+  user:
+    created: Nova conta criada, bem vindo à Yuph.
+    updated: Dados da conta atualizados.
+  user_comment:
+    created: O seu comentário foi criado com sucesso.
+    destroyed: O seu comentário foi apagado.
+  category:
+    created:
+    updated:
+    destroyed:
+  follow:
+    created:
+    destroyed:
   ideas:
     show:
       title: Começe a desenvolver essa ideia

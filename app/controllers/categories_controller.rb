@@ -28,9 +28,9 @@ class CategoriesController < ApplicationController
   def create
     @category = @forum.categories.build(category_params)
     if @category.save!
-      redirect_to idea_path(@category.forum.idea), notice: "Succefully created !"
+      redirect_to idea_path(@category.forum.idea), notice: t('category.created')
     else
-      render :new, notice: "Succefully created !"
+      render :new, notice: t('category.created')
     end
   end
 
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
 
   def update
     if  @category.update_attributes(category_params)
-      redirect_to @category, notice: "Updated"
+      redirect_to @category, notice: t('category.updated')
     else
       render :edit
     end

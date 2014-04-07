@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_single_params)
     if @user.save
-      redirect_to new_idea_path, notice: "Succefully created !"
+      redirect_to new_idea_path, notice: t('user.created')
     else
       render :new
     end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     end
 
     if  @user.update_attributes(user_params)
-      redirect_to @user, notice: "Updated"
+      redirect_to @user, notice: t('user.updated')
     else
       render :edit
     end

@@ -11,7 +11,7 @@ class UserCommentsController < ApplicationController
     @user_comment = current_user.comment_sends.build(user_comment_params)
     if @user_comment.save
       respond_with(@user_comment, :status => :created) do |format|
-        format.html { redirect_to :back, notice: "Succefully created !" }
+        format.html { redirect_to :back, notice: t('user_comment.created') }
       end
     else
       respond_with(@user_comment, :status => :unprocessable_entity) do |format|
@@ -23,7 +23,7 @@ class UserCommentsController < ApplicationController
   def destroy
     @user_comment.destroy
     respond_with(@user_comment, :status => :deleted) do |format|
-      format.html { redirect_to :back, notice: "Succefully Destroyed !" }
+      format.html { redirect_to :back, notice: t('user_comment.destroyed') }
     end
   end
 
