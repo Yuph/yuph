@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :authenticate_user!
-  before_filter :load_recent_activities
+  before_filter :load_recent_activities, if: :current_user
 
   def load_recent_activities
     @activities = current_user.latest_activities

@@ -1630,6 +1630,22 @@ width: 350px;
 	z-index: 90; 
 }
 
+.pagination {
+  @include border-radius(8px, 8px);
+  text-align: center;
+  font-family: 'Dosis-Light', sans-serif;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 18pt;
+  color: #c4c4c4;
+  background-color: #75a248;
+  margin-bottom: 10px;
+  a {
+  color: #f4f4f4;
+  }
+
+}
+
 .notification-content {
     .notification-header {
       float: left;

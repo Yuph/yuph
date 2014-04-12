@@ -73,6 +73,8 @@ gem 'public_activity'
 
 gem 'bootstrap_flash_messages', '~> 1.0.0'
 
+gem 'kaminari'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

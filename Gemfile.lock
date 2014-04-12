@@ -268,6 +268,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  kaminari
   omniauth
   omniauth-facebook
   paperclip (= 3.4.2)

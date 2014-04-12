@@ -2,4 +2,8 @@
   .grid_12.wrapper
     .notification-area-content
       %h3=t('.title')
-      = render_activities(@activities)
+
+      = render_activities(@display_activities)
+
+      .pagination
+        = paginate @display_activities
