@@ -78,6 +78,13 @@ pt-BR:
       notifications: Notificações
 
   devise:
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções para confirmação de sua conta na Yuph"
+      reset_password_instructions:
+        subject: "Instruções para redefinir sua senha da Yuph"
+      unlock_instructions:
+        subject: "Instruções para destravar sua senha da Yuph"
     failure:
       user:
         not_found_in_database: Senha ou email inválido
