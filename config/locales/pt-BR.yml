@@ -23,6 +23,13 @@ pt-BR:
   idea:
     created: Idéia criada com sucesso.
     updated: Idéia atualizada com sucesso.
+  idea_comment:
+    created: Novo comentário postado
+    destroyed: Comentário deletado
+  post_comment:
+    created: Sua resposta foi publicada
+    updated: Sua resposta foi atualizada
+    destroyed: Você deletou a resposta
   user:
     created: Nova conta criada, bem vindo à Yuph.
     updated: Dados da conta atualizados.
@@ -30,12 +37,12 @@ pt-BR:
     created: O seu comentário foi criado com sucesso.
     destroyed: O seu comentário foi apagado.
   category:
-    created:
-    updated:
-    destroyed:
+    created: Nova categoria criada
+    updated: Categoria atualizada
+    destroyed: Categoria destruída
   follow:
-    created:
-    destroyed:
+    created: Você começou a seguir esta ideia
+    destroyed: Você deixou de seguir esta ideia
   ideas:
     show:
       title: Começe a desenvolver essa ideia
@@ -326,3 +333,20 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum(a) %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>todas %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"

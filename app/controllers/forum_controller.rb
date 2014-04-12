@@ -9,7 +9,7 @@ class ForumController < ApplicationController
     set_session_user
     @forum = Forum.new(forum_params)
     @forum.save
-    redirect_to @forum, notice: "Succefully created !"
+    redirect_to @forum, notice: t('forum.created')
   end
 
   def show
@@ -26,7 +26,7 @@ class ForumController < ApplicationController
 
   def update
     @forum.update_attributes(forum_params)
-    redirect_to @forum, notice: "Updated"
+    redirect_to @forum, notice: t('forum.updated')
   end
 
   def destroy

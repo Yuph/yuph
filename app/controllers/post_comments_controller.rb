@@ -8,7 +8,7 @@ class PostCommentsController < ApplicationController
     set_session_user
     @post_comment = @user.post_comments.build(post_comment_params)
     if @post_comment.save
-      redirect_to :back, notice: "Succefully created !"
+      redirect_to :back, notice: t('post_comment.created')
     else
       redirect_to :back
     end
@@ -27,7 +27,7 @@ class PostCommentsController < ApplicationController
 
   def update
     if  @post_comment.update_attributes(post_comment_params)
-      redirect_to @post_comment, notice: "Updated"
+      redirect_to @post_comment, notice: t('post_comment.updated')
     else
       render :edit
     end
