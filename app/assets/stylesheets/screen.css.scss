@@ -1648,6 +1648,24 @@ width: 350px;
     margin: 10px;
 }
 
+.notification-new {
+    background-color: #f4f4c2;
+}
+
+.notifications-text {
+}
+
+.notifications-count a {
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 40px;
+    margin-top: 10px;
+    @include border-radius(15px, 15px);
+    color: #f4f4f4;
+    background-color: #75a248;
+}
+
 .alert {
   @include border-radius(8px, 8px);
   text-align: center;

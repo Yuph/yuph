@@ -1,5 +1,4 @@
 .notification-content
-  .greenline
   .notification-header
     .notification-header-portrait
       = link_to activity.owner do
@@ -10,7 +9,6 @@
     - idea_link = link_to(activity.trackable.idea.name, idea_path(activity.trackable.idea))
     = t("public_activity.#{activity.key}_html", :user => user_link, :idea => idea_link)
 
-  %span.activities-data
-    = l activity.created_at
+    = render 'public_activity/date', :activity => activity
 
   .clear

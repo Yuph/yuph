@@ -32,13 +32,20 @@
           <li class="grid_1">
             <%=link_to image_tag('yuph-profile.png'), "/" %>
           </li>
-          <li class="grid_1 push_8">
-            <%= link_to t('.notifications'), notifications_path %>
+          <li class="grid_1 push_7">
+            <div class="notifications-text">
+              <%= link_to t('.notifications'), notifications_path %>
+            </div>
           </li>
-          <li class="grid_1 push_9 engine">
+          <li class="grid_1 push_7">
+            <div class="notifications-count">
+              <%= link_to @new_activities.count, notifications_path if @new_activities.count > 0 %>
+            </div>
+          </li>
+          <li class="grid_1 push_8 engine">
             <a>mais</a>
           </li>
-          <li class="grid_1 push_9">
+          <li class="grid_1 push_8">
             <a>blog</a>
           </li>
         </ul>

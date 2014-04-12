@@ -27,6 +27,21 @@ class User < ActiveRecord::Base
 
   alias :devise_valid_password? :valid_password?
 
+  # Latest notification seen by the user
+  belongs_to :latest_activity, :class_name => PublicActivity::Activity.name
+  def latest_activities
+    act = PublicActivity::Activity
+    # User owned activity
+    activities = act.where(:owner => self)
+    # Activity in user ideas
+    activities |= act.where(:trackable_type => 'Idea', :trackable_id => ideas)
+    # Activity in user's ideas forum
+    activities |= act.where(:trackable_type => 'Forum', :trackable_id => ideas.map(&:forum))
+    # Activity in user's followed ideas
+    activities |= act.where(:trackable_type => 'Idea', :trackable_id => follows.map(&:idea))
+    act.where(:id => activities).order('created_at DESC')
+  end
+
   def valid_password?(password)
     # Try new login style and fallback to old style for old users
     devise_valid_password?(password) || old_valid_password?(password)
