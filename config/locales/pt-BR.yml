@@ -23,6 +23,13 @@ pt-BR:
   idea:
     created: Idéia criada com sucesso.
     updated: Idéia atualizada com sucesso.
+  idea_comment:
+    created: Novo comentário postado
+    destroyed: Comentário deletado
+  post_comment:
+    created: Sua resposta foi publicada
+    updated: Sua resposta foi atualizada
+    destroyed: Você deletou a resposta
   user:
     created: Nova conta criada, bem vindo à Yuph.
     updated: Dados da conta atualizados.
@@ -30,12 +37,12 @@ pt-BR:
     created: O seu comentário foi criado com sucesso.
     destroyed: O seu comentário foi apagado.
   category:
-    created:
-    updated:
-    destroyed:
+    created: Nova categoria criada
+    updated: Categoria atualizada
+    destroyed: Categoria destruída
   follow:
-    created:
-    destroyed:
+    created: Você começou a seguir esta ideia
+    destroyed: Você deixou de seguir esta ideia
   ideas:
     show:
       title: Começe a desenvolver essa ideia
@@ -78,19 +85,43 @@ pt-BR:
       notifications: Notificações
 
   devise:
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções para confirmação de sua conta na Yuph"
+      reset_password_instructions:
+        subject: "Instruções para redefinir sua senha da Yuph"
+      unlock_instructions:
+        subject: "Instruções para destravar sua senha da Yuph"
     failure:
       user:
         not_found_in_database: Senha ou email inválido
         invalid: Senha ou email inválido
-    sessions:
-      user:
-        signed_in: Você agora está logado na Yuph
-        signed_out: Você está agora deslogado
+    omniauth_callbacks:
+      failure: "Não pudemos autenticá-lo em %{kind} por causa de \"%{reason}\"."
+      success: "Autenticado com sucesso na conta %{kind}."
     passwords:
+      no_token: "Você não pode acessar essa página vindo do email para reiniciar sua senha. Se você está vindo do email para reiniciar sua senha, por favor, certifique-se de estar usando a URL correta."
+      send_instructions: "Você receberá um email com instruções de como reiniciar sua senha em alguns minutos."
+      send_paranoid_instructions: "Se o seu endereço de email estiver em nossa base de dados, em alguns minutos você receberá um link para recuperar sua senha em seu email."
+      updated: "Você alterou sua senha com sucesso. Você está logado."
+      updated_not_active: "Sua senha foi alterado com sucesso."
       new:
         placeholder: Digite seu email
         title: Esqueceu sua senha?
         submit: Resetar senha
+    registrations:
+      destroyed: "Até mais! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+      signed_up: "Bem-vindo! Você se registrou com sucesso."
+      signed_up_but_inactive: "Você se registrou com sucesso. No entanto, não podemos logá-lo, pois você ainda não ativou sua conta."
+      signed_up_but_locked: "Você se registrou com sucesso. No entanto, não podemos logá-lo, pois sua conta está travada."
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para seu endereço de email. Por favor abra o link para ativar sua conta."
+      update_needs_confirmation: "Sua conta foi atualizada, mas precisamos verificar seu endereço de email. Por favor cheque seu email e clique no link de confirmação para confirmar seu novo endereço de email."
+      updated: "Você atualizou sua conta com sucesso."
+
+    sessions:
+      user:
+        signed_in: Você agora está logado na Yuph
+        signed_out: Você está agora deslogado
 
   date:
     abbr_day_names:
@@ -302,3 +333,20 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum(a) %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>todas %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"

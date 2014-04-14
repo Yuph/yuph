@@ -181,6 +181,12 @@ h3 {
 	border: 1px solid #bababa;
 }
 
+.forgot-password-form label {
+	font-family: 'Dosis-ExtraBold', sans-serif;
+	margin-left: 20px;
+	padding-bottom: 10px;
+}
+
 .remember-me {
 	padding-bottom: 10px;
 }
@@ -1624,6 +1630,22 @@ width: 350px;
 	z-index: 90; 
 }
 
+.pagination {
+  @include border-radius(8px, 8px);
+  text-align: center;
+  font-family: 'Dosis-Light', sans-serif;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 18pt;
+  color: #c4c4c4;
+  background-color: #75a248;
+  margin-bottom: 10px;
+  a {
+  color: #f4f4f4;
+  }
+
+}
+
 .notification-content {
     .notification-header {
       float: left;
@@ -1640,6 +1662,24 @@ width: 350px;
     }
 
     margin: 10px;
+}
+
+.notification-new {
+    background-color: #f4f4c2;
+}
+
+.notifications-text {
+}
+
+.notifications-count a {
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 40px;
+    margin-top: 10px;
+    @include border-radius(15px, 15px);
+    color: #f4f4f4;
+    background-color: #75a248;
 }
 
 .alert {

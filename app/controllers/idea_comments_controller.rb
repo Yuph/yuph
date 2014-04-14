@@ -14,7 +14,7 @@ class IdeaCommentsController < ApplicationController
     @idea_comment = @user.idea_comments.build(idea_comment_params)
     if @idea_comment.save
     respond_with(@idea_comment, :status => :created) do |format|
-        format.html { redirect_to :back, notice: "Succefully created !" }
+        format.html { redirect_to :back, notice: t('idea_comment.created') }
       end
     else
       respond_with(@idea_comment, :status => :unprocessable_entity) do |format|
@@ -26,7 +26,7 @@ class IdeaCommentsController < ApplicationController
   def destroy
     @idea_comment.destroy
     respond_with(@idea_comment, :status => :deleted) do |format|
-      format.html { redirect_to :back, notice: "Succefully Destroyed !" }
+      format.html { redirect_to :back, notice: t('idea_comment.destroyed') }
     end
   end
 

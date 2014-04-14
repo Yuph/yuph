@@ -63,7 +63,19 @@ Yuph::Application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'yuph.net' }
+
+  # Emails
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => ENV['RAILS_SMTP_SERVER'],
+    :authentication => :login,
+    :user_name => ENV['RAILS_SMTP_USER'],
+    :password => ENV['RAILS_SMTP_PASSWORD'],
+    :enable_starttls_auto => true,
+    :port => 587
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -78,5 +90,5 @@ Yuph::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  GA.tracker = "UA-44206961-1"
+  GA.tracker = ENV['GA_TRACKER_CODE']
 end

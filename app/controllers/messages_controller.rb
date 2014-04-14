@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     set_session_user
     @message = @user.message_sends.build(message_params)
     if @message.save
-      redirect_to @message, notice: "Succefully created !"
+      redirect_to @message, notice: t('message.created')
     else
       render :new
     end
@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
 
   def update
     if  @message.update_attributes(message_params)
-      redirect_to @message, notice: "Updated"
+      redirect_to @message, notice: t('message.updated')
     else
       render :edit
     end

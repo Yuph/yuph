@@ -1,0 +1,3 @@
+- new_notification = 'notification-new' if @latest && @latest.created_at < activity.created_at
+%span.activities-data{:class=> new_notification}
+  = l activity.created_at
