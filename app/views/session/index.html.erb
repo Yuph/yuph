@@ -1,77 +1,83 @@
-<% if logged? %>
-       <div class="container_12 yuph-presentation">
-            <div class="grid_6 push_3">
-                <img src="/assets/logo.png">
-            </div>
-            <div class="clear"></div>
-            <div class="grid_4 presentation-item" alt="Compartilhe qualquer ideia">
-                <img src="/assets/process-1.png">
-                <h2>Compartilhe qualquer ideia ou projeto.</h2>
-            </div>
-            <div class="grid_4 presentation-item" alt="deixe a comunidade dar feedbacks">
-                <img src="/assets/process-2.png">
-                <h2>Deixe a comunidade discutir e dar feedbacks.</h2>
-            </div>
-            <div class="grid_4 presentation-item">
-                <img src="/assets/process-3.png" alt="crie coisas incríveis">
-                <h2>Crie coisas incríveis.</h2>
-            </div>
-        </div>
-        <div class="container_12 logged">
-            <div class="grid_9 big-cover-description logged-description">
-                <h2>E aí, que ideia você teve hoje?</h2>
-            </div>
-            <div class="grid_1 pull_1 cover-button">
-                 <%= link_to 'Diz pra gente', new_idea_path, class: "big-button red-button"  %>
-            </div>
-        </div>
-        <div class="green-call">
-            <div class="container_12"><div class="grid_12 green-call-decoration"><h2>...</h2></div></div>
-        </div>
-        <div class="green-call-content">
-            <div class="container_12">
-                <h2>Também precisamos de ideias!</h2>
-                <p>Estamos em beta, então não existe nada melhor pra gente do que receber sugestões e dúvidas. Não seja tímido, <a href="http://www.yuph.net/ideas/12">acesse o fórum</a> . =]</p>
-            </div>
-        </div>
-    <% else %>
-            <div class="container_12 yuph-presentation">
-                <div class="grid_6 push_3">
-                    <img src="/assets/logo.png">
-                </div>
-                <div class="clear"></div>
-                <div class="grid_4 presentation-item">
-                    <img src="/assets/process-1.png" alt="Compartilhe qualquer ideia">
-                    <h2>Compartilhe qualquer ideia ou projeto.</h2>
-                </div>
-                <div class="grid_4 presentation-item">
-                    <img src="/assets/process-2.png" alt="deixe a comunidade dar feedbacks">
-                    <h2>Deixe a comunidade discutir e dar feedbacks.</h2>
-                </div>
-                <div class="grid_4 presentation-item">
-                    <img src="/assets/process-3.png" alt="crie coisas incríveis">
-                    <h2>Crie coisas incríveis.</h2>
-                </div>
-                <div class="clear" ></div>
-            </div>
-            <div class="container_12 logged">
-                <div class="grid_9 push_1 big-cover-description logged-description">
-                    <h2>Inspire-se com outras ideias</h2>
-                </div>
-                <div class="grid_1 cover-button">
-                     <%= link_to 'Bora lá', new_user_registration_path, class: "big-button red-button"  %>
-                </div>
-            </div>
-        <div class="green-call">
-            <div class="container_12"><div class="grid_12 green-call-decoration"><h2>...</h2></div></div>
-        </div>
-        <div class="green-call-content">
-            <div class="container_12">
-                <h2>Mas como assim?</h2>
-                <p>A Yuph é uma plataforma para brainstorm e organização de projetos. É um lugar para você compartilhar ideias, desde as mais banais até as mais complexas.<br>Inicie discussões, receba feedback e deixe a comunidade fazer a parte dela.<br>Ainda ficou com dúvidas? Dê uma navegada entre as ideias que as outras pessoas já mandaram ou explore a ideia de exemplo que criamos <a href="http://www.yuph.net/ideas/12">clicando aqui</a>.</p>
-            </div>
-        </div>
-<% end %>
+<%= render :partial => "layouts/navbar" %>
+
+<figure class="big-image">
+    <div class="legenda">
+        <h1 class="splash-head">Confie</h1>
+        <p class="splash-subhead">
+            Melhore coisas que ama. Crie coisas que não existem ainda.
+        </p>
+        <!-- <p>
+            <a href="http://purecss.io" class="pure-button pure-button-primary">começar agora</a>
+        </p> -->
+    </div>
+</figure>
+
+<section class="block-ideas pure-g-r">
+        
+        <figure class="pure-u-1-2">
+            <%= image_tag "lamp.png" %>
+        </figure>
+
+        <article class="pure-u-1-2">
+            <h2>Eureka!</h2>
+
+            <p>Somos um banco de ideias;
+            <br>Somos uma plataforma de discussão;
+            <br>Somos uma ponte entre sonhadores e realizadores. </p>
+            <br>
+            <%= link_to 'saber mais', new_user_registration_path, class: "pure-button"  %>
+        </article>
+    </section>
+
+    <section class="block-about pure-g-r">
+
+        <figure class="pure-u-1-2">
+            <%= image_tag "logo-yuph-quem-somos.png" %>
+        </figure>
+
+        <article class="pure-u-1-2">
+            <h2>Quem Somos?</h2>
+
+            <p>Somos uma ferramenta de realização de projetos, 
+            <br/>um lugar em que todos podem compartilhar ideias; 
+            <br/>e em que as ideias, uma vez compartilhadas, 
+            <br/>possam se desenvolver com ajuda da comunidade.
+            <br/>
+            <br/>Não importa se é uma ideia banal, não importa se 
+            <br/>ela é complexa, não importa nem mesmo, se você 
+            <br/>teve uma ideia em que acredita muito, mas que não 
+            <br/>saiba ainda nem por onde começar. 
+            <br/>
+            <br/>Nós estamos aqui, justamente para te auxiliar a 
+            <br/>dar vida a sua ideia ou projeto, tornando sonhos, 
+            <br/>algo palpável,  real e possível.</p>
+        </article>
+
+
+
+    </section>
+
+    <section class="block-github pure-g-r">
+
+        <article class="pure-u-1-2">
+            <h2>A YUPH é livre</h2>
+
+            <p>Somos apaixonados por crowdsourcing!
+            <br>Então nada mais justo do que deixarmos 
+            <br>nosso código aberto para que a comunidade 
+            <br>possa nos ajudar a melhorar cada vez mais
+            <br>Se você quer colaborar, fique a vontade
+            <br>Toda ajuda é bem vinda.</p>
+            <a href="http://github.com/Yuph/Yuph" class="pure-button">participar</a>
+        </article>
+
+        <figure class="pure-u-1-2">
+        <%= image_tag "github-logo-grande.png" %>
+        </figure>
+
+    </section>
+
+<!-- 
 <div class="container_12">
     <div class="grid_4 main-ideas">
         <h2>
@@ -95,8 +101,11 @@
     </div>
 	<% end %>
 </div>
+
 <div class="clear"></div>
 <div class="container_12">
 	<%= button_to "mostrar mais", "/ideas/", :method => "get", class: "grid_8 push_2 show-more wrapper"  %>
     <div class="clear"></div>
 </div>
+-->
+<%= render :partial => "layouts/footer" %>
