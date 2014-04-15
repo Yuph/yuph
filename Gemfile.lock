@@ -10,6 +10,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    actionview-encoded_mail_to (1.0.4)
+      rails
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -256,6 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview-encoded_mail_to (~> 1.0.4)
   aws-sdk
   bootstrap_flash_messages (~> 1.0.0)
   cancancan (~> 1.7)

@@ -22,7 +22,7 @@
 				<br>
 				<div class="profile-statistics-push">
 					<p>Local: <%= @user.local %></p>
-					<p>Email: <span class="bio-link"><%= @user.email %></span></p>
+					<p>Email: <span class="bio-link"><%= mail_to @user.email, nil, encode: "javascript" %></span></p>
 					<p>Website: <span class="bio-link"><%= @user.website %></span></p>
 					<p>Facebook: <span class="bio-link"><%= @user.facebook %></span></p>
 					<p>Twitter: <span class="bio-link"><%= @user.twitter %></span></p>
