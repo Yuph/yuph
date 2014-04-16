@@ -41,8 +41,8 @@ class Ability
       can :create, Post, :category => {:forum_id => user.ideas.map(&:forum).map(&:id) }
 
       # Ideas
-      can [:update, :destroy], Idea do |idea|
-        user.ideas.include? idea
+      can :manage, Idea do |idea|
+        idea.idea_admins.map(&:user_id).include? user.id
       end
 
       # Categories
