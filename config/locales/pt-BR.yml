@@ -342,6 +342,19 @@ pt-BR:
       previous: "&lsaquo; Anterior"
       next: "Próxima &rsaquo;"
       truncate: "&hellip;"
+    users:
+      likes:
+        zero: Nenhuma curtida
+        one: 1 curtida
+        other: "%{count} curtidas"
+      comments:
+        zero: Nenhum comentário
+        one: 1 comentário
+        other: "%{count} comentários"
+      posts:
+        zero: Nenhum post criado
+        one: 1 post criado
+        other: "%{count} posts criados"
   helpers:
     page_entries_info:
       one_page:

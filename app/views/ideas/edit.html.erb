@@ -11,7 +11,7 @@
 <%= form_for(@idea) do |f| %>
 <% if @idea.errors.any? %>
 <div id="error_explanation">
-	<h2>Corrija <%= pluralize(@idea.errors.count, "erro") %> no formulário:</h2>
+	<h2>Corrija <%= pluralize(@idea.errors.count, "o erro", "os erros") %> no formulário:</h2>
 
 	<ul>
 		<% @idea.errors.full_messages.each do |msg| %>

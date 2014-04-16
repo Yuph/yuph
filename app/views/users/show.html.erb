@@ -30,15 +30,15 @@
 				<div class="profile-statistics">
 					<p>
 						<%= image_tag("up-icon.png", :alt => "Likes") %>
-						<span class="small"><%= @user.following.size %> curtida(s)</span>
+						<span class="small"><%= t('views.users.likes', :count => @user.following.size) %></span>
 					</p>
 					<p>
 						<%= image_tag("comment-icon.png", :alt => "Comment") %>
-						<span class="small"> <%= @user.idea_comments.size + @user.comment_sends.size %> comentário(s)</span>
+						<span class="small"> <%= t('views.users.comments', :count => @user.idea_comments.size + @user.comment_sends.size) %></span>
 					</p>
 					<p>
 						<%= image_tag("forum-icon.png", :alt => "forum") %>
-						<span class="small"><%= @user.posts.size + @user.post_comments.size  %> post(s) criado(s)</span>
+						<span class="small"><%= t('views.users.posts', :count => @user.posts.size + @user.post_comments.size) %></span>
 					</p>
 				</div>
 			</div>
