@@ -75,6 +75,10 @@ gem 'bootstrap_flash_messages', '~> 1.0.0'
 
 gem 'kaminari'
 
+# E-mail encoder
+gem 'actionview-encoded_mail_to', '~> 1.0.4'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
