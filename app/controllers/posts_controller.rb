@@ -16,9 +16,9 @@ class PostsController < ApplicationController
     set_session_user
     @post = @user.posts.build(post_params)
     if @post.save
-      redirect_to :back, notice: "Criado com sucesso !"
+      redirect_to :back, notice: t('post.created')
     else
-      redirect_to new_post_path, notice: "Houve um problema!"
+      redirect_to new_post_path, notice: t('post.created_error')
     end
   end
 
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def update
     if  @post.update_attributes(post_params)
-      redirect_to @post, notice: "Updated"
+      redirect_to @post, notice: t('post.updated')
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     set_session_user
     @post = Post.find(params[:id])
     if !@post.can_managed_by(@user)
-      redirect_to :back, notice: "Não possui permissão"
+      redirect_to :back, notice: t('post.access_denied')
     end
   end
 

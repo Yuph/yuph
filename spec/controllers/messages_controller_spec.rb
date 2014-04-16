@@ -35,11 +35,11 @@ describe MessagesController do
             expect(message.title).to eql("changed")
         end
         it "Fail" do
-            post :create, message: FactoryGirl.attributes_for(:message, title: "Como estás ?", message_receiver_id: @user_two.id)
+            post :create, message: FactoryGirl.attributes_for(:message, title: "Como estas ?", message_receiver_id: @user_two.id)
             message = Message.last
                 put :update, id: message.id, message: FactoryGirl.attributes_for(:message, title: "")
             message.reload
-            expect(message.title).to eql("Como estás ?")
+            expect(message.title).to eql("Como estas ?")
             expect(response).to render_template(:edit)
         end
       end

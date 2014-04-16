@@ -25,5 +25,7 @@ module Yuph
     config.assets.compile = true
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.encoding = "utf-8"
   end
 end
