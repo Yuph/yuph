@@ -45,7 +45,7 @@ pt-BR:
     destroyed: Você deixou de seguir esta ideia
   ideas:
     show:
-      title: Começe a desenvolver essa ideia
+      title: Comece a desenvolver essa ideia
       description: Crie um post em alguma das categorias ao lado e proporcione um espaço para outros usuários ajudarem essa ideia.
       edit: Editar
   categories:
@@ -56,7 +56,7 @@ pt-BR:
       placeholder: Envie seu comentário
   shared:
     login_form:
-      title: Entre na yuph
+      title: Entre na Yuph
       remember_me: Manter logado
       forgot_password: Esqueceu a senha?
 
@@ -71,7 +71,7 @@ pt-BR:
       follow_destroy_html: "%{user} parou de seguir a ideia %{idea}"
       comment_create_html: "%{user} criou um novo comentário em %{idea}"
       comment_destroy_html: "%{user} apagou um comentário em %{idea}"
-      update_html: "%{user} atualizou os as informações de %{idea}"
+      update_html: "%{user} atualizou as informações de %{idea}"
     forum:
       post_create_html: "%{user} criou uma postagem na ideia %{idea}"
       post_destroy_html: "%{user} apagou uma postagem na ideia %{idea}"
@@ -96,6 +96,7 @@ pt-BR:
       user:
         not_found_in_database: Senha ou email inválido
         invalid: Senha ou email inválido
+        unauthenticated: É preciso estar autenticado para acessar esta página
     omniauth_callbacks:
       failure: "Não pudemos autenticá-lo em %{kind} por causa de \"%{reason}\"."
       success: "Autenticado com sucesso na conta %{kind}."
@@ -104,7 +105,7 @@ pt-BR:
       send_instructions: "Você receberá um email com instruções de como reiniciar sua senha em alguns minutos."
       send_paranoid_instructions: "Se o seu endereço de email estiver em nossa base de dados, em alguns minutos você receberá um link para recuperar sua senha em seu email."
       updated: "Você alterou sua senha com sucesso. Você está logado."
-      updated_not_active: "Sua senha foi alterado com sucesso."
+      updated_not_active: "Sua senha foi alterada com sucesso."
       new:
         placeholder: Digite seu email
         title: Esqueceu sua senha?
