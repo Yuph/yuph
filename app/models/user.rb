@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   has_one :profile
 
   delegate :nick, :first_name, :last_name, :image, :image_file_name, :about, :local,
-    :website, :facebook, :twitter, :provider, :to => :profile
+    :website, :facebook, :twitter, :to => :profile
 
   accepts_nested_attributes_for :profile
 
