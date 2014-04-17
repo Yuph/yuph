@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :profile do |p|
     p.sequence(:nick) {|n| "victor-antoniazzi-complex-#{n}" }
-    p.sequence(:email) {|n| "person-complex#{n}@example.com" }
 
     factory :full_profile do |p|
       p.image_file_name "test.jpg"
