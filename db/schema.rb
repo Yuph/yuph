@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412184328) do
+ActiveRecord::Schema.define(version: 20140417032517) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -172,6 +172,8 @@ ActiveRecord::Schema.define(version: 20140412184328) do
     t.string   "last_sign_in_ip"
     t.boolean  "admin"
     t.integer  "latest_activity_id"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

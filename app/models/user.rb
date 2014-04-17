@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   include PublicActivity::Common
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :confirmable, :lockable, :timeoutable
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :idea_admins, :dependent => :delete_all
@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
     :website, :facebook, :twitter, :provider, :to => :profile
 
   accepts_nested_attributes_for :profile
+
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   alias :devise_valid_password? :valid_password?
 
@@ -60,9 +62,13 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_with_omniauth(auth)
-    user = self.find_or_create_by_provider_and_uid(auth.provider, auth.uid)
-    user.assign_attributes({ nick: auth.info.name, email: auth.info.email, image_file_name: auth.info.image, access_token: auth.credentials.token })
-    user
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.profile = Profile.new image_file_name: auth.info.image, nick: auth.info.name
+    end
   end
 
   private
