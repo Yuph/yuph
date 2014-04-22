@@ -1,0 +1,30 @@
+<nav id="nav" class="pure-u">
+    
+    <a href="#" class="nav-menu-button">YUPH</a>
+    
+    <%= link_to image_tag("logo.png"), root_path %>
+
+    <div class="nav-inner">
+        <%= link_to 'nova ideia', new_idea_path, class: "pure-button button_new_idea"  %>
+
+        <hr class="hr-gradient">
+
+        <div class="pure-menu pure-menu-open">
+            <ul>
+                <li><a href="#">Meu Perfil</a></li>
+                <li><a href="#">Notificações</a></li>
+                
+                <li class="pure-menu-heading">Ideias</li>
+                <li><a href="#">Todas</a></li>
+                <li><a href="#">Criadas</a></li>
+                <li><a href="#">Favoritadas</a></li>
+
+                <li class="pure-menu-heading">Forum</li>
+                <li><a href="#"><span class="email-label-travel"></span>Brainstorm</a></li>
+                <li><a href="#"><span class="email-label-personal"></span>Geral</a></li>
+                <li><a href="#"><span class="email-label-personal"></span>Off-Topic</a></li>
+                <li><a href="#"><span class="email-label-work"></span>Sugestões</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

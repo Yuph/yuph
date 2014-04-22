@@ -1,6 +1,7 @@
 /* componentes */
 body{
-	background: #f0f2f4;
+	/* background: #f9f9f9; */
+	background: #fff;
 }
 
 section{
@@ -164,7 +165,7 @@ figure .legenda{
 
 /* LOGIN */
 .box-login{
-	margin-top: 70px;
+	margin-top: 30px;
 }
 
 .box-login .pure-form{
@@ -172,6 +173,97 @@ figure .legenda{
 }
 
 .box-login .pure-form .cheio{
+	width: 100%;
+}
+
+
+.login-button{
+	/* background: #f1f1f1; */
+	margin-bottom: 1em;
+}
+
+.login-button .pure-button{
+	background: #99cc33;
+	color: #fff;
+	width: 50%;
+}
+
+.remember-me{
+	float: right;
+	padding-right: 1em;
+	vertical-align:middle;
+}
+
+.box-options{
+	float: left;
+	margin-bottom: 1.2em;
+	text-align: center;
+	text-transform: lowercase;
+	width: 100%;
+}
+
+.box-options a{
+	color: #3b6b0c;
+	text-decoration: none;
+}
+
+.hr-gradient{
+	clear: both; 
+ 	float: none; 
+ 	width: 100%; 
+ 	height: 1px;
+ 	margin: 1.4em 0;
+ 	border: none; 
+ 	background: #ddd;
+ 	background-image: -webkit-gradient(
+     	linear,
+     	left bottom,
+	    right bottom,
+	    color-stop(0, rgb(255,255,255)),
+	    color-stop(0.1, rgb(221,221,221)),
+	    color-stop(0.9, rgb(221,221,221)),
+	    color-stop(1, rgb(255,255,255))
+	);
+
+	background-image: -moz-linear-gradient(
+		left center,
+		rgb(255,255,255) 0%,
+		rgb(221,221,221) 10%,
+		rgb(221,221,221) 90%,
+		rgb(255,255,255) 100%
+	);
+}
+
+.box-login .pure-button-primary{
+	width: 100%;
+}
+
+/* sidn_up */
+/* LOGIN */
+.box-sign_up{
+	margin-top: 30px;
+}
+
+.box-sign_up a{
+	color: #de434a;
+	text-decoration: underline;
+}
+
+.box-sign_up .pure-form{
+	margin-top: 20px;
+}
+
+.box-sign_up .pure-form .cheio{
+	margin-bottom: 0.8em;
+	width: 100%;
+}
+
+.box-sign_up .pure-button{
+	background: #99cc33;
+	color: #fff;
+}
+
+.preencher{
 	width: 100%;
 }
 

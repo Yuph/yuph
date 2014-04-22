@@ -1,4 +1,11 @@
-<%= form_for(@user) do |f| %>
+<div class="container_12">
+  <div class="grid_4 push_4">
+    <div class="big-login main-login wrapper">
+
+      <section class="box-sign_up">
+
+
+<%= form_for(:user, url: user_registration_path, html: {:class => 'pure-form pure-form-stacked'}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,44 +18,47 @@
     </div>
   <% end %>
 
-<div class="container_12">
-  <div class="grid_8 push_2 wrapper">
-    <div>
-      <header class="account">
-        <h2>Crie sua conta na Yuph!</h2>
-      </header>
+        <%= link_to image_tag("logo-yuph-quem-somos.png"), root_path %>
 
-      <div class="clear"></div>
-      <div class="create-account">
-        <label>Nome:</label>
-        <br>
         <%= f.fields_for :profile do |f2| %>
-          <%= f2.text_field :nick %>
+          
+          <label for="name">Nome</label>
+          <%= f2.text_field :nick, :placeholder => 'Seu nome', :class => "cheio" %>
+
+          <label for="name">Senha</label>
+          <%= f.password_field :password, :placeholder => 'Digite uma senha', :class => "cheio" %>
+
+          <label for="name">Confirme a Senha</label>
+          <%= f.password_field :password_confirmation, :placeholder => 'Confirme sua senha', :class => "cheio" %>
+
+          <label for="name">E-mail</label>
+          <%= f.text_field :email, :placeholder => 'Seu e-mail', :class => "cheio" %>
+
         <% end %>
-        <div class="clear"></div>
 
-        <label>Senha:</label>
-        <br>
-        <%= f.password_field :password %>
 
-        <div class="clear"></div>
+        <div class="pure-controls">
+            <label for="cb" class="pure-checkbox">
+                <input id="cb" type="checkbox"> Li e aceito os <a href="#">termos e condições</a>.
+            </label>
 
-        <label><span class="small">Confirme a senha</span></label>
-        <br>
-        <%= f.password_field :password_confirmation %>
-        <span class="small-right"></span>
+            <button type="submit" class="pure-button pure-button-primary preencher">criar minha conta</button>
+        </div>
+
+        <hr class="hr-gradient">
+        
       </div>
-    </div>
-    <div class="clear"></div>
-    <div class="create-account email">
-      <label>Email:</label>
-      <br>
-      <%= f.text_field :email %>
-    </div>
+
     <div class="create-account-buttons">
-      <div style="float: right;"><button type="submit" class="big-button red-button">criar minha conta</button></div>
+      <form action="/auth/facebook">
+        <button type="submit" class="pure-button pure-button-primary preencher">criar com o <i class="fa fa-facebook"></i>acebook</button>
+      </form>
+    </div>
+  </div>
+
       <% end %>
-      <div style="float: left;"><form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form></div>
+      </section>
+
     </div>
   </div>
 </div>

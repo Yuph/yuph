@@ -13,19 +13,27 @@
     <br/>
     <%= token_tag nil %>
 
-    <% if Devise.mappings[:user].rememberable? -%>
-      <div class="remember-me"><%= f.check_box :remember_me %> <%= t('.remember_me') %> </div>
-    <% end -%>
-    <br/>
+    
+    <div class="login-button">
+      <%= f.submit 'entrar', :class => "pure-button" %>
 
-    <%= f.submit 'login', :class => "pure-button pure-button-primary" %>
+      <% if Devise.mappings[:user].rememberable? -%>
+        <label for="remember" class="remember-me">
+          <%= f.check_box :remember_me %> <%= t('.remember_me') %>
+        </label>
+      <% end -%>
+    </div>
+
   <% end %>
 
-  <div class="forgot-password">
-    <%= link_to t('.forgot_password'), new_password_path(:user) %>
-  </div>
+  <span class="box-options">
+      <%= link_to 'criar nova conta', new_user_registration_path %> . <%= link_to 'recuperar conta', new_password_path(:user) %>
+  </span>
 
-   <div class="fb-login-button">
-     <form action="/auth/facebook"><button type="submit" class="fb-button">Facebook</button></form>
-   </div>
+  <hr class="hr-gradient">
+
+  <form action="/auth/facebook">
+    <button type="submit" class="pure-button pure-button-primary">Entrar com o <i class="fa fa-facebook"></i>acebook</button>
+  </form>
+   
 </section>

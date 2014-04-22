@@ -1,4 +1,13 @@
+<div id="layout" class="content pure-g">
+	<%= render :partial => "layouts/navbar_left" %>
+
+	<div id="list" class="pure-u-1">
+	<%= render :partial => "ideas/forum_new" %>
+	</div>
+</div>
+
 <div id="fb-root"></div>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -15,7 +24,7 @@
 		<%= link_to "explorar ideias", "/ideas/", :method => "get", class: "" %>
 	</div>
 </div>-->
-<div class="container_12">
+<section class="container_12">
 	<div class="grid_8 wrapper">
 		<div class="green-line"></div>
 		<br>
@@ -36,7 +45,7 @@
 			</div>
 			<div class="profile-title">
 				<h1><%= @idea.name %></h1>
-				<p>por <span><%= link_to @idea.users.first.nick, user_path(@idea.users.first) %></span></p>
+				
 			</div>
 			<div class="hashtags"></div>
 			<div class="clear"></div>
@@ -47,6 +56,7 @@
         <% if can?(:edit, @idea) %>
             <%= button_to t(".edit"), edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
         <% end %>
+        
 		<br>
 		<br>
 		<p><%= @idea.description.gsub(/\n/, '<br>').html_safe %></p>
@@ -97,7 +107,7 @@
 			</div>
 		<% end %>
 	</div>
-</div>
+</section>
 
 <div class="clear"></div>
 
