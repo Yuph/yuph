@@ -1,13 +1,13 @@
 <% @idea.idea_comments.reverse.each do |comment| %>
     
-    <div class="email-item email-item-selected pure-g">
+    <div class="email-item email-item pure-g">
         <div class="pure-u">
-            <%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
+            <%= link_to image_tag("user-default.jpg", class: "email-avatar"), user_path(comment.user) %>
         </div>
 
         <div class="pure-u-3-4">
-            <h5 class="email-name"><%= link_to comment.user.nick, user_path(comment.user) %></h5>
-            <h4 class="email-subject">Hello from Toronto</h4>
+            <h5 class="email-name"><%= link_to "nome", user_path(comment.user) %></h5>
+            <!-- <h4 class="email-subject">Hello from Toronto</h4> -->
             <p class="email-desc">
                 <%= comment.message.gsub(/\n/, '<br>').html_safe  %>
             </p>
@@ -21,19 +21,19 @@
         </div>
         <div class="clear"></div>
     </div>
-
 <% end %>
 
+
 <% if logged? %>
-            <div class="profile-comment-form">
-                <form action="/idea_comments/" method="POST">
+    <div class="profile-comment-form">
+        <form action="/idea_comments/" method="POST">
                     <%= token_tag nil %>
                     <input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
-                    <textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="<%= t('idea_comments.form.placeholder') %>"></textarea>
+                    <textarea name="idea_comment[message]" class="pure-form" placeholder="<%= t('idea_comments.form.placeholder') %>"></textarea>
                     <br>
                     <div class="comment-options">
-                        <button class="red-button small-button">enviar</button>
+                        <button class="pure-button">enviar</button>
                     </div>
                 </form>
             </div>
-        <% end %>
+<% end %>

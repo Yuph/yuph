@@ -1,0 +1,52 @@
+<% @title= @idea.name %>
+<div id="layout" class="content pure-g">
+	<%= render :partial => "layouts/navbar_left" %>
+
+	<div id="list" class="pure-u-1">
+	<%= render :partial => "ideas/comments" %>
+	</div>
+
+	<div id="main" class="pure-u-1">
+        <div class="email-content">
+            <div class="email-content-header pure-g">
+                <div class="pure-u-1-2">
+                    <h1 class="email-content-title"><%= t(@idea.name) %></h1>
+                    <p class="email-content-subtitle">
+                        Por <a>!NOME</a></span>
+                    </p>
+                </div>
+
+                <div class="email-content-controls pure-u-1-2">
+                    
+                      <!-- <%= link_to 'novo post', new_idea_path, class: "pure-button "  %>
+                	   <%= link_to 'nova categoria', new_idea_path, class: "pure-button "  %> -->
+                </div>
+            </div>
+
+            <div class="email-content-body">
+                <%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
+                <p><%= @idea.description.gsub(/\n/, '<br>').html_safe %></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=165044993686486";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<% @title= @idea.name %>
+<!--<div  class="container_12">
+	<div class="grid_2 push_8">
+		<%= link_to 'nova ideia', new_idea_path, class: "" %>
+	</div>
+	<div class="grid_2 push_8">
+		<%= link_to "explorar ideias", "/ideas/", :method => "get", class: "" %>
+	</div>
+</div>-->
