@@ -6,7 +6,7 @@
         </div>
 
         <div class="pure-u-3-4">
-            <h5 class="email-name"><%= link_to "nome", user_path(comment.user) %></h5>
+            <h5 class="email-name"><%= link_to comment.user.nick, user_path(comment.user) %></h5>
             <!-- <h4 class="email-subject">Hello from Toronto</h4> -->
             <p class="email-desc">
                 <%= comment.message.gsub(/\n/, '<br>').html_safe  %>
