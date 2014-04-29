@@ -1,0 +1,39 @@
+<% @idea.idea_comments.reverse.each do |comment| %>
+    
+    <div class="email-item email-item pure-g">
+        <div class="pure-u">
+            <%= link_to image_tag("user-default.jpg", class: "email-avatar"), user_path(comment.user) %>
+        </div>
+
+        <div class="pure-u-3-4">
+            <h5 class="email-name"><%= link_to "nome", user_path(comment.user) %></h5>
+            <!-- <h4 class="email-subject">Hello from Toronto</h4> -->
+            <p class="email-desc">
+                <%= comment.message.gsub(/\n/, '<br>').html_safe  %>
+            </p>
+        </div>
+
+        <div class="clear"></div>
+        <div class="comment-bottom">
+            <% if can?(:destroy, comment) %>
+                <%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: t('idea_comments.confirm_destroy') }, :method=>:delete %>
+            <% end %>
+        </div>
+        <div class="clear"></div>
+    </div>
+<% end %>
+
+
+<% if logged? %>
+    <div class="profile-comment-form">
+        <form action="/idea_comments/" method="POST">
+                    <%= token_tag nil %>
+                    <input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
+                    <textarea name="idea_comment[message]" class="pure-form" placeholder="<%= t('idea_comments.form.placeholder') %>"></textarea>
+                    <br>
+                    <div class="comment-options">
+                        <button class="pure-button">enviar</button>
+                    </div>
+                </form>
+            </div>
+<% end %>

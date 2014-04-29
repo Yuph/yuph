@@ -1,23 +1,38 @@
-<div class="main-form">
-  <h1><%= t('.title') %></h1>
-  <%= form_for(:user, url: user_session_path, html: {name: 'login'}) do |f| %>
-    <%= f.text_field :email, :placeholder => 'Email' %>
-    <%= f.password_field :password, :placeholder => 'Senha' %>
+<section class="box-login">
+
+  <%= link_to image_tag("logo-yuph-quem-somos.png"), root_path %>
+
+
+  <%= form_for(:user, url: user_session_path, html: {:class => 'pure-form pure-form-stacked'}) do |f| %>
+    
+    <label for="email">Email</label>
+    <%= f.text_field :email, :placeholder => 'Email', :class => "cheio" %>
+    <br/>
+    <label for="password">Senha</label>
+    <%= f.password_field :password, :placeholder => 'Senha', :class => "cheio" %>
+    <br/>
     <%= token_tag nil %>
 
-    <div>
-    <% if Devise.mappings[:user].rememberable? -%>
-      <div class="remember-me"><%= f.check_box :remember_me %> <%= f.label t('.remember_me') %> </div>
-    <% end -%>
+    <div class="login-button">
+      <%= f.submit 'entrar', :class => "pure-button" %>
 
-    <%= f.submit 'login' %>
+      <% if Devise.mappings[:user].rememberable? -%>
+        <label for="remember" class="remember-me">
+          <%= f.check_box :remember_me %> <%= t('.remember_me') %>
+        </label>
+      <% end -%>
     </div>
+
   <% end %>
 
-  <div class="forgot-password">
-    <%= link_to t('.forgot_password'), new_password_path(:user) %>
-  </div>
+  <span class="box-options">
+      <%= link_to 'criar nova conta', new_user_registration_path %> . <%= link_to 'recuperar conta', new_password_path(:user) %>
+  </span>
 
-  <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), :class => 'fb-button' %>
+  <hr class="hr-gradient">
 
-</div>
+  <form action="<%= user_omniauth_authorize_path(:facebook) %>">
+    <button type="submit" class="pure-button pure-button-primary">Entrar com o <i class="fa fa-facebook"></i>acebook</button>
+  </form>
+   
+</section>

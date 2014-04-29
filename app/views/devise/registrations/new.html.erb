@@ -1,54 +1,54 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 <div class="container_12">
-  <div class="grid_8 push_2 wrapper">
-    <div>
-      <header class="account">
-        <h2>Crie sua conta na Yuph!</h2>
-      </header>
+  <div class="grid_4 push_4">
+    <div class="big-login main-login wrapper">
+      <section class="box-sign_up">
 
-      <div class="clear"></div>
-      <div class="create-account">
-        <label>Nome:</label>
-        <br>
+        <%= form_for(:user, url: user_registration_path, html: {:class => 'pure-form pure-form-stacked'}) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <%= link_to image_tag("logo-yuph-quem-somos.png"), root_path %>
+
         <%= f.fields_for :profile do |f2| %>
-          <%= f2.text_field :nick %>
+          <label for="name">Nome</label>
+          <%= f2.text_field :nick, :placeholder => 'Seu nome', :class => "cheio" %>
+
+          <label for="name">Senha</label>
+          <%= f.password_field :password, :placeholder => 'Digite uma senha', :class => "cheio" %>
+
+          <label for="name">Confirme a Senha</label>
+          <%= f.password_field :password_confirmation, :placeholder => 'Confirme sua senha', :class => "cheio" %>
+
+          <label for="name">E-mail</label>
+          <%= f.text_field :email, :placeholder => 'Seu e-mail', :class => "cheio" %>
         <% end %>
-        <div class="clear"></div>
 
-        <label>Senha:</label>
-        <br>
-        <%= f.password_field :password %>
+        <div class="pure-controls">
+          <label for="cb" class="pure-checkbox">
+            <input id="cb" type="checkbox"> Li e aceito os <a href="#">termos e condições</a>.
+          </label>
 
-        <div class="clear"></div>
+          <button type="submit" class="pure-button pure-button-primary preencher">criar minha conta</button>
+        </div>
 
-        <label><span class="small">Confirme a senha</span></label>
-        <br>
-        <%= f.password_field :password_confirmation %>
-        <span class="small-right"></span>
-      </div>
-    </div>
-    <div class="clear"></div>
-    <div class="create-account email">
-      <label>Email:</label>
-      <br>
-      <%= f.text_field :email %>
-    </div>
-    <div class="create-account-buttons">
-      <div style="float: right;"><button type="submit" class="big-button red-button">criar minha conta</button></div>
+        <hr class="hr-gradient">
       <% end %>
-      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), :class => 'fb-button' %>
+      </section>
+    </div>
+
+    <div class="create-account-buttons">
+      <form action="<%= user_omniauth_authorize_path(:facebook) %>">
+        <button type="submit" class="pure-button pure-button-primary preencher">criar com o <i class="fa fa-facebook"></i>acebook</button>
+      </form>
     </div>
   </div>
 </div>

@@ -14,6 +14,11 @@
   <% end %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+  <![endif]-->
   <%= csrf_meta_tags %>
 
   <%= analytics_init :local => Rails.env.development? %>
@@ -24,66 +29,6 @@
 
 </head>
 <body>
-<div class="top">
-<% if logged? %>
-    <div class="menu-top">
-      <div class="container_12">
-        <ul id="navbar">
-          <li class="grid_1">
-            <%=link_to image_tag('yuph-profile.png'), "/" %>
-          </li>
-          <li class="grid_1 push_7">
-            <div class="notifications-text">
-              <%= link_to t('.notifications'), notifications_path %>
-            </div>
-          </li>
-          <li class="grid_1 push_7">
-            <div class="notifications-count">
-              <%= link_to @new_activities.count, notifications_path if @new_activities.count > 0 %>
-            </div>
-          </li>
-          <li class="grid_1 push_8 engine">
-            <a>mais</a>
-          </li>
-          <li class="grid_1 push_8">
-            <a>blog</a>
-          </li>
-        </ul>
-      </div>
-      <div class="container_12" >
-        <div class="navbar-dropdown grid_1 push_10">
-          <a href="<%= user_path(current_user) %>">seu perfil</a>
-          <a href="/logout">sair</a>
-        </div>
-      </div>
-    </div>
-    <% else %>
-    <div class="menu-top">
-      <div class="container_12">
-      <ul id="navbar">
-        <li class="grid_1">
-          <%=link_to image_tag('yuph-profile.png'), "/" %>
-        </li>
-        <li class="grid_1 push_7 login">
-          <a href="">login</a>
-        </li>
-        <li class="grid_2 push_7">
-          <%= link_to 'criar conta', new_user_registration_path %>
-        </li>
-        <li class="grid_1 push_7">
-          <a>blog</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="container_12">
-    <div class="grid_4 push_6">
-      <div class="new-login main-login wrapper">
-        <%= render 'shared/login_form' %>
-      </div>
-    </div>
-  </div>
-<% end %>
 
 <div class="clear"></div>
 </div>

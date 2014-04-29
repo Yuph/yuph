@@ -1,0 +1,116 @@
+<div id="layout" class="content pure-g">
+	<%= render :partial => "layouts/navbar_left" %>
+
+	<div id="list" class="pure-u-1">
+	<%= render :partial => "ideas/forum_new" %>
+	</div>
+</div>
+
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=165044993686486";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<% @title= @idea.name %>
+<!--<div  class="container_12">
+	<div class="grid_2 push_8">
+		<%= link_to 'nova ideia', new_idea_path, class: "" %>
+	</div>
+	<div class="grid_2 push_8">
+		<%= link_to "explorar ideias", "/ideas/", :method => "get", class: "" %>
+	</div>
+</div>-->
+<section class="container_12">
+	<div class="grid_8 wrapper">
+		<div class="green-line"></div>
+		<br>
+		<div class="idea-description">
+			<div class="image-profile-title" style="float: left;">
+				<%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
+				<br>
+				<br>
+				<% if following? %>
+					<form action="/follows/" method="POST">
+						<input type="hidden" name="follow[idea_id]" value="<%= @idea.id %>" />
+						<%= token_tag nil %>
+						<button class="green-button big-button" id="follow-button">seguir</button>
+					</form>
+				<% elsif logged? %>
+					<%= button_to "deixar", follow_path(@user.following_id @idea), :method => "delete", class: "green-button big-button"  %>
+				<% end %>
+			</div>
+			<div class="profile-title">
+				<h1><%= @idea.name %></h1>
+				
+			</div>
+			<div class="hashtags"></div>
+			<div class="clear"></div>
+			<div class="facebook-share">
+				<div class="fb-like" id="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+			</div>
+		</div>
+        <% if can?(:edit, @idea) %>
+            <%= button_to t(".edit"), edit_idea_path(@idea), :method => "get", class: "small-button red-button edit-idea"%>
+        <% end %>
+        
+		<br>
+		<br>
+		<p><%= @idea.description.gsub(/\n/, '<br>').html_safe %></p>
+		<br>
+		<br>
+		<div class="embed-video">
+			<%= @idea.video %>
+		</div>
+		<br>
+	</div>
+	<div class="grid_4 wrapper omega profile-sidebar">
+		<h2>Comentários:</h2>
+		<div class="messages">
+			<% @idea.idea_comments.reverse.each do |comment| %>
+				<div class="profile-message">
+					<div class="profile-message-body">
+						<div class="profile-message-image comment-left">
+				  		<%= link_to image_tag(comment.user.profile_image, class: "user-portrait"), user_path(comment.user) %>
+				    	<span><%= link_to comment.user.nick, user_path(comment.user) %></span>
+						</div>
+						<div class="profile-message-content">
+		        	<p><%= comment.message.gsub(/\n/, '<br>').html_safe  %></p>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="comment-bottom">
+                        <% if can?(:destroy, comment) %>
+                            <%= link_to image_tag("block.png"), idea_comment_path(comment), data: { confirm: t('idea_comments.confirm_destroy') }, :method=>:delete %>
+                        <% end %>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+
+		<% if logged? %>
+			<div class="profile-comment-form">
+				<form action="/idea_comments/" method="POST">
+					<%= token_tag nil %>
+					<input type="hidden" name="idea_comment[idea_id]" value="<%= @idea.id %>">
+					<textarea name="idea_comment[message]" class="idea-creation comment-form-idea" placeholder="<%= t('idea_comments.form.placeholder') %>"></textarea>
+					<br>
+					<div class="comment-options">
+						<button class="red-button small-button">enviar</button>
+					</div>
+				</form>
+			</div>
+		<% end %>
+	</div>
+</section>
+
+<div class="clear"></div>
+
+<br>
+
+<%= render :partial => 'forum', :locals => {:forum => @idea.forum} %>
