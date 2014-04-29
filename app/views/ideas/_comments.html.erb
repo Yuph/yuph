@@ -2,7 +2,7 @@
     
     <div class="email-item email-item pure-g">
         <div class="pure-u">
-            <%= link_to image_tag("user-default.jpg", class: "email-avatar"), user_path(comment.user) %>
+            <%= link_to image_tag(comment.user.profile_image, class: "email-avatar"), user_path(comment.user) %>
         </div>
 
         <div class="pure-u-3-4">
