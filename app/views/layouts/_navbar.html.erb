@@ -1,18 +1,23 @@
 <header class="pure-menu-horizontal pure-menu-fixed">
   <nav class="pure-menu pure-menu-open pure-menu-horizontal">
-    
+
     <%= link_to image_tag("logo.png"), root_path %>
 
     <ul class="top-left">
       <li><a href="#conheca">Conheça</a></li>
-      <li><%= link_to "Explore", "/ideas/", :method => "get" %></li>
+      <li><%= link_to "Explore", "/ideas/", method: "get" %></li>
       <li><a href="#participe">Participe</a></li>
-
     </ul>
 
     <ul class="top-right">
-      <li><%= link_to 'Criar Conta', new_user_registration_path, class: "pure-button"  %></li>
-      <li><%= link_to 'Entrar', new_user_session_path %></li>
+      <% if current_user %>
+        <li> <%= t('.hello') %> </li>
+        <li> <%= link_to current_user.nick, user_path(current_user) %> </li>
+        <li> <%= link_to t('.logout'), destroy_user_session_path, :method => :delete %> </li>
+      <% else %>
+        <li><%= link_to t('.register'), new_user_registration_path, class: "pure-button"  %></li>
+        <li><%= link_to t('.login') , new_user_session_path %></li>
+      <% end %>
     </ul>
   </nav>
 </header>

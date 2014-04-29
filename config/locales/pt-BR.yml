@@ -83,6 +83,10 @@ pt-BR:
   layouts:
     application:
       notifications: Notificações
+    navbar:
+      hello: Olá
+      register: Criar Conta
+      login: Entrar
 
   devise:
     mailer:
