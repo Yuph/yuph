@@ -80,7 +80,7 @@
 			<% @user.comment_receives.reverse.each do |comment| %>
 			<div class="user-profile-messages">
 				<div class="image-profile-title grid_1 comment-left">
-					<%= image_tag(comment.comment_sender.profile_image, class: "user-portrait" ) %>
+					<%= image_tag(comment.comment_sender.profile_image, class: "email-avatar" ) %>
 					<span><%= comment.comment_sender.nick %></span>
 				</div>
 				<div class="comment-body profile-comment">
