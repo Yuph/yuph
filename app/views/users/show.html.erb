@@ -90,7 +90,6 @@
 					<% if logged? %>
 					<%= link_to image_tag("block.png"), user_comment_path(comment), data: { confirm: 'Tem certeza que deseja excluir este comentário?' }, :class => 'reset-link', :method=>:delete if comment.can_managed_by(@session_user)%>
 					<% end %>
-				</form>
 				</div>
 			</div>
 			<br/>
@@ -112,12 +111,12 @@
 		<div class="wrapper fix-top-border activities">
 			<h3>Atividades recentes</h3>
 			<% if !@user.comment_sends.last.blank? && profile_comment = @user.comment_sends.last.comment_receiver %>
-				<p><%= @user.nick %> comentou no perfil de <%= link_to profile_comment.nick, profile_comment  %></a></p>
+				<p><%= @user.nick %> comentou no perfil de <%= link_to profile_comment.nick, profile_comment  %></p>
 				<span class="activities-data"><%= profile_comment.created_at %></span>
 				<br>
 			<% end %>
 			<% if !@user.idea_comments.last.blank? && idea_comment = @user.idea_comments.last.idea  %>
-				<p><%= @user.nick %> comentou na ideia <%= link_to idea_comment.name, idea_comment  %></a></p>
+				<p><%= @user.nick %> comentou na ideia <%= link_to idea_comment.name, idea_comment  %></p>
 				<span class="activities-data"><%= idea_comment.created_at %></span>
 				<br>
 			<% end %>
