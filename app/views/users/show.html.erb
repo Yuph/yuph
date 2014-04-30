@@ -112,12 +112,12 @@
 			<h3>Atividades recentes</h3>
 			<% if !@user.comment_sends.last.blank? && profile_comment = @user.comment_sends.last.comment_receiver %>
 				<p><%= @user.nick %> comentou no perfil de <%= link_to profile_comment.nick, profile_comment  %></p>
-				<span class="activities-data"><%= profile_comment.created_at %></span>
+				<span class="activities-data"><%= l profile_comment.created_at %></span>
 				<br>
 			<% end %>
 			<% if !@user.idea_comments.last.blank? && idea_comment = @user.idea_comments.last.idea  %>
 				<p><%= @user.nick %> comentou na ideia <%= link_to idea_comment.name, idea_comment  %></p>
-				<span class="activities-data"><%= idea_comment.created_at %></span>
+				<span class="activities-data"><%= l idea_comment.created_at %></span>
 				<br>
 			<% end %>
 		</div>
