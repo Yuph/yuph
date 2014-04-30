@@ -12,7 +12,7 @@
                 <div class="pure-u-1-2">
                     <h1 class="email-content-title"><%= t(@idea.name) %></h1>
                     <p class="email-content-subtitle">
-                        Por <a><%= link_to @idea.users.first.nick, user_path(@idea.users.first) %></a></span>
+                        Por <%= link_to @idea.users.first.nick, user_path(@idea.users.first) %>
                     </p>
                 </div>
 
