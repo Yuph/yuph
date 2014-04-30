@@ -87,6 +87,7 @@ pt-BR:
       hello: Olá
       register: Criar Conta
       login: Entrar
+      logout: Sair
 
   devise:
     mailer:
