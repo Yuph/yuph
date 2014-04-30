@@ -18,7 +18,7 @@
 
         <%= link_to image_tag("logo-yuph-quem-somos.png"), root_path %>
 
-        <%= f.fields_for :profile do |f2| %>
+        <%= f.fields_for :profile_attributes do |f2| %>
           <label for="name">Nome</label>
           <%= f2.text_field :nick, :placeholder => 'Seu nome', :class => "cheio" %>
 

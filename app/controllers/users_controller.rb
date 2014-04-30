@@ -16,14 +16,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def create
-    @user = User.new(user_single_params)
-    if @user.save
-      redirect_to new_idea_path, notice: t('user.created')
-    else
-      render :new
-    end
-  end
+  # 'create' is on Devise::RegistrationController
 
   def show
     @session_user = current_user

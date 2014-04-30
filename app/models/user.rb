@@ -19,11 +19,10 @@ class User < ActiveRecord::Base
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id',:dependent => :delete_all
 
   has_one :profile
+  accepts_nested_attributes_for :profile
 
   delegate :nick, :first_name, :last_name, :image, :image_file_name, :about, :local,
     :website, :facebook, :twitter, :to => :profile
-
-  accepts_nested_attributes_for :profile
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
