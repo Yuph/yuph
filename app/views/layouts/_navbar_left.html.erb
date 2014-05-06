@@ -11,19 +11,25 @@
 
         <div class="pure-menu pure-menu-open">
             <ul>
-                <li><a href="#">Meu Perfil</a></li>
+            <% if current_user %>
+                <li> <%= link_to "Meu Perfil", user_path(current_user) %> </li>
+            <% end %>
                 <li><a href="#">Notificações</a></li>
                 
                 <li class="pure-menu-heading">Ideias</li>
-                <li><a href="#">Todas</a></li>
-                <li><a href="#">Criadas</a></li>
-                <li><a href="#">Favoritadas</a></li>
+                <li><%= link_to "Explore", "/ideas/", method: "get" %></li>
+                <% if current_user %>
+                    <li><a href="#">Criadas</a></li>
+                    <li><a href="#">Favoritadas</a></li>
+                <% end %>
 
+                <!-- 
                 <li class="pure-menu-heading">Forum</li>
                 <li><a href="#"><span class="email-label-travel"></span>Brainstorm</a></li>
                 <li><a href="#"><span class="email-label-personal"></span>Geral</a></li>
                 <li><a href="#"><span class="email-label-personal"></span>Off-Topic</a></li>
-                <li><a href="#"><span class="email-label-work"></span>Sugestões</a></li>
+                <li>< a href="#"><span class="email-label-work"></span>Sugestões</a></li>
+                -->
             </ul>
         </div>
     </div>

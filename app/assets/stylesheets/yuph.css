@@ -1,7 +1,9 @@
 /* componentes */
 body{
 	/*background: #f9f9f9;*/
-	background: #fff;
+		background: #fff;
+
+	/* DE434A */
 }
 
 section{
@@ -13,6 +15,10 @@ section{
         -ms-animation: fadein 3s; /* Internet Explorer */
          -o-animation: fadein 3s; /* Opera */
             animation: fadein 3s;
+}
+
+textarea{
+	resize: none;
 }
 
 /* header */
@@ -118,8 +124,7 @@ figure .legenda{
 }
 
 .block-about article{
-	float: left;
-	text-align: left;
+	
 }
 
 /* github */
@@ -131,12 +136,12 @@ figure .legenda{
 }
 
 .block-github img{
-	float: left;
+	
 	padding: 1em;
 }
 
 .block-github article{
-	float: right;
+	
 	text-align: right;
 }
 
@@ -325,6 +330,50 @@ figure .legenda{
 	background: #fff;
 }
 
+
+/* ideia-new */
+.ideia-new{
+	margin: 0 auto;
+}
+
+.kids_2{
+	background-image: url("../assets/kids_2.png");
+	background-position: center center;
+	background-size: cover;
+	border-bottom: solid 3px #DE434A;
+	min-height: 300px;
+	height: 600px;
+	position: relative !important;
+	width: 100%;
+	opacity: 1;
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+       -moz-animation: fadein 3s; /* Firefox */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera */
+            animation: fadein 3s;
+}
+
+.ideia-new textarea{
+	width: 100%;
+}
+
+.ideia-new input{
+	width: 100%;'
+}
+
+.mini{
+	height: 80px;
+}
+
+
+.grande{
+	height: 220px;
+}
+
+
+.user-box{
+	margin-top: 5em;
+}
 /* animation helpers */
 @keyframes fadein {
     from { opacity: 0; }
