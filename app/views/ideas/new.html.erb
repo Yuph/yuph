@@ -1,0 +1,82 @@
+<%= render :partial => "layouts/navbar" %>
+
+<div class="kids_2"></div>
+<div class="container_12 wrapper">
+	<div class="green-line thin-line"></div>
+</div>
+
+<%= form_for(@idea, html: {:class => "pure-form"}) do |f| %>
+	<% if @idea.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+		<ul>
+			<% @idea.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+<div class="container_12 wrapper ideia-new">
+
+	
+
+	<div class="container_12 wrapper fix-border">
+		<div class="grid_8">
+
+			<p>Escreva o <b>nome da sua idéia</b></p>
+			<%= f.text_field :name, class: "idea-creation idea-creation tags-creation" %>
+			
+			<br/>
+			<br/>
+			
+			<p><b>Explique em poucas palavras</b> sobre o que é a sua ideia (essa descrição aparecerá na página inicial do site).</p>
+			<%= f.text_area :mini_description, class: "mini" %>
+			<br/>
+			<br/>
+			<hr class="hr-gradient"/>
+			<br/>
+
+			<p><b>Agora nos conte o máximo de detalhes sobre sua ideia</b>,
+				você também pode contar um pouco sobre ela e sobre o que motivou você a criá-la.</p>
+				<%= f.text_area :description, class: "grande" %>
+				<div>
+					<h3>Video</h3>
+					<p>Se você ja tem um video no Youtube, coloque o endereço dele aqui:</p>
+					<%= f.text_field :video, class: "idea-creation video-url" %>
+				</div>
+				<br>
+				<br>
+			</div>
+			<div class="grid_4 idea-options omega">
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<hr class="hr-gradient"/>
+
+		<div class="grid_8 fix-border">
+		<h3>Imagem</h3>
+		<p>Selecione uma imagem para sua ideia, utilize algo que consiga transmitir aos outros usuários
+			sobre o que ela se trata. Você pode pedir ajuda a algum designer e até os outros usuários
+			podem dar uma forcinha. E lembre-se de não usar uma imagem protegida por direitos
+			autorais. Não se preocupe pois você poderá mudá-la depois.</p>
+			<p>O tamanho padrão é 220x144 pixels.</p>
+		</div>
+
+		<div class="grid_4" id="select-image">
+			<img id="uploadPreview" class="idea-portrait" style="width: 220px; height: 144px;" src="/assets/missing.png">
+			<br>
+			<%= f.file_field :image, class: "idea-creation-file", onchange:"PreviewImage();", id: "uploadImage" %>
+		</div>
+	</div>
+
+	<hr class="hr-gradient"/>
+
+		<div class="container_12 wrapper fix-border">
+			<%= f.submit 'Inserir Ideia AGORA!', :class => "pure-button" %>
+				<% end %>
+		</div>
+
+</div>
+
+<%= render :partial => "layouts/footer" %>
