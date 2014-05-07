@@ -19,8 +19,3 @@
 /public/assets
 
 /coverage
-config/database.yml
-
-db/schema.rb
-
-db/schema.rb
