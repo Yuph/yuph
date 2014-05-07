@@ -1,0 +1,412 @@
+/* componentes */
+
+body{
+	/*background: #f9f9f9;*/
+		background: #fff;
+
+	/* DE434A */
+}
+
+section{
+	/* border-bottom: 1px solid #cccccc; */
+	margin-top: 3px;
+	opacity: 1;
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+       -moz-animation: fadein 3s; /* Firefox */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera */
+            animation: fadein 3s;
+}
+
+textarea{
+	resize: none;
+}
+
+/* header */
+.pure-menu-fixed{
+	background: #fff;
+	border-bottom: 2px solid #de434a;
+	box-shadow:0px 0px 1px #000;
+	z-index: 99;
+}
+
+.pure-menu-fixed img{
+	float: left;
+	padding: 15px 15px 10px 15px; 
+}
+
+.pure-menu.pure-menu-horizontal>ul {
+	padding-top: 15px;
+}
+
+.pure-menu-fixed a{
+	color: #444444;
+}
+
+.top-left{
+	float: left;
+}
+
+.pure-menu.pure-menu-horizontal .top-right{
+	float: right;
+	margin-right: 15px;
+}
+
+.pure-menu-fixed .pure-button{
+	background: #DE434A;
+	color: #fff;
+}
+
+.pure-menu-fixed .pure-button:hover{
+	background: #99CC33;
+	color: #fff;
+}
+
+/* big-image*/
+figure.big-image{;
+	background-image: url("kids.png");
+	background-size: cover;
+	min-height: 300px;
+	height: 600px;
+	position: relative !important;
+	width: 100%;
+	opacity: 1;
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+       -moz-animation: fadein 3s; /* Firefox */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera */
+            animation: fadein 3s;
+}
+
+figure .legenda{
+	color: #fff;
+	text-shadow:2px 2px 10px #000;
+	margin: 0 auto;
+	margin: auto;
+	position: absolute;
+	top: 150px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+input.register-email[type=email]
+{
+	height: 36px;
+	z-index: 20;
+}
+
+/* ideas */
+.block-ideas{
+	background: #99cc33;
+	color: #3b6b0c;
+	font-size: 145%;
+	min-height: 300px;
+	width: 100%;
+
+}
+
+.block-ideas img{
+	float: right;
+	margin-right: 5%;
+	padding: 1em;
+}
+
+.block-ideas .pure-button{
+	background: #3b6b0c;
+	color: #fff;
+}
+
+/* quem somos */
+.block-about{
+	background: #fff;
+
+}
+
+.block-about img{
+	float: right;
+	padding: 1em;
+}
+
+.block-about article{
+	
+}
+
+/* github */
+/* quem somos */
+.block-github{
+	background: #ffcc33;
+	color: #171104;
+	font-size: 125%;
+}
+
+.block-github img{
+	
+	padding: 1em;
+}
+
+.block-github article{
+	
+	text-align: right;
+}
+
+.block-github .pure-button{
+	background: #171104;
+	color: #fff;
+}
+
+/* copyright */
+.block-rights{
+	background: #de434a;
+	bottom: 0;
+	border-top: 2px solid #cc3333;
+	border-bottom: 1px solid #cc3333;
+	color: #fff;
+	margin-top: 3px;
+	min-height: 50px;
+	width: 100%;
+}
+
+.block-rights p{
+	text-align:center; 
+  	vertical-align: middle;
+  	text-transform: uppercase;
+}
+
+/* LOGIN */
+.box-login{
+	margin-top: 30px;
+}
+
+.box-login .pure-form{
+	margin-top: 20px;
+}
+
+.box-login .pure-form .cheio{
+	width: 100%;
+}
+
+
+.login-button{
+	/* background: #f1f1f1; */
+	margin-bottom: 1em;
+}
+
+.login-button .pure-button{
+	background: #99cc33;
+	color: #fff;
+	width: 50%;
+}
+
+.remember-me{
+	float: right;
+	padding-right: 1em;
+	vertical-align:middle;
+}
+
+.box-options{
+	float: left;
+	margin-bottom: 1.2em;
+	text-align: center;
+	text-transform: lowercase;
+	width: 100%;
+}
+
+.box-options a{
+	color: #3b6b0c;
+	text-decoration: none;
+}
+
+.hr-gradient{
+	clear: both; 
+ 	float: none; 
+ 	width: 100%; 
+ 	height: 1px;
+ 	margin: 1.4em 0;
+ 	border: none; 
+ 	background: #ddd;
+ 	background-image: -webkit-gradient(
+     	linear,
+     	left bottom,
+	    right bottom,
+	    color-stop(0, rgb(255,255,255)),
+	    color-stop(0.1, rgb(221,221,221)),
+	    color-stop(0.9, rgb(221,221,221)),
+	    color-stop(1, rgb(255,255,255))
+	);
+
+	background-image: -moz-linear-gradient(
+		left center,
+		rgb(255,255,255) 0%,
+		rgb(221,221,221) 10%,
+		rgb(221,221,221) 90%,
+		rgb(255,255,255) 100%
+	);
+}
+
+.box-login .pure-button-primary{
+	width: 100%;
+}
+
+/* sidn_up */
+/* LOGIN */
+.box-sign_up{
+	margin-top: 30px;
+}
+
+.box-sign_up a{
+	color: #de434a;
+	text-decoration: underline;
+}
+
+.box-sign_up .pure-form{
+	margin-top: 20px;
+}
+
+.box-sign_up .pure-form .cheio{
+	margin-bottom: 0.8em;
+	width: 100%;
+}
+
+.box-sign_up .pure-button{
+	background: #99cc33;
+	color: #fff;
+}
+
+.preencher{
+	width: 100%;
+}
+
+.ideas-list{
+	margin-top: 100px;
+}
+
+.ideas-list .box-idea{
+	background: #fff;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 1em;
+	width: 250px;
+	height: 350px;
+}
+
+.ideas-list .box-idea img{
+	border-radius: 5px 5px 0 0;
+	width: 100%;
+}
+
+/* comments */
+#list{
+	background: #f9f9f9;
+}
+
+.email-item{
+	/* background: #fff; */
+}
+
+.email-item .user-portrait{
+	width: 70px;
+}
+
+.profile-comment-form{
+	background: #f0f2f4;
+	bottom: 0;
+	padding: 10px;
+	position: fixed;
+	height: 130px;
+	width: 330px;
+}
+
+.profile-comment-form textarea{
+	resize: none;
+	height: 85px;
+	width: 325px;
+}
+
+.profile-comment-form .pure-button{
+	background: #de434a;
+	color: #fff;
+	float: right;
+	margin-top: 5px;
+}
+
+/* idea body */
+#main{
+	background: #fff;
+}
+
+
+/* ideia-new */
+.ideia-new{
+	margin: 0 auto;
+}
+
+.kids_2{
+	background-image: url("../assets/kids_2.png");
+	background-position: center center;
+	background-size: cover;
+	border-bottom: solid 3px #DE434A;
+	min-height: 300px;
+	height: 600px;
+	position: relative !important;
+	width: 100%;
+	opacity: 1;
+	-webkit-animation: fadein 3s; /* Safari and Chrome */
+       -moz-animation: fadein 3s; /* Firefox */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera */
+            animation: fadein 3s;
+}
+
+.ideia-new textarea{
+	width: 100%;
+}
+
+.ideia-new input{
+	width: 100%;'
+}
+
+.mini{
+	height: 80px;
+}
+
+
+.grande{
+	height: 220px;
+}
+
+
+.user-box{
+	margin-top: 5em;
+}
+/* animation helpers */
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
