@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     set_session_user
     @post = @user.posts.build(post_params)
     if @post.save
-      redirect_to :back, notice: t('post.created')
+      redirect_to :back, notice: t('post.created'), new_idea_post: true
     else
       redirect_to new_post_path, notice: t('post.created_error')
     end

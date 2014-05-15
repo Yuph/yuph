@@ -17,7 +17,7 @@ class FollowsController < ApplicationController
     @follow = @user.follows.build(follow_params)
     if @follow.save
       respond_with(@follow, :status => :created) do |format|
-        format.html { redirect_to :back, notice: t('follow.created') }
+        format.html { redirect_to :back, notice: t('follow.created'), new_follow: true }
       end
     else
       respond_with(@follow.errors, :status => :unprocessable_entity) do |format|

@@ -14,7 +14,7 @@ class IdeaCommentsController < ApplicationController
     @idea_comment = @user.idea_comments.build(idea_comment_params)
     if @idea_comment.save
     respond_with(@idea_comment, :status => :created) do |format|
-        format.html { redirect_to :back, notice: t('idea_comment.created') }
+        format.html { redirect_to :back, notice: t('idea_comment.created'), new_idea_comment: true }
       end
     else
       respond_with(@idea_comment, :status => :unprocessable_entity) do |format|

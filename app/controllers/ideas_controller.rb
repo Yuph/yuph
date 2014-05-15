@@ -28,7 +28,7 @@ class IdeasController < ApplicationController
       @forum.categories.default_category('brainstorm').save!
       @forum.categories.default_category('general').save!
 
-      redirect_to @idea, notice: t("idea.created")
+      redirect_to @idea, notice: t("idea.created"), new_idea: true
     else
       render :new
     end
