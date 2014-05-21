@@ -78,6 +78,9 @@ gem 'kaminari'
 # E-mail encoder
 gem 'actionview-encoded_mail_to', '~> 1.0.4'
 
+# For api key and json templating
+gem 'restful_api_authentication'
+gem 'rabl'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

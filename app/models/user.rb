@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :message_sends, :class_name => 'Message', :foreign_key => 'message_sender_id', :dependent => :delete_all
   has_many :message_receives, :class_name => 'Message', :foreign_key => 'message_receiver_id',:dependent => :delete_all
 
+  has_one :api, :class_name => 'RestClient'
+
   has_one :profile
   accepts_nested_attributes_for :profile
 

@@ -1,0 +1,12 @@
+%h1= t('.api_info')
+
+.api-info
+  %label= t('.api_key')
+  %input.disabled{:value => @api_key}
+  %br
+
+  %label= t('.secret')
+  %input.disabled{:value => @secret}
+  %br
+
+  = link_to t('.back'), @user

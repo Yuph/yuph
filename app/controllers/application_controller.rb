@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def set_session_user
     @user = current_user
   end
+
+  def api_call?
+    request.headers['x-api-key'].present?
+  end
 end

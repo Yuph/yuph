@@ -31,7 +31,7 @@ class Ability
       can :manage, :all if user.admin?
 
       # Users
-      can [:update, :destroy], User.where(:id => user.try(:id))
+      can [:update, :destroy, :api], User.where(:id => user.try(:id))
 
       # Post
       can [:update, :destroy], Post, :user => {:id => user.try(:id) }

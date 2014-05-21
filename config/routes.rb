@@ -41,6 +41,7 @@ Yuph::Application.routes.draw do
   end
 
   resources :users, :except => [:new, :create]
+  get 'users/:id/api' => 'users#api', :as => 'user_api'
 
   resources :notifications, :only => [:index, :show]
 end
