@@ -21,6 +21,10 @@ textarea{
 	resize: none;
 }
 
+.dark a{
+	color: #333;
+}
+
 /* header */
 .pure-menu-fixed{
 	background: #fff;
@@ -89,6 +93,30 @@ figure .legenda{
 	right: 0;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+/* ideas home */
+.ideas-home{
+	background: #fff;
+	border-radius: 5px 5px 0 0;
+	display: inline-block;
+	padding: 0.2em;
+	width: 100%;
+}
+
+.ideas-home .home-idea-box{
+	
+	background: #f0f2f4;
+	border-radius: 5px;
+	display: inline-block;
+	max-width: 225px;
+	padding: 3px;
+}
+
+.ideas-home .home-idea-box img{
+	float: left;
+	margin: 0 auto;
+	
 }
 
 /* ideas */
@@ -169,6 +197,15 @@ figure .legenda{
 }
 
 /* LOGIN */
+.container_login{
+	width: 100%;
+}
+
+.login_big_box{
+	max-width: 350px;
+	margin: 0 auto;
+}
+
 .box-login{
 	margin-top: 30px;
 }
@@ -181,6 +218,13 @@ figure .legenda{
 	width: 100%;
 }
 
+.fix-border .cheio{
+	background: #99cc33;
+	color: #fff;
+	height: 70px;
+	width: 100%;
+	margin-bottom: 1.2em;
+}
 
 .login-button{
 	/* background: #f1f1f1; */
@@ -290,6 +334,16 @@ figure .legenda{
 	width: 100%;
 }
 
+/* idea */
+.email-content-body {
+	text-align: justify;
+}
+
+.email-content-body img{
+	float: left;
+	margin: 0 0.7em;
+}
+
 /* comments */
 #list{
 	background: #f9f9f9;
@@ -374,6 +428,41 @@ figure .legenda{
 .user-box{
 	margin-top: 5em;
 }
+
+/* notificacoes */
+.notification-area-content {
+	margin-top: 80px;
+	display: inline-block;
+}
+
+.notification-area-content img{
+	border-radius: 5px;
+	display: inline-block;
+	float: left;
+	margin: 0 1em 1.2em 0;
+}
+
+.notification-area-content .notification-header{
+	float: left;
+}
+
+.notification-area-content .notification-description{
+	display: block;
+	
+}
+
+.notification-area-content .notification-description a{ 
+	color: green;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.notification-area-content .activities-data{
+	color: gray;
+	float: left;
+}
+
+
 /* animation helpers */
 @keyframes fadein {
     from { opacity: 0; }

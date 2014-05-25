@@ -13,14 +13,21 @@
             <ul>
             <% if current_user %>
                 <li> <%= link_to "Meu Perfil", user_path(current_user) %> </li>
+                <li><%= link_to "Notificações", notifications_path %></a></li>
             <% end %>
-                <li><a href="#">Notificações</a></li>
                 
                 <li class="pure-menu-heading">Ideias</li>
-                <li><%= link_to "Explore", "/ideas/", method: "get" %></li>
+                <li><%= link_to "Explorar Todas", "/ideas/", method: "get" %></li>
                 <% if current_user %>
-                    <li><a href="#">Criadas</a></li>
-                    <li><a href="#">Favoritadas</a></li>
+                    <!--
+                        #TODO
+
+                        Ainda não possuimos um contexto no backend que nos permita direcionar para uma url que mostre as mensagens criadas, e as favoritadas.
+
+                        <li><a href="#">Criadas</a></li>
+                        <li><a href="#">Favoritadas</a></li>
+
+                    -->
                 <% end %>
 
                 <!-- 

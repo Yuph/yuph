@@ -13,7 +13,13 @@
 
       <% else %>
         <li><%= link_to "Explorar", "/ideas/", method: "get" %></li>
-        <li><a href="http://github.com/yuph/yuph" target="_new">Participar</a></li>        
+
+        <%if current_user %>
+          <li><%= link_to "Notificações", notifications_path %></li>
+        <% else %>
+          <li><a href="http://github.com/yuph/yuph" target="_new">Participar</a></li>
+        <% end %>
+        
         <li><%= link_to "Inserir Ideia", new_idea_path, class: "pure-button"  %></li>
       <% end %>
 

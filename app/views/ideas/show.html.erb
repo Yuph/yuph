@@ -24,8 +24,11 @@
             </div>
 
             <div class="email-content-body">
-                <%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
-                <p><%= @idea.description.gsub(/\n/, '<br>').html_safe %></p>
+                <p>
+                  <%= image_tag(@idea.image.url(:thumb), class: "idea-portrait") %>
+                  <%= @idea.description.gsub(/\n/, '<br>').html_safe %>
+                  <br style="clear: both;" />
+                </p>
             </div>
         </div>
     </div>

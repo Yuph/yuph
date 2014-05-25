@@ -6,6 +6,7 @@
 
   .notification-description
     = t("public_activity.#{activity.key}_html", :user => link_to(activity.trackable.nick, user_path(activity.trackable)))
+    <br>
 
     = render 'public_activity/date', :activity => activity
 
