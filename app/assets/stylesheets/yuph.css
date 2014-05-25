@@ -320,6 +320,14 @@ figure .legenda{
 	margin-top: 100px;
 }
 
+.grid_3{
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+
 .ideas-list .box-idea{
 	background: #fff;
 	border-radius: 5px;
