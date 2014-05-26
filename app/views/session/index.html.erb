@@ -5,7 +5,13 @@
                 <!-- <a class="codrops-icon codrops-icon-prev" href="#">
                     <span>Menu</span>
                 </a> -->
-                <span class="right menu-entrada"><%= link_to "cadastrar" , new_user_registration_path %><a>|</a> <%= link_to "entrar" , new_user_session_path %></span>
+                <span class="right menu-entrada">
+                <% if current_user %>
+                  <%= link_to "nova idéia" , new_idea_path %><a>|</a> <%= link_to "explore" , ideas_path %>
+                <% else %>
+                  <%= link_to "cadastrar" , new_user_registration_path %><a>|</a> <%= link_to "entrar" , new_user_session_path %>
+                <% end %>
+                </span>
             </div>
             <header class="header">
                 <div class="bg-img"><%= image_tag("1.jpg") %></div>
