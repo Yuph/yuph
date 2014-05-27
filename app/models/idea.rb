@@ -13,7 +13,7 @@ class Idea < ActiveRecord::Base
 
   validates :name, presence: :true
   validates :mini_description, presence: :true
-  validates :description, presence: :false
+  #validates :description, presence: :false
 
   has_attached_file :image,
     :styles => { :medium => "300x300>", :thumb => "220x144#" },
