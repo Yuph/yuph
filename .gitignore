@@ -25,3 +25,5 @@ app/views/ideas/new.html.erb__
 config/database.yml
 
 db/schema.rb
+
+db/schema.rb
