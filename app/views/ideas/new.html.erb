@@ -1,82 +1,88 @@
-<%= render :partial => "layouts/navbar" %>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Minimal Form Interface</title>
+		<meta name="description" content="Minimal Form Interface: Simplistic, single input view form" />
+		<meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition" />
+		<meta name="author" content="Codrops" />
+		
+	</head>
+	<body>
 
-<div class="kids_2"></div>
-<div class="container_12 wrapper">
-	<div class="green-line thin-line"></div>
-</div>
+		<%= render :partial => "layouts/navbar" %>
+		<div class="container">
+			<!-- Top Navigation -->
+			<section>
+				<!-- <form id="theForm" class="simform" autocomplete="off"> -->
+				<%= form_for(@idea, html: {:class => "simform"}) do |f| %>
 
-<%= form_for(@idea, html: {:class => "pure-form"}) do |f| %>
-	<% if @idea.errors.any? %>
-	<div id="error_explanation">
-		<h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
-		<ul>
-			<% @idea.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
-<div class="container_12 wrapper ideia-new">
+					<div class="simform-inner">
+						<ol class="questions">
+							<li>
+								<span><label for="q1">Qual o nome da sua ideia?</label></span>
+								<!-- <input id="q1" name="q1" type="text"/> -->
+								<%= f.text_field :name, id: "q1" %>
 
-	
+								
+							</li>
+							<li>
+								<span><label for="q2">Resuma sua ideia em no máximo duas frases:</label></span>
+								<!-- <input id="q2" name="q2" type="text"/> -->
+								<%= f.text_field :mini_description, id: "q2" %>
+								
+							</li>
 
-	<div class="container_12 wrapper fix-border">
-		<div class="grid_8">
+							<li>
+								<span><label for="q3">Escolha uma imagem que define sua ideia:</label></span>
+								<!-- <input id="q3" name="q3" type="file"/> -->
+								<%= f.file_field :image, id: "q3" %>
 
-			<p>Escreva o <b>nome da sua idéia</b></p>
-			<%= f.text_field :name, class: "idea-creation idea-creation tags-creation" %>
-			
-			<br/>
-			<br/>
-			
-			<p><b>Explique em poucas palavras</b> sobre o que é a sua ideia (essa descrição aparecerá na página inicial do site).</p>
-			<%= f.text_area :mini_description, class: "mini" %>
-			<br/>
-			<br/>
-			<hr class="hr-gradient"/>
-			<br/>
-
-			<p><b>Agora nos conte o máximo de detalhes sobre sua ideia</b>,
-				você também pode contar um pouco sobre ela e sobre o que motivou você a criá-la.</p>
-				<%= f.text_area :description, class: "grande" %>
-				<div>
-					<h3>Video</h3>
-					<p>Se você ja tem um video no Youtube, coloque o endereço dele aqui:</p>
-					<%= f.text_field :video, class: "idea-creation video-url" %>
-				</div>
-				<br>
-				<br>
-			</div>
-			<div class="grid_4 idea-options omega">
-			</div>
-			<div class="clear"></div>
-		</div>
-
-		<hr class="hr-gradient"/>
-
-		<div class="grid_8 fix-border">
-		<h3>Imagem</h3>
-		<p>Selecione uma imagem para sua ideia, utilize algo que consiga transmitir aos outros usuários
-			sobre o que ela se trata. Você pode pedir ajuda a algum designer e até os outros usuários
-			podem dar uma forcinha. E lembre-se de não usar uma imagem protegida por direitos
-			autorais. Não se preocupe pois você poderá mudá-la depois.</p>
-			<p>O tamanho padrão é 220x144 pixels.</p>
-		</div>
-
-		<div class="grid_4" id="select-image">
-			<img id="uploadPreview" class="idea-portrait" style="width: 220px; height: 144px;" src="/assets/missing.png">
-			<br>
-			<%= f.file_field :image, class: "idea-creation-file", onchange:"PreviewImage();", id: "uploadImage" %>
-		</div>
-	</div>
-
-	<hr class="hr-gradient"/>
-
-		<div class="container_12 wrapper fix-border">
-			<%= f.submit 'INSERIR IDEIA AGORA!', :class => "pure-button cheio" %>
+							</li>
+							
+						</ol><!-- /questions -->
+						<!-- <button class="submit" type="submit">Send answers</button> -->
+						<%= f.submit 'INSERIR IDEIA AGORA!', :class => "submit" %>
+						<div class="controls">
+							<button class="next"> > </button>
+							<div class="progress"></div>
+							<span class="number">
+								<span class="number-current"></span>
+								<span class="number-total"></span>
+							</span>
+							<span class="error-message"></span>
+						</div><!-- / controls -->
+					</div><!-- /simform-inner -->
+					<span class="final-message"></span>
+				<!-- </form> /simform -->
 				<% end %>
-		</div>
+			</section>
+			
+		</div><!-- /container -->
+		<script>
+			var theForm = document.getElementById( 'new_idea' );
 
-</div>
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
 
-<%= render :partial => "layouts/footer" %>
+					form.submit();
+					/*
+					
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+
+					// let's just simulate something...
+					// var messageEl = theForm.querySelector( '.final-message' );
+					// messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+					// classie.addClass( messageEl, 'show' );
+				}
+			} );
+		</script>
+
+	</body>
+</html>

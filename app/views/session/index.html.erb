@@ -69,7 +69,7 @@
                                 <b><%= idea.name %></b>
                             </span>
                             <p>
-                                <%= idea.mini_description %>
+                                <%= truncate(idea.mini_description, :length => 40) %>
                             </p>
                         </div>
                         <% end %>

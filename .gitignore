@@ -19,3 +19,9 @@
 /public/assets
 
 /coverage
+
+app/views/ideas/new.html.erb__
+
+config/database.yml
+
+db/schema.rb

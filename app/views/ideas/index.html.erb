@@ -10,7 +10,7 @@
                 <%= idea.name %>
             </h2>
             <p>
-                <%= idea.mini_description  %>
+                <%= truncate(idea.mini_description, :length => 110) %>
             </p>
             </div>
             <div class="red-line"></div>
