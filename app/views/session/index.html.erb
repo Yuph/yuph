@@ -7,7 +7,7 @@
                 </a> -->
                 <span class="right menu-entrada">
                 <% if current_user %>
-                  <%= link_to "nova idéia" , new_idea_path %><a>|</a> <%= link_to "explore" , ideas_path %>
+                  <%= link_to "nova ideia" , new_idea_path %><a>|</a> <%= link_to "explore" , ideas_path %>
                 <% else %>
                   <%= link_to "cadastrar" , new_user_registration_path %><a>|</a> <%= link_to "entrar" , new_user_session_path %>
                 <% end %>
