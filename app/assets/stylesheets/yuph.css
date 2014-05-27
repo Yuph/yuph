@@ -438,12 +438,33 @@ figure .legenda{
 }
 
 /* notificacoes */
-.notification-area-content {
+.notifications_container{
+	max-width: 100%;
+}
+
+.notifications_container .miolo{
+	padding: 2em;
+	margin: 0 auto;
 	margin-top: 80px;
-	display: inline-block;
+}
+
+
+.notification-area-content {
+	
+}
+
+.notification-content{
+	background: #f0f2f4;
+	border-radius: 5px;
+	display: inline;
+	float: left;
+	margin: 0.3em 0;
+	padding: 0.4em;
+	width: 100%;
 }
 
 .notification-area-content img{
+	max-width: 80px;
 	border-radius: 5px;
 	display: inline-block;
 	float: left;
@@ -467,7 +488,7 @@ figure .legenda{
 
 .notification-area-content .activities-data{
 	color: gray;
-	float: left;
+	
 }
 
 
