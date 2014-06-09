@@ -1,8 +1,8 @@
 class SessionController < ApplicationController
-  skip_before_filter :authenticate_user!, :all
+  skip_before_filter :authenticate_user!, :index
 
   def index
     @yuph = Idea.first
-    @ideas = Idea.last(4)
+    @ideas = Idea.where(promoted: true).last(4)
   end
 end
