@@ -41,9 +41,13 @@ gem 'factory_girl_rails'
 
 group :development do
   gem 'rails_best_practices'
-  gem 'simplecov'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+end
+
+group :test do
+  gem 'simplecov'
+  gem 'uuidtools'
 end
 
 # Upload to S3
@@ -77,7 +81,6 @@ gem 'kaminari'
 
 # E-mail encoder
 gem 'actionview-encoded_mail_to', '~> 1.0.4'
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
