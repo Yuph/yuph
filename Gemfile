@@ -43,6 +43,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'railroady'
 end
 
 group :test do
