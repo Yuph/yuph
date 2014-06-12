@@ -201,6 +201,12 @@ figure .legenda{
 	width: 100%;
 }
 
+.container_12 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
 .login_big_box{
 	max-width: 350px;
 	margin: 0 auto;
@@ -396,6 +402,10 @@ figure .legenda{
 /* ideia-new */
 .ideia-new{
 	margin: 0 auto;
+}
+
+.new-idea-profile {
+	margin-bottom: 20px;
 }
 
 .kids_2{
