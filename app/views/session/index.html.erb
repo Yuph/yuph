@@ -42,7 +42,7 @@
 
                     <blockquote>Juntos somos melhores porque podemos construir mais!</blockquote>
 
-                    <p> Nós estamos aqui, justamente para te auxiliar a dar vida a sua ideia ou projeto, convertendo os seus sonhos, em algo palpável,  real e possível. <a href="#">Cadastrar agora!!</a>
+                    <p> Nós estamos aqui, justamente para te auxiliar a dar vida a sua ideia ou projeto, convertendo os seus sonhos, em algo palpável,  real e possível. <%= link_to 'Cadastre-se agora!', new_user_registration_path() %>
                     </p>
 
                     <hr id="liberdade" class="hr-gradient">
@@ -224,9 +224,8 @@
                 // refreshing the page...
                 var pageScroll = scrollY();
                 noscroll = pageScroll === 0;
-                
+
                 disable_scroll();
-                
                 if( pageScroll ) {
                     isRevealed = true;
                     classie.add( container, 'notrans' );
