@@ -8,6 +8,10 @@ Sabe as coisas que você ama, mas podiam ser melhores ou as que você quer, mas 
 
 Leia mais na [wiki](https://github.com/Yuph/Yuph/wiki/O-projeto)
 
+### Documentação para desenvolvimento
+
+ * [No github](https://github.com/Yuph/yuph/tree/master/doc)
+
 ### Começando a desenvolver
 
 Estamos usando o [rbenv](https://github.com/sstephenson/rbenv) para controlar a versão do Ruby. A versão usada é a 2.0.0-rc2 e pode ser instalada com o [ruby-build](https://github.com/sstephenson/rbenv#installing-ruby-versions). Depois de instalada:
