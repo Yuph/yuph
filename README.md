@@ -1,6 +1,7 @@
 # Yuph
 
 ![travis-ci](https://travis-ci.org/Yuph/yuph.svg)
+[![Code Climate](https://codeclimate.com/github/Yuph/yuph.png)](https://codeclimate.com/github/Yuph/yuph)
 
 ### O que é a Yuph?
 
