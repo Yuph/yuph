@@ -19,3 +19,6 @@
 /public/assets
 
 /coverage
+
+config/secrets.yml
+config/database.yml
