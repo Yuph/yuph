@@ -76,7 +76,7 @@ gem 'rails_12factor', group: :production
 
 gem 'public_activity'
 
-gem 'bootstrap_flash_messages', '~> 1.0.0'
+gem 'bootstrap_flash_messages'
 
 gem 'kaminari'
 

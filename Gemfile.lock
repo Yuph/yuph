@@ -28,12 +28,12 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
-    aws-sdk (2.1.34)
-      aws-sdk-resources (= 2.1.34)
-    aws-sdk-core (2.1.34)
+    aws-sdk (2.1.35)
+      aws-sdk-resources (= 2.1.35)
+    aws-sdk-core (2.1.35)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.1.34)
-      aws-sdk-core (= 2.1.34)
+    aws-sdk-resources (2.1.35)
+      aws-sdk-core (= 2.1.35)
     bcrypt (3.1.10)
     bootstrap_flash_messages (1.0.2)
     builder (3.1.4)
@@ -266,7 +266,7 @@ PLATFORMS
 DEPENDENCIES
   actionview-encoded_mail_to (~> 1.0.4)
   aws-sdk
-  bootstrap_flash_messages (~> 1.0.0)
+  bootstrap_flash_messages
   cancancan (~> 1.7)
   coffee-rails (~> 4.0.0)
   compass-rails (~> 1.1.2)
