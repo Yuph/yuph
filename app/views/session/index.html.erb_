@@ -1,0 +1,238 @@
+
+<div id="container" class="container intro-effect-push">
+            <!-- Top Navigation -->
+            <div class="codrops-top clearfix" id="home_nav_top">
+                <!-- <a class="codrops-icon codrops-icon-prev" href="#">
+                    <span>Menu</span>
+                </a> -->
+                <span class="right menu-entrada">
+                <% if current_user %>
+                  <%= link_to "nova ideia" , new_idea_path %><a>|</a> <%= link_to "explore" , ideas_path %>
+                <% else %>
+                  <%= link_to "cadastrar" , new_user_registration_path %><a>|</a> <%= link_to "entrar" , new_user_session_path %>
+                <% end %>
+                </span>
+            </div>
+            <header class="header">
+                <div class="bg-img"><%= image_tag("1.jpg") %></div>
+                <div class="title">
+                    <h1><span><%= image_tag("yuph_logo_pequeno_circle.png") %></span></h1>
+                    
+                </div>
+            </header>
+            <button class="trigger" data-info=""><span>Trigger</span></button>
+            <div class="title">
+                
+                <h1><%= image_tag("yuph_logo_original.png") %></h1>
+                <nav class="codrops-demos">
+                        <a class="current-demo" href="index.html">Identidade</a>
+                        <a href="#liberdade">Liberdade</a>
+                        <a href="#sociedade">Sociedade</a>
+                    </nav>
+            </div>
+            <article class="content">
+                <div>
+                    <p>Somos uma ferramenta de realização de projetos, um lugar em que todos podem compartilhar ideias; e em que as ideias, uma vez compartilhadas, possam se desenvolver com ajuda da comunidade.
+                    </p>
+                    
+                    <blockquote>Melhore coisas que ama, crie coisas que não existem ainda.</blockquote>
+
+                    <p>Não importa se é uma ideia que soe banal, não importa se ela é complexa, não importa nem mesmo, se você teve uma ideia em que acredita muito, mas que não saiba ainda nem por onde começar. 
+                    </p>
+
+                    <blockquote>Juntos somos melhores porque podemos construir mais!</blockquote>
+
+                    <p> Nós estamos aqui, justamente para te auxiliar a dar vida a sua ideia ou projeto, convertendo os seus sonhos, em algo palpável,  real e possível. <%= link_to 'Cadastre-se agora!', new_user_registration_path() %>
+                    </p>
+
+                    <hr id="liberdade" class="hr-gradient">
+
+                    <p align="center">
+                        <%= image_tag("octocat.png") %><br/>
+                        <strong>LIBERDADE</strong>
+                    </p>
+                    
+                    <p> Somos apaixonados por crowdsourcing! <br/>
+                    Então nada mais justo do que deixarmos nosso código aberto para que a comunidade possa nos ajudar a melhorar cada vez mais, se você quer colaborar, fique a vontade toda ajuda é bem vinda. <a href="http://github.com/yuph">github.com/YUPH</a>
+                    </p>
+
+                    <hr id="sociedade" class="hr-gradient">
+                    
+                    <p align="center">
+                        <%= image_tag("sociedade.png") %><br/>
+                        <strong>SOCIEDADE</strong>
+                    </p>
+
+                    <p> Compartilhe sua ideia, e encontre pessoas que podem te ajudar a melhorá-la! Ninguém vai rouba-la de você, muito pelo contrário, muitas vezes esconder uma ideia do mundo, e tentar prosseguir com ela sozinho, pode te privar de um tempo precioso (e que poderia fazer diferença no lançamento e sucesso de projeto). 
+                    <br>Você e seu conhecimento podem ser a peça essencial para o desenvolvimento, da ideia de alguém, veja as últimas ideias que entraram na nossa plataforma a seguir:</a>
+                    </p>
+                    
+                    <section class="ideas-home">
+                        <% @ideas.last(3).reverse.each do |idea| %>
+                        <div class="home-idea-box">
+                            <%= link_to image_tag(idea.image.url(:thumb)), idea_path(idea) %>
+                            <span class="idea-name">
+                                <b><%= idea.name %></b>
+                            </span>
+                            <p>
+                                <%= truncate(idea.mini_description, :length => 40) %>
+                            </p>
+                        </div>
+                        <% end %>
+
+                        <hr class="hr-gradient">
+                    <%= link_to "mostrar mais ideias", "/ideas/", :method => "get", class: "home-black-button"  %>
+
+                    </section>
+                    
+
+                </div>
+            </article>
+
+        </div><!-- /container -->
+
+<%= render :partial => "layouts/footer" %>
+
+<script>
+            (function() {
+
+                // detect if IE : from http://stackoverflow.com/a/16657946      
+                var ie = (function(){
+                    var undef,rv = -1; // Return value assumes failure.
+                    var ua = window.navigator.userAgent;
+                    var msie = ua.indexOf('MSIE ');
+                    var trident = ua.indexOf('Trident/');
+
+                    if (msie > 0) {
+                        // IE 10 or older => return version number
+                        rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+                    } else if (trident > 0) {
+                        // IE 11 (or newer) => return version number
+                        var rvNum = ua.indexOf('rv:');
+                        rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+                    }
+
+                    return ((rv > -1) ? rv : undef);
+                }());
+
+
+                // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179                  
+                // left: 37, up: 38, right: 39, down: 40,
+                // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+                var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+                function preventDefault(e) {
+                    e = e || window.event;
+                    if (e.preventDefault)
+                    e.preventDefault();
+                    e.returnValue = false;  
+                }
+
+                function keydown(e) {
+                    for (var i = keys.length; i--;) {
+                        if (e.keyCode === keys[i]) {
+                            preventDefault(e);
+                            return;
+                        }
+                    }
+                }
+
+                function touchmove(e) {
+                    preventDefault(e);
+                }
+
+                function wheel(e) {
+                    // for IE 
+                    //if( ie ) {
+                        //preventDefault(e);
+                    //}
+                }
+
+                function disable_scroll() {
+                    window.onmousewheel = document.onmousewheel = wheel;
+                    document.onkeydown = keydown;
+                    document.body.ontouchmove = touchmove;
+                }
+
+                function enable_scroll() {
+                    window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+                }
+
+                var docElem = window.document.documentElement,
+                    scrollVal,
+                    isRevealed, 
+                    noscroll, 
+                    isAnimating,
+                    container = document.getElementById( 'container' ),
+                    trigger = container.querySelector( 'button.trigger' );
+
+                function scrollY() {
+                    return window.pageYOffset || docElem.scrollTop;
+                }
+                
+                function scrollPage() {
+                    scrollVal = scrollY();
+                    
+                    if( noscroll && !ie ) {
+                        if( scrollVal < 0 ) return false;
+                        // keep it that way
+                        window.scrollTo( 0, 0 );
+                    }
+
+                    if( classie.has( container, 'notrans' ) ) {
+                        classie.remove( container, 'notrans' );
+                        return false;
+                    }
+
+                    if( isAnimating ) {
+                        return false;
+                    }
+                    
+                    if( scrollVal <= 0 && isRevealed ) {
+                        toggle(0);
+                    }
+                    else if( scrollVal > 0 && !isRevealed ){
+                        toggle(1);
+                    }
+                }
+
+                function toggle( reveal ) {
+                    isAnimating = true;
+                    
+                    if( reveal ) {
+                        classie.add( container, 'modify' );
+                        classie.add( home_nav_top, 'dark');
+                    }
+                    else {
+                        noscroll = true;
+                        disable_scroll();
+                        classie.remove( container, 'modify' );
+                        classie.remove( home_nav_top, 'dark');
+                    }
+
+                    // simulating the end of the transition:
+                    setTimeout( function() {
+                        isRevealed = !isRevealed;
+                        isAnimating = false;
+                        if( reveal ) {
+                            noscroll = false;
+                            enable_scroll();
+                        }
+                    }, 1200 );
+                }
+
+                // refreshing the page...
+                var pageScroll = scrollY();
+                noscroll = pageScroll === 0;
+
+                disable_scroll();
+                if( pageScroll ) {
+                    isRevealed = true;
+                    classie.add( container, 'notrans' );
+                    classie.add( container, 'modify' );
+                }
+                
+                window.addEventListener( 'scroll', scrollPage );
+                trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+            })();
+        </script>
