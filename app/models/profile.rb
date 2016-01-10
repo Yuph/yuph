@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy
 
-  validates :nick, presence: :true, :uniqueness => true
+  #validates :nick, presence: :true, :uniqueness => true
 
   has_attached_file :image,
     :styles => { :medium => "300x300>", :thumb => "100x80#" },
