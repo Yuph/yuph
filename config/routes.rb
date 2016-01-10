@@ -43,4 +43,11 @@ Yuph::Application.routes.draw do
   resources :users, :except => [:new, :create]
 
   resources :notifications, :only => [:index, :show]
+
+  namespace :api do
+    namespace :v1 do
+      mount_devise_token_auth_for 'Provider', at: 'auth'
+    end
+  end
+
 end

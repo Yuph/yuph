@@ -12,10 +12,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :website
       t.string :facebook
       t.string :twitter
+      
       # Facebook Login
       t.string :access_token
-      t.string :uid
-      t.string :provider
+      t.string :uid, :null => false, :default => ""
+      t.string :provider, :null => false
 
       t.timestamps
     end
