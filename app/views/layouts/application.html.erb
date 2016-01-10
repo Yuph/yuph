@@ -2,16 +2,9 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <% if idea_path(@idea)  =~ /\d/ %>
-    <title>Yuph - <%= @title %></title>
-    <meta property="og:title" content="Yuph - <%= @idea.name %>" />
-    <meta property="og:type" content="profile" />
-    <meta property="og:image" content="<%= @idea.image.url %>" />
-    <meta property="og:url" content="http://<%= request.host +  idea_path(@idea) %>" />
-    <meta property="og:description" content="<%= @idea.mini_description %>" />
-  <% else %>
+
     <title>Yuph</title>
-  <% end %>
+  
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
