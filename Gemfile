@@ -1,22 +1,22 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '5.1.4'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'mysql2', '~> 0.3.20'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
-gem "compass-rails", "~> 1.1.2"
+gem "compass-rails"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -31,7 +31,7 @@ gem 'jquery-ui-rails'
 # gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -53,7 +53,7 @@ group :test do
 end
 
 # Upload to S3
-gem "paperclip", "3.4.2"
+gem "paperclip"
 gem 'aws-sdk'
 
 # Facebook Login
@@ -64,7 +64,7 @@ gem 'omniauth-facebook'
 gem 'devise'
 
 # For permissions
-gem 'cancancan', '~> 1.7'
+gem 'cancancan'
 
 # web: Unicorn
 gem 'unicorn'
@@ -82,4 +82,4 @@ gem 'bootstrap_flash_messages'
 gem 'kaminari'
 
 # E-mail encoder
-gem 'actionview-encoded_mail_to', '~> 1.0.4'
+gem 'actionview-encoded_mail_to'
